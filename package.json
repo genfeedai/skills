@@ -1,0 +1,32 @@
+{
+  "name": "genfeed-skills",
+  "description": "AI skills for Genfeed - workflow creation, node development, and onboarding",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "lint": "markdownlint '**/*.md' --ignore node_modules",
+    "lint:fix": "markdownlint '**/*.md' --ignore node_modules --fix",
+    "lint:json": "biome check --write --no-errors-on-unmatched '**/*.json'",
+    "format": "biome format --write .",
+    "check": "biome check .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.11",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.7",
+    "markdownlint-cli": "0.47.0"
+  },
+  "lint-staged": {
+    "*.json": [
+      "biome check --write --no-errors-on-unmatched"
+    ],
+    "*.md": [
+      "markdownlint --fix"
+    ]
+  }
+}

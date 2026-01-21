@@ -1,0 +1,10 @@
+node_modules/
+
+# Agent sessions
+.agent/SESSIONS/
+
+# macOS
+.DS_Store
+
+# Local settings
+.claude/settings.local.json
