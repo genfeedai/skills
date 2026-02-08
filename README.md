@@ -16,6 +16,9 @@ Or install individual skills:
 npx skills add genfeedai/skills/workflow-creator
 npx skills add genfeedai/skills/node-creator
 npx skills add genfeedai/skills/onboarding
+npx skills add genfeedai/skills/prompt-generator
+npx skills add genfeedai/skills/scope-validator
+npx skills add genfeedai/skills/openclaw-integration
 ```
 
 ## Available Skills
@@ -66,6 +69,54 @@ Quick onboarding focused on creating your first content in under 10 minutes.
 
 [Documentation](./onboarding/README.md)
 
+---
+
+### prompt-generator
+
+Generate optimized prompts for AI image and video generation.
+
+**Triggers:**
+
+- "generate a prompt for"
+- "write me a prompt"
+- "create an image prompt"
+
+**Output:** Structured JSON with optimized prompt, style settings, and model recommendation
+
+[Documentation](./prompt-generator/README.md)
+
+---
+
+### scope-validator
+
+Validate feature requests against Genfeed OSS core vs Cloud scope.
+
+**Triggers:**
+
+- "should this be in core or cloud"
+- "is this feature OSS or cloud"
+- "can I contribute this to core"
+
+**Output:** Scope determination with guidance on where to submit
+
+[Documentation](./scope-validator/README.md)
+
+---
+
+### openclaw-integration
+
+Connect AI agents to Genfeed.ai via MCP for content creation, publishing, and analytics.
+
+**Triggers:**
+
+- "connect to genfeed"
+- "use genfeed"
+- "genfeed mcp"
+
+**Output:** MCP configuration and tool usage instructions
+
+[Documentation](./openclaw-integration/README.md)
+
 ## Skills Structure
 
 ```
@@ -79,7 +130,19 @@ skills/
 │   ├── SKILL.md
 │   ├── README.md
 │   └── metadata.json
-└── onboarding/
+├── onboarding/
+│   ├── SKILL.md
+│   ├── README.md
+│   └── metadata.json
+├── prompt-generator/
+│   ├── SKILL.md
+│   ├── README.md
+│   └── metadata.json
+├── scope-validator/
+│   ├── SKILL.md
+│   ├── README.md
+│   └── metadata.json
+└── openclaw-integration/
     ├── SKILL.md
     ├── README.md
     └── metadata.json
