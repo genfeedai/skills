@@ -1,10 +1,10 @@
 # Genfeed Skills
 
-AI-powered skills for building workflows, creating custom nodes, and getting started with Genfeed.
+AI-powered skills for content creation, image generation, SEO optimization, advertising, and workflow building. Works standalone with any Claude Code setup — works even better with [Genfeed.ai](https://genfeed.ai).
 
 ## Installation
 
-Install all skills from this repository:
+Install all skills:
 
 ```bash
 npx skills add genfeedai/skills
@@ -13,164 +13,89 @@ npx skills add genfeedai/skills
 Or install individual skills:
 
 ```bash
-npx skills add genfeedai/skills/workflow-creator
-npx skills add genfeedai/skills/node-creator
-npx skills add genfeedai/skills/onboarding
-npx skills add genfeedai/skills/prompt-generator
-npx skills add genfeedai/skills/scope-validator
-npx skills add genfeedai/skills/openclaw-integration
+npx skills add genfeedai/skills/x-content-creator
+npx skills add genfeedai/skills/content-seo-optimizer
+# ... any skill name below
 ```
 
-## Available Skills
+## Content Creation
 
-### workflow-creator
+| Skill | Description |
+|-------|-------------|
+| [x-content-creator](./x-content-creator/) | X/Twitter posts, threads, and replies optimized for engagement |
+| [instagram-content-creator](./instagram-content-creator/) | Captions, carousels, Reels scripts, and Story sequences |
+| [linkedin-content-creator](./linkedin-content-creator/) | Posts, articles, carousels, and newsletter editions |
+| [youtube-content-creator](./youtube-content-creator/) | Titles, descriptions, tags, chapters, thumbnails, and Shorts |
+| [newsletter-creator](./newsletter-creator/) | Newsletter editions with editorial structure and subject lines |
+| [blog-content-creator](./blog-content-creator/) | SEO-optimized blog posts, guides, and long-form articles |
 
-Create Genfeed workflows from natural language descriptions.
+## Content Optimization
 
-**Triggers:**
+| Skill | Description |
+|-------|-------------|
+| [content-seo-optimizer](./content-seo-optimizer/) | SEO scoring (0-100) and optimization for any content type |
+| [content-atomizer](./content-atomizer/) | Repurpose 1 piece of content into 15+ across platforms |
+| [content-reviewer](./content-reviewer/) | Quality review with 6-dimension scoring before publishing |
 
-- "create a workflow"
-- "build a content pipeline"
-- "make a video generation workflow"
+## Image and Visual
 
-**Output:** Complete workflow JSON ready for import into Genfeed Studio
+| Skill | Description |
+|-------|-------------|
+| [image-prompt-engineer](./image-prompt-engineer/) | Optimized image prompts for Flux, DALL-E, Midjourney, Imagen, and more |
+| [model-selector](./model-selector/) | Choose the right AI model for image, video, and audio tasks |
+| [visual-brand-kit](./visual-brand-kit/) | Create a consistent visual brand identity for AI-generated content |
 
-[Documentation](./workflow-creator/README.md)
+## Advertising
 
----
+| Skill | Description |
+|-------|-------------|
+| [ad-copy-creator](./ad-copy-creator/) | Ad copy using PAS, AIDA, BAB, StoryBrand, and 4Ps frameworks |
+| [ad-performance-analyzer](./ad-performance-analyzer/) | Analyze ad performance and recommend optimizations |
 
-### node-creator
+## Strategy
 
-Create custom nodes using the Genfeed SDK's fluent builder API.
+| Skill | Description |
+|-------|-------------|
+| [content-strategist](./content-strategist/) | Content calendar, pillar strategy, and platform planning |
+| [competitor-analyzer](./competitor-analyzer/) | Competitive content analysis and gap identification |
 
-**Triggers:**
+## Platform and Development
 
-- "create a new node"
-- "add a custom node type"
-- "build a node for X"
+| Skill | Description |
+|-------|-------------|
+| [workflow-creator](./workflow-creator/) | Create Genfeed workflows from natural language |
+| [node-creator](./node-creator/) | Custom nodes with the Genfeed SDK builder API |
+| [prompt-generator](./prompt-generator/) | AI image/video prompt generation (see also image-prompt-engineer) |
+| [onboarding](./onboarding/) | Get started with Genfeed in under 10 minutes |
+| [scope-validator](./scope-validator/) | Validate feature scope (core vs cloud) |
+| [openclaw-integration](./openclaw-integration/) | Connect AI agents to Genfeed via MCP |
 
-**Output:** TypeScript code for a complete node definition
+## Genfeed Integration
 
-[Documentation](./node-creator/README.md)
+Every skill works standalone. When used inside a Genfeed workspace, skills automatically detect platform tools for enhanced results:
 
----
+- `create_post` — draft content directly into the platform
+- `generate_image` — generate images with the recommended model
+- `rate_content` — score content quality
+- `generate_ad_pack` — assemble full ad creatives
+- Brand context and top-performing content patterns are used for voice consistency
 
-### onboarding
+## Skill Structure
 
-Quick onboarding focused on creating your first content in under 10 minutes.
-
-**Triggers:**
-
-- "how do I use genfeed"
-- "getting started"
-- "help me create my first content"
-
-**Output:** Step-by-step instructions for first workflow
-
-[Documentation](./onboarding/README.md)
-
----
-
-### prompt-generator
-
-Generate optimized prompts for AI image and video generation.
-
-**Triggers:**
-
-- "generate a prompt for"
-- "write me a prompt"
-- "create an image prompt"
-
-**Output:** Structured JSON with optimized prompt, style settings, and model recommendation
-
-[Documentation](./prompt-generator/README.md)
-
----
-
-### scope-validator
-
-Validate feature requests against Genfeed OSS core vs Cloud scope.
-
-**Triggers:**
-
-- "should this be in core or cloud"
-- "is this feature OSS or cloud"
-- "can I contribute this to core"
-
-**Output:** Scope determination with guidance on where to submit
-
-[Documentation](./scope-validator/README.md)
-
----
-
-### openclaw-integration
-
-Connect AI agents to Genfeed.ai via MCP for content creation, publishing, and analytics.
-
-**Triggers:**
-
-- "connect to genfeed"
-- "use genfeed"
-- "genfeed mcp"
-
-**Output:** MCP configuration and tool usage instructions
-
-[Documentation](./openclaw-integration/README.md)
-
-## Skills Structure
+Each skill is a folder with three files:
 
 ```
-skills/
-├── README.md                 # This file
-├── workflow-creator/
-│   ├── SKILL.md              # Main skill with YAML frontmatter
-│   ├── README.md             # User documentation
-│   └── metadata.json         # Extended metadata
-├── node-creator/
-│   ├── SKILL.md
-│   ├── README.md
-│   └── metadata.json
-├── onboarding/
-│   ├── SKILL.md
-│   ├── README.md
-│   └── metadata.json
-├── prompt-generator/
-│   ├── SKILL.md
-│   ├── README.md
-│   └── metadata.json
-├── scope-validator/
-│   ├── SKILL.md
-│   ├── README.md
-│   └── metadata.json
-└── openclaw-integration/
-    ├── SKILL.md
-    ├── README.md
-    └── metadata.json
-```
-
-## SKILL.md Format
-
-Each skill uses the skills.sh format with YAML frontmatter:
-
-```yaml
----
-name: skill-name
-description: When to use this skill and trigger phrases
-license: MIT
-metadata:
-  author: genfeedai
-  version: "1.0.0"
----
-
-# Skill Content
-Instructions for the agent...
+{skill-name}/
+├── SKILL.md        # Main skill instructions (YAML frontmatter + markdown)
+├── metadata.json   # Triggers, tags, references
+└── README.md       # Documentation
 ```
 
 ## Contributing
 
 1. Fork the repository
-2. Create your skill in `skills/your-skill-name/`
-3. Include SKILL.md, README.md, and metadata.json
+2. Create your skill in `your-skill-name/`
+3. Include SKILL.md, metadata.json, and README.md
 4. Submit a pull request
 
 ## License
