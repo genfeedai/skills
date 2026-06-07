@@ -1,0 +1,32 @@
+# Build outputs
+dist/
+build/
+out/
+
+# Dependencies
+node_modules/
+
+# Caches
+.cache/
+.turbo/
+.eslintcache/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+
+# Temp
+tmp/
+temp/
+
+# Test coverage
+coverage/
+
+# TypeScript incremental
+*.tsbuildinfo
+
+# Bun
+.bun/
