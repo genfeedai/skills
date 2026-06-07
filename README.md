@@ -56,6 +56,7 @@ npx skills add genfeedai/skills/content-seo-optimizer
 
 | Skill | Description |
 |-------|-------------|
+| [content-factory-operator](./content-factory-operator/) | Design and run repeatable AI content factory systems for agencies, founders, and client retainers |
 | [content-strategist](./content-strategist/) | Content calendar, pillar strategy, and platform planning |
 | [competitor-analyzer](./competitor-analyzer/) | Competitive content analysis and gap identification |
 

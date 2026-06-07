@@ -1,0 +1,34 @@
+{
+  "name": "content-factory-operator",
+  "version": "1.0.0",
+  "description": "Design and operate repeatable Genfeed AI content factories for agencies, founders, and client retainers",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "content factory",
+    "AI content agency",
+    "content operations",
+    "content production system",
+    "run my content pipeline",
+    "build a client content workflow",
+    "content retainer",
+    "content agency offer",
+    "Genfeed content factory",
+    "weekly content pipeline",
+    "content approval workflow",
+    "source to content workflow",
+    "turn Genfeed into an agency",
+    "AI content operating system"
+  ],
+  "references": {},
+  "outputs": ["text", "workflow-plan"],
+  "tags": [
+    "content-operations",
+    "content-factory",
+    "agency",
+    "workflow",
+    "retainer",
+    "genfeed",
+    "content-strategy"
+  ]
+}
