@@ -173,6 +173,12 @@ async function measure(flags: Record<string, string>): Promise<void> {
     }
   }
 
+  // Close the loop: an item only counts toward feedbackForTerm once it reaches stage
+  // `measured` (gf feedback averages measured items only). Without this transition the
+  // term multipliers below — and the analytic -> repeat re-rank in `sense` — stay flat.
+  const measured = item.stage !== 'measured';
+  if (measured) gf(['transition', itemId, 'measured', '--note', 'metrics recorded']);
+
   const updated = JSON.parse(gf(['get', itemId])) as ContentItem;
   const feedback = (updated.tags ?? []).map((term) => ({
     term,
@@ -183,9 +189,11 @@ async function measure(flags: Record<string, string>): Promise<void> {
     item: itemId,
     recorded: recorded.length,
     metrics: recorded,
+    stage: updated.stage,
+    transitionedToMeasured: measured,
     feedbackScore: updated.feedbackScore,
     feedbackByTag: feedback,
-    note: 'feedbackByTag multipliers now re-rank these terms in the next `loop.ts sense`.',
+    note: 'Item is now at stage "measured"; feedbackByTag multipliers re-rank these terms in the next `loop.ts sense`.',
   });
 }
 

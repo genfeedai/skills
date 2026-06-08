@@ -85,7 +85,7 @@ Sibling skills are resolved relative to the orchestrator (`../../<skill>/...`), 
    - **Review** — `content-reviewer` (+ `content-seo-optimizer`). Below bar → revise. At bar → `gf transition <id> awaiting_approval`.
    - **Approve** — show the user the reviewed copy and the `social-poster` **dry run**. On an explicit yes → `gf transition <id> approved`.
    - **Post** — `social-poster --confirm`; record `postId` on the derivative; `gf transition <id> posted`.
-4. **Measure** — after the post has had time to accrue engagement, `loop.ts measure --item <id>`; `gf transition <id> measured`.
+4. **Measure** — after the post has had time to accrue engagement, `loop.ts measure --item <id>`. This records metrics **and** transitions the item to `measured`, which is what makes its `feedbackScore` count toward `gf feedback <term>` — no separate transition needed.
 5. **Repeat** — the next `loop.ts sense` is now biased toward what worked.
 
 In **connected** mode, steps 2 and 4 can be driven by genfeed cron instead of you, and approval (step 3g) is the genfeed UI instead of a chat prompt — but the commands and routing don't change.
