@@ -1,0 +1,31 @@
+{
+  "name": "analytics-collector",
+  "version": "1.0.0",
+  "description": "The analytic stage of the content loop. Pulls performance for posted items from X and LinkedIn over their REST APIs (global fetch, no SDK), normalizes each to a Metric, and prints them as JSON. Piping each Metric into gf record-metric recomputes feedbackScore and closes the loop. Pure stateless worker, zero dependencies.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "collect analytics",
+    "post metrics",
+    "engagement stats",
+    "how did the post do",
+    "analytics collector",
+    "measure performance",
+    "pull metrics",
+    "post performance"
+  ],
+  "references": {},
+  "outputs": ["json"],
+  "tags": [
+    "content-factory",
+    "genfeed",
+    "analytics",
+    "metrics",
+    "x",
+    "twitter",
+    "linkedin",
+    "analytic",
+    "loop-closure",
+    "worker"
+  ]
+}

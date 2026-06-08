@@ -1,0 +1,41 @@
+{
+  "name": "content-loop-orchestrator",
+  "version": "1.0.0",
+  "description": "The conductor of the Genfeed content loop. Detects whether genfeed is connected, then drives trend -> remix -> produce -> approve -> post -> analytic -> repeat by routing each stage to the right skill and automating the deterministic, loop-closing sense and measure edges with its own driver.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "run the content loop",
+    "content factory",
+    "orchestrate content",
+    "trend to post",
+    "content loop orchestrator",
+    "drive the content pipeline",
+    "autopilot content",
+    "content loop"
+  ],
+  "references": {
+    "genfeed-connector": "the seam: detection, state, tokens, feedback",
+    "trend-scout": "sense stage worker",
+    "media-forge": "produce-media worker (Replicate + fal.ai)",
+    "social-poster": "post stage worker (X + LinkedIn, approval gate)",
+    "analytics-collector": "analytic stage worker (loop closure)",
+    "content-atomizer": "remix stage",
+    "content-strategist": "select/brief stage",
+    "content-reviewer": "review gate",
+    "content-seo-optimizer": "review gate (SEO)",
+    "model-selector": "media model choice",
+    "image-prompt-engineer": "media prompt craft"
+  },
+  "outputs": ["json", "cli"],
+  "tags": [
+    "content-factory",
+    "genfeed",
+    "orchestrator",
+    "conductor",
+    "content-loop",
+    "routing",
+    "automation",
+    "loop-closure"
+  ]
+}

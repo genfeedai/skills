@@ -1,0 +1,21 @@
+{
+  "name": "trend-scout",
+  "version": "1.0.0",
+  "description": "The sense stage of the content loop. Pulls trends from Hacker News, Reddit, Google Trends, generic RSS, and optional NewsAPI, normalizes every hit to a scored TrendSignal, dedupes across sources, and emits a ranked JSON list. Pure stateless worker, zero dependencies.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "find trends",
+    "what's trending",
+    "trend scout",
+    "trend ingestion",
+    "scout trends",
+    "trend candidates",
+    "trending topics",
+    "discover trends",
+    "content ideas from trends"
+  ],
+  "references": {},
+  "outputs": ["json"],
+  "tags": ["content-factory", "genfeed", "trends", "ingestion", "sense", "worker"]
+}
