@@ -1,0 +1,33 @@
+{
+  "name": "media-forge",
+  "version": "1.0.0",
+  "description": "The media half of the produce stage. Generates image, video, and audio through Replicate or fal.ai using only global fetch (no vendor SDK), downloads every output file, and emits a MediaArtifact JSON per file. Pure stateless worker, zero dependencies.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "generate image",
+    "generate video",
+    "generate audio",
+    "make media",
+    "replicate model",
+    "fal.ai",
+    "text to image",
+    "text to video",
+    "text to speech",
+    "media forge"
+  ],
+  "references": {},
+  "outputs": ["json", "files"],
+  "tags": [
+    "content-factory",
+    "genfeed",
+    "media",
+    "image",
+    "video",
+    "audio",
+    "replicate",
+    "fal",
+    "produce",
+    "worker"
+  ]
+}

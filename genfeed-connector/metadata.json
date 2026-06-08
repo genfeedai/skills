@@ -1,0 +1,30 @@
+{
+  "name": "genfeed-connector",
+  "version": "1.0.0",
+  "description": "The seam between content-factory skills and genfeed.ai: capability detection plus a uniform gf CLI for manifest state, stage transitions, performance feedback, and platform tokens. Standalone on the filesystem, or routed to genfeed.ai when connected.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "content factory state",
+    "genfeed connector",
+    "is genfeed connected",
+    "content manifest",
+    "content loop state",
+    "gf adapter",
+    "content item manifest",
+    "detect genfeed",
+    "content factory backend",
+    "platform token vault"
+  ],
+  "references": {},
+  "outputs": ["json", "cli"],
+  "tags": [
+    "content-factory",
+    "genfeed",
+    "state",
+    "adapter",
+    "orchestration",
+    "manifest",
+    "connector"
+  ]
+}

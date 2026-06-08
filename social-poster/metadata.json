@@ -1,0 +1,31 @@
+{
+  "name": "social-poster",
+  "version": "1.0.0",
+  "description": "The post stage of the content loop. Publishes a derivative to X or LinkedIn over their REST APIs with global fetch (no SDK). Enforces a hard approval gate: without --confirm it is a dry run that prints the exact request and makes no network call. Pure stateless worker, zero dependencies.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "post to x",
+    "post to twitter",
+    "post to linkedin",
+    "publish post",
+    "social poster",
+    "publish to socials",
+    "post tweet",
+    "share on linkedin"
+  ],
+  "references": {},
+  "outputs": ["json"],
+  "tags": [
+    "content-factory",
+    "genfeed",
+    "social",
+    "x",
+    "twitter",
+    "linkedin",
+    "post",
+    "publish",
+    "approval-gate",
+    "worker"
+  ]
+}
