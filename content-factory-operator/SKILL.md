@@ -394,6 +394,155 @@ Monthly report template:
 
 ---
 
+## Daily Content Factory Operating Loop
+
+Use this loop when the user asks to run the factory, not just design it. It turns the full blueprint into a daily operating rhythm that can run with minimal human input while still keeping publishing behind an approval gate.
+
+The daily loop adapts three proven public patterns:
+
+- Google Search's people-first content guidance: every item must help a real reader, not just fill a keyword or posting slot.
+- OpenAI Evals-style rubrics: evaluate drafts against explicit criteria before trusting model output at scale.
+- Prompt-flow variant practice: compare candidate angles, keep the winner, and route failed variants back through revision.
+
+### 1. Sense
+
+Collect today's signals and rank them against the strategy.
+
+Inputs:
+
+- `trend-scout` output
+- Customer notes, sales objections, support tickets, call transcripts, product changes
+- Competitor moves, market news, community discussions, search demand
+- Recent analytics from `analytics-collector`
+
+Output:
+
+```markdown
+## Daily Signals
+
+| Signal | Source | Audience Pain | Business Relevance | Prior Feedback | Decision |
+|--------|--------|---------------|--------------------|----------------|----------|
+```
+
+Decision rules:
+
+- Keep signals that map to a content pillar, ICP pain, offer, or current campaign.
+- Kill signals that are merely popular but off-strategy.
+- Mark every signal as `sourced`, `inferred`, or `opinion` before it becomes a brief.
+
+### 2. Select
+
+Choose the smallest set of items worth producing today. Do not fill the queue for volume.
+
+Daily selection limits:
+
+| Factory Size | Max New Briefs | Max Drafts In Review | Max Platforms |
+|--------------|----------------|----------------------|---------------|
+| Solo/founder | 1-2 | 3 | 1-2 |
+| Small team | 2-4 | 6 | 2-3 |
+| Agency/client pod | 3-6 | 10 | 3-5 |
+
+Selection score:
+
+| Criterion | Score 1-5 | Notes |
+|-----------|-----------|-------|
+| Audience urgency | | Is this pain active today? |
+| Source strength | | Is there proof, example, transcript, data, or lived detail? |
+| Business fit | | Does it support a goal, offer, or campaign? |
+| Platform fit | | Is there a natural channel and format? |
+| Reuse potential | | Can one thesis become useful derivatives? |
+
+Proceed only when average score is 4.0+ and source strength is at least 3.
+
+### 3. Brief
+
+Turn selected signals into production briefs before writing drafts.
+
+Minimum daily brief:
+
+```markdown
+## Daily Production Brief
+
+**Signal:**
+**Audience:**
+**Reader problem:**
+**Thesis:**
+**Source/proof:**
+**Format:**
+**Platform:**
+**CTA:**
+**Do not say:**
+**Review risks:**
+```
+
+If source/proof is weak, route back to source collection instead of drafting.
+
+### 4. Produce
+
+Route work to the narrowest specialist skill that matches the deliverable.
+
+Rules:
+
+- Use one flagship thesis first; then route derivatives through `content-atomizer`.
+- Use platform-specific creator skills only after the brief exists.
+- Preserve the source trace in the draft handoff so `content-reviewer` can verify claims.
+- Do not invent proof, metrics, testimonials, competitor claims, or urgency.
+
+### 5. Review
+
+Every draft must pass `content-reviewer` before approval.
+
+Daily review gate:
+
+| Gate | Pass Condition | Fail Action |
+|------|----------------|-------------|
+| People-first usefulness | Reader gets value even without clicking | Rewrite hook/body |
+| Source integrity | Claims are sourced, qualified, or opinion | Add proof, qualify, or remove |
+| Brand voice | Specific to the brand and approved voice | Rewrite |
+| Platform fit | Native format, length, CTA, and assets | Adapt |
+| Business fit | Supports goal without forcing promotion | Rebrief or kill |
+
+Autopublish is allowed only if the user has already set explicit rules for the exact platform, content type, risk class, and score threshold. Otherwise, approval is required.
+
+### 6. Approve And Schedule
+
+Send an approval packet, not loose drafts.
+
+```markdown
+## Daily Approval Packet
+
+| ID | Platform | Hook | CTA | Review Score | Gate | Decision |
+|----|----------|------|-----|--------------|------|----------|
+
+Needs decision:
+- Approve:
+- Revise:
+- Kill:
+```
+
+Do not publish unless the exact payload has been approved or matches a pre-agreed autopublish rule.
+
+### 7. Measure And Learn
+
+After posts have enough time to collect signal, record metrics and convert them into next-cycle decisions.
+
+Daily learning note:
+
+```markdown
+## Daily Learning Note
+
+**What shipped:**
+**Early signal:**
+**Winning ingredient:**
+**Weak ingredient:**
+**Next action:** double down / revise / stop / test variant
+**Feedback tags to lift next cycle:**
+```
+
+Feed winners into `gf feedback` through the loop orchestrator. Do not treat one post as proof; treat it as a signal for the next test.
+
+---
+
 ## Agency Packaging
 
 When the user wants to sell this as a service, package the factory as outcomes, not "AI content."

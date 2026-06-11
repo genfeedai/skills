@@ -296,6 +296,59 @@ Include this block in every full review:
 **Approval recommendation:** approve / revise / kill
 ```
 
+### Claim Ledger
+
+When a draft has factual, comparative, strategic, pricing, performance, legal, health, financial, or competitive claims, include a compact claim ledger before rewrites. This makes the review usable as a production handoff instead of a loose critique.
+
+```markdown
+### Claim Ledger
+
+| Claim | Support | Source / Evidence | Risk | Decision |
+|-------|---------|-------------------|------|----------|
+| [exact claim or paraphrase] | sourced / inferred / opinion / unsupported | [URL, document, transcript, analytics note, or rationale] | low / medium / high | keep / qualify / remove / needs source |
+```
+
+Ledger rules:
+
+- Keep it short: include only claims that could affect trust, conversion, compliance, or brand reputation.
+- Use **unsupported** for claims with no supplied proof, even if they sound plausible.
+- Use **inferred** only when the user supplied enough context to justify the interpretation.
+- Mark risk **high** when the claim involves results, guarantees, regulated advice, competitor comparisons, scarcity, or sensitive topics.
+- A draft with any `unsupported` high-risk claim cannot pass publish readiness.
+
+### Revision Packet
+
+If the gate fails or the score is below 25, output the smallest useful revision packet. This borrows the prompt-evaluation pattern of comparing variants against explicit criteria instead of approving by taste.
+
+```markdown
+### Revision Packet
+
+**Revision owner:** [producer skill or human]
+**Primary failure:** [source integrity / hook / platform fit / voice / CTA / usefulness]
+**Fix goal:** [one sentence]
+**Required changes:**
+- [change 1]
+- [change 2]
+
+**Do not change:**
+- [strong element to preserve]
+
+**Return for re-review when:**
+- [measurable condition]
+```
+
+For A/B variants, add a small comparison table:
+
+```markdown
+### Variant Comparison
+
+| Variant | What changed | Expected upside | New risk | Recommended |
+|---------|--------------|-----------------|----------|-------------|
+| A | [hook/angle/CTA/format] | [why it may perform better] | [risk introduced] | yes/no |
+```
+
+Recommend exactly one variant unless none are publish-ready.
+
 ## Review Output Format
 
 Always structure your review as follows:
@@ -327,9 +380,19 @@ Always structure your review as follows:
 **People-first usefulness:** [one-sentence judgment]
 **Approval recommendation:** approve / revise / kill
 
+### Claim Ledger
+
+| Claim | Support | Source / Evidence | Risk | Decision |
+|-------|---------|-------------------|------|----------|
+| [claim] | sourced / inferred / opinion / unsupported | [source or rationale] | low / medium / high | keep / qualify / remove / needs source |
+
 ### Detailed Feedback
 
 [Per-dimension breakdown with specific line references and rewrite suggestions]
+
+### Revision Packet
+
+[Only include when status is FAIL or score is below 25]
 
 ### Rewrites
 
@@ -341,6 +404,14 @@ Always structure your review as follows:
 
 **A/B Variant B (CTA focus):**
 [Alternative version emphasizing different CTA]
+
+### Variant Comparison
+
+| Variant | What changed | Expected upside | New risk | Recommended |
+|---------|--------------|-----------------|----------|-------------|
+| Strongest rewrite | [change] | [upside] | [risk] | yes/no |
+| A | [change] | [upside] | [risk] | yes/no |
+| B | [change] | [upside] | [risk] | yes/no |
 
 ### Quick Checklist
 - [ ] Grammar and spelling clean
