@@ -233,6 +233,69 @@ Evaluate whether claims are verifiable and trustworthy.
 | 15-19 | Needs revision | Significant rework on 2-3 dimensions. 30-60 min of work. |
 | Below 15 | Rewrite | Fundamental issues. Start from the core message and rebuild. |
 
+## Publish Readiness Gate
+
+Run this gate after the scorecard and before approval. The gate is pass/fail; a high score cannot override a hard failure.
+
+This gate adapts three production patterns:
+
+- Google Search's people-first content self-assessment: content should satisfy the reader's intent, show real usefulness, and avoid search-engine-first padding.
+- OpenAI eval practice: evaluate against explicit criteria and inspect model-graded judgments before using them at scale.
+- Prompt-flow style operations: compare variants, score outputs, and send failing variants back through revision instead of approving by taste.
+
+### Hard Fail Conditions
+
+Mark **Publish readiness: FAIL** if any condition is true:
+
+| Condition | Fail When | Required Fix |
+|-----------|-----------|--------------|
+| Unsupported claim | The content states data, results, comparisons, legal/health/financial advice, or competitor claims without a source, qualifier, or proof note | Add source, soften claim, or remove it |
+| Generic AI filler | The piece could apply to any brand, audience, or product with no specific insight, proof, or lived detail | Add source-backed specifics, examples, point of view, or customer context |
+| Intent mismatch | The hook promises a benefit the body does not deliver | Rewrite hook or body so the promise and payload match |
+| Brand voice break | The piece violates known voice rules or uses phrases the brand has banned | Rewrite in the approved voice |
+| Platform violation | The piece misses a platform constraint that would block or damage publishing | Fix length, format, link, hashtag, media, or metadata issue |
+| Risky CTA | The CTA creates false urgency, misleading scarcity, or asks for an action unsupported by the offer | Replace with a true, low-friction CTA |
+| Missing asset | The copy depends on a link, image, chart, video, or source that is absent | Attach asset or revise the copy to stand alone |
+
+### Source Trace
+
+For any factual or strategic claim, classify the support level:
+
+| Claim | Support Level | Source / Note | Action |
+|-------|---------------|---------------|--------|
+| [claim] | sourced / inferred / opinion / unsupported | [URL, document, transcript, analytics note, or rationale] | keep / qualify / remove |
+
+Rules:
+
+- **Sourced** means there is a cited URL, internal doc, customer proof, analytics result, or transcript.
+- **Inferred** means the claim is a reasonable interpretation of supplied context; phrase it as interpretation, not fact.
+- **Opinion** means the claim is a point of view; make it sound like a point of view.
+- **Unsupported** means the claim must be removed, sourced, or rewritten before approval.
+
+### People-First Usefulness Check
+
+Answer these before marking a piece publish-ready:
+
+- Who is this for, and what problem does it help them solve?
+- What would the reader know, believe, or do differently after reading?
+- What specific detail proves this was created from real source material instead of generic category knowledge?
+- Is the piece complete enough to satisfy the hook without making the reader click only to get the promised value?
+- Would this still be worth publishing if it produced no short-term SEO or algorithm benefit?
+
+### Gate Output
+
+Include this block in every full review:
+
+```markdown
+### Publish Readiness Gate
+
+**Status:** PASS/FAIL
+**Blocking issues:** [none or bullet list]
+**Source trace:** [complete / partial / missing]
+**People-first usefulness:** [one-sentence judgment]
+**Approval recommendation:** approve / revise / kill
+```
+
 ## Review Output Format
 
 Always structure your review as follows:
@@ -255,6 +318,14 @@ Always structure your review as follows:
 | Platform Fit | X/5 | [one-line assessment] |
 | Factual Accuracy | X/5 | [one-line assessment] |
 | **Total** | **X/30** | **[verdict]** |
+
+### Publish Readiness Gate
+
+**Status:** PASS/FAIL
+**Blocking issues:** [none or bullet list]
+**Source trace:** [complete / partial / missing]
+**People-first usefulness:** [one-sentence judgment]
+**Approval recommendation:** approve / revise / kill
 
 ### Detailed Feedback
 

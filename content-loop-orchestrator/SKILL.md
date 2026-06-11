@@ -44,7 +44,7 @@ Every downstream skill talks to the world only through this seam, so the routing
 | **remix** | `content-atomizer` | instruction | one thesis → many platform-specific derivatives |
 | **produce (copy)** | `x-content-creator`, `linkedin-content-creator`, `instagram-content-creator`, `youtube-content-creator`, `blog-content-creator`, `newsletter-creator`, `ad-copy-creator` | instruction | write the actual copy per platform |
 | **produce (media)** | `model-selector` → `image-prompt-engineer` / `visual-brand-kit` → `media-forge` | instruction → worker | pick a model, craft the prompt, then generate the file |
-| **review** | `content-reviewer`, `content-seo-optimizer` | instruction | score quality/SEO; below threshold → back to produce |
+| **review** | `content-reviewer`, `content-seo-optimizer` | instruction | score quality/SEO and run the publish-readiness gate; below threshold or gate fail → back to produce |
 | **approve** | human / genfeed UI | gate | explicit sign-off before anything public |
 | **post** | `social-poster` | worker | publish on `--confirm`; dry run otherwise |
 | **analytic** | `analytics-collector` + `gf record-metric` | worker + seam | pull metrics, record them, recompute feedback — automated by `loop.ts measure` |
@@ -82,7 +82,7 @@ Sibling skills are resolved relative to the orchestrator (`../../<skill>/...`), 
    - **Remix** — apply `content-atomizer` to produce per-platform derivatives; `gf transition <id> remixed`.
    - **Produce copy** — route each derivative to its `*-content-creator`.
    - **Produce media** — `model-selector` → `image-prompt-engineer` → `media-forge`; attach artifacts; `gf transition <id> producing`.
-   - **Review** — `content-reviewer` (+ `content-seo-optimizer`). Below bar → revise. At bar → `gf transition <id> awaiting_approval`.
+   - **Review** — `content-reviewer` (+ `content-seo-optimizer`). Below bar or publish-readiness gate fails → revise. At bar with gate PASS → `gf transition <id> awaiting_approval`.
    - **Approve** — show the user the reviewed copy and the `social-poster` **dry run**. On an explicit yes → `gf transition <id> approved`.
    - **Post** — `social-poster --confirm`; record `postId` on the derivative; `gf transition <id> posted`.
 4. **Measure** — after the post has had time to accrue engagement, `loop.ts measure --item <id>`. This records metrics **and** transitions the item to `measured`, which is what makes its `feedbackScore` count toward `gf feedback <term>` — no separate transition needed.
