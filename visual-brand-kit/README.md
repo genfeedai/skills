@@ -5,7 +5,7 @@ Expert visual brand identity designer for AI-generated content. Creates comprehe
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/visual-brand-kit
+bunx skills add genfeedai/skills/visual-brand-kit
 ```
 
 ## Usage

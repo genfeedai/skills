@@ -5,7 +5,7 @@ Expert AI image generation prompt engineer specializing in content-creation imag
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/image-prompt-engineer
+bunx skills add genfeedai/skills/image-prompt-engineer
 ```
 
 ## Usage

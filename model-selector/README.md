@@ -5,7 +5,7 @@ Expert AI model advisor for image, video, and audio generation. Analyzes your ta
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/model-selector
+bunx skills add genfeedai/skills/model-selector
 ```
 
 ## Usage

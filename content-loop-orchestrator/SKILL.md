@@ -118,5 +118,5 @@ The gap none of them close — and what this set adds — is a **single seam tha
 ## Why This Architecture
 
 - **Skills are stateless workers; genfeed.ai is the control plane.** The loop runs on a laptop with zero accounts, and lights up persistence + always-on scheduling + a managed token vault the moment a genfeed key is present. Same commands, both modes.
-- **Workers never import each other.** Every skill talks through env vars + stdin/stdout JSON via the seam, so each one stays independently installable with `npx skills add`.
+- **Workers never import each other.** Every skill talks through env vars + stdin/stdout JSON via the seam, so each one stays independently installable with `bunx skills add`.
 - **The loop closes in data, not vibes.** `analytic -> repeat` is a literal multiplier (`feedbackScore` → `feedback <term>`) applied at the next ingestion, so the factory measurably learns.

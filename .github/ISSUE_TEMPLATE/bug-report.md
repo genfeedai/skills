@@ -20,7 +20,7 @@ assignees: ''
 
 ## Steps to Reproduce
 
-1. Install the skill: `npx skills add genfeedai/skills/skill-name`
+1. Install the skill: `bunx skills add genfeedai/skills/skill-name`
 2. Trigger it with: "..."
 3. See the issue
 

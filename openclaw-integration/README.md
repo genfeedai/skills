@@ -5,7 +5,7 @@ Connect AI agents to the Genfeed.ai content creation platform via MCP.
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/openclaw-integration
+bunx skills add genfeedai/skills/openclaw-integration
 ```
 
 ## Usage

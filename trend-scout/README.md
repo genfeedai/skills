@@ -7,7 +7,7 @@ Pure stateless worker: no state, no secrets, stdin/stdout only — so it stays i
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/trend-scout
+bunx skills add genfeedai/skills/trend-scout
 ```
 
 Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies (only Node built-ins and global `fetch`).
