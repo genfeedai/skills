@@ -5,7 +5,7 @@ Expert direct response copywriter and ad creative strategist. Creates high-conve
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/ad-copy-creator
+bunx skills add genfeedai/skills/ad-copy-creator
 ```
 
 ## Usage

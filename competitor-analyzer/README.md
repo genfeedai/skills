@@ -5,7 +5,7 @@ Expert competitive intelligence analyst for content marketing. Systematically au
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/competitor-analyzer
+bunx skills add genfeedai/skills/competitor-analyzer
 ```
 
 ## Usage

@@ -5,7 +5,7 @@ Create custom nodes for Genfeed using the SDK's fluent builder API.
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/node-creator
+bunx skills add genfeedai/skills/node-creator
 ```
 
 ## Usage

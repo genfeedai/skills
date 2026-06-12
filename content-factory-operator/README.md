@@ -5,7 +5,7 @@ Design and operate a repeatable Genfeed AI content factory for agencies, founder
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/content-factory-operator
+bunx skills add genfeedai/skills/content-factory-operator
 ```
 
 ## Usage

@@ -7,7 +7,7 @@ This is the foundation the other loop skills build on: `trend-scout`, `media-for
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/genfeed-connector
+bunx skills add genfeedai/skills/genfeed-connector
 ```
 
 Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies (uses only Node built-ins and global `fetch`).

@@ -7,7 +7,7 @@ Pure stateless worker: reads its token from the environment, persists nothing, a
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/media-forge
+bunx skills add genfeedai/skills/media-forge
 ```
 
 Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies.

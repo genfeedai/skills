@@ -5,7 +5,7 @@ Create AI content workflows from natural language descriptions.
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/workflow-creator
+bunx skills add genfeedai/skills/workflow-creator
 ```
 
 ## Usage

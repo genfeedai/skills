@@ -5,7 +5,7 @@ Expert content marketing strategist and editorial planner. Builds comprehensive 
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/content-strategist
+bunx skills add genfeedai/skills/content-strategist
 ```
 
 ## Usage

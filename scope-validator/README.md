@@ -5,7 +5,7 @@ Determine whether a feature belongs in Genfeed OSS Core or Cloud SaaS.
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/scope-validator
+bunx skills add genfeedai/skills/scope-validator
 ```
 
 ## Usage

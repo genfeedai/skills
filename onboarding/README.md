@@ -5,7 +5,7 @@ Quick onboarding guide focused on creating your first AI-generated content in un
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/onboarding
+bunx skills add genfeedai/skills/onboarding
 ```
 
 ## Usage

@@ -9,7 +9,7 @@ Pure stateless worker: reads its token from the environment, persists nothing.
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/analytics-collector
+bunx skills add genfeedai/skills/analytics-collector
 ```
 
 Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies.

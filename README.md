@@ -7,14 +7,14 @@ AI-powered skills for content creation, image generation, SEO optimization, adve
 Install all skills:
 
 ```bash
-npx skills add genfeedai/skills
+bunx skills add genfeedai/skills
 ```
 
 Or install individual skills:
 
 ```bash
-npx skills add genfeedai/skills/x-content-creator
-npx skills add genfeedai/skills/content-seo-optimizer
+bunx skills add genfeedai/skills/x-content-creator
+bunx skills add genfeedai/skills/content-seo-optimizer
 # ... any skill name below
 ```
 

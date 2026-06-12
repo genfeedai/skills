@@ -7,7 +7,7 @@ It writes no copy and generates no media itself — it decides what stage each i
 ## Installation
 
 ```bash
-npx skills add genfeedai/skills/content-loop-orchestrator
+bunx skills add genfeedai/skills/content-loop-orchestrator
 ```
 
 Requires [Bun](https://bun.sh) 1.1+ and the sibling skills it routes to (at minimum `genfeed-connector`, `trend-scout`, `analytics-collector`; plus `media-forge`, `social-poster`, and the instruction creator skills for the full loop). Zero runtime dependencies.
