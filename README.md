@@ -18,6 +18,30 @@ bunx skills add genfeedai/skills/content-seo-optimizer
 # ... any skill name below
 ```
 
+## Public vs Skills Pro
+
+This MIT repository is the free Genfeed skills catalogue. It stays focused on broad,
+installable skills that are useful without a paid Genfeed account:
+
+- Platform-native creation for X, Instagram, LinkedIn, YouTube, newsletters, and blogs.
+- Content optimization, SEO, atomization, review, analytics collection, and humanization.
+- Image, visual, advertising, GTM, and platform-development skills that are reusable across
+  normal content workflows.
+- Standalone Genfeed integration helpers that make open skills work better when a Genfeed
+  workspace is available.
+
+Skills Pro is the paid operating layer sold through Genfeed. Keep the following out of this
+public MIT repo:
+
+- Account warmup systems for X, Instagram, LinkedIn, TikTok, and YouTube.
+- Source-to-brief systems, brand memory, model routing, production queues, approval packets,
+  performance loops, eval rubrics, client reports, and subscription deliverables.
+- Private packaging, licensed bundle registries, receipt verification, download URLs, and
+  paid customer setup copy.
+
+The current decision is that warmup skills belong in `genfeedai/skills-pro`, not in this
+public repo.
+
 ## Claude Marketplace
 
 Install Genfeed bundle plugins through Claude Marketplace:
@@ -164,6 +188,27 @@ Marketplace bundles are generated under `bundles/` from `scripts/plugin-categori
 ```bash
 bun run marketplace:generate
 ```
+
+## Inventory Sync Policy
+
+There are three Genfeed skill inventories:
+
+| Inventory | Purpose | Sync rule |
+| --- | --- | --- |
+| `genfeedai/skills` | Public, MIT-licensed free skills | Source of truth for free skills and Claude Marketplace bundles |
+| `genfeed.ai/skills/` | App-local product skills used by the Genfeed monorepo | May mirror public skills, but app-local additions must be classified as public or Pro before publishing |
+| `genfeedai/skills-pro` | Private paid skills catalogue | Source of truth for warmup, Pro operations, packaging, registry, receipts, and customer setup |
+
+When a skill appears in `genfeed.ai/skills/` but not here, classify it before copying:
+
+- Copy it here only when it is a broad free skill that can be MIT-licensed.
+- Move or mirror it to `genfeedai/skills-pro` when it is paid operating knowledge, account
+  warmup, private process, client deliverable, or subscription value.
+- Do not copy Pro-only content into this repo. If a public dependency is needed, document the
+  dependency by name instead of duplicating the Pro skill body.
+
+As of this boundary decision, the app-local warmup skills (`x-warmup`, `instagram-warmup`,
+`linkedin-warmup`, `tiktok-warmup`, and `youtube-warmup`) are Skills Pro material.
 
 ## Contributing
 
