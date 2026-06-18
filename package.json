@@ -27,7 +27,9 @@
     "lint:fix": "markdownlint '**/*.md' --ignore node_modules --fix",
     "lint:json": "biome check --write --no-errors-on-unmatched '**/*.json'",
     "marketplace:generate": "bun scripts/generate-marketplace-bundles.js && bun scripts/generate-marketplace-json.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "validate": "bash scripts/validate-skill-sync.sh",
+    "validate:skill": "bash scripts/validate-skill-sync.sh"
   },
   "version": "1.0.0"
 }
