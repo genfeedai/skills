@@ -1,0 +1,21 @@
+{
+  "name": "traffic-validator",
+  "version": "1.0.0",
+  "description": "Validate traffic strategy and targeting",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["traffic validator", "validate traffic strategy and targeting"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "validation",
+    "traffic-secrets",
+    "dream-100",
+    "audience",
+    "acquisition"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

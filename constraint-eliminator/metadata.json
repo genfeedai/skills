@@ -1,0 +1,24 @@
+{
+  "name": "constraint-eliminator",
+  "version": "1.0.0",
+  "description": "Remove friction, objections, and customer success blockers",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "constraint eliminator",
+    "remove friction, objections, and customer success blockers"
+  ],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "friction",
+    "objections",
+    "guarantees",
+    "customer-success",
+    "done-for-you"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

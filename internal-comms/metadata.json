@@ -1,0 +1,20 @@
+{
+  "name": "internal-comms",
+  "version": "1.0.0",
+  "description": "Draft internal communications including status reports, leadership updates, newsletters, FAQs, incident reports, and project updates",
+  "author": "genfeedai",
+  "license": "Apache-2.0",
+  "triggers": [
+    "write a status update",
+    "draft internal comms",
+    "3P update",
+    "leadership update",
+    "company newsletter",
+    "incident report",
+    "project update",
+    "FAQ response"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["communications", "writing", "internal-comms", "status-updates"]
+}

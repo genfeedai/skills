@@ -1,0 +1,21 @@
+{
+  "name": "brand-architect",
+  "version": "1.0.0",
+  "description": "Brand naming, positioning, voice, and identity foundations",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["brand architect", "brand naming, positioning, voice, and identity foundations"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hexa",
+    "brand",
+    "naming",
+    "positioning",
+    "voice",
+    "identity"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

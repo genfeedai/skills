@@ -1,0 +1,11 @@
+{
+  "name": "leads-researcher",
+  "version": "1.0.0",
+  "description": "Research prospects, accounts, and buyer signals",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["leads researcher", "research prospects, accounts, and buyer signals"],
+  "tags": ["gtm", "strategy", "leads", "research", "sales"],
+  "references": {},
+  "outputs": ["text"]
+}

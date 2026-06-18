@@ -1,0 +1,19 @@
+{
+  "name": "humanizer",
+  "version": "1.0.0",
+  "description": "Identify and remove AI writing patterns so text sounds more natural and human",
+  "author": "genfeedai",
+  "license": "Unspecified (no upstream LICENSE)",
+  "triggers": [
+    "humanize this",
+    "make this sound less AI",
+    "remove AI writing patterns",
+    "make this more natural",
+    "improve writing quality",
+    "de-slop this writing",
+    "make this sound human"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["writing", "editing", "ai-detection", "content-quality"]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "startup-icp-definer",
+  "version": "1.0.0",
+  "description": "Define ICP, pains, buying triggers, and targeting focus",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["startup icp definer", "define icp, pains, buying triggers, and targeting focus"],
+  "tags": ["gtm", "strategy", "business", "hexa", "icp", "customer", "persona", "targeting", "b2b"],
+  "references": {},
+  "outputs": ["text"]
+}

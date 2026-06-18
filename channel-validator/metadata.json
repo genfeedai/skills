@@ -1,0 +1,21 @@
+{
+  "name": "channel-validator",
+  "version": "1.0.0",
+  "description": "Validate marketing channels and focus",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["channel validator", "validate marketing channels and focus"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "validation",
+    "channels",
+    "lead-gen",
+    "marketing",
+    "focus"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

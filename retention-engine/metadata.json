@@ -1,0 +1,21 @@
+{
+  "name": "retention-engine",
+  "version": "1.0.0",
+  "description": "Design retention, ascension, upsell, and LTV systems",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["retention engine", "design retention, ascension, upsell, and ltv systems"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "retention",
+    "ltv",
+    "churn",
+    "recurring-revenue",
+    "upsells"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

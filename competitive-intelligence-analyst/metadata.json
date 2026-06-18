@@ -1,0 +1,23 @@
+{
+  "name": "competitive-intelligence-analyst",
+  "version": "1.0.0",
+  "description": "Analyze market positioning, competitors, pricing, and gaps",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "competitive intelligence analyst",
+    "analyze market positioning, competitors, pricing, and gaps"
+  ],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "competitive-analysis",
+    "market-research",
+    "positioning",
+    "differentiation",
+    "benchmarking"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

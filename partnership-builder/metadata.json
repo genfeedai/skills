@@ -1,0 +1,24 @@
+{
+  "name": "partnership-builder",
+  "version": "1.0.0",
+  "description": "Design affiliate, integration, reseller, and co-marketing partnerships",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "partnership builder",
+    "design affiliate, integration, reseller, and co-marketing partnerships"
+  ],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "partnerships",
+    "affiliates",
+    "integrations",
+    "resellers",
+    "co-marketing",
+    "distribution"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

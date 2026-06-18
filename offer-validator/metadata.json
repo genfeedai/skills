@@ -1,0 +1,20 @@
+{
+  "name": "offer-validator",
+  "version": "1.0.0",
+  "description": "Score and improve offer readiness",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["offer validator", "score and improve offer readiness"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "validation",
+    "offers",
+    "value-equation",
+    "pricing"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

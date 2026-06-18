@@ -1,0 +1,21 @@
+{
+  "name": "funnel-architect",
+  "version": "1.0.0",
+  "description": "Design funnels, value ladders, and customer journeys",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["funnel architect", "design funnels, value ladders, and customer journeys"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "funnels",
+    "dotcom-secrets",
+    "value-ladder",
+    "landing-pages",
+    "conversion"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

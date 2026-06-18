@@ -1,0 +1,21 @@
+{
+  "name": "outbound-optimizer",
+  "version": "1.0.0",
+  "description": "Improve outbound strategy and messaging systems",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["outbound optimizer", "improve outbound strategy and messaging systems"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "outbound",
+    "cold-email",
+    "prospecting",
+    "sales",
+    "outreach"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

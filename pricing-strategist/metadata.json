@@ -1,0 +1,11 @@
+{
+  "name": "pricing-strategist",
+  "version": "1.0.0",
+  "description": "Premium and value-based pricing strategy",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["pricing strategist", "premium and value-based pricing strategy"],
+  "tags": ["gtm", "strategy", "business", "hormozi", "pricing", "value", "premium", "positioning"],
+  "references": {},
+  "outputs": ["text"]
+}

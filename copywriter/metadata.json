@@ -1,0 +1,20 @@
+{
+  "name": "copywriter",
+  "version": "1.0.0",
+  "description": "Write and audit conversion-focused copy that adapts to the project brand voice",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "write copy",
+    "audit copy",
+    "landing page copy",
+    "improve CTA",
+    "value proposition",
+    "microcopy",
+    "review marketing copy",
+    "rewrite headline"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["copywriting", "brand-voice", "marketing", "conversion", "ux-writing"]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "positioning-angles",
+  "version": "1.0.0",
+  "description": "Find differentiated positioning angles and market narratives",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "positioning angles",
+    "find differentiated positioning angles and market narratives"
+  ],
+  "tags": [
+    "gtm",
+    "strategy",
+    "marketing",
+    "positioning",
+    "differentiation",
+    "angles",
+    "copywriting"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

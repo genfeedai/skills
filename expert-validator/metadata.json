@@ -1,0 +1,21 @@
+{
+  "name": "expert-validator",
+  "version": "1.0.0",
+  "description": "Validate expert positioning and authority narrative",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["expert validator", "validate expert positioning and authority narrative"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "validation",
+    "expert-secrets",
+    "positioning",
+    "authority",
+    "messaging"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

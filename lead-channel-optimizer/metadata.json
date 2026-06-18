@@ -1,0 +1,21 @@
+{
+  "name": "lead-channel-optimizer",
+  "version": "1.0.0",
+  "description": "Prioritize highest-ROI lead generation channels",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["lead channel optimizer", "prioritize highest-roi lead generation channels"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "leads",
+    "marketing",
+    "channels",
+    "acquisition",
+    "focus"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

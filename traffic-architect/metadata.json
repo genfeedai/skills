@@ -1,0 +1,21 @@
+{
+  "name": "traffic-architect",
+  "version": "1.0.0",
+  "description": "Build traffic strategy and audience acquisition plan",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["traffic architect", "build traffic strategy and audience acquisition plan"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "traffic-secrets",
+    "dream-100",
+    "audience",
+    "acquisition",
+    "marketing"
+  ],
+  "references": {},
+  "outputs": ["text"]
+}

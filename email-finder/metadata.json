@@ -1,0 +1,11 @@
+{
+  "name": "email-finder",
+  "version": "1.0.0",
+  "description": "Find contact emails associated with domains",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": ["email finder", "find contact emails associated with domains"],
+  "tags": ["gtm", "strategy", "email", "domain", "contact-discovery", "lead-generation"],
+  "references": {},
+  "outputs": ["text"]
+}
