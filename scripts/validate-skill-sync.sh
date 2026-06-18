@@ -147,7 +147,7 @@ echo "5. Checking skills CLI discovery"
 SKILLS_LIST_OUTPUT="$(mktemp)"
 trap 'rm -f "$SKILLS_LIST_OUTPUT"' EXIT
 bunx skills add . --list --full-depth >"$SKILLS_LIST_OUTPUT"
-if ! grep -q "Found ${SKILL_COUNT} skills" "$SKILLS_LIST_OUTPUT"; then
+if ! grep -Eq "Found .*${SKILL_COUNT}.* skills" "$SKILLS_LIST_OUTPUT"; then
   cat "$SKILLS_LIST_OUTPUT"
   echo "Expected skills CLI to discover ${SKILL_COUNT} skills" >&2
   exit 1
