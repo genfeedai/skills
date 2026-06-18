@@ -1,0 +1,31 @@
+{
+  "name": "traffic-validator",
+  "version": "1.0.0",
+  "description": "Validate existing traffic strategy and audience acquisition fit",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "traffic validator",
+    "validate my traffic plan",
+    "is my audience strategy right",
+    "traffic assessment",
+    "paid or organic",
+    "Dream 100 validation",
+    "audience ownership audit",
+    "traffic underperformance",
+    "traffic funnel match"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "validation",
+    "traffic-secrets",
+    "dream-100",
+    "audience",
+    "acquisition"
+  ]
+}

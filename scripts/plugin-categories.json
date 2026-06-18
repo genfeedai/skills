@@ -1,0 +1,122 @@
+{
+  "marketplace": {
+    "name": "genfeedai",
+    "owner": {
+      "name": "Genfeed.ai"
+    },
+    "description": "AI skills for Genfeed content creation, GTM strategy, advertising, workflow development, and onboarding"
+  },
+  "bundles": {
+    "content-creation": {
+      "description": "Content creation skills for social, video, newsletters, blogs, and conversion copy",
+      "skills": [
+        "x-content-creator",
+        "instagram-content-creator",
+        "linkedin-content-creator",
+        "youtube-content-creator",
+        "newsletter-creator",
+        "blog-content-creator",
+        "copywriter"
+      ]
+    },
+    "content-optimization": {
+      "description": "Content strategy, operations, repurposing, review, SEO, and humanization skills",
+      "skills": [
+        "content-strategist",
+        "content-factory-operator",
+        "content-atomizer",
+        "content-reviewer",
+        "content-seo-optimizer",
+        "humanizer"
+      ]
+    },
+    "content-analysis": {
+      "description": "Trend, analytics, competitor content, and YouTube analysis skills",
+      "skills": [
+        "trend-scout",
+        "analytics-collector",
+        "competitor-analyzer",
+        "youtube-video-analyst"
+      ]
+    },
+    "communications": {
+      "description": "Internal communication drafting for updates, newsletters, FAQs, and incidents",
+      "skills": ["internal-comms"]
+    },
+    "image-visual": {
+      "description": "AI image, video, audio, model selection, and visual brand system skills",
+      "skills": ["image-prompt-engineer", "visual-brand-kit", "model-selector", "media-forge"]
+    },
+    "advertising": {
+      "description": "Paid ad copy and ad performance optimization skills",
+      "skills": ["ad-copy-creator", "ad-performance-analyzer"]
+    },
+    "gtm-strategy": {
+      "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning",
+      "skills": [
+        "brand-architect",
+        "positioning-angles",
+        "startup-icp-definer",
+        "pricing-strategist",
+        "offer-architect",
+        "offer-validator",
+        "funnel-architect",
+        "funnel-validator",
+        "traffic-architect",
+        "traffic-validator",
+        "channel-validator",
+        "lead-channel-optimizer",
+        "outbound-optimizer",
+        "leads-researcher",
+        "email-finder",
+        "competitive-intelligence-analyst",
+        "partnership-builder",
+        "retention-engine",
+        "support-systems-architect",
+        "constraint-eliminator",
+        "expert-architect",
+        "expert-validator",
+        "search-domain-validator"
+      ]
+    },
+    "platform-development": {
+      "description": "Genfeed workflow, node, connector, posting, onboarding, scope, and MCP integration skills",
+      "skills": [
+        "workflow-creator",
+        "node-creator",
+        "content-loop-orchestrator",
+        "genfeed-connector",
+        "social-poster",
+        "onboarding",
+        "scope-validator",
+        "openclaw-integration"
+      ]
+    },
+    "content-loop": {
+      "description": "End-to-end Genfeed content loop skills for sensing trends, producing assets, reviewing, posting, measuring, and iterating",
+      "skills": [
+        "content-loop-orchestrator",
+        "genfeed-connector",
+        "trend-scout",
+        "content-strategist",
+        "content-factory-operator",
+        "content-atomizer",
+        "x-content-creator",
+        "linkedin-content-creator",
+        "instagram-content-creator",
+        "youtube-content-creator",
+        "blog-content-creator",
+        "newsletter-creator",
+        "ad-copy-creator",
+        "model-selector",
+        "image-prompt-engineer",
+        "visual-brand-kit",
+        "media-forge",
+        "content-reviewer",
+        "content-seo-optimizer",
+        "social-poster",
+        "analytics-collector"
+      ]
+    }
+  }
+}

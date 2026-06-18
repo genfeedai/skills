@@ -1,0 +1,30 @@
+{
+  "name": "positioning-angles",
+  "version": "1.0.0",
+  "description": "Find differentiated positioning angles and market narratives",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "positioning angles",
+    "find my angle",
+    "how do I stand out",
+    "we sound like everyone else",
+    "why is this not selling",
+    "differentiate from competitors",
+    "unique mechanism",
+    "market narrative",
+    "positioning strategy",
+    "angle testing"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "marketing",
+    "positioning",
+    "differentiation",
+    "angles",
+    "copywriting"
+  ]
+}

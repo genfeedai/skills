@@ -1,0 +1,31 @@
+{
+  "name": "offer-validator",
+  "version": "1.0.0",
+  "description": "Score and improve existing offer readiness",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "offer validator",
+    "validate my offer",
+    "rate my offer",
+    "is my offer good",
+    "offer audit",
+    "offer readiness",
+    "launch readiness",
+    "low offer conversion",
+    "score this offer",
+    "value equation score"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "validation",
+    "offers",
+    "value-equation",
+    "pricing"
+  ]
+}

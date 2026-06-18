@@ -1,0 +1,23 @@
+{
+  "name": "pricing-strategist",
+  "version": "1.0.0",
+  "description": "Create premium and value-based pricing strategy",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "pricing strategist",
+    "what should I charge",
+    "pricing strategy",
+    "raise prices",
+    "undercharging",
+    "premium pricing",
+    "value based pricing",
+    "pricing tiers",
+    "competitor pricing comparison",
+    "price confidence",
+    "low revenue per customer"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["gtm", "strategy", "business", "hormozi", "pricing", "value", "premium", "positioning"]
+}

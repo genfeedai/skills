@@ -1,0 +1,22 @@
+{
+  "name": "search-domain-validator",
+  "version": "1.0.0",
+  "description": "Generate and validate brandable domain naming options",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "domain validator",
+    "validate domain",
+    "domain availability",
+    "domain search",
+    "find available domains",
+    "brandable domain names",
+    "domain name ideas",
+    "check this domain",
+    "domain syntax",
+    "name availability"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["gtm", "strategy", "domains", "search", "validation"]
+}

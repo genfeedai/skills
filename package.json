@@ -1,5 +1,5 @@
 {
-  "description": "AI skills for Genfeed - workflow creation, node development, and onboarding",
+  "description": "AI skills for Genfeed - content creation, optimization, analysis, communications, image and visual systems, advertising, GTM strategy, platform development, and onboarding",
   "devDependencies": {
     "@biomejs/biome": "2.3.11",
     "husky": "9.1.7",
@@ -26,6 +26,7 @@
     "lint": "markdownlint '**/*.md' --ignore node_modules",
     "lint:fix": "markdownlint '**/*.md' --ignore node_modules --fix",
     "lint:json": "biome check --write --no-errors-on-unmatched '**/*.json'",
+    "marketplace:generate": "bun scripts/generate-marketplace-bundles.js && bun scripts/generate-marketplace-json.js",
     "prepare": "husky"
   },
   "version": "1.0.0"

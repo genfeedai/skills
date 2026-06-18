@@ -1,0 +1,33 @@
+{
+  "name": "outbound-optimizer",
+  "version": "1.0.0",
+  "description": "Improve outbound strategy, cold emails, DMs, and prospecting systems",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "outbound optimizer",
+    "cold email",
+    "cold DM",
+    "improve outbound",
+    "low reply rate",
+    "outreach sequence",
+    "prospecting strategy",
+    "write outreach message",
+    "personalized opener",
+    "zero commitment CTA",
+    "sales outreach"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "outbound",
+    "cold-email",
+    "prospecting",
+    "sales",
+    "outreach"
+  ]
+}

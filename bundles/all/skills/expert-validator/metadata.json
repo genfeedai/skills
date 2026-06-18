@@ -1,0 +1,31 @@
+{
+  "name": "expert-validator",
+  "version": "1.0.0",
+  "description": "Validate expert positioning and authority narrative",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "expert validator",
+    "validate my positioning",
+    "validate expert positioning",
+    "is my messaging right",
+    "do I sound like everyone else",
+    "authority assessment",
+    "validate origin story",
+    "validate big domino",
+    "personal brand audit"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "validation",
+    "expert-secrets",
+    "positioning",
+    "authority",
+    "messaging"
+  ]
+}

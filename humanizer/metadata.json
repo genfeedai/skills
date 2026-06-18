@@ -1,0 +1,20 @@
+{
+  "name": "humanizer",
+  "version": "1.0.0",
+  "description": "Rewrite AI-generated drafts to sound natural while preserving meaning and voice",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "humanize this",
+    "make this sound less AI",
+    "remove AI writing patterns",
+    "make this more natural",
+    "improve writing quality",
+    "de-slop this writing",
+    "make this sound human",
+    "add voice to this draft"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["writing", "editing", "ai-detection", "content-quality"]
+}

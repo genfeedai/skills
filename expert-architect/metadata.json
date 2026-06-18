@@ -1,0 +1,32 @@
+{
+  "name": "expert-architect",
+  "version": "1.0.0",
+  "description": "Build expert positioning, authority, and origin story",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "expert architect",
+    "personal brand positioning",
+    "build my positioning",
+    "create my origin story",
+    "develop my expert brand",
+    "attractive character",
+    "big domino",
+    "build authority",
+    "expert narrative",
+    "new opportunity framing"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "expert-secrets",
+    "positioning",
+    "attractive-character",
+    "origin-story",
+    "authority"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-content-loop",
+  "version": "1.0.0",
+  "description": "End-to-end Genfeed content loop skills for sensing trends, producing assets, reviewing, posting, measuring, and iterating",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

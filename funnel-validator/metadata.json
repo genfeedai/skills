@@ -1,0 +1,31 @@
+{
+  "name": "funnel-validator",
+  "version": "1.0.0",
+  "description": "Validate funnel sequence and conversion weaknesses",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "funnel validator",
+    "validate my funnel",
+    "rate my funnel",
+    "is my funnel good",
+    "why is my funnel not converting",
+    "funnel audit",
+    "landing page sequence audit",
+    "pre traffic funnel check",
+    "conversion path review"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "brunson",
+    "validation",
+    "funnels",
+    "dotcom-secrets",
+    "landing-pages",
+    "conversion"
+  ]
+}

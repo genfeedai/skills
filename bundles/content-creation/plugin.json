@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-content-creation",
+  "version": "1.0.0",
+  "description": "Content creation skills for social, video, newsletters, blogs, and conversion copy",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

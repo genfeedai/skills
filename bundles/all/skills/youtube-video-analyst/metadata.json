@@ -1,0 +1,21 @@
+{
+  "name": "youtube-video-analyst",
+  "version": "1.0.0",
+  "description": "Deconstruct YouTube videos into hooks, retention mechanics, and reusable blueprints",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "analyze youtube video",
+    "youtube video analysis",
+    "youtube transcript analysis",
+    "deconstruct video",
+    "viral video formula",
+    "retention mechanics",
+    "hook analysis",
+    "analyze this transcript",
+    "youtube blueprint"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["youtube", "content-analysis", "viral-content", "hooks", "content-strategy"]
+}

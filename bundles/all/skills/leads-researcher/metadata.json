@@ -1,0 +1,23 @@
+{
+  "name": "leads-researcher",
+  "version": "1.0.0",
+  "description": "Research prospects, accounts, decision makers, and buyer signals",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "leads researcher",
+    "lead research",
+    "prospect research",
+    "account research",
+    "company research",
+    "find decision makers",
+    "buyer intent signals",
+    "prospect enrichment",
+    "tech stack research",
+    "contact discovery",
+    "research target accounts"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["gtm", "strategy", "leads", "research", "sales"]
+}

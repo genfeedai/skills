@@ -1,0 +1,31 @@
+{
+  "name": "channel-validator",
+  "version": "1.0.0",
+  "description": "Validate marketing channel focus and expansion readiness",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "validate my channels",
+    "am I on the right platforms",
+    "should I focus on this channel",
+    "channel sprawl",
+    "too many marketing channels",
+    "one channel rule",
+    "channel focus",
+    "expansion readiness",
+    "should I add another channel"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "validation",
+    "channels",
+    "lead-gen",
+    "marketing",
+    "focus"
+  ]
+}

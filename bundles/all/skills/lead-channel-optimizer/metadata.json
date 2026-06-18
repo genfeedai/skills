@@ -1,0 +1,33 @@
+{
+  "name": "lead-channel-optimizer",
+  "version": "1.0.0",
+  "description": "Prioritize lead generation channels by ROI and system potential",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "lead channel optimizer",
+    "lead channel audit",
+    "highest ROI channel",
+    "where should I focus marketing",
+    "not enough leads",
+    "marketing channels not working",
+    "channel ROI",
+    "cost per lead",
+    "close rate by channel",
+    "channel elimination",
+    "systematize lead generation"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "leads",
+    "marketing",
+    "channels",
+    "acquisition",
+    "focus"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "support-systems-architect",
+  "version": "1.0.0",
+  "description": "Build support systems and customer success workflows",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "support systems architect",
+    "too many support tickets",
+    "set up customer support",
+    "help docs",
+    "FAQ system",
+    "ticketing system",
+    "support automation",
+    "self service support",
+    "scale support",
+    "customer success workflow",
+    "support templates"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "support",
+    "customer-success",
+    "helpdesk",
+    "faq",
+    "automation",
+    "self-service"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "internal-comms",
+  "version": "1.0.0",
+  "description": "Draft structured internal communications for teams and leaders",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "write a status update",
+    "draft internal comms",
+    "3P update",
+    "leadership update",
+    "company newsletter",
+    "incident report",
+    "project update",
+    "FAQ response",
+    "weekly team update",
+    "internal announcement"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["communications", "writing", "internal-comms", "status-updates"]
+}

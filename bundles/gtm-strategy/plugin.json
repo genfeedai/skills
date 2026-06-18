@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-gtm-strategy",
+  "version": "1.0.0",
+  "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

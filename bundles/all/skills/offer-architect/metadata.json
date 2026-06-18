@@ -1,0 +1,32 @@
+{
+  "name": "offer-architect",
+  "version": "1.0.0",
+  "description": "Construct high-converting offers, bundles, guarantees, and value stacks",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "offer architect",
+    "create an offer",
+    "grand slam offer",
+    "value stack",
+    "offer bundle",
+    "package this service",
+    "what should I sell",
+    "improve my offer",
+    "low conversions",
+    "customers do not see the value",
+    "risk reversal"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": [
+    "gtm",
+    "strategy",
+    "business",
+    "hormozi",
+    "offers",
+    "value-stack",
+    "pricing",
+    "conversion"
+  ]
+}

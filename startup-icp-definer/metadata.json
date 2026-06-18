@@ -1,0 +1,23 @@
+{
+  "name": "startup-icp-definer",
+  "version": "1.0.0",
+  "description": "Define ICP, pains, buying triggers, personas, and targeting focus",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "startup ICP",
+    "define ICP",
+    "ideal customer profile",
+    "who is my customer",
+    "target audience",
+    "customer persona",
+    "buyer persona",
+    "user persona",
+    "buying center",
+    "who should I target first",
+    "everyone could use this"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["gtm", "strategy", "business", "hexa", "icp", "customer", "persona", "targeting", "b2b"]
+}
