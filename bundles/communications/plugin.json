@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-communications",
+  "version": "1.0.0",
+  "description": "Internal communication drafting for updates, newsletters, FAQs, and incidents",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

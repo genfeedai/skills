@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-image-visual",
+  "version": "1.0.0",
+  "description": "AI image, video, audio, model selection, and visual brand system skills",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

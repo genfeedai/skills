@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-all",
+  "version": "1.0.0",
+  "description": "All Genfeed skills for content creation, GTM strategy, advertising, workflow development, and onboarding",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "genfeedai",
+  "owner": {
+    "name": "Genfeed.ai"
+  },
+  "description": "AI skills for Genfeed content creation, GTM strategy, advertising, workflow development, and onboarding",
+  "plugins": [
+    {
+      "name": "genfeedai-all",
+      "source": "./bundles/all",
+      "description": "All Genfeed skills for content creation, GTM strategy, advertising, workflow development, and onboarding"
+    },
+    {
+      "name": "genfeedai-content-creation",
+      "source": "./bundles/content-creation",
+      "description": "Content creation skills for social, video, newsletters, blogs, and conversion copy"
+    },
+    {
+      "name": "genfeedai-content-optimization",
+      "source": "./bundles/content-optimization",
+      "description": "Content strategy, operations, repurposing, review, SEO, and humanization skills"
+    },
+    {
+      "name": "genfeedai-content-analysis",
+      "source": "./bundles/content-analysis",
+      "description": "Trend, analytics, competitor content, and YouTube analysis skills"
+    },
+    {
+      "name": "genfeedai-communications",
+      "source": "./bundles/communications",
+      "description": "Internal communication drafting for updates, newsletters, FAQs, and incidents"
+    },
+    {
+      "name": "genfeedai-image-visual",
+      "source": "./bundles/image-visual",
+      "description": "AI image, video, audio, model selection, and visual brand system skills"
+    },
+    {
+      "name": "genfeedai-advertising",
+      "source": "./bundles/advertising",
+      "description": "Paid ad copy and ad performance optimization skills"
+    },
+    {
+      "name": "genfeedai-gtm-strategy",
+      "source": "./bundles/gtm-strategy",
+      "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning"
+    },
+    {
+      "name": "genfeedai-platform-development",
+      "source": "./bundles/platform-development",
+      "description": "Genfeed workflow, node, connector, posting, onboarding, scope, and MCP integration skills"
+    },
+    {
+      "name": "genfeedai-content-loop",
+      "source": "./bundles/content-loop",
+      "description": "End-to-end Genfeed content loop skills for sensing trends, producing assets, reviewing, posting, measuring, and iterating"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-advertising",
+  "version": "1.0.0",
+  "description": "Paid ad copy and ad performance optimization skills",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

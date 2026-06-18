@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-content-analysis",
+  "version": "1.0.0",
+  "description": "Trend, analytics, competitor content, and YouTube analysis skills",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}

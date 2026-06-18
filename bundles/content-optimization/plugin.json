@@ -1,0 +1,10 @@
+{
+  "name": "genfeedai-content-optimization",
+  "version": "1.0.0",
+  "description": "Content strategy, operations, repurposing, review, SEO, and humanization skills",
+  "author": "genfeedai",
+  "license": "MIT",
+  "skills": {
+    "path": "./skills"
+  }
+}
