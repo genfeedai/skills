@@ -47,6 +47,27 @@ Apply it this way:
 - Store color roles: canvas, surface, text, accent, warning, proof, campaign, image grade.
 - Avoid defaulting every brand to Japanese color names; use them when they improve clarity and taste.
 
+Validation rule:
+
+- A palette is Wada/Sanzo-matched only when each matched role records the Wada color name, collection, combination id when relevant, source URL, HEX, RGB, LAB when available, and whether the match is exact or nearest.
+- A palette is Wada/Sanzo-informed when it uses Wada's color-relationship method without claiming exact source swatches.
+- Do not rename product tokens with Japanese or Wada color names unless the exact or nearest mapping is documented.
+- Use nearest-color matching as diagnostics only. Never claim an exact match when the codebase token and source swatch differ.
+- Keep accessibility and product semantics ahead of historic color matching: contrast, state meaning, and readable hierarchy still win.
+
+## Relative Object Scale
+
+Useful principle: a Brand OS should define how large objects feel in relation to each other. Agents should receive semantic scale roles instead of vague instructions like "bigger" or "smaller."
+
+Apply it this way:
+
+- Keep dense product UI on an ergonomic grid, such as 4px or 8px.
+- Use a rounded golden-ratio progression for campaign, launch, and brand objects when the brand needs harmony and drama.
+- Name scale roles by usage, such as micro, chip, control, block, hero, monument, and god.
+- Treat "god" scale as a rare campaign-only focal object, not an everyday UI size.
+- Define each role with dimensions, type behavior, motion budget, and usage constraints.
+- Round exact ratios to implementation-friendly values so the system can be used in CSS, design tools, and image prompts.
+
 ## Cute Studies And Kawaii
 
 Sources:

@@ -10,12 +10,14 @@ Sources used:
 - `.agents/memory/context/project-brief.md`: self-hosted sovereignty, open-source extensibility, brand consistency, quality scoring, multi-platform reach.
 - `.agents/memory/context/project-vision.md`: autonomous content operations, strategic oversight, community marketplace, enterprise team operations.
 - `genfeedai/skills` README: public skills for content creation, optimization, analysis, communications, visual systems, advertising, GTM, platform development, and onboarding.
+- `brand-os-architect/references/source-pack.md`, Seigensha's Sanzo Wada book page, and Wada Sanzo Colors: Wada/Sanzo is used as a color-harmony and palette-validation reference, not as an existing Genfeed product palette source.
 
 Confidence:
 
 - High for category, audience, product promise, and UI tone.
+- High for current product UI tokens, app typography, compact controls, radius, and base spacing because they come from `DESIGN.md`.
 - Medium for marketing tone and visual campaign language.
-- Low for final public color/type direction beyond existing product UI tokens.
+- Low for final public marketing color/type direction until exact source-backed palette choices are pinned.
 
 ## Positioning
 
@@ -201,6 +203,14 @@ Review checklist:
 
 ## Visual System
 
+Color system status:
+
+- Genfeed's current palette is codebase-derived, not Wada/Sanzo-matched.
+- Wada/Sanzo is a reference for harmony, named color relationships, and generator validation. It is not a mandate to recolor the current product UI.
+- A Genfeed palette can only claim "Wada/Sanzo-matched" when each mapped color role includes Wada color name, collection, combination id when relevant, source URL, HEX, RGB, LAB when available, and exact-vs-nearest status.
+- Nearest-color matching is useful for diagnostics and exploration only. It is not the same as an exact match.
+- Do not use Japanese or Wada color names for Genfeed tokens unless the mapping has been documented.
+
 Product UI baseline:
 
 - Dark-first canvas.
@@ -229,6 +239,15 @@ Current product tokens:
 - Danger: `#ef4444`
 - Info: `#3b82f6`
 
+Wada/Sanzo audit note:
+
+- A 2026-06-24 diagnostic pass against the public Wada Sanzo Colors swatches found no exact match for the current Genfeed product tokens above.
+- Useful nearest anchors for future marketing exploration include Black `#111314` near the dark surfaces, Deep Indigo `#051230` as a campaign-canvas candidate, Neutral Gray `#b6bfc1` near secondary text, and Yellow Orange `#f99d1b` near warning.
+- Candidate Wada-informed campaign modes to test visually:
+  - System calm: Classic #139, Deep Indigo `#051230`, Salvia Blue `#97acc8`, Neutral Gray `#b6bfc1`.
+  - Launch pulse: Classic #155, Jasper Red `#eb5324`, Benzol Green `#00978d`, Deep Indigo `#051230`.
+- These are marketing exploration palettes only. They do not replace the locked product UI tokens without accessibility, contrast, and product-state review.
+
 Typography direction:
 
 - Product UI: system sans and mono for speed, density, and native feel.
@@ -245,8 +264,45 @@ Image/video direction:
 Scale tokens:
 
 - Compact UI: 4, 8, 12, 16, 24, 32.
-- Marketing/story assets: 24, 40, 64, 104, 168.
+- Marketing/story assets: 24, 40, 64, 104, 168, 272, 440.
 - Use larger jumps for launch content, not inside dense product UI.
+
+Scale model:
+
+- Product UI uses a practical 4px grid. It is not required to follow the golden ratio because dense interfaces need alignment, scannability, and predictable control heights.
+- Brand and campaign objects use a rounded golden-ratio progression. The ratio is approximate because values are rounded to CSS-friendly grid numbers.
+- The working phi-rounded sequence is `24 -> 40 -> 64 -> 104 -> 168 -> 272 -> 440`.
+- Use semantic scale roles in prompts and specs instead of "make it bigger" or "make it smaller."
+- Never use the largest campaign roles inside dense product UI.
+
+Semantic size roles:
+
+| Role | Size band | Use |
+| --- | --- | --- |
+| `micro` | 4-8px | Dividers, tiny offsets, state dots, hairline spacing |
+| `chip` | 12-16px | Badges, inline icons, metadata marks |
+| `control` | 32px | Buttons, inputs, select triggers, toolbar actions |
+| `block` | 40-64px | Small brand marks, content-card anchors, compact campaign objects |
+| `hero` | 104px | Section-leading visual objects, hero marks, screenshot highlights |
+| `monument` | 168-272px | First-viewport visual anchors, launch page objects, large proof artifacts |
+| `god` | 440px+ | One-per-page or one-per-campaign focal object; full-bleed or dominant launch visual only |
+
+Font-by-size rule:
+
+- Product UI typography stays on the app scale.
+- Campaign typography should be assigned by semantic role, not by arbitrary px values.
+- Until the final marketing typeface is selected, use the role scale with system sans and mono.
+- Do not copy a competitor's font-size/typeface pairing.
+
+Element size contract:
+
+- Base grid: 4px.
+- Dense controls: 32px height for primary buttons, secondary buttons, ghost buttons, destructive buttons, inputs, and selects.
+- App typography: badges/chips 10px, table heads 11px, table cells 12px, body/buttons 13px, card titles 14px, section headings 1.875rem.
+- Radius: 2px for badges/tags/chips, 6px for cards/buttons/inputs/tooltips/popovers/dropdowns, 8px for toasts/overlay panels, 10px for dialogs and command palettes.
+- Containment: cards, dialogs, and dropdowns use inset box-shadow containment; structural dividers can use borders.
+- Shared layout guardrails from the Tailwind base: charts 280-300px, dropdown max-height 300px, card min-height 160px, code blocks 180-280px, textarea min-height 60-80px, workflow nodes min-width 180px, skill columns min-width 200px.
+- Wada/Sanzo does not define Genfeed element sizes. Element size comes from the product design system; Wada/Sanzo only informs color relationships.
 
 ## AI Context
 
@@ -294,5 +350,5 @@ First launch campaign:
 
 - Final public marketing typeface direction.
 - Whether Genfeed uses an illustrated agent/mascot in campaigns or stays tool/system-first.
-- Exact public color expansion beyond current dark product tokens.
+- Final public marketing palette after Wada/Sanzo source matching and accessibility review.
 - Which source-backed references become visible in the public generator UI.
