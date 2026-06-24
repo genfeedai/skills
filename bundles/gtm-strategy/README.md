@@ -12,6 +12,7 @@ GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive int
 ## Included Skills
 
 - `brand-architect`
+- `brand-os-architect`
 - `positioning-angles`
 - `startup-icp-definer`
 - `pricing-strategist`

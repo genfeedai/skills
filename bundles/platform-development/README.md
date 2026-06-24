@@ -17,5 +17,6 @@ Genfeed workflow, node, connector, posting, onboarding, scope, and MCP integrati
 - `genfeed-connector`
 - `social-poster`
 - `onboarding`
+- `genfeed-brand-os`
 - `scope-validator`
 - `openclaw-integration`

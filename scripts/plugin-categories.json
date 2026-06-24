@@ -45,7 +45,13 @@
     },
     "image-visual": {
       "description": "AI image, video, audio, model selection, and visual brand system skills",
-      "skills": ["image-prompt-engineer", "visual-brand-kit", "model-selector", "media-forge"]
+      "skills": [
+        "image-prompt-engineer",
+        "visual-brand-kit",
+        "brand-os-architect",
+        "model-selector",
+        "media-forge"
+      ]
     },
     "advertising": {
       "description": "Paid ad copy and ad performance optimization skills",
@@ -55,6 +61,7 @@
       "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning",
       "skills": [
         "brand-architect",
+        "brand-os-architect",
         "positioning-angles",
         "startup-icp-definer",
         "pricing-strategist",
@@ -88,6 +95,7 @@
         "genfeed-connector",
         "social-poster",
         "onboarding",
+        "genfeed-brand-os",
         "scope-validator",
         "openclaw-integration"
       ]
@@ -111,6 +119,8 @@
         "model-selector",
         "image-prompt-engineer",
         "visual-brand-kit",
+        "brand-os-architect",
+        "genfeed-brand-os",
         "media-forge",
         "content-reviewer",
         "content-seo-optimizer",

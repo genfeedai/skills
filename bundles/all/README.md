@@ -16,6 +16,7 @@ All Genfeed skills for content creation, GTM strategy, advertising, workflow dev
 - `analytics-collector`
 - `blog-content-creator`
 - `brand-architect`
+- `brand-os-architect`
 - `channel-validator`
 - `competitive-intelligence-analyst`
 - `competitor-analyzer`
@@ -32,6 +33,7 @@ All Genfeed skills for content creation, GTM strategy, advertising, workflow dev
 - `expert-validator`
 - `funnel-architect`
 - `funnel-validator`
+- `genfeed-brand-os`
 - `genfeed-connector`
 - `humanizer`
 - `image-prompt-engineer`

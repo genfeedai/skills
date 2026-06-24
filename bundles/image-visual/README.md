@@ -13,5 +13,6 @@ AI image, video, audio, model selection, and visual brand system skills
 
 - `image-prompt-engineer`
 - `visual-brand-kit`
+- `brand-os-architect`
 - `model-selector`
 - `media-forge`
