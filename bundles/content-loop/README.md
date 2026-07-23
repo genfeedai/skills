@@ -27,6 +27,8 @@ End-to-end Genfeed content loop skills for sensing trends, producing assets, rev
 - `model-selector`
 - `image-prompt-engineer`
 - `visual-brand-kit`
+- `brand-os-architect`
+- `genfeed-brand-os`
 - `media-forge`
 - `content-reviewer`
 - `content-seo-optimizer`

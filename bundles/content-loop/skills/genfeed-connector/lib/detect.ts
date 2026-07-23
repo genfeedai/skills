@@ -119,4 +119,4 @@ export function resolveContext(cwd: string = process.cwd(), force?: Mode): Runti
   return ctx;
 }
 
-export { STATE_DIR, DEFAULT_API_BASE };
+export { DEFAULT_API_BASE, STATE_DIR };

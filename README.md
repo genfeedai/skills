@@ -111,6 +111,7 @@ Or install a focused bundle:
 | [visual-brand-kit](./visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
 | [model-selector](./model-selector/) | Choose the right AI model for image, video, and audio generation tasks |
 | [media-forge](./media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |
+| [brand-os-architect](./brand-os-architect/) | Source-backed Brand OS systems for AI-era brands, launch storytelling, visual rules, and generation checklists |
 
 ## Advertising
 
@@ -124,6 +125,7 @@ Or install a focused bundle:
 | Skill | Description |
 |-------|-------------|
 | [brand-architect](./brand-architect/) | Brand foundations: name, positioning, voice, and strategic identity |
+| [brand-os-architect](./brand-os-architect/) | Brand operating systems: positioning, voice, content, visual rules, evidence, and AI context |
 | [positioning-angles](./positioning-angles/) | Differentiated market angles, mechanisms, narratives, and positioning tests |
 | [startup-icp-definer](./startup-icp-definer/) | ICP, buyer personas, user personas, buying centers, pains, triggers, and targeting focus |
 | [pricing-strategist](./pricing-strategist/) | Premium and value-based pricing strategy, tiers, price-rise plans, and pricing confidence |
@@ -159,6 +161,7 @@ Or install a focused bundle:
 | [onboarding](./onboarding/) | Genfeed onboarding focused on first content creation in under 10 minutes |
 | [scope-validator](./scope-validator/) | Classify Genfeed feature requests as OSS Core or Cloud SaaS scope |
 | [openclaw-integration](./openclaw-integration/) | Connect agents and workflows to Genfeed.ai through MCP or CLI |
+| [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
 
 ## Genfeed Integration
 
