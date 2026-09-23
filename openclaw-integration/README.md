@@ -1,8 +1,16 @@
 # Openclaw Integration
 
-Connect agents and workflows to Genfeed.ai through MCP or CLI so they can generate, publish, and manage content through the platform.
+Pointer to the maintained Genfeed agent package at [github.com/genfeedai/agent](https://github.com/genfeedai/agent). Hosted MCP: `https://mcp.genfeed.ai/mcp`.
 
 ## Installation
+
+Install the maintained package:
+
+```bash
+bunx skills add genfeedai/agent
+```
+
+This folder remains installable as a short pointer:
 
 ```bash
 bunx skills add genfeedai/skills/openclaw-integration
@@ -25,10 +33,9 @@ bunx skills add genfeedai/skills/openclaw-integration
 
 ## What It Does
 
-- Explains authentication and available Genfeed platform tools
-- Supports MCP and CLI-oriented workflows
-- Routes common content generation and publishing tasks into Genfeed
-- Documents error handling and connection checks
+- Points agents at `genfeedai/agent` for the playbook, manifests, and install paths
+- Names the hosted MCP server
+- Leaves tool instructions in that repository
 
 ## Structure
 

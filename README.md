@@ -160,7 +160,7 @@ Or install a focused bundle:
 | [social-poster](./social-poster/) | Publish approved derivatives to X or LinkedIn with a dry-run-by-default approval gate |
 | [onboarding](./onboarding/) | Genfeed onboarding focused on first content creation in under 10 minutes |
 | [scope-validator](./scope-validator/) | Classify Genfeed feature requests as OSS Core or Cloud SaaS scope |
-| [openclaw-integration](./openclaw-integration/) | Connect agents and workflows to Genfeed.ai through MCP or CLI |
+| [openclaw-integration](./openclaw-integration/) | Pointer to [genfeedai/agent](https://github.com/genfeedai/agent), the maintained skill and MCP install paths |
 | [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
 
 ## Genfeed Integration
