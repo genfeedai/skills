@@ -21,7 +21,8 @@ bunx skills add genfeedai/skills/image-prompt-engineer
 
 - Use for prompt engineering and visual prompt structure across image and short video generation.
 - Use `visual-brand-kit` when the brand visual system, color rules, photography style, or prompt presets need to be defined first.
-- Use `model-selector` when the main question is which model to use for cost, quality, speed, or modality.
+- Use `cinematic-prompting` when a prompt needs precise camera, framing, lighting, or editing vocabulary.
+- Use `prompt-generator` when the output should be a structured JSON prompt with style settings and a recommended model.
 
 ## What It Does
 

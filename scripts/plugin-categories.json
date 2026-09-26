@@ -8,7 +8,7 @@
   },
   "bundles": {
     "content-creation": {
-      "description": "Content creation skills for social, video, newsletters, blogs, and conversion copy",
+      "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, and new-account warmups",
       "skills": [
         "x-content-creator",
         "instagram-content-creator",
@@ -16,17 +16,24 @@
         "youtube-content-creator",
         "newsletter-creator",
         "blog-content-creator",
-        "copywriter"
+        "copywriter",
+        "launch-copy-creator",
+        "x-warmup",
+        "instagram-warmup",
+        "linkedin-warmup",
+        "tiktok-warmup",
+        "youtube-warmup"
       ]
     },
     "content-optimization": {
-      "description": "Content strategy, operations, repurposing, review, SEO, and humanization skills",
+      "description": "Content strategy, operations, repurposing, review, SEO, GEO, and humanization skills",
       "skills": [
         "content-strategist",
         "content-factory-operator",
         "content-atomizer",
         "content-reviewer",
         "content-seo-optimizer",
+        "content-geo-optimizer",
         "humanizer"
       ]
     },
@@ -44,9 +51,11 @@
       "skills": ["internal-comms"]
     },
     "image-visual": {
-      "description": "AI image, video, audio, model selection, and visual brand system skills",
+      "description": "AI image, video, audio, prompt, cinematography, model selection, and visual brand system skills",
       "skills": [
         "image-prompt-engineer",
+        "cinematic-prompting",
+        "prompt-generator",
         "visual-brand-kit",
         "brand-os-architect",
         "model-selector",
