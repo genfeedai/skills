@@ -1,6 +1,6 @@
 # Genfeed Skills - Image Visual Bundle
 
-AI image, video, audio, prompt, cinematography, model selection, and visual brand system skills
+AI image, video, audio, prompt, cinematography, and visual brand system skills
 
 ## Installation
 
@@ -16,5 +16,4 @@ AI image, video, audio, prompt, cinematography, model selection, and visual bran
 - `prompt-generator`
 - `visual-brand-kit`
 - `brand-os-architect`
-- `model-selector`
 - `media-forge`

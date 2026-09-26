@@ -243,7 +243,7 @@ Use the existing Genfeed skills as specialized stations in the factory.
 | Visual system | `visual-brand-kit` |
 | Image prompts | `image-prompt-engineer` |
 | Quality scoring | `content-reviewer` |
-| Genfeed Studio pipeline JSON | `workflow-creator` |
+| Genfeed Studio pipeline | Genfeed app workflow builder |
 
 Do not load every skill at once. Route to the needed station based on the current deliverable.
 
@@ -273,7 +273,7 @@ Output:
 - Outputs:
 - Review gate:
 - Reusable variables:
-- Follow-up skill route: `workflow-creator`
+- Follow-up route: Genfeed app workflow builder
 ```
 
 ### Step 7: Build the Production Queue
@@ -580,7 +580,7 @@ This skill works standalone. When Genfeed platform tools are available, use them
 - Use brand context and top-performing content patterns for voice consistency
 - Use Genfeed Studio workflows for repeatable source-to-asset pipelines
 
-When creating a Studio workflow, route the user to `workflow-creator` after defining the workflow plan.
+When creating a Studio workflow, define the workflow plan here, then build it with the workflow builder in the Genfeed app.
 
 ---
 

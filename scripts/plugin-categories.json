@@ -4,7 +4,7 @@
     "owner": {
       "name": "Genfeed.ai"
     },
-    "description": "AI skills for Genfeed content creation, GTM strategy, advertising, workflow development, and onboarding"
+    "description": "AI skills for Genfeed content creation, optimization, GTM strategy, advertising, and Genfeed integration"
   },
   "bundles": {
     "content-creation": {
@@ -51,14 +51,13 @@
       "skills": ["internal-comms"]
     },
     "image-visual": {
-      "description": "AI image, video, audio, prompt, cinematography, model selection, and visual brand system skills",
+      "description": "AI image, video, audio, prompt, cinematography, and visual brand system skills",
       "skills": [
         "image-prompt-engineer",
         "cinematic-prompting",
         "prompt-generator",
         "visual-brand-kit",
         "brand-os-architect",
-        "model-selector",
         "media-forge"
       ]
     },
@@ -96,17 +95,12 @@
       ]
     },
     "platform-development": {
-      "description": "Genfeed workflow, node, connector, posting, onboarding, scope, and MCP integration skills",
+      "description": "Genfeed content-loop, connector, posting, and brand integration skills",
       "skills": [
-        "workflow-creator",
-        "node-creator",
         "content-loop-orchestrator",
         "genfeed-connector",
         "social-poster",
-        "onboarding",
-        "genfeed-brand-os",
-        "scope-validator",
-        "openclaw-integration"
+        "genfeed-brand-os"
       ]
     },
     "content-loop": {
@@ -125,7 +119,6 @@
         "blog-content-creator",
         "newsletter-creator",
         "ad-copy-creator",
-        "model-selector",
         "image-prompt-engineer",
         "visual-brand-kit",
         "brand-os-architect",

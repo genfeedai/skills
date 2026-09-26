@@ -1,6 +1,6 @@
 # Genfeed Skills
 
-AI-powered skills for Genfeed content creation, optimization, analysis, communications, image and visual systems, advertising, GTM strategy, platform development, and onboarding. Works standalone with any Claude Code setup and works even better with [Genfeed.ai](https://genfeed.ai).
+AI-powered skills for Genfeed content creation, optimization, analysis, communications, image and visual systems, advertising, GTM strategy, and Genfeed integration. Works standalone with any Claude Code setup and works even better with [Genfeed.ai](https://genfeed.ai).
 
 ## Installation
 
@@ -118,7 +118,6 @@ Or install a focused bundle:
 | [cinematic-prompting](./cinematic-prompting/) | Rewrite image and video prompts with precise camera, framing, lighting, and editing vocabulary |
 | [prompt-generator](./prompt-generator/) | Structured JSON image and video prompts with style settings and a recommended model |
 | [visual-brand-kit](./visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
-| [model-selector](./model-selector/) | Choose the right AI model for image, video, and audio generation tasks |
 | [media-forge](./media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |
 | [brand-os-architect](./brand-os-architect/) | Source-backed Brand OS systems for AI-era brands, launch storytelling, visual rules, and generation checklists |
 
@@ -162,14 +161,9 @@ Or install a focused bundle:
 
 | Skill | Description |
 |-------|-------------|
-| [workflow-creator](./workflow-creator/) | Create Genfeed Studio workflows from natural language descriptions |
-| [node-creator](./node-creator/) | Create custom Genfeed nodes with the SDK builder API |
 | [content-loop-orchestrator](./content-loop-orchestrator/) | Operate the executable Genfeed content loop and route each stage to the right skill |
 | [genfeed-connector](./genfeed-connector/) | Detect Genfeed connectivity and provide the content-loop state, token, manifest, and feedback seam |
 | [social-poster](./social-poster/) | Publish approved derivatives to X or LinkedIn with a dry-run-by-default approval gate |
-| [onboarding](./onboarding/) | Genfeed onboarding focused on first content creation in under 10 minutes |
-| [scope-validator](./scope-validator/) | Classify Genfeed feature requests as OSS Core or Cloud SaaS scope |
-| [openclaw-integration](./openclaw-integration/) | Pointer to [genfeedai/agent](https://github.com/genfeedai/agent), the maintained skill and MCP install paths |
 | [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
 
 ## Genfeed Integration

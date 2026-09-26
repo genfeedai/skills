@@ -43,7 +43,7 @@ Every downstream skill talks to the world only through this seam, so the routing
 | **brief** | `content-strategist`, `content-factory-operator` | instruction | turn the chosen trend + thesis into a brief |
 | **remix** | `content-atomizer` | instruction | one thesis → many platform-specific derivatives |
 | **produce (copy)** | `x-content-creator`, `linkedin-content-creator`, `instagram-content-creator`, `youtube-content-creator`, `blog-content-creator`, `newsletter-creator`, `ad-copy-creator` | instruction | write the actual copy per platform |
-| **produce (media)** | `model-selector` → `image-prompt-engineer` / `visual-brand-kit` → `media-forge` | instruction → worker | pick a model, craft the prompt, then generate the file |
+| **produce (media)** | `image-prompt-engineer` / `cinematic-prompting` / `visual-brand-kit` → `media-forge` | instruction → worker | craft the prompt, choose the model, then generate the file |
 | **review** | `content-reviewer`, `content-seo-optimizer` | instruction | score quality/SEO and run the publish-readiness gate; below threshold or gate fail → back to produce |
 | **approve** | human / genfeed UI | gate | explicit sign-off before anything public |
 | **post** | `social-poster` | worker | publish on `--confirm`; dry run otherwise |
@@ -81,7 +81,7 @@ Sibling skills are resolved relative to the orchestrator (`../../<skill>/...`), 
    - **Select/brief** — apply `content-strategist`; `gf transition <id> briefed`.
    - **Remix** — apply `content-atomizer` to produce per-platform derivatives; `gf transition <id> remixed`.
    - **Produce copy** — route each derivative to its `*-content-creator`.
-   - **Produce media** — `model-selector` → `image-prompt-engineer` → `media-forge`; attach artifacts; `gf transition <id> producing`.
+   - **Produce media** — `image-prompt-engineer` → `media-forge`; attach artifacts; `gf transition <id> producing`.
    - **Review** — `content-reviewer` (+ `content-seo-optimizer`). Below bar or publish-readiness gate fails → revise. At bar with gate PASS → `gf transition <id> awaiting_approval`.
    - **Approve** — show the user the reviewed copy and the `social-poster` **dry run**. On an explicit yes → `gf transition <id> approved`.
    - **Post** — `social-poster --confirm`; record `postId` on the derivative; `gf transition <id> posted`.
