@@ -76,6 +76,12 @@ Or install a focused bundle:
 | [newsletter-creator](./newsletter-creator/) | Newsletter editions with subject lines, editorial structures, and growth tactics |
 | [blog-content-creator](./blog-content-creator/) | SEO-optimized blog posts, guides, and long-form articles |
 | [copywriter](./copywriter/) | Non-ad conversion copy for landing pages, CTAs, value propositions, pricing pages, onboarding, and microcopy |
+| [launch-copy-creator](./launch-copy-creator/) | Show HN titles, Product Hunt taglines, and maker first comments that respect each community's norms |
+| [x-warmup](./x-warmup/) | Evidence-backed X account warmup with engagement plans, reply strategy, and warmup threads |
+| [instagram-warmup](./instagram-warmup/) | Instagram account warmup with engagement plans, Stories strategy, and first Reel and carousel briefs |
+| [linkedin-warmup](./linkedin-warmup/) | LinkedIn account warmup with comment-first engagement, SSI-building, and a first story post |
+| [tiktok-warmup](./tiktok-warmup/) | Transparent 5-7 day TikTok warm-up with native engagement and gradual first uploads |
+| [youtube-warmup](./youtube-warmup/) | YouTube channel warmup with engagement plans, warmup Shorts, SEO setup, and post-warmup assessment |
 
 ## Content Optimization
 
@@ -86,6 +92,7 @@ Or install a focused bundle:
 | [content-atomizer](./content-atomizer/) | Repurpose one source asset into platform-native derivatives |
 | [content-reviewer](./content-reviewer/) | Quality review with six-dimension scoring and publish-readiness gates |
 | [content-seo-optimizer](./content-seo-optimizer/) | SEO scoring and search optimization for content drafts |
+| [content-geo-optimizer](./content-geo-optimizer/) | GEO scoring, citation-ready rewrites, source attribution, and schema recommendations for answer engines |
 | [humanizer](./humanizer/) | Rewrite AI-generated drafts to sound natural while preserving meaning and voice |
 
 ## Content Analysis
@@ -108,6 +115,8 @@ Or install a focused bundle:
 | Skill | Description |
 |-------|-------------|
 | [image-prompt-engineer](./image-prompt-engineer/) | Optimized prompts for AI image and short video generation across major visual models |
+| [cinematic-prompting](./cinematic-prompting/) | Rewrite image and video prompts with precise camera, framing, lighting, and editing vocabulary |
+| [prompt-generator](./prompt-generator/) | Structured JSON image and video prompts with style settings and a recommended model |
 | [visual-brand-kit](./visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
 | [model-selector](./model-selector/) | Choose the right AI model for image, video, and audio generation tasks |
 | [media-forge](./media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |

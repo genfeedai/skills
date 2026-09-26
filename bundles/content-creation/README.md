@@ -1,6 +1,6 @@
 # Genfeed Skills - Content Creation Bundle
 
-Content creation skills for social, video, newsletters, blogs, and conversion copy
+Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, and new-account warmups
 
 ## Installation
 
@@ -18,3 +18,9 @@ Content creation skills for social, video, newsletters, blogs, and conversion co
 - `newsletter-creator`
 - `blog-content-creator`
 - `copywriter`
+- `launch-copy-creator`
+- `x-warmup`
+- `instagram-warmup`
+- `linkedin-warmup`
+- `tiktok-warmup`
+- `youtube-warmup`

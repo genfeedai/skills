@@ -1,6 +1,6 @@
 # Genfeed Skills - Content Optimization Bundle
 
-Content strategy, operations, repurposing, review, SEO, and humanization skills
+Content strategy, operations, repurposing, review, SEO, GEO, and humanization skills
 
 ## Installation
 
@@ -16,4 +16,5 @@ Content strategy, operations, repurposing, review, SEO, and humanization skills
 - `content-atomizer`
 - `content-reviewer`
 - `content-seo-optimizer`
+- `content-geo-optimizer`
 - `humanizer`

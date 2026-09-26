@@ -13,12 +13,12 @@
     {
       "name": "genfeedai-content-creation",
       "source": "./bundles/content-creation",
-      "description": "Content creation skills for social, video, newsletters, blogs, and conversion copy"
+      "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, and new-account warmups"
     },
     {
       "name": "genfeedai-content-optimization",
       "source": "./bundles/content-optimization",
-      "description": "Content strategy, operations, repurposing, review, SEO, and humanization skills"
+      "description": "Content strategy, operations, repurposing, review, SEO, GEO, and humanization skills"
     },
     {
       "name": "genfeedai-content-analysis",
@@ -33,7 +33,7 @@
     {
       "name": "genfeedai-image-visual",
       "source": "./bundles/image-visual",
-      "description": "AI image, video, audio, model selection, and visual brand system skills"
+      "description": "AI image, video, audio, prompt, cinematography, model selection, and visual brand system skills"
     },
     {
       "name": "genfeedai-advertising",
