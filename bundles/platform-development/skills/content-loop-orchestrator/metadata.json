@@ -26,7 +26,7 @@
     "content-strategist": "select/brief stage",
     "content-reviewer": "review gate",
     "content-seo-optimizer": "review gate (SEO)",
-    "model-selector": "media model choice",
+    "cinematic-prompting": "media prompt camera and lighting vocabulary",
     "image-prompt-engineer": "media prompt craft"
   },
   "outputs": ["json", "cli"],

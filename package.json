@@ -1,5 +1,5 @@
 {
-  "description": "AI skills for Genfeed - content creation, optimization, analysis, communications, image and visual systems, advertising, GTM strategy, platform development, and onboarding",
+  "description": "AI skills for Genfeed - content creation, optimization, analysis, communications, image and visual systems, advertising, GTM strategy, and Genfeed integration",
   "devDependencies": {
     "@biomejs/biome": "2.3.11",
     "husky": "9.1.7",

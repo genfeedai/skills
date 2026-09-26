@@ -15,7 +15,7 @@ function getBundleEntries() {
   return {
     all: {
       description:
-        'All Genfeed skills for content creation, GTM strategy, advertising, workflow development, and onboarding',
+        'All Genfeed skills for content creation, optimization, GTM strategy, advertising, and Genfeed integration',
     },
     ...CATEGORIES.bundles,
   };

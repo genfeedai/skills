@@ -1,7 +1,7 @@
 {
   "name": "genfeedai-platform-development",
   "version": "1.0.0",
-  "description": "Genfeed workflow, node, connector, posting, onboarding, scope, and MCP integration skills",
+  "description": "Genfeed content-loop, connector, posting, and brand integration skills",
   "author": "genfeedai",
   "license": "MIT",
   "skills": {

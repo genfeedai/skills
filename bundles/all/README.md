@@ -1,6 +1,6 @@
 # Genfeed Skills - All Bundle
 
-All Genfeed skills for content creation, GTM strategy, advertising, workflow development, and onboarding
+All Genfeed skills for content creation, optimization, GTM strategy, advertising, and Genfeed integration
 
 ## Installation
 
@@ -48,20 +48,15 @@ All Genfeed skills for content creation, GTM strategy, advertising, workflow dev
 - `linkedin-content-creator`
 - `linkedin-warmup`
 - `media-forge`
-- `model-selector`
 - `newsletter-creator`
-- `node-creator`
 - `offer-architect`
 - `offer-validator`
-- `onboarding`
-- `openclaw-integration`
 - `outbound-optimizer`
 - `partnership-builder`
 - `positioning-angles`
 - `pricing-strategist`
 - `prompt-generator`
 - `retention-engine`
-- `scope-validator`
 - `search-domain-validator`
 - `social-poster`
 - `startup-icp-definer`
@@ -71,7 +66,6 @@ All Genfeed skills for content creation, GTM strategy, advertising, workflow dev
 - `traffic-validator`
 - `trend-scout`
 - `visual-brand-kit`
-- `workflow-creator`
 - `x-content-creator`
 - `x-warmup`
 - `youtube-content-creator`

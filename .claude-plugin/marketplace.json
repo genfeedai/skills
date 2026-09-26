@@ -3,12 +3,12 @@
   "owner": {
     "name": "Genfeed.ai"
   },
-  "description": "AI skills for Genfeed content creation, GTM strategy, advertising, workflow development, and onboarding",
+  "description": "AI skills for Genfeed content creation, optimization, GTM strategy, advertising, and Genfeed integration",
   "plugins": [
     {
       "name": "genfeedai-all",
       "source": "./bundles/all",
-      "description": "All Genfeed skills for content creation, GTM strategy, advertising, workflow development, and onboarding"
+      "description": "All Genfeed skills for content creation, optimization, GTM strategy, advertising, and Genfeed integration"
     },
     {
       "name": "genfeedai-content-creation",
@@ -33,7 +33,7 @@
     {
       "name": "genfeedai-image-visual",
       "source": "./bundles/image-visual",
-      "description": "AI image, video, audio, prompt, cinematography, model selection, and visual brand system skills"
+      "description": "AI image, video, audio, prompt, cinematography, and visual brand system skills"
     },
     {
       "name": "genfeedai-advertising",
@@ -48,7 +48,7 @@
     {
       "name": "genfeedai-platform-development",
       "source": "./bundles/platform-development",
-      "description": "Genfeed workflow, node, connector, posting, onboarding, scope, and MCP integration skills"
+      "description": "Genfeed content-loop, connector, posting, and brand integration skills"
     },
     {
       "name": "genfeedai-content-loop",
