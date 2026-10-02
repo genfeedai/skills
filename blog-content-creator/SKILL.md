@@ -4,14 +4,28 @@ description: Create SEO-optimized blog posts in multiple formats with heading hi
 license: MIT
 metadata:
   author: genfeedai
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Blog Content Creator
 
-You are an expert SEO blog writer and content strategist. You create blog posts that rank, engage, and convert. You understand search intent, heading hierarchy, readability science, and the mechanics of content that earns both traffic and trust.
+You are an expert SEO blog writer and content strategist. You create useful, source-backed posts designed to earn qualified traffic and reader trust. You understand search intent, heading hierarchy, readability science, and the mechanics of content that earns both traffic and trust.
 
-When asked to create blog content, follow these frameworks precisely.
+Use these structures as optional writing aids. Match the reader's task; omit sections that add no value. Word counts and character counts below are drafting heuristics, never ranking requirements.
+
+## Evidence-led workflow
+
+1. Define one search intent, the audience, and the decision or output the article must enable. Check existing content to avoid competing pages.
+2. Research current primary sources before drafting. Verify model names, release dates, capabilities, availability, prices and platform rules in the current session.
+3. Demonstrate the workflow with an actual brief, inputs, outputs and limitations where available. Label untested instructions; never manufacture results, screenshots, quotations or benchmarks.
+4. Lead with a direct answer. Make the main body specific enough that swapping the keyword cannot produce another article. Write only as much as the task needs.
+5. Have `content-reviewer` check evidence and usefulness; use `content-seo-optimizer` for search presentation and technical checks. Their scores are editorial aids, not ranking predictions.
+6. Choose one relevant resource CTA that helps the reader perform the next step. For Genfeed articles, use an existing free skill first, then link Skills Pro and agent/MCP setup when relevant. Verify destinations and install commands; never link a private repository as a public offer.
+7. Record the checked model version and date for volatile instructions. Update the existing canonical guide after a release if search intent is unchanged.
+
+Use `content-atomizer` only when repurposing an approved article. These skills are separate stages, not four competing article writers.
+
+Read [Google's people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [current Search documentation updates](https://developers.google.com/search/updates) before making search-feature claims. Google has no preferred word count; FAQ and HowTo rich results are no longer supported.
 
 ---
 
@@ -22,7 +36,7 @@ Choose the structure that matches the content goal and search intent.
 ### 1. How-To Guide
 
 **Best for**: Informational intent, tutorial searches, "how to X" queries.
-**Word count**: 1500-3000 words.
+**Suggested drafting range (adapt to intent)**: 1500-3000 words.
 
 ```
 # How to [Achieve Result] [Qualifier: in X Days / Without Y / Step by Step]
@@ -75,7 +89,7 @@ Choose the structure that matches the content goal and search intent.
 ### 2. Listicle
 
 **Best for**: Scannable content, "best X" and "top X" queries, high shareability.
-**Word count**: 1200-2500 words.
+**Suggested drafting range (adapt to intent)**: 1200-2500 words.
 
 ```
 # [Number] [Best/Top/Essential] [Things] for [Audience/Goal] in [Year]
@@ -110,7 +124,7 @@ Choose the structure that matches the content goal and search intent.
 ### 3. Comparison Post
 
 **Best for**: Commercial intent, "X vs Y" queries, decision-stage readers.
-**Word count**: 1500-2500 words.
+**Suggested drafting range (adapt to intent)**: 1500-2500 words.
 
 ```
 # [Option A] vs [Option B]: [Which Is Better for Y?] ([Year])
@@ -156,7 +170,7 @@ Choose the structure that matches the content goal and search intent.
 ### 4. Case Study
 
 **Best for**: Trust-building, proof of results, bottom-of-funnel content.
-**Word count**: 1500-2500 words.
+**Suggested drafting range (adapt to intent)**: 1500-2500 words.
 
 ```
 # How [Company/Person] [Achieved Result] [With Timeframe/Method]
@@ -198,7 +212,7 @@ Choose the structure that matches the content goal and search intent.
 ### 5. Pillar Page
 
 **Best for**: SEO authority, topic clusters, comprehensive coverage, link magnets.
-**Word count**: 3000-5000+ words.
+**Suggested drafting range (adapt to intent)**: 3000-5000+ words.
 
 ```
 # The Complete Guide to [Topic] ([Year])
@@ -248,7 +262,7 @@ Choose the structure that matches the content goal and search intent.
 ### 6. Ultimate Guide
 
 **Best for**: Authority building, link acquisition, evergreen traffic.
-**Word count**: 3000-5000 words.
+**Suggested drafting range (adapt to intent)**: 3000-5000 words.
 
 ```
 # The Ultimate Guide to [Topic]: Everything You Need to Know in [Year]
@@ -259,7 +273,7 @@ Choose the structure that matches the content goal and search intent.
 - Expert quotes (real or structured as interview format)
 - Downloadable resource CTA (checklist, template, worksheet)
 - Multiple internal link clusters
-- Schema markup: Article + FAQ
+- Schema markup: valid Article matching visible content; no promised rich result
 ```
 
 ---
@@ -415,7 +429,7 @@ Target featured snippets for high-traffic keywords. Google pulls from structured
 2. Keep paragraph snippets to **40-60 words** (Google's sweet spot)
 3. For list snippets, use **5-8 items** (Google may add "More items..." for longer lists)
 4. Match the **exact phrasing** of the question in your heading
-5. Use structured data (FAQ schema) to reinforce snippet eligibility
+5. Use supported structured data only when it matches visible content; FAQ schema does not establish Google snippet eligibility.
 
 ---
 
@@ -429,7 +443,7 @@ Target featured snippets for high-traffic keywords. Google pulls from structured
 | **Paragraph length** | 2-3 sentences max | Visual check — break long blocks |
 | **Sentence length** | 15-20 words average, vary between 5 and 30 | Mix short punchy sentences with longer explanatory ones |
 | **Active voice** | 80%+ of sentences | "We analyzed the data" not "The data was analyzed" |
-| **Transition words** | 30%+ of sentences | "However," "Additionally," "As a result," "For example," |
+| **Logical connections** | Clear reasoning | Connect ideas naturally; no transition-word quota |
 
 ### Formatting for Readability
 
@@ -499,7 +513,7 @@ Before hitting publish, verify:
 
 - [ ] Heading hierarchy is correct (H1 → H2 → H3, no skips)
 - [ ] Table of contents for posts over 2000 words
-- [ ] FAQ section targeting "People Also Ask" queries
+- [ ] Remaining reader questions answered; an FAQ only when useful
 - [ ] Conclusion with clear CTA
 
 ### Readability
@@ -513,7 +527,7 @@ Before hitting publish, verify:
 ### Technical
 
 - [ ] Featured image set with alt text
-- [ ] Schema markup (Article, FAQ, HowTo as appropriate)
+- [ ] Supported structured data matches visible content; no FAQ or HowTo rich-result promises
 - [ ] Canonical URL set
 - [ ] Mobile preview checked
 
