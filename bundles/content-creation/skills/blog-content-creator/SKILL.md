@@ -307,7 +307,7 @@ The first 2-3 sentences determine whether the reader stays or bounces.
 
 | Type | Pattern | Example |
 |------|---------|---------|
-| **Startling stat** | "[Surprising number] of [audience] [do/don't thing]." | "73% of blog posts get zero organic traffic. Here's how to be in the other 27%." |
+| **Startling stat** | "[Surprising number] of [audience] [do/don't thing]." | "[Verified share] of [defined sample] had [observed outcome], according to [source and date]." |
 | **Provocative question** | "What if [commonly held belief] was actually wrong?" | "What if everything you know about keyword density is wrong?" |
 | **Relatable scenario** | "You've just [common frustrating experience]..." | "You've just spent 4 hours writing a blog post. You hit publish. Nothing happens." |
 | **Bold claim** | "[Contrarian statement]. Here's why." | "Blog post length doesn't matter for SEO. Here's what actually does." |
@@ -571,7 +571,7 @@ If you have access to Genfeed tools, use them for enhanced results:
 
 **Intro**:
 
-> 73% of top-ranking blog posts follow a clear outline before writing begins.
+> A clear outline helps you check whether each section answers the reader’s question before you draft.
 >
 > Yet most writers skip this step — jumping straight into drafting, hitting a wall at 400 words, and spending twice as long rearranging paragraphs that never quite flow.
 >
@@ -585,10 +585,10 @@ If you have access to Genfeed tools, use them for enhanced results:
 >
 > Hemingway Editor highlights complex sentences, passive voice, and dense paragraphs — the three biggest killers of blog readability.
 >
-> Paste in your draft and you'll get a readability grade, color-coded highlights for problem areas, and a word count. The free web version handles most needs; the desktop app ($19.99 one-time) adds direct publishing to WordPress and Medium.
+> Paste in your draft and you'll get a readability grade, color-coded highlights for problem areas, and a word count. Verify the current free and paid plans, supported features, and prices on the vendor’s website before recommending an option.
 >
 > **Best for**: Writers who tend toward academic or complex prose.
-> **Price**: Free (web) / $19.99 (desktop).
+> **Price**: [Verified plan, price, source URL and check date].
 > **Limitation**: Doesn't check grammar or spelling — pair with Grammarly.
 
 ---
