@@ -171,7 +171,7 @@ Or install a focused bundle:
 Every skill works standalone. When used inside a Genfeed workspace, skills can detect platform tools for enhanced results:
 
 - `create_post` - draft content directly into the platform
-- `generate_image` - generate images with the recommended model
+- `generate` - generate images, video, voice, or music (`type: image|video|voice|music`) with the recommended model
 - `rate_content` - score content quality
 - `generate_ad_pack` - assemble full ad creatives
 - Brand context and top-performing content patterns are used for voice consistency
