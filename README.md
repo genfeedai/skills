@@ -65,6 +65,22 @@ Or install a focused bundle:
 /plugin install genfeedai-content-loop@genfeedai
 ```
 
+## Genfeed Plugin (skills + MCP server)
+
+`plugins/genfeed/` packages twelve MCP-aware content skills together with the remote Genfeed MCP
+server (`https://mcp.genfeed.ai/mcp`), so an assistant can plan, draft, generate and schedule content
+from your Genfeed brand. Nothing is scheduled or published without explicit confirmation. The folder
+serves two formats from one `skills/` tree: Agent Plugins 1.0 (`plugin.json`, `mcp.json`) for ChatGPT,
+Codex, Copilot and Cursor, and a Claude plugin (`.claude-plugin/plugin.json`, `.mcp.json`).
+
+```bash
+/plugin marketplace add genfeedai/skills
+/plugin install genfeed@genfeedai
+```
+
+See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list, and
+[plugins/genfeed/LISTING.md](./plugins/genfeed/LISTING.md) for directory submission copy.
+
 ## Content Creation
 
 | Skill | Description |
