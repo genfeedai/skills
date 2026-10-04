@@ -25,3 +25,4 @@ Turn a real experience or point of view into LinkedIn drafts with a clear openin
 - Never publish or schedule without explicit confirmation of the exact text, account, and time. Use the `social-poster` skill for that.
 - Do not fabricate results, client names, or numbers. Use placeholders such as [metric] when the user has not supplied one.
 - Generating an article spends more credits than a post; say so and confirm before generating several.
+- When saving with `create_post`, pass only the text (and `platforms`, `mediaUrls`). Never pass `scheduledAt`, `targets`, `contentId`, `ingredientId` or `confirmed`, and only save when the user asks you to keep the draft.

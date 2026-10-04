@@ -43,7 +43,7 @@ TODO (needs the live product). Add 3 to 5 square PNG, JPEG, WebP or SVG files (m
 
 1. `screenshot-1-plan.png`: a content calendar plan with highlighted gap days (content-strategist).
 2. `screenshot-2-drafts.png`: three X post options in the brand voice (x-content-creator).
-3. `screenshot-3-cost.png`: the credit estimate shown before an image is generated (media-forge).
+3. `screenshot-3-cost.png`: the credit estimate (or an unknown-cost notice) shown before an image is generated (media-forge).
 4. `screenshot-4-confirm.png`: the scheduling confirmation summary before anything is scheduled (social-poster).
 5. `screenshot-5-repurpose.png`: one post turned into LinkedIn and Instagram drafts (content-atomizer).
 
@@ -57,7 +57,7 @@ Positive:
 
 1. Description: plan a week. Prompt: "Plan next week's content for my brand and show gaps in my calendar." Expected tools: `get_brands`, `get_posts`. Expected behavior: asks which brand if several, shows a slot table with the empty days marked, generates nothing until approved.
 2. Description: draft X options. Prompt: "Write three X post options about our product launch in my brand voice." Expected tools: `get_brands`, `generate_content`. Expected behavior: three variations on platform twitter; nothing posted.
-3. Description: cost before media. Prompt: "Make a 16:9 image of a product on a desk and tell me the cost first." Expected tools: `get_generation_options`, then `generate` and `get_job_status` only after the user agrees. Expected behavior: shows the credit estimate and waits.
+3. Description: cost before media. Prompt: "Make a 16:9 image of a product on a desk and tell me the cost first." Expected tools: `get_generation_options`, then `generate` and `get_job_status` only after the user agrees. Expected behavior: shows the credit estimate for a named model, or says the cost is unknown when Genfeed would pick the model, and waits for a yes.
 4. Description: repurpose. Prompt: "Turn my latest post into a LinkedIn draft." Expected tools: `get_posts`, `repurpose_post`. Expected behavior: creates a draft in the review queue, does not publish.
 5. Description: confirmed scheduling. Prompt: "Schedule this post for tomorrow 9am on my connected X account." Expected tools: `list_brand_publishing_readiness`, `get_scheduler_capabilities`, `validate_scheduler_target`, then `create_scheduled_release` only after an explicit yes. Expected behavior: shows a confirmation summary and asks "Confirm?" first.
 
@@ -77,9 +77,9 @@ The listing is read from `.claude-plugin/plugin.json` and `README.md`, so there 
 | Repository | `genfeedai/skills` (must be public before the listing goes live) |
 | Plugin path | `plugins/genfeed` |
 | Branch or tag | `master` (or leave empty for the default branch) |
-| Name | `{c['name']}` (permanent) |
-| Display name | {c['displayName']} |
-| Description | {c['description']} |
+| Name | `genfeed` (permanent) |
+| Display name | Genfeed |
+| Description | Plan, write, generate and schedule social content from your Genfeed brand. Bundles the Genfeed MCP server with content skills for X, LinkedIn, Instagram, YouTube and newsletters, and asks for confirmation before anything is scheduled or published. |
 | License | MIT (`LICENSE` in the plugin folder) |
 | Listing description | `README.md` (about 500 words, shown as the directory description) |
 

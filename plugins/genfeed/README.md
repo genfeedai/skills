@@ -27,7 +27,7 @@ The assistant reads your brand profile with `get_brands` and uses it for tone. I
 
 ## Safety
 
-Nothing is scheduled or published until you confirm the exact text, account and time. Drafts are the default. Image and video generation shows a credit estimate first. Pausing or cancelling a scheduled post never needs a second prompt.
+Nothing is scheduled or published until you confirm the exact text, account and time. Drafts are the default. Image and video generation shows a credit estimate first, or says the cost is unknown, and waits for your yes. Pausing or cancelling a scheduled post never needs a second prompt.
 
 ## Data
 

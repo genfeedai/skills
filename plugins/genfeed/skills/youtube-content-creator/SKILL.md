@@ -17,7 +17,7 @@ Package a video idea so it earns the click and holds attention.
 2. Ask for the video's promise (what the viewer gets), the audience, and the length. If the user has an outline or transcript, work from it.
 3. `generate_content` with `{type: "script", platform: "youtube", topic, brandId}` for a script or Short. Use `{type: "caption", platform: "youtube", variationsCount: 5}` for title and description options. Tighten the output yourself: a hook inside the first ten seconds, one idea per section, and a payoff that matches the title.
 4. Build chapters from the script sections with timestamps the user will confirm after editing; do not invent timestamps for footage that does not exist yet.
-5. Thumbnail: use the `image-prompt-engineer` skill to write the prompt, check cost with `get_generation_options` (`{type: "image"}`), get approval, then `generate` with `{type: "image", prompt, aspectRatio: "16:9", brandId}` and poll `get_job_status`.
+5. Thumbnail: use the `image-prompt-engineer` skill to write the prompt, check cost with `get_generation_options` (`{type: "image", brandId, modelKey}`; `modelKey` only if the user named a model, otherwise `credits` is null and the cost is unknown, which you must tell the user), get approval, then `generate` with `{type: "image", prompt, aspectRatio: "16:9", brandId, model}` using the same model you quoted, and poll `get_job_status`.
 6. To keep text as a draft, `create_post` with `{content, platforms: ["youtube"]}`.
 
 ## Rules
@@ -25,3 +25,4 @@ Package a video idea so it earns the click and holds attention.
 - Titles must not promise something the video does not deliver.
 - Never publish or schedule without explicit confirmation. Use `social-poster`.
 - Do not state view counts, revenue, or algorithm claims as fact.
+- When saving with `create_post`, pass only the text (and `platforms`, `mediaUrls`). Never pass `scheduledAt`, `targets`, `contentId`, `ingredientId` or `confirmed`, and only save when the user asks you to keep the draft.

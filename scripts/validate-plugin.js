@@ -38,6 +38,11 @@ const claude = readJson('.claude-plugin/plugin.json');
 const portableMcp = readJson('mcp.json');
 const claudeMcp = readJson('.mcp.json');
 
+if (existsSync(join(PLUGIN, 'LISTING.md'))) {
+  const listing = readFileSync(join(PLUGIN, 'LISTING.md'), 'utf8');
+  if (/\{[a-z]\['|\$\{/.test(listing)) fail('LISTING.md contains unfilled template placeholders');
+}
+
 for (const required of ['README.md', 'LICENSE', 'LISTING.md']) {
   if (!existsSync(join(PLUGIN, required))) fail(`missing ${required}`);
 }
