@@ -3,7 +3,7 @@
   "mcpServers": {
     "genfeed": {
       "type": "streamable-http",
-      "url": "https://mcp.genfeed.ai/mcp"
+      "url": "https://mcp.genfeed.ai/mcp?profile=full"
     }
   }
 }
