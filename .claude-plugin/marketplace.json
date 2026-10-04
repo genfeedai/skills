@@ -54,6 +54,11 @@
       "name": "genfeedai-content-loop",
       "source": "./bundles/content-loop",
       "description": "End-to-end Genfeed content loop skills for sensing trends, producing assets, reviewing, posting, measuring, and iterating"
+    },
+    {
+      "name": "genfeed",
+      "source": "./plugins/genfeed",
+      "description": "Genfeed content skills plus the Genfeed MCP server: plan, write, generate and schedule social content, with confirmation before anything is posted"
     }
   ]
 }
