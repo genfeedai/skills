@@ -14,7 +14,8 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PLUGIN = join(ROOT, 'plugins', 'genfeed');
-const MCP_URL = 'https://mcp.genfeed.ai/mcp';
+// The plugin bundles the full toolset; the directory connector keeps the bare URL.
+const MCP_URL = 'https://mcp.genfeed.ai/mcp?profile=full';
 
 const issues = [];
 const fail = (message) => issues.push(message);

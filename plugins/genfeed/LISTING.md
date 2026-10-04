@@ -19,7 +19,7 @@ Package: this folder (`plugins/genfeed/`). Manifest: `plugin.json`. MCP: `mcp.js
 | Privacy policy | https://genfeed.ai/privacy |
 | Terms of service | https://genfeed.ai/terms |
 | Support | https://genfeed.ai/contact |
-| MCP server | `https://mcp.genfeed.ai/mcp` (streamable HTTP, OAuth) |
+| MCP server | `https://mcp.genfeed.ai/mcp?profile=full` (streamable HTTP, OAuth; full toolset) |
 | Brand colour | #0A0A0A (light) and `#FFFFFF` (dark) |
 | Logo | `assets/logo.svg` (mark in `#0A0A0A`, for light backgrounds) |
 | Logo, dark | `assets/logo-dark.svg` (mark in `#FFFFFF`, for dark backgrounds) |
@@ -89,7 +89,7 @@ The listing is read from `.claude-plugin/plugin.json` and `README.md`, so there 
   Genfeed server it reads the user's brand profiles, content calendar and library assets, and sends
   the user's prompts and drafts to Genfeed. Genfeed stores them under the user's own Genfeed account.
 - Sends data to services other than its declared connectors: no. The only server is
-  `https://mcp.genfeed.ai/mcp`.
+  `https://mcp.genfeed.ai/mcp?profile=full` (the same Genfeed server, full toolset).
 - Retention: handled by the user's Genfeed account and the Genfeed privacy policy
   (https://genfeed.ai/privacy). The plugin itself keeps nothing.
 - Intended for people under 18: no.
@@ -100,4 +100,5 @@ Anthropic asks that a plugin's remote MCP server be submitted separately as an *
 (same URL, `https://mcp.genfeed.ai/mcp`), then paired with this plugin. Do that submission first or
 alongside. In the monorepo's toolset profiles (`packages/actions/src/registry/toolset-profiles.ts`) the `directory` profile excludes the generation toolset, so `media-forge` and
 `image-prompt-engineer` rely on the unrestricted server connection and may not work for people who
-install only the directory connector.
+install only the directory connector. The plugin itself connects with `?profile=full`, so its
+bundled skills get the generation, trends and publishing-readiness tools.
