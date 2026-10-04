@@ -1,6 +1,6 @@
 ---
 name: youtube-content-creator
-description: Use when the user wants help with a YouTube video or Short: a script, title options, description, chapters, or a thumbnail concept. Writes the text through Genfeed and generates a thumbnail image only after the user approves the cost.
+description: Use when the user wants help with a YouTube video or Short, such as a script, title options, a description, chapters, or a thumbnail concept. Writes the text through Genfeed and generates a thumbnail image only after the user approves the cost.
 license: MIT
 metadata:
   author: genfeedai

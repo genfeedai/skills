@@ -116,6 +116,9 @@ for (const name of skillNames) {
   if (!description.startsWith('Use when')) {
     fail(`skills/${name}: description must start with "Use when" and name the user's situation`);
   }
+  if (/: | #/.test(description)) {
+    fail(`skills/${name}: description has ": " or " #", which breaks plain YAML; reword it`);
+  }
   if (description.length > 1024) fail(`skills/${name}: description over 1024 characters`);
   if (!/never publish|never schedule|no send tool|only reads|never saves/i.test(text)) {
     fail(`skills/${name}: must state its no-publish-without-confirmation rule`);
