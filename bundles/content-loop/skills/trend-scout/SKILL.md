@@ -94,7 +94,7 @@ jq -c '.signals[]' trends.json | while read -r sig; do
 done
 ```
 
-trend-scout finds and scores; the connector remembers and re-ranks; the orchestrator decides. Keeping those three concerns in separate skills is what lets the factory run standalone or backed by genfeed.ai without changing this worker.
+trend-scout finds and scores; the connector remembers and re-ranks; the orchestrator decides. Keeping those three concerns in separate skills means this worker never holds state or a schedule.
 
 ---
 

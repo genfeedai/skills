@@ -1,26 +1,25 @@
-// Standalone backend — content factory state on the local filesystem.
+// Local backend — content factory state on the local filesystem.
 //
 // Layout (relative to the repo where skills run):
 //   .genfeed/
-//     ctx.json            resolved runtime context (written by detect.ts)
 //     items/<id>.json     one ContentItem per file
 //     artifacts/          generated media files (media-forge writes here)
 //
-// No database, no network. Survives only as long as the working directory does —
-// which is exactly the standalone limitation the connected (api) backend removes.
+// No database, no network. State survives only as long as the working directory
+// does; commit or back up `.genfeed/items/` if the loop history matters.
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Backend, JobFilter } from './adapter.ts';
-import { STATE_DIR } from './detect.ts';
 import { assertContentItem, type ContentItem, nowIso } from './schema.ts';
+
+export const STATE_DIR = '.genfeed';
 
 function itemsDir(cwd: string): string {
   return join(cwd, STATE_DIR, 'items');
 }
 
 export class LocalBackend implements Backend {
-  readonly mode = 'standalone' as const;
   private readonly cwd: string;
 
   constructor(cwd: string = process.cwd()) {
@@ -61,7 +60,7 @@ export class LocalBackend implements Backend {
   }
 
   /**
-   * Token resolution in standalone mode reads from the environment ONLY.
+   * Token resolution reads from the environment ONLY.
    * Secrets are never written to .genfeed or any file. Returns null if absent so
    * the caller can fail with a clear "set X_ACCESS_TOKEN" message.
    */
@@ -72,7 +71,7 @@ export class LocalBackend implements Backend {
   }
 }
 
-/** Maps a platform to the env var a standalone user is expected to export. */
+/** Maps a platform to the env var the user is expected to export. */
 export const TOKEN_ENV: Record<string, string> = {
   x: 'X_BEARER_TOKEN',
   twitter: 'X_BEARER_TOKEN',

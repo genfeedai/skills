@@ -24,6 +24,7 @@ This MIT repository is the free Genfeed skills catalogue. It stays focused on br
 installable skills that are useful without a paid Genfeed account:
 
 - Platform-native creation for X, Instagram, LinkedIn, YouTube, newsletters, and blogs.
+- Account warmup plans for X, Instagram, LinkedIn, TikTok, and YouTube.
 - Content optimization, SEO, atomization, review, analytics collection, and humanization.
 - Image, visual, advertising, GTM, and platform-development skills that are reusable across
   normal content workflows.
@@ -33,14 +34,14 @@ installable skills that are useful without a paid Genfeed account:
 Skills Pro is the paid operating layer sold through Genfeed. Keep the following out of this
 public MIT repo:
 
-- Account warmup systems for X, Instagram, LinkedIn, TikTok, and YouTube.
 - Source-to-brief systems, brand memory, model routing, production queues, approval packets,
   performance loops, eval rubrics, client reports, and subscription deliverables.
 - Private packaging, licensed bundle registries, receipt verification, download URLs, and
   paid customer setup copy.
 
-The current decision is that warmup skills belong in `genfeedai/skills-pro`, not in this
-public repo.
+The warmup skills (`x-warmup`, `instagram-warmup`, `linkedin-warmup`, `tiktok-warmup`, and
+`youtube-warmup`) are free, MIT-licensed skills published here and included in the
+`genfeedai-content-creation` and `genfeedai-all` bundles.
 
 ## Claude Marketplace
 
@@ -178,7 +179,7 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 | Skill | Description |
 |-------|-------------|
 | [content-loop-orchestrator](./content-loop-orchestrator/) | Operate the executable Genfeed content loop and route each stage to the right skill |
-| [genfeed-connector](./genfeed-connector/) | Detect Genfeed connectivity and provide the content-loop state, token, manifest, and feedback seam |
+| [genfeed-connector](./genfeed-connector/) | Local content-loop state, manifest, feedback, and env-based token seam |
 | [social-poster](./social-poster/) | Publish approved derivatives to X or LinkedIn with a dry-run-by-default approval gate |
 | [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
 
@@ -219,18 +220,15 @@ There are three Genfeed skill inventories:
 | --- | --- | --- |
 | `genfeedai/skills` | Public, MIT-licensed free skills | Source of truth for free skills and Claude Marketplace bundles |
 | `genfeed.ai/skills/` | App-local product skills used by the Genfeed monorepo | May mirror public skills, but app-local additions must be classified as public or Pro before publishing |
-| `genfeedai/skills-pro` | Private paid skills catalogue | Source of truth for warmup, Pro operations, packaging, registry, receipts, and customer setup |
+| `genfeedai/skills-pro` | Private paid skills catalogue | Source of truth for Pro operations, packaging, registry, receipts, and customer setup |
 
 When a skill appears in `genfeed.ai/skills/` but not here, classify it before copying:
 
 - Copy it here only when it is a broad free skill that can be MIT-licensed.
-- Move or mirror it to `genfeedai/skills-pro` when it is paid operating knowledge, account
-  warmup, private process, client deliverable, or subscription value.
+- Move or mirror it to `genfeedai/skills-pro` when it is paid operating knowledge, private
+  process, client deliverable, or subscription value.
 - Do not copy Pro-only content into this repo. If a public dependency is needed, document the
   dependency by name instead of duplicating the Pro skill body.
-
-As of this boundary decision, the app-local warmup skills (`x-warmup`, `instagram-warmup`,
-`linkedin-warmup`, `tiktok-warmup`, and `youtube-warmup`) are Skills Pro material.
 
 ## Contributing
 
