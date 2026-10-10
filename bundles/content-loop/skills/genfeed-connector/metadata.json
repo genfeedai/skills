@@ -1,20 +1,18 @@
 {
   "name": "genfeed-connector",
   "version": "1.0.0",
-  "description": "Detect Genfeed connectivity and expose the gf CLI for content-loop state, tokens, manifests, stage transitions, and feedback",
+  "description": "Expose the gf CLI for local content-loop state, manifests, stage transitions, feedback, and env-based platform tokens",
   "author": "genfeedai",
   "license": "MIT",
   "triggers": [
     "content factory state",
     "genfeed connector",
-    "is genfeed connected",
     "content manifest",
     "content loop state",
     "gf adapter",
     "content item manifest",
-    "detect genfeed",
     "content factory backend",
-    "platform token vault"
+    "platform token env"
   ],
   "references": {},
   "outputs": ["json", "cli"],

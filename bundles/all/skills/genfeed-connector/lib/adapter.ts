@@ -1,16 +1,14 @@
 // The seam. Loop skills depend on this facade, never on a concrete backend.
-// `getAdapter()` resolves the mode once and returns a uniform async API whether
-// state lives on the local filesystem (standalone) or in genfeed.ai (connected).
+// `getAdapter()` returns a uniform async API over the content-loop manifest, which
+// lives on the local filesystem under `.genfeed/`.
 
-import { resolveContext } from './detect.ts';
+import { LocalBackend } from './backend-local.ts';
 import {
   type ContentItem,
   type HistoryEntry,
   type Metric,
-  type Mode,
   makeContentItem,
   nowIso,
-  type RuntimeContext,
   type Stage,
 } from './schema.ts';
 
@@ -20,13 +18,12 @@ export interface JobFilter {
   limit?: number;
 }
 
-/** Storage contract. Methods may be sync (local) or async (api); the facade awaits both. */
+/** Storage contract implemented by the local filesystem backend. */
 export interface Backend {
-  readonly mode: Mode;
-  saveItem(item: ContentItem): ContentItem | Promise<ContentItem>;
-  getItem(id: string): (ContentItem | null) | Promise<ContentItem | null>;
-  listItems(filter?: JobFilter): ContentItem[] | Promise<ContentItem[]>;
-  getToken(platform: string): (string | null) | Promise<string | null>;
+  saveItem(item: ContentItem): ContentItem;
+  getItem(id: string): ContentItem | null;
+  listItems(filter?: JobFilter): ContentItem[];
+  getToken(platform: string): string | null;
 }
 
 /**
@@ -53,16 +50,10 @@ export function computeFeedbackScore(metrics: Metric[]): number {
 }
 
 export class Gf {
-  readonly ctx: RuntimeContext;
   private readonly backend: Backend;
 
-  constructor(backend: Backend, ctx: RuntimeContext) {
+  constructor(backend: Backend) {
     this.backend = backend;
-    this.ctx = ctx;
-  }
-
-  get mode(): Mode {
-    return this.ctx.mode;
   }
 
   async createItem(partial: Partial<ContentItem> = {}): Promise<ContentItem> {
@@ -120,22 +111,13 @@ export class Gf {
     return sum / tagged.length;
   }
 
-  /** Resolve a platform token. Standalone: from env. Connected: short-lived from the vault. */
+  /** Resolve a platform token from the environment. */
   async getToken(platform: string): Promise<string | null> {
     return this.backend.getToken(platform);
   }
 }
 
-/** Build the adapter for the current working directory, resolving mode (cached). */
-export async function getAdapter(cwd: string = process.cwd(), force?: Mode): Promise<Gf> {
-  const ctx = resolveContext(cwd, force);
-  let backend: Backend;
-  if (ctx.mode === 'api') {
-    const { ApiBackend } = await import('./backend-api.ts');
-    backend = new ApiBackend(ctx);
-  } else {
-    const { LocalBackend } = await import('./backend-local.ts');
-    backend = new LocalBackend(cwd);
-  }
-  return new Gf(backend, ctx);
+/** Build the adapter for the current working directory. */
+export function getAdapter(cwd: string = process.cwd()): Gf {
+  return new Gf(new LocalBackend(cwd));
 }

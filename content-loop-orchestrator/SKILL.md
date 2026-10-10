@@ -9,28 +9,21 @@ metadata:
 
 # Content Loop Orchestrator
 
-You are the conductor. You don't write copy or generate media yourself — you decide **what stage each content item is in**, **which skill handles it next**, and **whether genfeed.ai is connected** so durable concerns route correctly. You drive the locked loop:
+You are the conductor. You don't write copy or generate media yourself — you decide **what stage each content item is in** and **which skill handles it next**. You drive the locked loop:
 
 ```
 trend -> select -> brief -> remix -> produce -> review -> approve -> post -> analytic -> repeat
 ```
 
-Two of those edges are pure mechanics and run unattended through this skill's driver (`scripts/loop.ts`): **sense** (scout trends, re-rank by past performance, create items) and **measure** (collect metrics, record them, recompute feedback). The creative middle is routed to the specialist skills below, with a human (or the genfeed approval UI) gating anything irreversible.
+Two of those edges are pure mechanics and run unattended through this skill's driver (`scripts/loop.ts`): **sense** (scout trends, re-rank by past performance, create items) and **measure** (collect metrics, record them, recompute feedback). The creative middle is routed to the specialist skills below, with a human gating anything irreversible.
 
 ---
 
-## Step 0 — Detect The Backend
+## Where State Lives
 
-Always start by asking the seam whether genfeed is connected:
+The `genfeed-connector` seam keeps every content item in `.genfeed/items/` in the working directory. Scheduling is manual or the harness `/loop`, tokens come from env vars, and approval is a chat prompt. Every downstream skill reads and advances state only through this seam, so you never touch the files directly.
 
-```bash
-bun run ../genfeed-connector/gf.ts detect
-```
-
-- **standalone** → state lives in `.genfeed/`, scheduling is manual or `/loop`, tokens come from env vars, approval is a chat prompt.
-- **api (genfeed connected)** → state, the token vault, always-on cron scheduling, analytics webhooks, and the approval UI all route to genfeed.ai.
-
-Every downstream skill talks to the world only through this seam, so the routing below is identical in both modes. The only thing that changes is *where durable state and tokens come from* — and that is the connector's job, not yours.
+The loop does not sync with genfeed.ai. To draft, schedule, or measure the approved copy inside a Genfeed workspace instead of posting it directly, hand it to the [Genfeed plugin](https://github.com/genfeedai/skills/tree/master/plugins/genfeed), which confirms before scheduling anything.
 
 ---
 
@@ -45,7 +38,7 @@ Every downstream skill talks to the world only through this seam, so the routing
 | **produce (copy)** | `x-content-creator`, `linkedin-content-creator`, `instagram-content-creator`, `youtube-content-creator`, `blog-content-creator`, `newsletter-creator`, `ad-copy-creator` | instruction | write the actual copy per platform |
 | **produce (media)** | `image-prompt-engineer` / `cinematic-prompting` / `visual-brand-kit` → `media-forge` | instruction → worker | craft the prompt, choose the model, then generate the file |
 | **review** | `content-reviewer`, `content-seo-optimizer` | instruction | score quality/SEO and run the publish-readiness gate; below threshold or gate fail → back to produce |
-| **approve** | human / genfeed UI | gate | explicit sign-off before anything public |
+| **approve** | human | gate | explicit sign-off before anything public |
 | **post** | `social-poster` | worker | publish on `--confirm`; dry run otherwise |
 | **analytic** | `analytics-collector` + `gf record-metric` | worker + seam | pull metrics, record them, recompute feedback — automated by `loop.ts measure` |
 | **repeat** | `gf feedback <term>` | seam | feedback multiplier lifts winning themes into the next sense pass |
@@ -75,9 +68,8 @@ Sibling skills are resolved relative to the orchestrator (`../../<skill>/...`), 
 
 ## Running One Full Cycle
 
-1. **Detect** — `gf detect`. Note the mode; tell the user if genfeed is connected.
-2. **Sense** — `loop.ts sense ...`. You now have `selected` items, best-bets first.
-3. For each item you choose to pursue:
+1. **Sense** — `loop.ts sense ...`. You now have `selected` items, best-bets first.
+2. For each item you choose to pursue:
    - **Select/brief** — apply `content-strategist`; `gf transition <id> briefed`.
    - **Remix** — apply `content-atomizer` to produce per-platform derivatives; `gf transition <id> remixed`.
    - **Produce copy** — route each derivative to its `*-content-creator`.
@@ -85,10 +77,8 @@ Sibling skills are resolved relative to the orchestrator (`../../<skill>/...`), 
    - **Review** — `content-reviewer` (+ `content-seo-optimizer`). Below bar or publish-readiness gate fails → revise. At bar with gate PASS → `gf transition <id> awaiting_approval`.
    - **Approve** — show the user the reviewed copy and the `social-poster` **dry run**. On an explicit yes → `gf transition <id> approved`.
    - **Post** — `social-poster --confirm`; record `postId` on the derivative; `gf transition <id> posted`.
-4. **Measure** — after the post has had time to accrue engagement, `loop.ts measure --item <id>`. This records metrics **and** transitions the item to `measured`, which is what makes its `feedbackScore` count toward `gf feedback <term>` — no separate transition needed.
-5. **Repeat** — the next `loop.ts sense` is now biased toward what worked.
-
-In **connected** mode, steps 2 and 4 can be driven by genfeed cron instead of you, and approval (step 3g) is the genfeed UI instead of a chat prompt — but the commands and routing don't change.
+3. **Measure** — after the post has had time to accrue engagement, `loop.ts measure --item <id>`. This records metrics **and** transitions the item to `measured`, which is what makes its `feedbackScore` count toward `gf feedback <term>` — no separate transition needed.
+4. **Repeat** — the next `loop.ts sense` is now biased toward what worked.
 
 ---
 
@@ -108,15 +98,15 @@ The loop's shape is validated by the strongest open-source skill-based content s
 - **Quality gate with auto-retry before publish** — `AgriciDaniel/claude-blog` (5-gate, 90/100 rubric, up to 3 retries). Our `content-reviewer`/`content-seo-optimizer` → revise loop is the same gate.
 - **Feedback-driven self-optimization** — `j1ngg/tech-marketing-framework` (autonomous skill optimization via evaluation). Our `gf feedback` re-rank is the data-level version of that idea.
 - **Research → plan → generate → publish → report pipeline** — `OSideMedia/higgsfield-ai-prompt-skill`. Maps onto sense → brief → produce → post → measure.
-- **Advisory/publish duality** — `blacktwist/social-media-skills` (falls back to advisory when no publishing integration is connected). That is exactly our standalone-vs-connected split, made explicit in the connector.
+- **Advisory/publish duality** — `blacktwist/social-media-skills` (falls back to advisory when no publishing integration is connected). Our `social-poster` dry run is the same split: it shows the payload and only sends on `--confirm`.
 - **Breadth reference** — `kostja94/marketing-skills` (160+ vendor-neutral skills) and `nicepkg/ai-workflow` (170+) confirm the "many small instruction skills, one orchestrator" architecture scales.
 
-The gap none of them close — and what this set adds — is a **single seam that makes the whole loop run identically standalone or backed by a SaaS**, plus **executable workers for the steps skills alone can't do** (real model calls, real posting, real metric pulls).
+The gap none of them close — and what this set adds — is a **single state seam every worker shares**, plus **executable workers for the steps skills alone can't do** (real model calls, real posting, real metric pulls).
 
 ---
 
 ## Why This Architecture
 
-- **Skills are stateless workers; genfeed.ai is the control plane.** The loop runs on a laptop with zero accounts, and lights up persistence + always-on scheduling + a managed token vault the moment a genfeed key is present. Same commands, both modes.
+- **Skills are stateless workers; the seam holds state.** The loop runs on a laptop with zero accounts: manifest state in `.genfeed/`, tokens in env vars, scheduling through `/loop`.
 - **Workers never import each other.** Every skill talks through env vars + stdin/stdout JSON via the seam, so each one stays independently installable with `bunx skills add`.
 - **The loop closes in data, not vibes.** `analytic -> repeat` is a literal multiplier (`feedbackScore` → `feedback <term>`) applied at the next ingestion, so the factory measurably learns.

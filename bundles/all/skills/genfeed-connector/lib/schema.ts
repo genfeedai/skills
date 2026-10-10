@@ -2,8 +2,7 @@
 // moves through the locked loop: trend -> remix -> produce -> approve -> post -> measure -> repeat.
 //
 // Pure types + lightweight runtime validators (no external deps so the skill installs
-// with zero `bun add`). Both the local backend and the genfeed API backend serialize
-// to and from these shapes.
+// with zero `bun add`). The local backend serializes to and from these shapes.
 
 import { randomUUID } from 'node:crypto';
 
@@ -66,7 +65,7 @@ export interface MediaArtifact {
   provider: MediaProvider;
   model: string; // provider model slug, e.g. 'black-forest-labs/flux-1.1-pro'
   prompt: string;
-  path: string; // local file path (standalone) or genfeed asset URL (connected)
+  path: string; // local file path, e.g. .genfeed/artifacts/<file>
   meta?: Record<string, unknown>;
 }
 
@@ -105,23 +104,6 @@ export interface ContentItem {
   feedbackScore?: number; // derived from metrics; feeds next trend ranking (loop closure)
   history: HistoryEntry[];
   tags: string[]; // pillars, themes, trend terms — used to attribute analytics back to trends
-}
-
-export type Mode = 'standalone' | 'api';
-
-/** Resolved runtime context, cached to .genfeed/ctx.json. Never contains secret values. */
-export interface RuntimeContext {
-  mode: Mode;
-  resolvedAt: string;
-  capabilities: {
-    persistentState: boolean; // survives across runs/machines
-    scheduling: boolean; // always-on cron owned by genfeed
-    tokenVault: boolean; // OAuth tokens stored + refreshed by genfeed
-    analyticsWebhook: boolean; // inbound callback receiver
-    approvalUi: boolean; // human approval surface
-  };
-  apiBaseUrl?: string; // connected mode only
-  apiKeyEnv?: string; // NAME of the env var holding the key — never the key itself
 }
 
 export function nowIso(): string {
