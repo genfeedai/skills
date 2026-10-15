@@ -18,7 +18,7 @@ Turn a goal ("post more consistently", "launch next week") into a reviewed conte
 3. Optional signal: `get_trends` for topic ideas. If it is not in the tool list, call `find_tools` with `{query: "trends"}` to confirm it exists on this server before using it.
 4. Draft the plan in chat first: pillars (3 to 5), one line per slot with date, platform, format, and angle. Mark the empty days from step 2 as the priority slots. Keep cadence realistic for a small team.
 5. Ask the user to approve, change, or cut the plan. Do not generate anything yet.
-6. After approval, produce copy slot by slot with `generate_content` (`type: "post"`, `"thread"`, or `"article_outline"`, plus `platform` and `brandId`). Use `generate_content_batch` (`count`, `platforms`, `topics`, `dateRange`, `brandId`) only when the user asks for many pieces at once; it spends credits, so state the count and ask first.
+6. After approval, produce copy slot by slot with `generate_content` (`type: "post"`, `"thread"`, or `"article_outline"`, plus `platform` and `brandId`). Use `generate_turbo_content` (`count`, `platforms`, `topics`, `dateRange`, `brandId`) only when the user asks for many pieces at once; it spends credits, so state the count and ask first.
 7. Hand off to the `social-poster` skill to schedule. Do not call scheduling tools from this skill.
 
 ## Rules

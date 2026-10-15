@@ -189,8 +189,8 @@ Every skill works standalone. When used inside a Genfeed workspace, skills can d
 
 - `create_post` - draft content directly into the platform
 - `generate` - generate images, video, voice, or music (`type: image|video|voice|music`) with the recommended model
-- `rate_content` - score content quality
-- `generate_ad_pack` - assemble full ad creatives
+- Assess content quality with the skill rubric and available performance evidence
+- `find_tools` - discover available tools before assembling ad creative
 - Brand context and top-performing content patterns are used for voice consistency
 
 ## Skill Structure
