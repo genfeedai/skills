@@ -108,8 +108,6 @@ function gf(args: string[], input?: string): string {
 // --- sense --------------------------------------------------------------------
 
 async function sense(flags: Record<string, string>): Promise<void> {
-  const mode = JSON.parse(gf(['detect'])) as { mode: string };
-
   const scoutArgs: string[] = [];
   for (const k of ['sources', 'subreddits', 'rss', 'geo', 'query', 'limit']) {
     if (flags[k]) scoutArgs.push(`--${k}`, flags[k]);
@@ -138,7 +136,6 @@ async function sense(flags: Record<string, string>): Promise<void> {
   }
 
   out({
-    mode: mode.mode,
     scouted: scoutOut.signals.length,
     created: created.length,
     items: created,
@@ -200,11 +197,10 @@ async function measure(flags: Record<string, string>): Promise<void> {
 // --- status -------------------------------------------------------------------
 
 async function status(): Promise<void> {
-  const mode = JSON.parse(gf(['detect'])) as { mode: string };
   const items = JSON.parse(gf(['list'])) as ContentItem[];
   const byStage: Record<string, number> = {};
   for (const it of items) byStage[it.stage] = (byStage[it.stage] ?? 0) + 1;
-  out({ mode: mode.mode, total: items.length, byStage });
+  out({ total: items.length, byStage });
 }
 
 async function main(): Promise<void> {

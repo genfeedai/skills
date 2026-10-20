@@ -1,0 +1,11 @@
+{
+  "name": "genfeed",
+  "displayName": "Genfeed",
+  "version": "1.0.0",
+  "description": "Plan, write, generate and schedule social content from your Genfeed brand. Bundles the Genfeed MCP server with content skills for X, LinkedIn, Instagram, YouTube and newsletters, and asks for confirmation before anything is scheduled or published.",
+  "author": { "name": "Genfeed", "url": "https://genfeed.ai" },
+  "homepage": "https://genfeed.ai",
+  "repository": "https://github.com/genfeedai/skills",
+  "license": "MIT",
+  "keywords": ["content", "social-media", "marketing", "ai-generation", "scheduling", "mcp"]
+}

@@ -64,7 +64,7 @@ Requires [Bun](https://bun.sh) 1.1+. Zero dependencies — only Node built-ins a
 - Auth: `Authorization: Bearer <token>` — an **OAuth 2.0 user-context** token with `tweet.write` (env `X_BEARER_TOKEN`).
 - Body: `{ text, media: { media_ids }, reply: { in_reply_to_tweet_id } }`.
 - Returns `data.id`; URL is `https://x.com/i/web/status/<id>`.
-- Media upload is a separate, multi-step concern (v2 `/2/media/upload`, scope `media.write`); this worker takes already-uploaded `media_ids` so the upload/credential flow stays in the vault layer.
+- Media upload is a separate, multi-step concern (v2 `/2/media/upload`, scope `media.write`); this worker takes already-uploaded `media_ids` and does not upload media itself.
 
 ### LinkedIn
 
@@ -96,7 +96,7 @@ The orchestrator records `postId` onto the matching `Derivative` and advances th
 ## How It Fits The Loop
 
 ```bash
-# orchestrator resolves a scoped token through the seam (never sees the raw vault credential)
+# orchestrator resolves the token from the environment through the seam
 export X_BEARER_TOKEN="$(bun run ../genfeed-connector/gf.ts token x)"
 
 # show the user exactly what will post...
@@ -105,7 +105,7 @@ bun run scripts/post.ts --platform x --text "$COPY"          # dry run
 bun run scripts/post.ts --platform x --text "$COPY" --confirm
 ```
 
-When genfeed is connected, the approval gate is additionally backed by the genfeed approval UI; standalone, the agent asks in chat. Either way `--confirm` is the single switch between "show" and "send".
+The agent asks for approval in chat. `--confirm` is the single switch between "show" and "send".
 
 ---
 

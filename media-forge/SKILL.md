@@ -90,7 +90,7 @@ Output URLs are extracted by walking the provider's response JSON and collecting
 ## How It Fits The Loop
 
 ```bash
-# orchestrator resolves a scoped token through the seam, never seeing the raw vault credential
+# orchestrator resolves the token from the environment through the seam
 export REPLICATE_API_TOKEN="$(bun run ../genfeed-connector/gf.ts token replicate)"
 
 # forge a hero image for an item, capture artifacts
@@ -104,6 +104,6 @@ ART=$(bun run scripts/forge.ts --provider replicate --modality image \
 
 ## Security
 
-- Tokens (`REPLICATE_API_TOKEN`, `FAL_KEY`) are read from the environment, used in memory, and **never written** to any file. Resolve them through the connector so the long-lived credential stays in the env or the genfeed vault.
+- Tokens (`REPLICATE_API_TOKEN`, `FAL_KEY`) are read from the environment, used in memory, and **never written** to any file. Resolve them through the connector (`gf token replicate|fal`), which reads the same env vars.
 - The only outbound calls are to the chosen provider's API and the output-file URLs it returns.
 - Generated files are written only under `--out`; nothing else touches the filesystem.

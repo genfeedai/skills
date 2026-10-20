@@ -27,6 +27,14 @@ const plugins = Object.entries(getBundleEntries()).map(([category, config]) => (
   description: config.description,
 }));
 
+// The Genfeed plugin (skills + remote MCP server) is authored directly, not generated.
+plugins.push({
+  name: 'genfeed',
+  source: './plugins/genfeed',
+  description:
+    'Genfeed content skills plus the Genfeed MCP server: plan, write, generate and schedule social content, with confirmation before anything is posted',
+});
+
 const marketplace = {
   name: CATEGORIES.marketplace.name,
   owner: CATEGORIES.marketplace.owner,
@@ -42,4 +50,4 @@ if (!existsSync(outputDir)) {
 const outputPath = join(outputDir, 'marketplace.json');
 writeFileSync(outputPath, `${JSON.stringify(marketplace, null, 2)}\n`);
 
-console.log(`Generated marketplace.json with ${plugins.length} bundle plugins`);
+console.log(`Generated marketplace.json with ${plugins.length} plugins`);

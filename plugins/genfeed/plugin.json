@@ -1,0 +1,46 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "genfeed",
+  "version": "1.0.0",
+  "description": "Genfeed content skills plus the Genfeed MCP server: plan, write, generate and schedule social content from your brand, with confirmation before anything is posted.",
+  "author": {
+    "name": "Genfeed",
+    "url": "https://genfeed.ai"
+  },
+  "homepage": "https://genfeed.ai",
+  "repository": "https://github.com/genfeedai/skills",
+  "license": "MIT",
+  "keywords": ["content", "social-media", "marketing", "ai-generation", "scheduling", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Genfeed",
+        "shortDescription": "Create and schedule content",
+        "longDescription": "Genfeed connects your brand to an AI content workflow. Ask for a content plan, post and thread drafts for X, LinkedIn, Instagram and YouTube, newsletter editions, or images and video, and the assistant uses your Genfeed brand profile for tone and voice. It can read your content calendar, repurpose an existing post for another channel, check what is trending, and generate media after showing the credit cost. Scheduling goes through a validation step against the channel's rules, then a summary of the exact text, account and time. Nothing is scheduled or published until you explicitly confirm. Requires a Genfeed account; image, video and some text generation spend Genfeed credits. The plugin does not store your content itself and does not post on its own. Limits: it works only with the brands and connected channels in your Genfeed workspace, cannot guarantee reach or performance, and does not edit content outside Genfeed.",
+        "developerName": "Genfeed",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write",
+          "Content planning",
+          "Social post drafting",
+          "Image and video generation",
+          "Post scheduling with confirmation"
+        ],
+        "websiteURL": "https://genfeed.ai",
+        "privacyPolicyURL": "https://genfeed.ai/privacy",
+        "termsOfServiceURL": "https://genfeed.ai/terms",
+        "supportURL": "https://genfeed.ai/contact",
+        "defaultPrompt": [
+          "Plan next week's content for my brand and show gaps in my calendar",
+          "Write three X post options about our launch in my brand voice",
+          "Make an Instagram image for this caption, but show the cost first"
+        ],
+        "brandColor": "#0A0A0A",
+        "composerIcon": "./assets/icon-192.png",
+        "logo": "./assets/logo.svg",
+        "screenshots": []
+      }
+    }
+  }
+}

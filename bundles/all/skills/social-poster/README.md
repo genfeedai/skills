@@ -55,7 +55,7 @@ Read from the environment only, masked in output, never written to disk. Resolve
 - **X** — `POST https://api.x.com/2/tweets`, body `{ text, media:{media_ids}, reply }`; id from `data.id`.
 - **LinkedIn** — `POST https://api.linkedin.com/rest/posts` with `LinkedIn-Version` + `X-Restli-Protocol-Version: 2.0.0`; id from the `x-restli-id` response header.
 
-X media upload is a separate multi-step flow (v2 `/2/media/upload`, `media.write`); this worker accepts already-uploaded `media_ids` so the upload/credential flow stays in the vault layer.
+X media upload is a separate multi-step flow (v2 `/2/media/upload`, `media.write`); this worker accepts already-uploaded `media_ids` and does not upload media itself.
 
 ## License
 

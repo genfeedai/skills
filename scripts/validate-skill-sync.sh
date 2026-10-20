@@ -143,6 +143,9 @@ if find bundles -path '*/skills/*/plugin.json' -print -quit | grep -q .; then
   exit 1
 fi
 
+echo "4b. Validating the Genfeed plugin bundle"
+bun scripts/validate-plugin.js
+
 echo "5. Checking skills CLI discovery"
 SKILLS_LIST_OUTPUT="$(mktemp)"
 trap 'rm -f "$SKILLS_LIST_OUTPUT"' EXIT

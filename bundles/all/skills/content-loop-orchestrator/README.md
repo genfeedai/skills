@@ -25,7 +25,6 @@ bunx skills add genfeedai/skills/content-loop-orchestrator
 
 ## What It Does
 
-- Detects standalone vs connected Genfeed mode
 - Routes sense, select, brief, remix, produce, review, approve, post, analytic, and repeat stages
 - Automates trend sensing and metric measurement with `scripts/loop.ts`
 - Keeps irreversible publishing behind explicit approval

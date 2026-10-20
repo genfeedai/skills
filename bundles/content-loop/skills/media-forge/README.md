@@ -47,7 +47,7 @@ bun run scripts/forge.ts --provider replicate --modality audio \
 | Replicate | `REPLICATE_API_TOKEN` |
 | fal.ai | `FAL_KEY` |
 
-Read from the environment only, used in memory, never written to disk. Resolve them through the connector (`gf token replicate` / `gf token fal`) so the long-lived credential stays in the env or the genfeed vault.
+Read from the environment only, used in memory, never written to disk. Resolve them through the connector (`gf token replicate` / `gf token fal`), which reads the same env vars.
 
 ## Output
 

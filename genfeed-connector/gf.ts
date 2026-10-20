@@ -1,8 +1,8 @@
 #!/usr/bin/env bun
 // gf — the content-factory seam, exposed as a CLI so any skill (or the agent
 // itself) can read/advance manifest state without importing TypeScript.
+// State lives on the local filesystem under .genfeed/.
 //
-//   bun run gf.ts detect [--mode standalone|api]
 //   bun run gf.ts create [--thesis "..."] [--stage selected] [--tags a,b] [< trend.json]
 //   bun run gf.ts get <id>
 //   bun run gf.ts list [--stage <stage>] [--tag <tag>] [--limit <n>]
@@ -11,13 +11,12 @@
 //   bun run gf.ts next <stage>    (oldest item in <stage>, or empty)
 //   bun run gf.ts record-metric <id>   (reads a Metric JSON on stdin)
 //   bun run gf.ts feedback <term>      (0..1 prior-performance multiplier input)
-//   bun run gf.ts token <platform>     (resolves a token; standalone=env, api=vault)
+//   bun run gf.ts token <platform>     (resolves a platform token from the environment)
 //
 // All commands print JSON to stdout. Errors print to stderr and exit non-zero.
 
 import { getAdapter } from './lib/adapter.ts';
-import { resolveContext } from './lib/detect.ts';
-import type { ContentItem, Metric, Mode, Stage, TrendSignal } from './lib/schema.ts';
+import type { ContentItem, Metric, Stage, TrendSignal } from './lib/schema.ts';
 
 interface Parsed {
   positionals: string[];
@@ -64,19 +63,9 @@ function fail(message: string): never {
 async function main(): Promise<void> {
   const { positionals, flags } = parseArgs(process.argv.slice(2));
   const cmd = positionals[0];
-  if (!cmd) fail('missing command (try: detect, create, list, transition, next, token, feedback)');
+  if (!cmd) fail('missing command (try: create, list, transition, next, token, feedback)');
 
-  const force =
-    flags.mode === 'standalone' || flags.mode === 'api' ? (flags.mode as Mode) : undefined;
-
-  // `detect` only resolves + caches context; it must not instantiate a backend
-  // (forcing api here would otherwise try to connect before a key is configured).
-  if (cmd === 'detect') {
-    out(resolveContext(process.cwd(), force));
-    return;
-  }
-
-  const gf = await getAdapter(process.cwd());
+  const gf = getAdapter(process.cwd());
 
   switch (cmd) {
     case 'create': {
@@ -148,7 +137,7 @@ async function main(): Promise<void> {
     case 'token': {
       const platform = positionals[1] ?? fail('token requires <platform>');
       const token = await gf.getToken(platform);
-      if (!token) fail(`no token for ${platform} (standalone: export the platform env var)`);
+      if (!token) fail(`no token for ${platform} (export the platform env var)`);
       // Printed for capture into an env var by the calling skill; never persisted by gf.
       process.stdout.write(`${token}\n`);
       return;
