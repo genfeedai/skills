@@ -22,6 +22,6 @@ Take one source piece and produce platform-native derivatives, each adapted rath
 ## Rules
 
 - Keep the core claim identical across versions. Change structure and tone, not facts.
-- Use `get_scheduler_capabilities` with `{platform}` to check limits instead of assuming them.
+- Use `check_channel` with `{action: "capabilities", input: {platform}}` to check limits instead of assuming them.
 - Never publish or schedule. Hand the approved derivatives to `social-poster` and wait for explicit confirmation there.
 - `repurpose_post` and `generate_content` can spend credits. For more than three targets, say so and confirm first.

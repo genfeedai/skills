@@ -18,7 +18,7 @@ Turn a real experience or point of view into LinkedIn drafts with a clear openin
 3. `generate_content` with `{type: "post", platform: "linkedin", topic, brandId, variationsCount: 3}` for a post. For a long-form piece use `{type: "article", topic, brandId, tone, length, targetAudience}`; note that `article` creates a saved article draft with an id, so tell the user it was saved. Use `{type: "newsletter"}` only for a newsletter edition, which also saves a draft.
 4. Edit for the feed: the first two lines must stand alone, short paragraphs, no hashtag stuffing, no engagement bait.
 5. To keep a post draft, `create_post` with `{content, platforms: ["linkedin"]}`. It saves a draft and never publishes.
-6. For channel limits, call `get_scheduler_capabilities` with `{platform: "linkedin"}`.
+6. For channel limits, call `check_channel` with `{action: "capabilities", input: {platform: "linkedin"}}`.
 
 ## Rules
 
