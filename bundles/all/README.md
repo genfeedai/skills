@@ -65,6 +65,7 @@ All Genfeed skills for content creation, optimization, GTM strategy, advertising
 - `traffic-architect`
 - `traffic-validator`
 - `trend-scout`
+- `video-model-benchmark`
 - `visual-brand-kit`
 - `x-content-creator`
 - `x-warmup`

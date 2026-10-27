@@ -1,0 +1,29 @@
+{
+  "name": "video-model-benchmark",
+  "version": "1.0.0",
+  "description": "Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "compare video models",
+    "side by side video",
+    "video model benchmark",
+    "veo vs seedance",
+    "which video model is better",
+    "model shootout video",
+    "ab test video models"
+  ],
+  "references": {},
+  "outputs": ["video", "json"],
+  "tags": [
+    "video",
+    "benchmark",
+    "comparison",
+    "veo",
+    "seedance",
+    "kling",
+    "x",
+    "ffmpeg",
+    "replicate"
+  ]
+}
