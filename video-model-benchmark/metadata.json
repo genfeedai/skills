@@ -1,6 +1,6 @@
 {
   "name": "video-model-benchmark",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X",
   "author": "genfeedai",
   "license": "MIT",
