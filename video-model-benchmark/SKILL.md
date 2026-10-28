@@ -78,6 +78,12 @@ The default pair is both "fast" tiers from the two labs with the most-used video
 
 Length: Veo takes 4, 6 or 8 seconds and the video is trimmed to the shortest clip, so a comparison that includes Veo tops out at 8 seconds. Clips are silent unless you pass `--audio`.
 
+## Known refusals
+
+- Seedance 2.0 Fast refused the `dbz-fight` preset three times ("output video may be related to copyright restrictions"), including after the franchise name and the franchise-style costume words were removed. Veo 3.1 Fast and Kling 2.5 Turbo Pro generated it. For that preset run `--models veo-3.1-fast,kling-v2.5-turbo-pro`; state in the post that Seedance declined it rather than hiding it.
+- A refusal stops the run and keeps the other models' clips in `<out>/clips/`. `--reuse` only looks in the `--out` you pass, so keep the same `--out` when you swap the failing model.
+- Models also decide for themselves about real people: do not put real names in a prompt.
+
 ## Honesty rules
 
 - One generation per model per prompt. Say "one take each" in the post. Do not re-roll one model until it wins; if you re-roll, re-roll both and say so.

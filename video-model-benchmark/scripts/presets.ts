@@ -43,7 +43,7 @@ export const PROMPT_PRESETS: PromptPreset[] = [
   {
     name: 'dbz-fight',
     prompt:
-      'Dragon Ball Z style anime fight: three original warriors clash mid-air, a spiky golden-haired fighter in an orange gi, a tall armoured fighter with a crimson cape and a lean fighter in blue. Aura flares, energy blasts, shockwaves cracking the rocky ground, fast whip-pans, 90s cel animation.',
+      'Anime action fight in a hand-drawn 90s style: three original fighters in mid-air combat above a ruined rocky plateau, one with spiky silver hair and a torn crimson jacket, one huge and armoured in a purple cape, one lean in blue wrapped in a glowing green aura. Energy beams, shockwaves, rapid camera whip-pans.',
     lookFor: 'Compare the energy effects, the speed of the fight and how well the style holds.',
   },
 ];
