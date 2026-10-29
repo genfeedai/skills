@@ -163,6 +163,7 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 |-------|-------------|
 | [ad-copy-creator](./ad-copy-creator/) | Paid ad copy for Meta, Google, LinkedIn, TikTok, and X with direct-response variants and test plans |
 | [ad-performance-analyzer](./ad-performance-analyzer/) | Paid media performance diagnosis, KPI analysis, creative fatigue checks, and optimization recommendations |
+| [ugc-ad-prompts](./ugc-ad-prompts/) | Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist |
 
 ## GTM Strategy
 
