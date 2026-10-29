@@ -1,0 +1,38 @@
+name: Release skill ZIPs
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to attach the ZIPs to"
+        required: true
+
+# Least-privilege default token; the job below requests write access itself.
+permissions:
+  contents: read
+
+jobs:
+  zips:
+    name: Build and attach skill ZIPs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Package skills
+        run: bash scripts/package-skill-zips.sh
+
+      - name: Attach ZIPs to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          if ! gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --title "$RELEASE_TAG" --generate-notes
+          fi
+          gh release upload "$RELEASE_TAG" dist/skill-zips/*.zip --repo "$GITHUB_REPOSITORY" --clobber
