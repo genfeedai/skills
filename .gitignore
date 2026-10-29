@@ -8,3 +8,6 @@ node_modules/
 
 # Local settings
 .claude/settings.local.json
+
+# Generated skill ZIPs
+dist/

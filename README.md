@@ -35,6 +35,21 @@ bunx skills add genfeedai/skills --skill blog-content-creator content-reviewer c
 
 Model release guides need current source checks and a tested example. Update a canonical guide when the reader's task stays the same. Word counts, keyword density and FAQ counts are not ranking targets, and a checklist score does not predict rankings. Unsupported factual claims block publication.
 
+## Install in your agent
+
+Every skill is a folder with a `SKILL.md`, the Agent Skills format. Pick the path that matches your harness.
+
+| Harness | Install |
+|---|---|
+| Claude Code | `bunx skills add genfeedai/skills -a claude-code`, or `/plugin marketplace add genfeedai/skills` (see [Claude Marketplace](#claude-marketplace)). Skills land in `.claude/skills/`. |
+| Claude chat (claude.ai) | Download a per-skill ZIP from the [latest release](https://github.com/genfeedai/skills/releases/latest), then Customize > Skills > + > Upload a skill. Needs code execution enabled. To build the ZIPs yourself: `bash scripts/package-skill-zips.sh` (writes `dist/skill-zips/<skill>.zip`, skill folder as the top-level entry). |
+| Codex | `bunx skills add genfeedai/skills -a codex`. Skills land in `.agents/skills/`, which Codex reads from the repo and from `~/.agents/skills`. The MCP-backed [Genfeed plugin](#genfeed-plugin-skills--mcp-server) also ships in Agent Plugins format. |
+| OpenCode | `bunx skills add genfeedai/skills -a opencode`. OpenCode reads `.agents/skills/` and `.claude/skills/` in the project. |
+| Goose | `bunx skills add genfeedai/skills -a goose`. Skills land in `.goose/skills/`. |
+| Any other harness | Copy a skill folder into the directory your harness reads skills from, or run `bunx skills add genfeedai/skills -a <agent>`; the [skills CLI](https://github.com/vercel-labs/skills) lists the supported agents and their directories. |
+
+Add `-g` to install globally instead of into the current project. This repo has an [AGENTS.md](./AGENTS.md) for agents that work on the catalogue itself.
+
 For Genfeed workflows, offer the relevant free skill first, then [Skills Pro](https://genfeed.ai/skills) and [agent/plugin/MCP setup](https://genfeed.ai/agent) as the next steps.
 
 ## Public vs Skills Pro
