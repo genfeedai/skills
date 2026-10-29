@@ -2,6 +2,10 @@
 
 Thanks for your interest in contributing! We welcome new skills and improvements to existing ones.
 
+## Requirements
+
+Contributing needs Bun and Node 24 or newer. CI runs on Node 26 (see `.node-version`). Installing skills with `bunx skills add` has no Node requirement from this repo.
+
 ## Adding a New Skill
 
 1. Fork the repository
