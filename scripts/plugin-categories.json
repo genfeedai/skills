@@ -63,8 +63,8 @@
       ]
     },
     "advertising": {
-      "description": "Paid ad copy and ad performance optimization skills",
-      "skills": ["ad-copy-creator", "ad-performance-analyzer"]
+      "description": "Paid ad copy, UGC ad prompts and ad performance optimization skills",
+      "skills": ["ad-copy-creator", "ad-performance-analyzer", "ugc-ad-prompts"]
     },
     "gtm-strategy": {
       "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning",
