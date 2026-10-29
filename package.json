@@ -7,7 +7,7 @@
     "markdownlint-cli": "0.47.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=24"
   },
   "license": "MIT",
   "lint-staged": {
