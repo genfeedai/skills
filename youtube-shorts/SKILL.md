@@ -61,7 +61,7 @@ Do not invent quotes, timestamps or numbers. Mark an estimated timestamp `approx
 
 - Export 1080 x 1920 at 30 fps (a 2160 x 3840 master is fine), H.264, AAC 48 kHz.
 - Use the profile's clip layout. For two hosts on one source, stack two crops so both faces stay large.
-- Keep faces, product text and the caption inside the central area. No platform publishes official safe-zone pixels for Shorts. Third-party guides disagree on the bottom margin (about 250 to 670 px at 1080 x 1920). A working rule is to keep everything inside the central 900 x 1400 px and keep the caption bottom edge above about 78% of the height. Check one real Short on a phone before you lock the numbers.
+- Keep faces, product text and the caption inside the central area. No platform publishes official safe-zone pixels for Shorts. Third-party guides disagree on the bottom margin (about 250 to 670 px at 1080 x 1920). A working rule is to keep everything inside the central 900 x 1400 px and keep the caption bottom edge above about 78% of the height. Check one real Short on a phone before you lock the numbers. The Ship Sh!t Show Shorts, as built, put the caption at y 1490 of 1920 (77.6%, 52 px Arial Bold, 3 words per phrase) and the white mark upper right at about 72 px; see the [example profile](../video-brand-profile/references/ship-shit-show.profile.json).
 
 ## 4. Captions
 
