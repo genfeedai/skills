@@ -1,6 +1,6 @@
 # Genfeed Skills - Advertising Bundle
 
-Paid ad copy and ad performance optimization skills
+Paid ad copy, UGC ad prompts and ad performance optimization skills
 
 ## Installation
 
@@ -13,3 +13,4 @@ Paid ad copy and ad performance optimization skills
 
 - `ad-copy-creator`
 - `ad-performance-analyzer`
+- `ugc-ad-prompts`

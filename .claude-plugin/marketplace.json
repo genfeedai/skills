@@ -38,7 +38,7 @@
     {
       "name": "genfeedai-advertising",
       "source": "./bundles/advertising",
-      "description": "Paid ad copy and ad performance optimization skills"
+      "description": "Paid ad copy, UGC ad prompts and ad performance optimization skills"
     },
     {
       "name": "genfeedai-gtm-strategy",
