@@ -1,6 +1,8 @@
 // Pure geometry and text helpers for the side-by-side canvas. No I/O, so it is easy to reason about.
 
-export type CanvasName = 'square' | 'landscape';
+export type CanvasName = 'square' | 'landscape' | 'stacked';
+
+export type LabelStyle = 'band' | 'badge';
 
 export interface Rect {
   x: number;
@@ -25,6 +27,10 @@ export interface CanvasLayout {
   prompt: PromptBox;
   labelFontSize: number;
   labelBandHeight: number;
+  /** `band` is a bar along the bottom of each panel; `badge` is a brand tag in its top-right corner. */
+  labelStyle: LabelStyle;
+  /** Whether the shared prompt is drawn on the video. Stacked leaves it to the post copy. */
+  isPromptShown: boolean;
   /** Where the optional footer text sits. */
   footer: { x: string; y: number; fontSize: number };
 }
@@ -32,7 +38,14 @@ export interface CanvasLayout {
 const SIZES: Record<CanvasName, { width: number; height: number }> = {
   square: { width: 1080, height: 1080 },
   landscape: { width: 1920, height: 1080 },
+  // Two 1080x608 (16:9) panels, one above the other: the 4:5 feed shape.
+  stacked: { width: 1080, height: 1216 },
 };
+
+/** Aspect ratio each model should generate for a canvas: stacked panels are 16:9, the rest 9:16. */
+export function clipAspectRatio(canvas: CanvasName): '9:16' | '16:9' {
+  return canvas === 'stacked' ? '16:9' : '9:16';
+}
 
 const even = (n: number): number => Math.floor(n / 2) * 2;
 
@@ -44,6 +57,29 @@ function fitPanel(availW: number, availH: number): { w: number; h: number } {
 
 export function buildLayout(canvas: CanvasName, panelCount: number): CanvasLayout {
   const { width, height } = SIZES[canvas];
+
+  if (canvas === 'stacked') {
+    if (panelCount !== 2) throw new Error('the stacked canvas takes exactly two models');
+    const panelH = height / panelCount;
+    return {
+      width,
+      height,
+      panels: Array.from({ length: panelCount }, (_, i) => ({
+        x: 0,
+        y: i * panelH,
+        w: width,
+        h: panelH,
+      })),
+      prompt: { x: 0, y: 0, w: width, fontSize: 28, maxLines: 0 },
+      labelFontSize: 40,
+      labelBandHeight: 0,
+      labelStyle: 'badge',
+      isPromptShown: false,
+      // Bottom left of the lower panel.
+      footer: { x: '24', y: height - 24 - 28, fontSize: 28 },
+    };
+  }
+
   const margin = canvas === 'square' ? 16 : 40;
   const gap = canvas === 'square' ? 12 : 16;
   const isColumnLayout = canvas === 'landscape' && panelCount <= 2;
@@ -76,6 +112,8 @@ export function buildLayout(canvas: CanvasName, panelCount: number): CanvasLayou
       },
       labelFontSize: 34,
       labelBandHeight: 76,
+      labelStyle: 'band',
+      isPromptShown: true,
       footer: { x: String(margin + 8), y: height - margin - 36, fontSize: 28 },
     };
   }
@@ -107,6 +145,8 @@ export function buildLayout(canvas: CanvasName, panelCount: number): CanvasLayou
     },
     labelFontSize: canvas === 'square' ? 30 : 32,
     labelBandHeight: canvas === 'square' ? 64 : 68,
+    labelStyle: 'band',
+    isPromptShown: true,
     // Top right, clear of the panels: the bottom edge belongs to the video.
     footer: { x: `${width - margin - 8}-text_w`, y: 14, fontSize: 22 },
   };

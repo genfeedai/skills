@@ -1,0 +1,17 @@
+{
+  "name": "youtube-description",
+  "version": "1.0.0",
+  "description": "YouTube descriptions for recaps, livestreams and Shorts with accurate chapters, sources and the channel footer",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "youtube description",
+    "video description with chapters",
+    "shorts caption",
+    "chapter timestamps",
+    "description footer"
+  ],
+  "references": {},
+  "outputs": ["markdown"],
+  "tags": ["youtube", "descriptions", "chapters", "shorts"]
+}

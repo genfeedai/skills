@@ -21,12 +21,12 @@ export interface VideoModelSpec {
 
 export interface ModelRunOptions {
   prompt: string;
+  /** `9:16` for the portrait canvases, `16:9` for the stacked one. */
+  aspectRatio: string;
   durationSeconds: number;
   resolution: string | null;
   isAudioEnabled: boolean;
 }
-
-const ASPECT_RATIO = '9:16';
 
 function nearestDuration(allowed: number[] | null, wanted: number): number {
   if (!allowed) return wanted;
@@ -36,7 +36,7 @@ function nearestDuration(allowed: number[] | null, wanted: number): number {
 function veoInput(spec: { durations: number[] }) {
   return (o: ModelRunOptions): Record<string, unknown> => ({
     prompt: o.prompt,
-    aspect_ratio: ASPECT_RATIO,
+    aspect_ratio: o.aspectRatio,
     duration: nearestDuration(spec.durations, o.durationSeconds),
     resolution: o.resolution ?? '720p',
     generate_audio: o.isAudioEnabled,
@@ -46,7 +46,7 @@ function veoInput(spec: { durations: number[] }) {
 function seedanceInput(o: ModelRunOptions): Record<string, unknown> {
   return {
     prompt: o.prompt,
-    aspect_ratio: ASPECT_RATIO,
+    aspect_ratio: o.aspectRatio,
     duration: o.durationSeconds,
     resolution: o.resolution ?? '720p',
     generate_audio: o.isAudioEnabled,
@@ -114,7 +114,7 @@ export const VIDEO_MODELS: VideoModelSpec[] = [
     supportsAudio: false,
     buildInput: (o) => ({
       prompt: o.prompt,
-      aspect_ratio: ASPECT_RATIO,
+      aspect_ratio: o.aspectRatio,
       duration: nearestDuration([5, 10], o.durationSeconds),
     }),
   },
@@ -140,7 +140,7 @@ export function rawModel(replicateId: string): VideoModelSpec {
     supportsAudio: false,
     buildInput: (o) => ({
       prompt: o.prompt,
-      aspect_ratio: ASPECT_RATIO,
+      aspect_ratio: o.aspectRatio,
       duration: o.durationSeconds,
     }),
   };

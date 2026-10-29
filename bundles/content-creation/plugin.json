@@ -1,7 +1,7 @@
 {
   "name": "genfeedai-content-creation",
   "version": "1.0.0",
-  "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, and new-account warmups",
+  "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, per-platform video packaging, and new-account warmups",
   "author": "genfeedai",
   "license": "MIT",
   "skills": {

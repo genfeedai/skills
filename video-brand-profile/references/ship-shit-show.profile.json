@@ -1,0 +1,211 @@
+{
+  "profileVersion": "1",
+  "id": "ship-shit-show",
+  "label": "Ship Sh!t Show",
+  "baseline": "Think AI",
+  "status": "draft: kit values are approved (2026-10-16), values marked proposed need Vincent's OK",
+  "sources": {
+    "kit": "shipshitshow/vault brand/ (tokens.json, identity.md, applications.md, editing.md, production.md), kit version 2026-10-16",
+    "teaser": "shipshitshow/vault production/2026-10-15-podcast-teaser/edit/render_teaser.py (the one built vertical clip; predates the 16 Oct kit)",
+    "thumbnailRule": "docs/branding.md in show.shipshit.dev, topic-first thumbnails without host faces, decided 2026-10-26",
+    "proposed": "written 2026-10-29 in this project thread; not in the kit"
+  },
+  "channels": {
+    "main": {
+      "name": "Ship Sh!t Show",
+      "youtube": "@shipshitshow",
+      "avatar": "black six-arm asterisk on red #E83B3B"
+    },
+    "clips": {
+      "name": "Ship Sh!t Show Clips",
+      "youtube": "@ShipShitShowClips",
+      "avatar": "white six-arm asterisk on charcoal #0D0D0D"
+    },
+    "x": "@shipshitdev"
+  },
+  "colors": {
+    "ink": "#0D0D0D",
+    "white": "#FFFFFF",
+    "accentRed": "#E83B3B",
+    "surfaceCard": "#1A1A1A",
+    "surfaceBorder": "#303030",
+    "textMuted": "#AAAAAA",
+    "source": "kit"
+  },
+  "typography": {
+    "family": "Space Grotesk",
+    "weights": { "display": 700, "body": 400 },
+    "maxFamilies": 2,
+    "rules": [
+      "broad readable type",
+      "no compressed, stacked or stretched lettering",
+      "no font-glyph asterisk"
+    ],
+    "source": "kit (web); applied to captions and thumbnail text by proposal"
+  },
+  "signature": {
+    "mark": "six-arm asterisk",
+    "geometry": {
+      "viewBox": [96, 96],
+      "bar": { "x": 38, "y": 4, "width": 20, "height": 88 },
+      "rotationsDeg": [0, 60, 120],
+      "centerPx": [48, 48]
+    },
+    "colorByContext": {
+      "editedVideoOnDark": "#FFFFFF",
+      "editedVideoOnLight": "#0D0D0D",
+      "livestream": "#E83B3B"
+    },
+    "exclusions": [
+      "box or square behind the mark",
+      "extra dot",
+      "waves",
+      "font glyph",
+      "second copy over a baked-in signature"
+    ],
+    "placements": {
+      "thumbnail16x9": {
+        "referenceCanvas": [1280, 720],
+        "viewport": [96, 96],
+        "topLeft": [1136, 576],
+        "insetRightBottom": 48,
+        "widthRatio": 0.075,
+        "insetRatio": 0.0375,
+        "rule": "scale uniformly for other 16:9 exports (3840x2160: 288px at x3408/y1728)",
+        "source": "kit"
+      },
+      "slate1080p": {
+        "canvas": [1920, 1080],
+        "viewport": [144, 144],
+        "topLeft": [1704, 864],
+        "outerClearance": 48,
+        "source": "kit (house starting value, verify against actual camera/caption/UI)"
+      },
+      "verticalCover9x16": {
+        "referenceCanvas": [1080, 1920],
+        "widthRatio": 0.075,
+        "viewportPx": 81,
+        "insetPx": 40,
+        "anchor": "bottom-right",
+        "source": "proposed: same ratios as the 16:9 thumbnail; a cover is shown in grids, not over the Shorts feed UI"
+      },
+      "verticalClipInVideo": {
+        "default": "none, brand art stays distinct from factual footage (kit: Shorts)",
+        "optional": {
+          "anchor": "top-left of the safe area",
+          "topLeft": [90, 260],
+          "viewportPx": 81,
+          "color": "#FFFFFF"
+        },
+        "source": "proposed"
+      },
+      "endCard": {
+        "canvas": [1080, 1920],
+        "durationSeconds": 2.5,
+        "content": [
+          "SHIP SH!T SHOW (small, red)",
+          "one-line payoff in Space Grotesk Bold",
+          "Watch the full episode",
+          "@ShipShitShow (red)"
+        ],
+        "source": "teaser, restyled to the 16 Oct tokens by proposal"
+      }
+    }
+  },
+  "captions": {
+    "font": "Space Grotesk Bold",
+    "fontFallback": "Inter Bold (what the teaser used) then Montserrat Bold",
+    "case": "sentence case, spoken punctuation kept (the teaser did not uppercase)",
+    "color": "#FFFFFF",
+    "emphasisColor": "none; a colored word must not change meaning or become a default karaoke effect (kit)",
+    "backing": {
+      "color": "#0D0D0D",
+      "opacity": 0.96,
+      "shape": "full-width band, no outline",
+      "source": "teaser (rgba 13,13,13,245)"
+    },
+    "size": {
+      "vertical1080x1920": { "fontPx": 62, "linePitchPx": 86, "paddingPx": 26 },
+      "landscape1920x1080": { "fontPx": 68, "linePitchPx": 89 },
+      "source": "teaser"
+    },
+    "grouping": {
+      "maxLines": 2,
+      "wordsPerGroup": "3 to 7",
+      "maxWidthRule": "canvas width minus 130px",
+      "source": "teaser + kit (short caption groups)"
+    },
+    "verticalPlacement": {
+      "teaser": "band from y1640 to the bottom edge of 1920",
+      "proposed": "text block bottom edge at y1500 (78% of height), inside the central 900x1400 area; the teaser position sits under the Shorts title and channel line",
+      "note": "no official safe-zone numbers exist; third-party guides disagree (bottom 250 to 672 px). Check one real Short on a phone."
+    },
+    "timing": "from the final timeline, never full-stream timestamps; word timing only when it exists (YouTube word-timed subtitles can 429)",
+    "verification": "names, numbers and qualifications checked against the recording"
+  },
+  "clipLayout": {
+    "twoHostStackVertical": "two 480x420 crops (host cams) scaled to 960x840, stacked, padded to 1080x1920 on #0D0D0D, 60px side margin",
+    "twoHostLandscape": "two crops side by side scaled 1920x840 on 1920x1080, 125px header",
+    "header": "teaser used a 210px black band with SHIP SH!T SHOW (red, 30px) and the topic (82px); the 16 Oct kit asks for modest names and one small topic label, so shrink it",
+    "audio": "loudnorm I=-16 TP=-1.5 LRA=11, 25ms fade in, 150ms fade out",
+    "encode": "H.264 CRF 20, AAC 192k 48 kHz stereo, 30 fps, faststart",
+    "source": "teaser"
+  },
+  "thumbnails": {
+    "subjects": "topic first, no host faces or likenesses (decided 2026-10-26); official topic logos in their own colors",
+    "background": "predominantly monochrome or charcoal",
+    "text": "optional, episode-specific, at most 4 words over 2 lines; thumbnails used uppercase Space Grotesk Bold, white, with one red line at most (the teaser thumbnails did this)",
+    "variants": "exactly three distinct hypotheses per video; title held fixed for a thumbnail-only test; never call one a winner without a result",
+    "modes": {
+      "livestream": {
+        "signature": "#E83B3B",
+        "abTest": "not for scheduled lives; allowed on completed live archives"
+      },
+      "recap": {
+        "signature": "white on dark, black on light",
+        "abTest": "allowed on eligible long-form uploads"
+      },
+      "short": {
+        "signature": "white on dark",
+        "canvas": "9:16",
+        "abTest": "not supported by YouTube"
+      }
+    },
+    "export": {
+      "workingCanvas": [1280, 720],
+      "recommended16x9": [3840, 2160],
+      "minimumWidth": 640,
+      "shortsCover": { "recommended": [2160, 3840], "minimumHeight": 640 },
+      "fileLimit": "thumbnails.set reference currently says 50 MB (checked in PR 8653); older copies say 2 MB. Keep JPEG exports under 2 MB.",
+      "format": "JPEG or PNG"
+    },
+    "inspection": "feed size: topic readable, text inside canvas, contrast, official logo accuracy, no duplicate signature",
+    "source": "kit + 26 Oct rule"
+  },
+  "copyRules": {
+    "name": "Ship Sh!t Show, with no exclamation mark after Show",
+    "baseline": "Think AI, without a colon or trailing punctuation",
+    "titles": {
+      "shorts": "35 to 60 characters",
+      "cutdown": "45 to 75 characters",
+      "limit": 100,
+      "rule": "name the subject and the conflict, title the observable result, no vague hype"
+    },
+    "hooks": "named topic and tension in the first 2 seconds; the clip must work cold in a feed",
+    "hashtags": "3 to 5, specific",
+    "description": "short human opener, specific takeaway, accurate chapters, sources, footer: Subscribe so you don't miss the next build. Follow us: https://x.com/shipshitdev",
+    "forbidden": [
+      "engagement bait (agree?, comment if)",
+      "invented quotes, results or endorsements",
+      "claims stronger than what was said"
+    ]
+  },
+  "handoffRecord": [
+    "kit revision",
+    "logo hash",
+    "actual fonts",
+    "caption style",
+    "approved deviations",
+    "technical checks reported separately from a watch-through review"
+  ]
+}
