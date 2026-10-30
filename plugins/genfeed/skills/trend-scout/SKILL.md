@@ -15,7 +15,7 @@ Find signals worth acting on and rank them against the brand, not just by volume
 
 1. `get_brands`. Resolve the brand with the user if there are several and keep `brandId`.
 2. `get_trends` with `{category, timeframe}` (`timeframe` is `24h`, `7d`, or `30d`; `category` includes `tech`, `business`, `entertainment`, `sports`, `science`, `health`, `politics`, or `all`). If it is not in the tool list, run `find_tools` with `{query: "trends"}` to see whether this server offers it, and describe the limitation to the user if it does not.
-3. For topics that look promising, `get_x_posts` with `{query, brandId, sortOrder: "recency", limit: 10}` to see how people are discussing them. If the brand's X account cannot search, say so and continue with step 2 results only.
+3. For topics that look promising, `fetch_x_posts` with `{query, brandId, sortOrder: "recency", limit: 10}` to see how people are discussing them. If the brand's X account cannot search, say so and continue with step 2 results only.
 4. Check what the brand already covered: `get_posts` with `{limit: 20}`. Drop topics already saturated.
 5. Rank the remaining topics on three points: fit with the brand, freshness, and whether the brand has something real to add. Return the top five, each with the angle and a recommended format and platform.
 6. Offer to draft any of them with the matching creator skill, or plan them with `content-strategist`.
