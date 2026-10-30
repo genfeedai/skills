@@ -24,11 +24,11 @@ Generate and transform media with a cost check before anything is spent.
 
 ## Editing existing media
 
-- `list_assets` with `{type: "image" | "video" | "music" | "avatar" | "character", brandId, limit}` to find the source asset and its id.
+- `get_assets` with `{type: "image" | "video" | "music" | "avatar" | "character", brandId, limit}` to find the source asset and its id.
 - `transform_media` with `{operation: "edit" | "reframe" | "upscale" | "merge", ...}`. Edit needs `imageId` and an exact `prompt`; reframe needs `imageId` and `aspectRatio`; upscale needs `imageUrl`; merge needs at least two video `ids`. Edit, reframe, and upscale spend credits; merge is free.
 
 ## Rules
 
 - Never generate without the user agreeing first: to the quoted estimate when there is one, or to an unknown cost when there is none.
-- Do not generate real people's likenesses, or branded characters the user does not own. Use `list_assets` with `{type: "character"}` for characters the brand is allowed to use.
+- Do not generate real people's likenesses, or branded characters the user does not own. Use `get_assets` with `{type: "character"}` for characters the brand is allowed to use.
 - Never publish or schedule from this skill.
