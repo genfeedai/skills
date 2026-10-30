@@ -13,7 +13,7 @@ Turn an idea into a prompt that names the subject, setting, composition, lightin
 
 ## Tool order
 
-1. `get_brands` for the brand's tone and visual direction; keep `brandId`. Check `list_assets` with `{type: "image", brandId, limit: 10}` if the user wants the result to match existing visuals.
+1. `get_brands` for the brand's tone and visual direction; keep `brandId`. Check `get_assets` with `{type: "image", brandId, limit: 10}` if the user wants the result to match existing visuals.
 2. Ask only for what is missing: subject, where it will be used (this sets the aspect ratio), and any must-have or must-avoid details.
 3. Write the prompt in this order: subject, action or pose, setting, composition and camera, lighting, style, colour palette, format. Use plain concrete words, not stacked adjectives.
 4. `enhance_prompt` with `{prompt, contentType: "image" | "video", brandId}` to preview Genfeed's enhanced version. It does not generate media. Show both prompts and let the user choose.

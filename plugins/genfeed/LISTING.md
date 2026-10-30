@@ -59,7 +59,7 @@ Positive:
 2. Description: draft X options. Prompt: "Write three X post options about our product launch in my brand voice." Expected tools: `get_brands`, `generate_content`. Expected behavior: three variations on platform twitter; nothing posted.
 3. Description: cost before media. Prompt: "Make a 16:9 image of a product on a desk and tell me the cost first." Expected tools: `get_generation_options`, then `generate` and `get_job_status` only after the user agrees. Expected behavior: shows the credit estimate for a named model, or says the cost is unknown when Genfeed would pick the model, and waits for a yes.
 4. Description: repurpose. Prompt: "Turn my latest post into a LinkedIn draft." Expected tools: `get_posts`, `repurpose_post`. Expected behavior: creates a draft in the review queue, does not publish.
-5. Description: confirmed scheduling. Prompt: "Schedule this post for tomorrow 9am on my connected X account." Expected tools: `list_brand_publishing_readiness`, `check_channel` with actions `capabilities` and `validate` and the original channel parameters in `input`, then `create_scheduled_release` only after an explicit yes. Expected behavior: shows a confirmation summary and asks "Confirm?" first.
+5. Description: confirmed scheduling. Prompt: "Schedule this post for tomorrow 9am on my connected X account." Expected tools: `get_brand_publishing_readiness`, `check_channel` with actions `capabilities` and `validate` and the original channel parameters in `input`, then `create_scheduled_release` only after an explicit yes. Expected behavior: shows a confirmation summary and asks "Confirm?" first.
 
 Negative:
 

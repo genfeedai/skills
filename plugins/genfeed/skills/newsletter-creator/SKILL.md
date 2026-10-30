@@ -21,6 +21,6 @@ Write one clear edition for one reader task, then hand it back for review.
 
 ## Rules
 
-- This skill has no send tool. Never claim an issue was sent or scheduled. If the user wants distribution, say that sending happens in their email platform or Genfeed, and use `social-poster` only for channels that appear in `list_brand_publishing_readiness`.
+- This skill has no send tool. Never claim an issue was sent or scheduled. If the user wants distribution, say that sending happens in their email platform or Genfeed, and use `social-poster` only for channels that appear in `get_brand_publishing_readiness`.
 - Do not invent subscriber numbers, open rates, or quotes.
 - Cite where facts came from; leave placeholders for anything unverified.

@@ -35,7 +35,7 @@ The plugin has no code of its own and stores nothing. When you use a skill, your
 
 ## Tool availability
 
-The server's default connection exposes the core, generation, content and scheduler toolsets. A few helpers used by `trend-scout`, `social-poster` and `content-strategist` (such as `get_trends` and `list_brand_publishing_readiness`) can be outside that default set; the skills call `find_tools` to check and say so when a tool is missing.
+The server's default connection exposes the core, generation, content and scheduler toolsets. A few helpers used by `trend-scout`, `social-poster` and `content-strategist` (such as `get_trends` and `get_brand_publishing_readiness`) can be outside that default set; the skills call `find_tools` to check and say so when a tool is missing.
 
 ## Packaging
 
