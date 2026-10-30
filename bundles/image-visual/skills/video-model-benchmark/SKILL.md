@@ -4,7 +4,7 @@ description: Run one prompt through two or three AI video models and merge the 9
 license: MIT
 metadata:
   author: genfeedai
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Video Model Benchmark
@@ -19,6 +19,10 @@ It sells the output, not the tooling: the viewer sees two results from one promp
 # default pair, square 1080x1080, 4 seconds, no audio
 bun run scripts/compare.ts --prompt "A courier carries four flat boxes past a lamp post, handheld, daylight"
 
+# feed-ready stack: two 16:9 clips one above the other (1080x1216), brand badge top-right of each,
+# plus post.md with the copy and the prompt to paste under the video
+bun run scripts/compare.ts --preset fit-woman --canvas stacked
+
 # landscape 1920x1080 with the prompt in a left column, branded footer
 bun run scripts/compare.ts --prompt "..." --canvas landscape --footer "genfeed.ai"
 
@@ -32,9 +36,12 @@ Requires [Bun](https://bun.sh) 1.1+, `ffmpeg` and `ffprobe` on PATH, and `REPLIC
 
 | Flag | Default | Notes |
 |------|---------|-------|
-| `--prompt` | required | Shared by every model, shown on the video. Keep it under ~140 characters for the square canvas (three lines max, then truncated with an ellipsis). |
+| `--preset` | none | A ready-made prompt: `motion-coherence`, `fit-woman`, `camera-orbit`, `camera-crane`, `camera-pushin`, `dbz-fight`. `--list-presets` prints them. `--prompt` overrides the text. |
+| `--prompt` | required unless `--preset` | Shared by every model, shown on the video. Keep it under ~140 characters for the square canvas (three lines max, then truncated with an ellipsis). |
 | `--models` | `veo-3.1-fast,seedance-2.0-fast` | Two or three aliases from the table below, or any `owner/name` Replicate id. |
-| `--canvas` | `square` | `square` is 1080x1080, prompt on top. `landscape` is 1920x1080, prompt in a left column (two models) or on top (three). |
+| `--canvas` | `square` | `square` is 1080x1080, 9:16 panels, prompt on top. `landscape` is 1920x1080, 9:16 panels, prompt in a left column (two models) or on top (three). `stacked` is 1080x1216, two 16:9 panels one above the other, a brand badge and model name in each panel's top-right corner, no prompt on the video (it goes in `post.md`); exactly two models. |
+| `--look-for` | preset's line | One sentence on what to compare, for the post copy. |
+| `--brand` | `GENFEED` | Text of the top tag in each stacked-canvas badge. |
 | `--duration` | `4` | Seconds per clip. Snapped to what each model accepts (Veo 4/6/8, Kling 5/10). The final video is trimmed to the shortest clip. |
 | `--resolution` | `720p` | Passed to models that take one. |
 | `--audio` | `none` | `--audio <alias>` keeps that one model's audio track. Default is silent, so no model gets a sound advantage and it is cheaper. |
@@ -63,11 +70,19 @@ The default pair is both "fast" tiers from the two labs with the most-used video
 
 ## Workflow
 
-1. **Write one prompt that exposes a difference.** Motion, hands, text, physics, camera moves. The `motion-coherence` and `camera-instruction` tasks in genfeedai/benchmark `tasks/video/` are good starting prompts. Do not tune the prompt for one model.
+1. **Pick one prompt that exposes a difference.** The presets cover the catchy cases: `fit-woman` (people and skin), `camera-orbit`, `camera-crane` and `camera-pushin` (camera moves), `dbz-fight` (anime effects and speed), `motion-coherence` (objects and physics). All subjects are fictional or generic. Do not tune the prompt for one model. Do not use real people's names or likenesses: most models refuse them, and a post of real people fighting or posing is a reputation risk.
 2. **Dry-run** to confirm the pair and the cost ceiling.
 3. **Run it.** Models generate in parallel; expect 30 seconds to 3 minutes. If any model fails (content filter, timeout) the run stops and says which, with the other clips kept in `clips/`; fix the prompt and run again with `--reuse`.
 4. **Look at the output before posting.** Extract a frame (`ffmpeg -ss 2 -i out.mp4 -frames:v 1 f.png`) or open the file. Check the label order, the prompt text and that both clips play the full length.
-5. **Post it.** X takes H.264 mp4 up to 140 seconds, so the output works as is. Square fills more of the feed; landscape suits a quote-post or a thread header.
+5. **Post it.** X takes H.264 mp4 up to 140 seconds, so the output works as is. `stacked` is the feed-friendly shape (1080x1216); square also fills the feed; landscape suits a quote-post or a thread header. Paste `post.md` as the tweet text.
+
+Length: Veo takes 4, 6 or 8 seconds and the video is trimmed to the shortest clip, so a comparison that includes Veo tops out at 8 seconds. Clips are silent unless you pass `--audio`.
+
+## Known refusals
+
+- Seedance 2.0 Fast refused the `dbz-fight` preset three times ("output video may be related to copyright restrictions"), including after the franchise name and the franchise-style costume words were removed. Veo 3.1 Fast and Kling 2.5 Turbo Pro generated it. For that preset run `--models veo-3.1-fast,kling-v2.5-turbo-pro`; state in the post that Seedance declined it rather than hiding it.
+- A refusal stops the run and keeps the other models' clips in `<out>/clips/`. `--reuse` only looks in the `--out` you pass, so keep the same `--out` when you swap the failing model.
+- Models also decide for themselves about real people: do not put real names in a prompt.
 
 ## Honesty rules
 
@@ -79,6 +94,7 @@ The default pair is both "fast" tiers from the two labs with the most-used video
 
 - `<out>/<prompt-slug>-<canvas>.mp4`: the composite, 30 fps, H.264, yuv420p.
 - `<out>/clips/<alias>.mp4` plus `<alias>.mp4.json`: the raw clip and its generation record (model id, input, prediction id, predict seconds).
+- `<out>/post.md`: the copy to paste with the video (headline, the prompt, "one take each", brand).
 - `<out>/manifest.json`: prompt, canvas, duration, blind key, audio source and every clip.
 
 stdout is a JSON object with `output`, `seconds`, `size` and `manifest`.

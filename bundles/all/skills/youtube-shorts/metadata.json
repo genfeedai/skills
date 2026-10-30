@@ -1,0 +1,18 @@
+{
+  "name": "youtube-shorts",
+  "version": "1.0.0",
+  "description": "Turn a long recording into branded YouTube Shorts: clip selection, cutting, captions, logo placement, cover, title and caption",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "youtube shorts",
+    "cut shorts from a livestream",
+    "clip captions",
+    "shorts cutdown",
+    "pick clips from a transcript",
+    "shorts end card"
+  ],
+  "references": {},
+  "outputs": ["markdown", "video-brief"],
+  "tags": ["youtube", "shorts", "clips", "captions", "video-editing"]
+}

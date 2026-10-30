@@ -1,0 +1,17 @@
+{
+  "name": "tiktok-description",
+  "version": "1.0.0",
+  "description": "Write the TikTok caption with a searchable first line, one supporting fact, specific hashtags and disclosures within the 2,200 character limit",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "tiktok caption",
+    "tiktok description",
+    "tiktok hashtags",
+    "write a tiktok caption",
+    "tiktok disclosure"
+  ],
+  "references": {},
+  "outputs": ["markdown"],
+  "tags": ["tiktok", "captions", "descriptions", "hashtags"]
+}

@@ -13,7 +13,7 @@
     {
       "name": "genfeedai-content-creation",
       "source": "./bundles/content-creation",
-      "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, and new-account warmups"
+      "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, per-platform video packaging, and new-account warmups"
     },
     {
       "name": "genfeedai-content-optimization",

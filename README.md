@@ -124,6 +124,14 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 | [instagram-content-creator](./instagram-content-creator/) | Instagram captions, carousel outlines, Reels scripts, Stories, and hashtag strategy |
 | [linkedin-content-creator](./linkedin-content-creator/) | LinkedIn posts, articles, carousels, and newsletter editions |
 | [youtube-content-creator](./youtube-content-creator/) | YouTube titles, descriptions, tags, chapters, thumbnail briefs, Shorts, and retention planning |
+| [video-brand-profile](./video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
+| [youtube-shorts](./youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
+| [youtube-thumbnail](./youtube-thumbnail/) | Branded thumbnails for livestreams, recaps and Shorts covers with three test concepts and signature placement |
+| [youtube-title](./youtube-title/) | Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, paired with the thumbnail |
+| [youtube-description](./youtube-description/) | YouTube descriptions with accurate chapters, sources and the channel footer |
+| [tiktok-video](./tiktok-video/) | Reformat a recording or Short into a branded 9:16 TikTok video with burned-in captions |
+| [tiktok-title](./tiktok-title/) | TikTok hook, cover text and the searchable first caption line |
+| [tiktok-description](./tiktok-description/) | TikTok captions with specific hashtags and disclosures within the 2,200 character limit |
 | [newsletter-creator](./newsletter-creator/) | Newsletter editions with subject lines, editorial structures, and growth tactics |
 | [blog-content-creator](./blog-content-creator/) | SEO-optimized blog posts, guides, and long-form articles |
 | [copywriter](./copywriter/) | Non-ad conversion copy for landing pages, CTAs, value propositions, pricing pages, onboarding, and microcopy |

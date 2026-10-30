@@ -1,0 +1,18 @@
+{
+  "name": "youtube-thumbnail",
+  "version": "1.0.0",
+  "description": "Branded YouTube thumbnails for livestreams, recaps and Shorts covers with three test concepts, signature placement and export sizes",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "youtube thumbnail",
+    "thumbnail concepts",
+    "livestream thumbnail",
+    "recap thumbnail",
+    "shorts cover",
+    "thumbnail brief"
+  ],
+  "references": {},
+  "outputs": ["markdown", "image-prompts"],
+  "tags": ["youtube", "thumbnails", "shorts", "livestream", "branding"]
+}
