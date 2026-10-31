@@ -237,7 +237,7 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 |-------|-------------|
 | [content-loop-orchestrator](./content-loop-orchestrator/) | Operate the executable Genfeed content loop and route each stage to the right skill |
 | [genfeed-connector](./genfeed-connector/) | Local content-loop state, manifest, feedback, and env-based token seam |
-| [social-poster](./social-poster/) | Publish approved derivatives to X or LinkedIn with a dry-run-by-default approval gate |
+| [social-poster](./social-poster/) | Publish approved derivatives to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate |
 | [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
 
 ## Genfeed Integration

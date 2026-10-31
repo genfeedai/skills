@@ -1,26 +1,24 @@
 #!/usr/bin/env bun
 // social-poster — the post stage of the content loop.
 //
-// Publishes a single derivative to X or LinkedIn over their REST APIs with global
-// fetch (no SDK). Pure worker: reads its token from the environment, persists
-// nothing, and ENFORCES AN APPROVAL GATE — without --confirm it is a dry run that
-// prints the exact request it *would* send and makes no network call. The
-// orchestrator (or the agent, after the user approves) re-runs with --confirm.
+// Publishes one finished derivative to X, LinkedIn, Threads, Instagram, Facebook, TikTok,
+// YouTube, Pinterest or Mastodon over their official APIs with global fetch (no SDK).
+// Pure worker: reads its token from the environment, persists nothing, makes no model call,
+// and ENFORCES AN APPROVAL GATE — without --confirm it is a dry run that prints every
+// request it *would* send (secrets masked) and makes no network call.
 //
-//   # dry run (default): show the payload, post nothing
+//   # dry run (default): show the requests, post nothing
 //   bun run post.ts --platform x --text "shipping the content loop, all skills"
 //
 //   # publish for real (explicit, irreversible)
 //   bun run post.ts --platform x --text "..." --confirm
-//   bun run post.ts --platform linkedin --author urn:li:person:XXXX --text "..." --confirm
+//   bun run post.ts --platform instagram --media https://cdn.example.com/reel.mp4 --text "..." --confirm
 //
-// A Derivative JSON on stdin is an alternative to --text/--media-ids:
+// A Derivative JSON on stdin is an alternative to --text/--media:
 //   echo '{"platform":"x","copy":"gm","mediaRefs":["123"]}' | bun run post.ts --platform x --confirm
-//
-// Tokens (env only, never written): X_BEARER_TOKEN (OAuth2 user context, tweet.write)
-// | LINKEDIN_ACCESS_TOKEN (w_member_social). Resolve via `gf token x|linkedin`.
 
-type Platform = 'x' | 'linkedin';
+import { DryRunTransport, fail, LiveTransport, PosterError, type PostInput } from './lib/core';
+import { isPlatform, PUBLISHERS } from './lib/registry';
 
 interface Derivative {
   platform?: string;
@@ -28,15 +26,6 @@ interface Derivative {
   copy?: string;
   mediaRefs?: string[];
 }
-
-interface PostResult {
-  posted: boolean;
-  platform: Platform;
-  postId?: string;
-  url?: string;
-}
-
-const DEFAULT_LINKEDIN_VERSION = '202505';
 
 function parseFlags(argv: string[]): { flags: Record<string, string>; bools: Set<string> } {
   const flags: Record<string, string> = {};
@@ -46,7 +35,7 @@ function parseFlags(argv: string[]): { flags: Record<string, string>; bools: Set
     if (!a.startsWith('--')) continue;
     const key = a.slice(2);
     const next = argv[i + 1];
-    if (next && !next.startsWith('--')) {
+    if (next !== undefined && !next.startsWith('--')) {
       flags[key] = next;
       i++;
     } else {
@@ -64,173 +53,69 @@ async function readStdin(): Promise<string> {
   return Buffer.concat(chunks).toString('utf8').trim();
 }
 
+function splitList(value: string | undefined): string[] {
+  return (value ?? '')
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
 function out(value: unknown): void {
   process.stdout.write(`${JSON.stringify(value, null, 2)}\n`);
 }
 
-function fail(message: string): never {
-  process.stderr.write(`social-poster: ${message}\n`);
-  process.exit(1);
-}
-
-/** "Bearer ****1234" — enough to tell which token without leaking it. */
-function maskAuth(headers: Record<string, string>): Record<string, string> {
-  const masked: Record<string, string> = { ...headers };
-  if (masked.authorization) {
-    const [scheme, ...rest] = masked.authorization.split(' ');
-    const cred = rest.join(' ');
-    masked.authorization = cred ? `${scheme} ****${cred.slice(-4)}` : `${scheme} (unset)`;
+export async function run(argv: string[], stdin: string): Promise<unknown> {
+  const { flags, bools } = parseFlags(argv);
+  const platform = flags.platform;
+  if (!isPlatform(platform)) {
+    return fail(`--platform must be one of: ${Object.keys(PUBLISHERS).join(', ')}`);
   }
-  return masked;
-}
 
-interface BuiltRequest {
-  url: string;
-  method: 'POST';
-  headers: Record<string, string>;
-  body: Record<string, unknown>;
-  tokenEnv: string;
-}
-
-function buildX(text: string, mediaIds: string[], replyTo: string | undefined): BuiltRequest {
-  const token = process.env.X_BEARER_TOKEN ?? '';
-  const body: Record<string, unknown> = { text };
-  if (mediaIds.length) body.media = { media_ids: mediaIds };
-  if (replyTo) body.reply = { in_reply_to_tweet_id: replyTo };
-  return {
-    url: 'https://api.x.com/2/tweets',
-    method: 'POST',
-    headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
-    body,
-    tokenEnv: 'X_BEARER_TOKEN',
-  };
-}
-
-function buildLinkedIn(
-  text: string,
-  author: string,
-  visibility: string,
-  version: string
-): BuiltRequest {
-  const token = process.env.LINKEDIN_ACCESS_TOKEN ?? '';
-  return {
-    url: 'https://api.linkedin.com/rest/posts',
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${token}`,
-      'content-type': 'application/json',
-      'linkedin-version': version,
-      'x-restli-protocol-version': '2.0.0',
-    },
-    body: {
-      author,
-      commentary: text,
-      visibility,
-      distribution: {
-        feedDistribution: 'MAIN_FEED',
-        targetEntities: [],
-        thirdPartyDistributionChannels: [],
-      },
-      lifecycleState: 'PUBLISHED',
-      isReshareDisabledByAuthor: false,
-    },
-    tokenEnv: 'LINKEDIN_ACCESS_TOKEN',
-  };
-}
-
-async function sendX(req: BuiltRequest): Promise<PostResult> {
-  const res = await fetch(req.url, {
-    method: req.method,
-    headers: req.headers,
-    body: JSON.stringify(req.body),
-  });
-  const text = await res.text();
-  if (!res.ok) throw new Error(`x post ${res.status}: ${text.slice(0, 400)}`);
-  const data = JSON.parse(text) as { data?: { id?: string } };
-  const id = data.data?.id;
-  return {
-    posted: true,
-    platform: 'x',
-    postId: id,
-    url: id ? `https://x.com/i/web/status/${id}` : undefined,
-  };
-}
-
-async function sendLinkedIn(req: BuiltRequest): Promise<PostResult> {
-  const res = await fetch(req.url, {
-    method: req.method,
-    headers: req.headers,
-    body: JSON.stringify(req.body),
-  });
-  const text = await res.text();
-  if (!res.ok) throw new Error(`linkedin post ${res.status}: ${text.slice(0, 400)}`);
-  const id = res.headers.get('x-restli-id') ?? undefined;
-  return {
-    posted: true,
-    platform: 'linkedin',
-    postId: id,
-    url: id ? `https://www.linkedin.com/feed/update/${id}` : undefined,
-  };
-}
-
-async function main(): Promise<void> {
-  const { flags, bools } = parseFlags(process.argv.slice(2));
-  const platform = flags.platform as Platform;
-  if (platform !== 'x' && platform !== 'linkedin') fail('--platform must be x or linkedin');
-
-  const stdin = await readStdin();
   const derivative = stdin ? (JSON.parse(stdin) as Derivative) : undefined;
-
   const text = flags.text ?? derivative?.copy ?? '';
-  if (!text.trim()) fail('no text to post (pass --text or a Derivative with .copy on stdin)');
-
-  const mediaIds = flags['media-ids']
-    ? flags['media-ids']
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean)
-    : (derivative?.mediaRefs ?? []);
-
-  let req: BuiltRequest;
-  if (platform === 'x') {
-    req = buildX(text, mediaIds, flags['reply-to']);
-  } else {
-    const author = flags.author ?? process.env.LINKEDIN_AUTHOR_URN ?? '';
-    if (!author) fail('linkedin requires --author urn:li:person:<id> (or LINKEDIN_AUTHOR_URN)');
-    const version =
-      flags['linkedin-version'] ?? process.env.LINKEDIN_VERSION ?? DEFAULT_LINKEDIN_VERSION;
-    req = buildLinkedIn(text, author, flags.visibility ?? 'PUBLIC', version);
+  const refs = derivative?.mediaRefs ?? [];
+  const input: PostInput = {
+    text,
+    // X takes already-uploaded media ids; every other platform takes URLs or file paths.
+    media: platform === 'x' ? [] : splitList(flags.media).concat(flags.media ? [] : refs),
+    mediaIds: platform === 'x' ? (flags['media-ids'] ? splitList(flags['media-ids']) : refs) : [],
+    flags,
+  };
+  if (platform === 'x' || platform === 'linkedin') {
+    if (!text.trim()) fail('no text to post (pass --text or a Derivative with .copy on stdin)');
   }
 
-  const confirm = bools.has('confirm');
+  const publisher = PUBLISHERS[platform];
 
-  // Approval gate: no token check, no network on a dry run. Publishing is
-  // irreversible, so it requires an explicit, separate --confirm.
-  if (!confirm) {
-    out({
+  // Approval gate: no token check, no network on a dry run. Publishing is irreversible, so it
+  // requires an explicit, separate --confirm.
+  if (!bools.has('confirm')) {
+    const transport = new DryRunTransport();
+    await publisher.publish(input, transport);
+    return {
       dryRun: true,
       platform,
-      willPost: {
-        url: req.url,
-        method: req.method,
-        headers: maskAuth(req.headers),
-        body: req.body,
-      },
+      willSend: transport.planned,
       note: 'No request sent. Re-run with --confirm to publish.',
-    });
-    return;
+    };
   }
 
-  if (!process.env[req.tokenEnv]) {
-    fail(
-      `${req.tokenEnv} not set (orchestrator: \`export ${req.tokenEnv}=$(gf token ${platform})\`)`
-    );
+  for (const name of publisher.tokenEnv) {
+    if (!process.env[name]) {
+      fail(`${name} not set (orchestrator: \`export ${name}=$(gf token ${platform})\`)`);
+    }
   }
-
-  const result = platform === 'x' ? await sendX(req) : await sendLinkedIn(req);
-  out(result);
+  return publisher.publish(input, new LiveTransport());
 }
 
-main().catch((err: unknown) => {
-  fail(err instanceof Error ? err.message : String(err));
-});
+if (import.meta.main) {
+  readStdin()
+    .then((stdin) => run(process.argv.slice(2), stdin))
+    .then(out)
+    .catch((err: unknown) => {
+      const message =
+        err instanceof PosterError || err instanceof Error ? err.message : String(err);
+      process.stderr.write(`social-poster: ${message}\n`);
+      process.exit(1);
+    });
+}
