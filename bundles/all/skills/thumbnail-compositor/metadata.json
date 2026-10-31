@@ -1,0 +1,17 @@
+{
+  "name": "thumbnail-compositor",
+  "version": "1.0.0",
+  "description": "Composite three branded thumbnail variants locally with exact text and signature placement using headless Chrome, no image API",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "render the thumbnail",
+    "make the three thumbnail variants",
+    "composite the thumbnail",
+    "shorts cover image",
+    "put the logo and text on the thumbnail"
+  ],
+  "references": {},
+  "outputs": ["files", "json"],
+  "tags": ["thumbnail", "youtube", "shorts", "cover", "local", "worker", "genfeed"]
+}

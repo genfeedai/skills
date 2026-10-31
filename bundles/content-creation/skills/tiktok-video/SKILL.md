@@ -19,6 +19,8 @@ TikTok rewards a clear first second and a complete small idea. Reuse the same re
 
 ## Workflow
 
+When [clip-cutter](../clip-cutter/SKILL.md) is installed, use it for the cut, vertical layout and burned-in captions (steps 3 to 5). If it is not installed, deliver the cut list and caption text and say the edit is a separate step.
+
 1. **Choose the moment.** Same rubric as [youtube-shorts](../youtube-shorts/SKILL.md): hook speed, standalone clarity, a quotable line, visual proof, operator value.
 2. **Open on the claim.** The first sentence names the subject and the tension. No intro, no logo sting, no "hey guys".
 3. **Cut tight.** One point. Aim for 15 to 60 seconds. A longer video is allowed on the platform, but only keep length when the point needs it.

@@ -11,8 +11,18 @@
       "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, per-platform video packaging, and new-account warmups",
       "skills": [
         "x-content-creator",
+        "x-post",
+        "x-thread",
+        "x-article",
         "instagram-content-creator",
+        "instagram-post",
+        "instagram-carousel",
+        "instagram-reel",
+        "instagram-story",
         "linkedin-content-creator",
+        "linkedin-post",
+        "linkedin-article",
+        "linkedin-carousel",
         "youtube-content-creator",
         "video-brand-profile",
         "youtube-shorts",
@@ -68,7 +78,11 @@
         "visual-brand-kit",
         "brand-os-architect",
         "media-forge",
-        "video-model-benchmark"
+        "video-model-benchmark",
+        "motion-video",
+        "carousel-renderer",
+        "thumbnail-compositor",
+        "clip-cutter"
       ]
     },
     "advertising": {

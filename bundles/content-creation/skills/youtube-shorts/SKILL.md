@@ -52,6 +52,8 @@ Do not invent quotes, timestamps or numbers. Mark an estimated timestamp `approx
 
 ## 2. Cutting
 
+When [clip-cutter](../clip-cutter/SKILL.md) is installed, it can run the cut, caption and burn-in steps locally from the clip list and the brand profile. If it is not installed, give the cut list (start, end, caption text) and say the edit is a separate step.
+
 - Start on the sentence that carries the claim. Cut breaths, restarts and "so".
 - One point per Short. Typical length is 20 to 60 seconds; YouTube now allows square or vertical Shorts up to 3 minutes, but length is not a goal.
 - Keep real audio. Normalize it (for example integrated loudness -16 LUFS, true peak -1.5 dB) and use a few milliseconds of fade at both ends so cuts do not click.

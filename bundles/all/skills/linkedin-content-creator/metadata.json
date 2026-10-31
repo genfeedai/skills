@@ -1,7 +1,7 @@
 {
   "name": "linkedin-content-creator",
-  "version": "1.0.0",
-  "description": "Create LinkedIn content including posts, articles, carousels, and newsletter editions for professional growth",
+  "version": "2.0.0",
+  "description": "Router for LinkedIn content: routes to linkedin-post, linkedin-article and linkedin-carousel, with fallback essentials",
   "author": "genfeedai",
   "license": "MIT",
   "triggers": [

@@ -120,9 +120,19 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 
 | Skill | Description |
 |-------|-------------|
-| [x-content-creator](./x-content-creator/) | X/Twitter posts, threads, quote tweets, and reply strategies |
-| [instagram-content-creator](./instagram-content-creator/) | Instagram captions, carousel outlines, Reels scripts, Stories, and hashtag strategy |
-| [linkedin-content-creator](./linkedin-content-creator/) | LinkedIn posts, articles, carousels, and newsletter editions |
+| [x-content-creator](./x-content-creator/) | Router: sends X requests to x-post, x-thread or x-article (keeps old installs working) |
+| [x-post](./x-post/) | One X post, quote post or reply: hooks, algorithm signals, checklist |
+| [x-thread](./x-thread/) | X threads of 2 to 15 posts: hook, value chain, closing CTA, bump plan |
+| [x-article](./x-article/) | Long-form X Article plus its promo post |
+| [instagram-content-creator](./instagram-content-creator/) | Router: sends Instagram requests to the post, carousel, Reel or Story skill (keeps old installs working) |
+| [instagram-post](./instagram-post/) | Instagram feed caption, hashtags, alt text and image brief |
+| [instagram-carousel](./instagram-carousel/) | Instagram carousel slide copy, design spec and caption |
+| [instagram-reel](./instagram-reel/) | Reel hook, timed script, caption and production handoff |
+| [instagram-story](./instagram-story/) | Story sequences with stickers and a weekly theme calendar |
+| [linkedin-content-creator](./linkedin-content-creator/) | Router: sends LinkedIn requests to linkedin-post, linkedin-article or linkedin-carousel (keeps old installs working) |
+| [linkedin-post](./linkedin-post/) | LinkedIn text posts: six formats, hooks, tone, comment strategy |
+| [linkedin-article](./linkedin-article/) | LinkedIn articles and newsletter editions with a promo post |
+| [linkedin-carousel](./linkedin-carousel/) | LinkedIn PDF carousels: slide copy, design spec, caption |
 | [youtube-content-creator](./youtube-content-creator/) | YouTube titles, descriptions, tags, chapters, thumbnail briefs, Shorts, and retention planning |
 | [video-brand-profile](./video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
 | [youtube-shorts](./youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
@@ -180,6 +190,10 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 | [visual-brand-kit](./visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
 | [media-forge](./media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |
 | [brand-os-architect](./brand-os-architect/) | Source-backed Brand OS systems for AI-era brands, launch storytelling, visual rules, and generation checklists |
+| [motion-video](./motion-video/) | Write a Remotion composition with your own Claude or Codex sub, render it locally and package it as Genfeed Motion-style output, no model API |
+| [carousel-renderer](./carousel-renderer/) | Render an approved carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API |
+| [thumbnail-compositor](./thumbnail-compositor/) | Composite three branded thumbnail variants locally with exact text and signature placement, no image API |
+| [clip-cutter](./clip-cutter/) | Cut vertical 9:16 clips from a long recording locally with ffmpeg: captions, loudness and measured output, no API |
 
 ## Advertising
 
@@ -225,7 +239,7 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 |-------|-------------|
 | [content-loop-orchestrator](./content-loop-orchestrator/) | Operate the executable Genfeed content loop and route each stage to the right skill |
 | [genfeed-connector](./genfeed-connector/) | Local content-loop state, manifest, feedback, and env-based token seam |
-| [social-poster](./social-poster/) | Publish approved derivatives to X or LinkedIn with a dry-run-by-default approval gate |
+| [social-poster](./social-poster/) | Publish approved derivatives to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate |
 | [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
 
 ## Genfeed Integration

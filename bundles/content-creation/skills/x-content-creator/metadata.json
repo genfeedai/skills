@@ -1,7 +1,7 @@
 {
   "name": "x-content-creator",
-  "version": "1.0.0",
-  "description": "Create high-performing X/Twitter content including tweets, threads, and engagement strategies",
+  "version": "2.0.0",
+  "description": "Router for X/Twitter content: routes to x-post, x-thread and x-article, with fallback essentials",
   "author": "genfeedai",
   "license": "MIT",
   "triggers": [

@@ -82,6 +82,8 @@ Place the mark on the profile's anchor, by ratio:
 
 ## Export
 
+When [thumbnail-compositor](../thumbnail-compositor/SKILL.md) is installed, it composes the text, logo and mark layers over the artwork and writes the export sizes below. If it is not installed, deliver the layer spec and the artwork prompt and say the composite is a separate step.
+
 - Work at 1280 x 720; export 16:9 at the profile's recommended size (YouTube recommends 3840 x 2160 as of Oct 2026, minimum width 640) as JPEG or PNG.
 - Short covers: 9:16, recommended 2160 x 3840, minimum height 640.
 - File size: the `thumbnails.set` reference currently states 50 MB, older copies say 2 MB, and limits vary by upload device. Keep JPEGs under 2 MB.
