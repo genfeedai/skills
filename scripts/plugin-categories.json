@@ -67,7 +67,11 @@
         "visual-brand-kit",
         "brand-os-architect",
         "media-forge",
-        "video-model-benchmark"
+        "video-model-benchmark",
+        "motion-video",
+        "carousel-renderer",
+        "thumbnail-compositor",
+        "clip-cutter"
       ]
     },
     "advertising": {

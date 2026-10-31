@@ -1,0 +1,17 @@
+{
+  "name": "carousel-renderer",
+  "version": "1.0.0",
+  "description": "Render a carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "render the carousel",
+    "make the carousel slides",
+    "carousel pdf for linkedin",
+    "instagram carousel images",
+    "turn this outline into slides"
+  ],
+  "references": {},
+  "outputs": ["files", "json"],
+  "tags": ["carousel", "instagram", "linkedin", "pdf", "slides", "local", "worker", "genfeed"]
+}
