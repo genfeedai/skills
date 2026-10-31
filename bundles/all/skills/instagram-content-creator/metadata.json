@@ -1,7 +1,7 @@
 {
   "name": "instagram-content-creator",
-  "version": "1.0.0",
-  "description": "Create Instagram content including captions, carousel outlines, Reels scripts, and hashtag strategies",
+  "version": "2.0.0",
+  "description": "Router for Instagram content: routes to instagram-post, instagram-carousel, instagram-reel and instagram-story, with fallback essentials",
   "author": "genfeedai",
   "license": "MIT",
   "triggers": [

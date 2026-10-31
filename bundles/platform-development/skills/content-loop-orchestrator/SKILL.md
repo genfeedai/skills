@@ -35,7 +35,7 @@ The loop does not sync with genfeed.ai. To draft, schedule, or measure the appro
 | **select** | `content-strategist` | instruction | judge candidates against pillars/audience; kill the off-strategy ones |
 | **brief** | `content-strategist`, `content-factory-operator` | instruction | turn the chosen trend + thesis into a brief |
 | **remix** | `content-atomizer` | instruction | one thesis → many platform-specific derivatives |
-| **produce (copy)** | `x-content-creator`, `linkedin-content-creator`, `instagram-content-creator`, `youtube-content-creator`, `blog-content-creator`, `newsletter-creator`, `ad-copy-creator` | instruction | write the actual copy per platform |
+| **produce (copy)** | `x-post` / `x-thread` / `x-article`, `linkedin-post` / `linkedin-article` / `linkedin-carousel`, `instagram-post` / `instagram-carousel` / `instagram-reel` / `instagram-story` (the `*-content-creator` routers still work), `youtube-content-creator`, `blog-content-creator`, `newsletter-creator`, `ad-copy-creator` | instruction | write the actual copy per platform |
 | **produce (media)** | `image-prompt-engineer` / `cinematic-prompting` / `visual-brand-kit` → `media-forge` | instruction → worker | craft the prompt, choose the model, then generate the file |
 | **review** | `content-reviewer`, `content-seo-optimizer` | instruction | score quality/SEO and run the publish-readiness gate; below threshold or gate fail → back to produce |
 | **approve** | human | gate | explicit sign-off before anything public |
@@ -72,7 +72,7 @@ Sibling skills are resolved relative to the orchestrator (`../../<skill>/...`), 
 2. For each item you choose to pursue:
    - **Select/brief** — apply `content-strategist`; `gf transition <id> briefed`.
    - **Remix** — apply `content-atomizer` to produce per-platform derivatives; `gf transition <id> remixed`.
-   - **Produce copy** — route each derivative to its `*-content-creator`.
+   - **Produce copy** — route each derivative to the skill for its platform and product (for example `x-thread`, `linkedin-carousel`, `instagram-reel`).
    - **Produce media** — `image-prompt-engineer` → `media-forge`; attach artifacts; `gf transition <id> producing`.
    - **Review** — `content-reviewer` (+ `content-seo-optimizer`). Below bar or publish-readiness gate fails → revise. At bar with gate PASS → `gf transition <id> awaiting_approval`.
    - **Approve** — show the user the reviewed copy and the `social-poster` **dry run**. On an explicit yes → `gf transition <id> approved`.

@@ -12,8 +12,18 @@ Content creation skills for social, video, newsletters, blogs, launch copy, conv
 ## Included Skills
 
 - `x-content-creator`
+- `x-post`
+- `x-thread`
+- `x-article`
 - `instagram-content-creator`
+- `instagram-post`
+- `instagram-carousel`
+- `instagram-reel`
+- `instagram-story`
 - `linkedin-content-creator`
+- `linkedin-post`
+- `linkedin-article`
+- `linkedin-carousel`
 - `youtube-content-creator`
 - `video-brand-profile`
 - `youtube-shorts`

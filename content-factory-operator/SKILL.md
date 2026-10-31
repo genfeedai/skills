@@ -232,10 +232,10 @@ Use the existing Genfeed skills as specialized stations in the factory.
 |---------------|-------------|
 | Strategy and calendar | `content-strategist` |
 | Blog or long-form source | `blog-content-creator` |
-| X posts and threads | `x-content-creator` |
-| LinkedIn posts and articles | `linkedin-content-creator` |
+| X posts, threads and Articles | `x-post`, `x-thread`, `x-article` (router: `x-content-creator`) |
+| LinkedIn posts, articles and carousels | `linkedin-post`, `linkedin-article`, `linkedin-carousel` (router: `linkedin-content-creator`) |
 | Newsletter editions | `newsletter-creator` |
-| Instagram captions/carousels | `instagram-content-creator` |
+| Instagram posts, carousels, Reels and Stories | `instagram-post`, `instagram-carousel`, `instagram-reel`, `instagram-story` (router: `instagram-content-creator`) |
 | YouTube titles, scripts, metadata | `youtube-content-creator` |
 | Multi-platform derivatives | `content-atomizer` |
 | SEO optimization | `content-seo-optimizer` |

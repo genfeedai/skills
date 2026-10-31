@@ -120,9 +120,19 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 
 | Skill | Description |
 |-------|-------------|
-| [x-content-creator](./x-content-creator/) | X/Twitter posts, threads, quote tweets, and reply strategies |
-| [instagram-content-creator](./instagram-content-creator/) | Instagram captions, carousel outlines, Reels scripts, Stories, and hashtag strategy |
-| [linkedin-content-creator](./linkedin-content-creator/) | LinkedIn posts, articles, carousels, and newsletter editions |
+| [x-content-creator](./x-content-creator/) | Router: sends X requests to x-post, x-thread or x-article (keeps old installs working) |
+| [x-post](./x-post/) | One X post, quote post or reply: hooks, algorithm signals, checklist |
+| [x-thread](./x-thread/) | X threads of 2 to 15 posts: hook, value chain, closing CTA, bump plan |
+| [x-article](./x-article/) | Long-form X Article plus its promo post |
+| [instagram-content-creator](./instagram-content-creator/) | Router: sends Instagram requests to the post, carousel, Reel or Story skill (keeps old installs working) |
+| [instagram-post](./instagram-post/) | Instagram feed caption, hashtags, alt text and image brief |
+| [instagram-carousel](./instagram-carousel/) | Instagram carousel slide copy, design spec and caption |
+| [instagram-reel](./instagram-reel/) | Reel hook, timed script, caption and production handoff |
+| [instagram-story](./instagram-story/) | Story sequences with stickers and a weekly theme calendar |
+| [linkedin-content-creator](./linkedin-content-creator/) | Router: sends LinkedIn requests to linkedin-post, linkedin-article or linkedin-carousel (keeps old installs working) |
+| [linkedin-post](./linkedin-post/) | LinkedIn text posts: six formats, hooks, tone, comment strategy |
+| [linkedin-article](./linkedin-article/) | LinkedIn articles and newsletter editions with a promo post |
+| [linkedin-carousel](./linkedin-carousel/) | LinkedIn PDF carousels: slide copy, design spec, caption |
 | [youtube-content-creator](./youtube-content-creator/) | YouTube titles, descriptions, tags, chapters, thumbnail briefs, Shorts, and retention planning |
 | [video-brand-profile](./video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
 | [youtube-shorts](./youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
