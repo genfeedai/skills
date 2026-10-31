@@ -1,6 +1,6 @@
 # Social Poster
 
-The **post** stage of the Genfeed content loop. Publishes one approved post to [X](https://x.com), [LinkedIn](https://linkedin.com), Threads, Instagram, Facebook Pages, TikTok, YouTube, Pinterest or Mastodon with the platform's own OAuth access token and API. No model call, no credits, no SDK: Bun and global `fetch` only.
+The **post** stage of the Genfeed content loop. Publishes one approved post to [X](https://x.com), [LinkedIn](https://linkedin.com), Threads, Instagram, Facebook Pages, TikTok, YouTube, Pinterest or Mastodon with the platform's own OAuth access token and API. No model call, no credits, no SDK: Bun and the built-in fetch only.
 
 Built around a **hard approval gate**: without `--confirm` it is a dry run that prints every request it would send, in order, with secrets masked, and makes **no network call**. Publishing happens only on an explicit second run with `--confirm`.
 

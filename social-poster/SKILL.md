@@ -38,7 +38,7 @@ echo '{"platform":"instagram","copy":"New drop","mediaRefs":["https://cdn.exampl
   | bun run scripts/post.ts --platform instagram --account "$INSTAGRAM_USER_ID" --confirm
 ```
 
-Requires [Bun](https://bun.sh) 1.1+. Zero dependencies: Bun, its global `fetch` and Node built-ins. Tests: `bun test ./social-poster`.
+Requires [Bun](https://bun.sh) 1.1+. Zero dependencies: Bun, the built-in fetch and Node built-ins. Tests: `bun test ./social-poster`.
 
 ---
 
