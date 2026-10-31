@@ -29,6 +29,7 @@
         "youtube-thumbnail",
         "youtube-title",
         "youtube-description",
+        "long-form-storyboard",
         "tiktok-video",
         "tiktok-title",
         "tiktok-description",
@@ -86,7 +87,7 @@
     },
     "advertising": {
       "description": "Paid ad copy, UGC ad prompts and ad performance optimization skills",
-      "skills": ["ad-copy-creator", "ad-performance-analyzer", "ugc-ad-prompts"]
+      "skills": ["ad-copy-creator", "ad-performance-analyzer", "ugc-ad-prompts", "ad-pack-assembly"]
     },
     "gtm-strategy": {
       "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning",

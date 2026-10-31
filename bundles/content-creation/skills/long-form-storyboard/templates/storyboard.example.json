@@ -1,0 +1,52 @@
+{
+  "title": "Why one brief beats six handoffs",
+  "language": "en",
+  "wpm": 150,
+  "visualStyle": "Photographic still, soft daylight, muted teal and warm wood palette, shallow depth of field, no visible text or logos",
+  "size": "1920x1080",
+  "segments": [
+    {
+      "id": "s01",
+      "sectionLabel": "Hook",
+      "narration": "Most ads are late for one reason. Not the idea. The handoffs.",
+      "onScreenText": "Six steps. Six handoffs.",
+      "card": "cards/hook.mp4",
+      "cutaways": [
+        {
+          "id": "c01",
+          "brief": "A long office corridor with three open doors, one showing a room of printers, one a drift of paper planes.",
+          "file": "cutaways/c01.png"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "sectionLabel": "The problem",
+      "narration": "A brief becomes a draft, the draft becomes a resize, the resize waits for review, and review waits for someone to be free. Every wait is a day you do not get back.",
+      "cutaways": [
+        {
+          "id": "c02",
+          "brief": "A desk covered in printed drafts, one marked up in red pen.",
+          "file": "cutaways/c02.png"
+        },
+        {
+          "id": "c03",
+          "brief": "A calendar wall with a single day circled and crossed out.",
+          "file": "cutaways/c03.png"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "sectionLabel": "The fix",
+      "narration": "Put the brief in once, review the alternatives side by side, and change only what is wrong.",
+      "cutaways": [
+        {
+          "id": "c04",
+          "brief": "One clean desk, one monitor, a printed brief beside the keyboard.",
+          "file": "cutaways/c04.png"
+        }
+      ]
+    }
+  ]
+}

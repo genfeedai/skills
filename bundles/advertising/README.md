@@ -14,3 +14,4 @@ Paid ad copy, UGC ad prompts and ad performance optimization skills
 - `ad-copy-creator`
 - `ad-performance-analyzer`
 - `ugc-ad-prompts`
+- `ad-pack-assembly`
