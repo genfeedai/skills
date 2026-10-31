@@ -194,6 +194,7 @@ bunx skills add genfeedai/skills/youtube
 | [youtube-shorts](./youtube/youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
 | [youtube-thumbnail](./youtube/youtube-thumbnail/) | Branded thumbnails for livestreams, recaps and Shorts covers with three test concepts and signature placement |
 | [youtube-title](./youtube/youtube-title/) | Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, paired with the thumbnail |
+| [long-form-storyboard](./youtube/long-form-storyboard/) | Turn a voice note or transcript into a long-form video storyboard and compile it into a local assembly manifest |
 | [youtube-video-analyst](./youtube/youtube-video-analyst/) | Deconstruct YouTube videos into hooks, retention mechanics, emotional beats, and reusable blueprints |
 | [youtube-warmup](./youtube/youtube-warmup/) | YouTube channel warmup with engagement plans, warmup Shorts, SEO setup, and post-warmup assessment |
 
@@ -280,6 +281,7 @@ bunx skills add genfeedai/skills/ads
 | Skill | Description |
 |-------|-------------|
 | [ad-copy-creator](./ads/ad-copy-creator/) | Paid ad copy for Meta, Google, LinkedIn, TikTok, and X with direct-response variants and test plans |
+| [ad-pack-assembly](./ads/ad-pack-assembly/) | Assemble existing shots, text, voiceover and music into a finished ad locally with ffmpeg, plus 9:16 cutdowns |
 | [ad-performance-analyzer](./ads/ad-performance-analyzer/) | Paid media performance diagnosis, KPI analysis, creative fatigue checks, and optimization recommendations |
 | [ugc-ad-prompts](./ads/ugc-ad-prompts/) | Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist |
 

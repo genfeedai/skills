@@ -24,6 +24,7 @@
         "./instagram/instagram-reel",
         "./instagram/instagram-story",
         "./instagram/instagram-warmup",
+        "./youtube/long-form-storyboard",
         "./youtube/youtube-content-creator",
         "./youtube/youtube-description",
         "./youtube/youtube-shorts",
@@ -60,6 +61,7 @@
         "./media/video-model-benchmark",
         "./media/visual-brand-kit",
         "./ads/ad-copy-creator",
+        "./ads/ad-pack-assembly",
         "./ads/ad-performance-analyzer",
         "./ads/ugc-ad-prompts",
         "./gtm/brand-architect",
@@ -132,6 +134,7 @@
       "strict": false,
       "description": "YouTube: video scripts, Shorts, titles, descriptions, thumbnails, video analysis and channel warmup",
       "skills": [
+        "./long-form-storyboard",
         "./youtube-content-creator",
         "./youtube-description",
         "./youtube-shorts",
@@ -201,7 +204,12 @@
       "source": "./ads",
       "strict": false,
       "description": "Paid advertising: ad copy, UGC ad prompts and performance analysis",
-      "skills": ["./ad-copy-creator", "./ad-performance-analyzer", "./ugc-ad-prompts"]
+      "skills": [
+        "./ad-copy-creator",
+        "./ad-pack-assembly",
+        "./ad-performance-analyzer",
+        "./ugc-ad-prompts"
+      ]
     },
     {
       "name": "genfeedai-gtm",

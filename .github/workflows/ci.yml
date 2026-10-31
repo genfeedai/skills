@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Install ffmpeg for the assembly tests
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+
       - name: Validate skills
         run: bun run validate
 
@@ -53,3 +56,6 @@ jobs:
         run: |
           bun run "$GITHUB_WORKSPACE/.mcp-reference-checker/scripts/architecture/check-mcp-tool-references.ts" \
             --skills-dir "$GITHUB_WORKSPACE" --no-local-skills --no-desktop
+
+      - name: Test assembly skills
+        run: bun test ./ads/ad-pack-assembly ./youtube/long-form-storyboard
