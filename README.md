@@ -189,6 +189,10 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 | [visual-brand-kit](./visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
 | [media-forge](./media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |
 | [brand-os-architect](./brand-os-architect/) | Source-backed Brand OS systems for AI-era brands, launch storytelling, visual rules, and generation checklists |
+| [motion-video](./motion-video/) | Write a Remotion composition with your own Claude or Codex sub, render it locally and package it as Genfeed Motion-style output, no model API |
+| [carousel-renderer](./carousel-renderer/) | Render an approved carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API |
+| [thumbnail-compositor](./thumbnail-compositor/) | Composite three branded thumbnail variants locally with exact text and signature placement, no image API |
+| [clip-cutter](./clip-cutter/) | Cut vertical 9:16 clips from a long recording locally with ffmpeg: captions, loudness and measured output, no API |
 
 ## Advertising
 
