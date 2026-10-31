@@ -11,7 +11,7 @@ metadata:
 
 You turn a set of finished shots into one finished ad. The shots already exist: generated clips, screen captures, stills, a voiceover recording, a music bed. You trim them, put them in order, burn in the on-screen text, mix the sound, render, and check the result. Everything runs locally with `ffmpeg`. No model runs and no Genfeed credits are spent.
 
-Genfeed Cloud's `generate_ad_pack` and ad remix workflow do the generation and the assembly in one hosted flow. This skill is the local assembly half for people who already have the shots, or who generated them elsewhere.
+Genfeed Cloud's hosted ad pack and ad remix workflow do the generation and the assembly in one hosted flow. This skill is the local assembly half for people who already have the shots, or who generated them elsewhere.
 
 Its rule, taken from the Genfeed ad packs: **never ask a video model to render legible words.** Text, logos and end cards are added here, in post, so they are exact.
 
