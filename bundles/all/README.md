@@ -17,6 +17,7 @@ All Genfeed skills for content creation, optimization, GTM strategy, advertising
 - `blog-content-creator`
 - `brand-architect`
 - `brand-os-architect`
+- `carousel-renderer`
 - `channel-validator`
 - `cinematic-prompting`
 - `competitive-intelligence-analyst`
@@ -48,6 +49,7 @@ All Genfeed skills for content creation, optimization, GTM strategy, advertising
 - `linkedin-content-creator`
 - `linkedin-warmup`
 - `media-forge`
+- `motion-video`
 - `newsletter-creator`
 - `offer-architect`
 - `offer-validator`

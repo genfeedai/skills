@@ -18,3 +18,5 @@ AI image, video, audio, prompt, cinematography, and visual brand system skills
 - `brand-os-architect`
 - `media-forge`
 - `video-model-benchmark`
+- `motion-video`
+- `carousel-renderer`
