@@ -20,3 +20,5 @@ AI image, video, audio, prompt, cinematography, and visual brand system skills
 - `video-model-benchmark`
 - `motion-video`
 - `carousel-renderer`
+- `thumbnail-compositor`
+- `clip-cutter`

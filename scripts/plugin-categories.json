@@ -69,7 +69,9 @@
         "media-forge",
         "video-model-benchmark",
         "motion-video",
-        "carousel-renderer"
+        "carousel-renderer",
+        "thumbnail-compositor",
+        "clip-cutter"
       ]
     },
     "advertising": {
