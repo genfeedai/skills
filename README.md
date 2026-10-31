@@ -128,6 +128,7 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 | [youtube-shorts](./youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
 | [youtube-thumbnail](./youtube-thumbnail/) | Branded thumbnails for livestreams, recaps and Shorts covers with three test concepts and signature placement |
 | [youtube-title](./youtube-title/) | Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, paired with the thumbnail |
+| [long-form-storyboard](./long-form-storyboard/) | Turn a voice note or transcript into a long-form video storyboard and compile it into a local assembly manifest |
 | [youtube-description](./youtube-description/) | YouTube descriptions with accurate chapters, sources and the channel footer |
 | [tiktok-video](./tiktok-video/) | Reformat a recording or Short into a branded 9:16 TikTok video with burned-in captions |
 | [tiktok-title](./tiktok-title/) | TikTok hook, cover text and the searchable first caption line |
@@ -186,6 +187,7 @@ See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list,
 |-------|-------------|
 | [ad-copy-creator](./ad-copy-creator/) | Paid ad copy for Meta, Google, LinkedIn, TikTok, and X with direct-response variants and test plans |
 | [ad-performance-analyzer](./ad-performance-analyzer/) | Paid media performance diagnosis, KPI analysis, creative fatigue checks, and optimization recommendations |
+| [ad-pack-assembly](./ad-pack-assembly/) | Assemble existing shots, text, voiceover and music into a finished ad locally with ffmpeg, plus 9:16 cutdowns |
 | [ugc-ad-prompts](./ugc-ad-prompts/) | Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist |
 
 ## GTM Strategy

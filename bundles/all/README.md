@@ -12,6 +12,7 @@ All Genfeed skills for content creation, optimization, GTM strategy, advertising
 ## Included Skills
 
 - `ad-copy-creator`
+- `ad-pack-assembly`
 - `ad-performance-analyzer`
 - `analytics-collector`
 - `blog-content-creator`
@@ -47,6 +48,7 @@ All Genfeed skills for content creation, optimization, GTM strategy, advertising
 - `leads-researcher`
 - `linkedin-content-creator`
 - `linkedin-warmup`
+- `long-form-storyboard`
 - `media-forge`
 - `newsletter-creator`
 - `offer-architect`

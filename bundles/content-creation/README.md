@@ -20,6 +20,7 @@ Content creation skills for social, video, newsletters, blogs, launch copy, conv
 - `youtube-thumbnail`
 - `youtube-title`
 - `youtube-description`
+- `long-form-storyboard`
 - `tiktok-video`
 - `tiktok-title`
 - `tiktok-description`
