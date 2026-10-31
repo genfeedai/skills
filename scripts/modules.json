@@ -1,0 +1,44 @@
+{
+  "marketplace": {
+    "name": "genfeedai",
+    "owner": {
+      "name": "Genfeed.ai"
+    },
+    "description": "AI skills for Genfeed content creation, optimization, GTM strategy, advertising, and Genfeed integration, grouped into one module per platform or discipline"
+  },
+  "modules": {
+    "x": {
+      "description": "X (Twitter): posts, threads, Articles and account warmup"
+    },
+    "linkedin": {
+      "description": "LinkedIn: posts, articles and newsletter editions, carousels and account warmup"
+    },
+    "instagram": {
+      "description": "Instagram: feed posts, carousels, Reels, Stories and account warmup"
+    },
+    "youtube": {
+      "description": "YouTube: video scripts, Shorts, titles, descriptions, thumbnails, video analysis and channel warmup"
+    },
+    "tiktok": {
+      "description": "TikTok: videos, titles, descriptions and account warmup"
+    },
+    "writing": {
+      "description": "Long-form and conversion writing: blogs, newsletters, launch copy, internal comms and humanizing"
+    },
+    "content": {
+      "description": "Content strategy, operations, repurposing, review, SEO, GEO and competitor analysis"
+    },
+    "media": {
+      "description": "Images, video and visual systems: prompting, generation, local renderers (carousels, thumbnails, clips, motion) and brand kits"
+    },
+    "ads": {
+      "description": "Paid advertising: ad copy, UGC ad prompts and performance analysis"
+    },
+    "gtm": {
+      "description": "Go-to-market strategy: brand, positioning, ICP, offers, pricing, funnels, traffic, outbound and retention"
+    },
+    "loop": {
+      "description": "The Genfeed content loop: trend scouting, the loop orchestrator, Genfeed connector and Brand OS, publishing and analytics"
+    }
+  }
+}

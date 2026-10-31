@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #
-# Package every root skill as a ZIP for Claude chat uploads (Customize > Skills).
+# Package every skill as a ZIP for Claude chat uploads (Customize > Skills).
 #
-# Each ZIP has the skill folder as its single top-level entry, with SKILL.md
-# directly inside it. Output goes to dist/skill-zips/<skill>.zip.
+# Skills live at <module>/<skill>/. Each ZIP has the skill folder as its single
+# top-level entry, with SKILL.md directly inside it. Output goes to
+# dist/skill-zips/<skill>.zip.
 # Usage: bash scripts/package-skill-zips.sh [skill-name ...]
 
 set -euo pipefail
@@ -14,24 +15,41 @@ OUT_DIR="$REPO_ROOT/dist/skill-zips"
 
 cd "$REPO_ROOT"
 
+# Every module skill folder, as <module>/<skill>.
+ALL_SKILL_DIRS=()
+for skill_file in */*/SKILL.md; do
+  case "$skill_file" in
+    node_modules/* | plugins/* | scripts/* | dist/*) continue ;;
+  esac
+  ALL_SKILL_DIRS+=("$(dirname "$skill_file")")
+done
+
+SKILL_DIRS=()
 if [ "$#" -gt 0 ]; then
-  SKILLS=("$@")
-else
-  SKILLS=()
-  for skill_file in */SKILL.md; do
-    SKILLS+=("$(dirname "$skill_file")")
+  for wanted in "$@"; do
+    match=""
+    for dir in "${ALL_SKILL_DIRS[@]}"; do
+      if [ "$(basename "$dir")" = "$wanted" ]; then
+        match="$dir"
+      fi
+    done
+    if [ -z "$match" ]; then
+      echo "ERROR: skill '$wanted' not found in any module" >&2
+      exit 1
+    fi
+    SKILL_DIRS+=("$match")
   done
+else
+  SKILL_DIRS=("${ALL_SKILL_DIRS[@]}")
 fi
 
 rm -rf "$OUT_DIR"
 mkdir -p "$OUT_DIR"
 
-for skill in "${SKILLS[@]}"; do
-  skill_file="$skill/SKILL.md"
-  if [ ! -f "$skill_file" ]; then
-    echo "ERROR: $skill_file not found" >&2
-    exit 1
-  fi
+for dir in "${SKILL_DIRS[@]}"; do
+  module="$(dirname "$dir")"
+  skill="$(basename "$dir")"
+  skill_file="$dir/SKILL.md"
 
   declared_name="$(sed -n 's/^name: *//p' "$skill_file" | head -n 1 | tr -d '\r"')"
   if [ "$declared_name" != "$skill" ]; then
@@ -46,7 +64,7 @@ for skill in "${SKILLS[@]}"; do
       ;;
   esac
 
-  zip -q -r -X "$OUT_DIR/$skill.zip" "$skill" -x '*/.DS_Store'
+  (cd "$module" && zip -q -r -X "$OUT_DIR/$skill.zip" "$skill" -x '*/.DS_Store')
 done
 
-echo "Wrote ${#SKILLS[@]} skill ZIPs to dist/skill-zips/"
+echo "Wrote ${#SKILL_DIRS[@]} skill ZIPs to dist/skill-zips/"

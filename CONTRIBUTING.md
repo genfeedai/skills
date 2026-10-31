@@ -9,7 +9,7 @@ Contributing needs Bun and Node 24 or newer. CI runs on Node 26 (see `.node-vers
 ## Adding a New Skill
 
 1. Fork the repository
-2. Create a new directory: `your-skill-name/`
+2. Create a new directory in the right module: `<module>/your-skill-name/` (see `scripts/modules.json`; add a module there only for a new platform or discipline)
 3. Add three files following the structure below
 4. Run linters: `bun run check && bun run lint`
 5. Submit a pull request
@@ -19,11 +19,14 @@ Contributing needs Bun and Node 24 or newer. CI runs on Node 26 (see `.node-vers
 Every skill needs three files:
 
 ```
-your-skill-name/
-├── SKILL.md        # Main skill instructions
-├── metadata.json   # Triggers, tags, metadata
-└── README.md       # Documentation for skills.sh
+<module>/
+└── your-skill-name/
+    ├── SKILL.md        # Main skill instructions
+    ├── metadata.json   # Triggers, tags, metadata
+    └── README.md       # Documentation for skills.sh
 ```
+
+The folder name must equal the `name` in the frontmatter. Run `bun run validate` to regenerate `.claude-plugin/marketplace.json` and check the layout.
 
 ### SKILL.md
 

@@ -37,7 +37,7 @@ jobs:
         run: bun run validate
 
       - name: Test worker scripts
-        run: bun test ./social-poster
+        run: bun test ./loop/social-poster
 
       - name: Checkout MCP reference checker
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -58,4 +58,4 @@ jobs:
             --skills-dir "$GITHUB_WORKSPACE" --no-local-skills --no-desktop
 
       - name: Test assembly skills
-        run: bun test ./ad-pack-assembly ./long-form-storyboard
+        run: bun test ./ads/ad-pack-assembly ./youtube/long-form-storyboard

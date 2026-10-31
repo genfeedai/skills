@@ -26,7 +26,7 @@
     "lint": "markdownlint '**/*.md' --ignore node_modules",
     "lint:fix": "markdownlint '**/*.md' --ignore node_modules --fix",
     "lint:json": "biome check --write --no-errors-on-unmatched '**/*.json'",
-    "marketplace:generate": "bun scripts/generate-marketplace-bundles.js && bun scripts/generate-marketplace-json.js",
+    "marketplace:generate": "bun scripts/generate-marketplace-json.js && biome format --write .claude-plugin/marketplace.json",
     "prepare": "husky",
     "validate": "bash scripts/validate-skill-sync.sh",
     "validate:skill": "bash scripts/validate-skill-sync.sh"
