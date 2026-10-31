@@ -1,53 +1,49 @@
 #!/usr/bin/env bun
 /**
- * Generate Claude Marketplace metadata for Genfeed bundle plugins.
+ * Generate .claude-plugin/marketplace.json from scripts/modules.json.
+ *
+ * Each module folder is a plugin (genfeedai-<module>) whose skills are listed
+ * explicitly, so Claude Code and the skills CLI read the source folders directly.
+ * genfeedai-all lists every skill. No copies are generated.
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { allSkills, CONFIG, moduleNames, ROOT, skillsInModule } from './modules.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
-const CATEGORIES = JSON.parse(readFileSync(join(__dirname, 'plugin-categories.json'), 'utf-8'));
-
-function getBundleEntries() {
-  return {
-    all: {
-      description:
-        'All Genfeed skills for content creation, optimization, GTM strategy, advertising, and Genfeed integration',
-    },
-    ...CATEGORIES.bundles,
-  };
-}
-
-const plugins = Object.entries(getBundleEntries()).map(([category, config]) => ({
-  name: `genfeedai-${category}`,
-  source: `./bundles/${category}`,
-  description: config.description,
-}));
-
-// The Genfeed plugin (skills + remote MCP server) is authored directly, not generated.
-plugins.push({
-  name: 'genfeed',
-  source: './plugins/genfeed',
-  description:
-    'Genfeed content skills plus the Genfeed MCP server: plan, write, generate and schedule social content, with confirmation before anything is posted',
-});
+const plugins = [
+  {
+    name: 'genfeedai-all',
+    source: './',
+    strict: false,
+    description: 'All Genfeed skills, every module',
+    skills: allSkills().map((skill) => `./${skill.module}/${skill.name}`),
+  },
+  ...moduleNames().map((moduleName) => ({
+    name: `genfeedai-${moduleName}`,
+    source: `./${moduleName}`,
+    strict: false,
+    description: CONFIG.modules[moduleName].description,
+    skills: skillsInModule(moduleName).map((name) => `./${name}`),
+  })),
+  // The Genfeed plugin (skills + remote MCP server) is authored directly, not generated.
+  {
+    name: 'genfeed',
+    source: './plugins/genfeed',
+    description:
+      'Genfeed content skills plus the Genfeed MCP server: plan, write, generate and schedule social content, with confirmation before anything is posted',
+  },
+];
 
 const marketplace = {
-  name: CATEGORIES.marketplace.name,
-  owner: CATEGORIES.marketplace.owner,
-  description: CATEGORIES.marketplace.description,
+  name: CONFIG.marketplace.name,
+  owner: CONFIG.marketplace.owner,
+  description: CONFIG.marketplace.description,
   plugins,
 };
 
 const outputDir = join(ROOT, '.claude-plugin');
-if (!existsSync(outputDir)) {
-  mkdirSync(outputDir, { recursive: true });
-}
-
-const outputPath = join(outputDir, 'marketplace.json');
-writeFileSync(outputPath, `${JSON.stringify(marketplace, null, 2)}\n`);
+if (!existsSync(outputDir)) mkdirSync(outputDir, { recursive: true });
+writeFileSync(join(outputDir, 'marketplace.json'), `${JSON.stringify(marketplace, null, 2)}\n`);
 
 console.log(`Generated marketplace.json with ${plugins.length} plugins`);

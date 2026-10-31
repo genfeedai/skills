@@ -3,57 +3,251 @@
   "owner": {
     "name": "Genfeed.ai"
   },
-  "description": "AI skills for Genfeed content creation, optimization, GTM strategy, advertising, and Genfeed integration",
+  "description": "AI skills for Genfeed content creation, optimization, GTM strategy, advertising, and Genfeed integration, grouped into one module per platform or discipline",
   "plugins": [
     {
       "name": "genfeedai-all",
-      "source": "./bundles/all",
-      "description": "All Genfeed skills for content creation, optimization, GTM strategy, advertising, and Genfeed integration"
+      "source": "./",
+      "strict": false,
+      "description": "All Genfeed skills, every module",
+      "skills": [
+        "./x/x-article",
+        "./x/x-post",
+        "./x/x-thread",
+        "./x/x-warmup",
+        "./linkedin/linkedin-article",
+        "./linkedin/linkedin-carousel",
+        "./linkedin/linkedin-post",
+        "./linkedin/linkedin-warmup",
+        "./instagram/instagram-carousel",
+        "./instagram/instagram-post",
+        "./instagram/instagram-reel",
+        "./instagram/instagram-story",
+        "./instagram/instagram-warmup",
+        "./youtube/youtube-content-creator",
+        "./youtube/youtube-description",
+        "./youtube/youtube-shorts",
+        "./youtube/youtube-thumbnail",
+        "./youtube/youtube-title",
+        "./youtube/youtube-video-analyst",
+        "./youtube/youtube-warmup",
+        "./tiktok/tiktok-description",
+        "./tiktok/tiktok-title",
+        "./tiktok/tiktok-video",
+        "./tiktok/tiktok-warmup",
+        "./writing/blog-content-creator",
+        "./writing/copywriter",
+        "./writing/humanizer",
+        "./writing/internal-comms",
+        "./writing/launch-copy-creator",
+        "./writing/newsletter-creator",
+        "./content/competitor-analyzer",
+        "./content/content-atomizer",
+        "./content/content-factory-operator",
+        "./content/content-geo-optimizer",
+        "./content/content-reviewer",
+        "./content/content-seo-optimizer",
+        "./content/content-strategist",
+        "./media/carousel-renderer",
+        "./media/cinematic-prompting",
+        "./media/clip-cutter",
+        "./media/image-prompt-engineer",
+        "./media/media-forge",
+        "./media/motion-video",
+        "./media/prompt-generator",
+        "./media/thumbnail-compositor",
+        "./media/video-brand-profile",
+        "./media/video-model-benchmark",
+        "./media/visual-brand-kit",
+        "./ads/ad-copy-creator",
+        "./ads/ad-performance-analyzer",
+        "./ads/ugc-ad-prompts",
+        "./gtm/brand-architect",
+        "./gtm/brand-os-architect",
+        "./gtm/channel-validator",
+        "./gtm/competitive-intelligence-analyst",
+        "./gtm/constraint-eliminator",
+        "./gtm/email-finder",
+        "./gtm/expert-architect",
+        "./gtm/expert-validator",
+        "./gtm/funnel-architect",
+        "./gtm/funnel-validator",
+        "./gtm/lead-channel-optimizer",
+        "./gtm/leads-researcher",
+        "./gtm/offer-architect",
+        "./gtm/offer-validator",
+        "./gtm/outbound-optimizer",
+        "./gtm/partnership-builder",
+        "./gtm/positioning-angles",
+        "./gtm/pricing-strategist",
+        "./gtm/retention-engine",
+        "./gtm/search-domain-validator",
+        "./gtm/startup-icp-definer",
+        "./gtm/support-systems-architect",
+        "./gtm/traffic-architect",
+        "./gtm/traffic-validator",
+        "./loop/analytics-collector",
+        "./loop/content-loop-orchestrator",
+        "./loop/genfeed-brand-os",
+        "./loop/genfeed-connector",
+        "./loop/social-poster",
+        "./loop/trend-scout"
+      ]
     },
     {
-      "name": "genfeedai-content-creation",
-      "source": "./bundles/content-creation",
-      "description": "Content creation skills for social, video, newsletters, blogs, launch copy, conversion copy, per-platform video packaging, and new-account warmups"
+      "name": "genfeedai-x",
+      "source": "./x",
+      "strict": false,
+      "description": "X (Twitter): posts, threads, Articles and account warmup",
+      "skills": ["./x-article", "./x-post", "./x-thread", "./x-warmup"]
     },
     {
-      "name": "genfeedai-content-optimization",
-      "source": "./bundles/content-optimization",
-      "description": "Content strategy, operations, repurposing, review, SEO, GEO, and humanization skills"
+      "name": "genfeedai-linkedin",
+      "source": "./linkedin",
+      "strict": false,
+      "description": "LinkedIn: posts, articles and newsletter editions, carousels and account warmup",
+      "skills": [
+        "./linkedin-article",
+        "./linkedin-carousel",
+        "./linkedin-post",
+        "./linkedin-warmup"
+      ]
     },
     {
-      "name": "genfeedai-content-analysis",
-      "source": "./bundles/content-analysis",
-      "description": "Trend, analytics, competitor content, and YouTube analysis skills"
+      "name": "genfeedai-instagram",
+      "source": "./instagram",
+      "strict": false,
+      "description": "Instagram: feed posts, carousels, Reels, Stories and account warmup",
+      "skills": [
+        "./instagram-carousel",
+        "./instagram-post",
+        "./instagram-reel",
+        "./instagram-story",
+        "./instagram-warmup"
+      ]
     },
     {
-      "name": "genfeedai-communications",
-      "source": "./bundles/communications",
-      "description": "Internal communication drafting for updates, newsletters, FAQs, and incidents"
+      "name": "genfeedai-youtube",
+      "source": "./youtube",
+      "strict": false,
+      "description": "YouTube: video scripts, Shorts, titles, descriptions, thumbnails, video analysis and channel warmup",
+      "skills": [
+        "./youtube-content-creator",
+        "./youtube-description",
+        "./youtube-shorts",
+        "./youtube-thumbnail",
+        "./youtube-title",
+        "./youtube-video-analyst",
+        "./youtube-warmup"
+      ]
     },
     {
-      "name": "genfeedai-image-visual",
-      "source": "./bundles/image-visual",
-      "description": "AI image, video, audio, prompt, cinematography, and visual brand system skills"
+      "name": "genfeedai-tiktok",
+      "source": "./tiktok",
+      "strict": false,
+      "description": "TikTok: videos, titles, descriptions and account warmup",
+      "skills": ["./tiktok-description", "./tiktok-title", "./tiktok-video", "./tiktok-warmup"]
     },
     {
-      "name": "genfeedai-advertising",
-      "source": "./bundles/advertising",
-      "description": "Paid ad copy, UGC ad prompts and ad performance optimization skills"
+      "name": "genfeedai-writing",
+      "source": "./writing",
+      "strict": false,
+      "description": "Long-form and conversion writing: blogs, newsletters, launch copy, internal comms and humanizing",
+      "skills": [
+        "./blog-content-creator",
+        "./copywriter",
+        "./humanizer",
+        "./internal-comms",
+        "./launch-copy-creator",
+        "./newsletter-creator"
+      ]
     },
     {
-      "name": "genfeedai-gtm-strategy",
-      "source": "./bundles/gtm-strategy",
-      "description": "GTM strategy skills for ICP, offers, funnels, traffic, outbound, competitive intelligence, partnerships, retention, support, and positioning"
+      "name": "genfeedai-content",
+      "source": "./content",
+      "strict": false,
+      "description": "Content strategy, operations, repurposing, review, SEO, GEO and competitor analysis",
+      "skills": [
+        "./competitor-analyzer",
+        "./content-atomizer",
+        "./content-factory-operator",
+        "./content-geo-optimizer",
+        "./content-reviewer",
+        "./content-seo-optimizer",
+        "./content-strategist"
+      ]
     },
     {
-      "name": "genfeedai-platform-development",
-      "source": "./bundles/platform-development",
-      "description": "Genfeed content-loop, connector, posting, and brand integration skills"
+      "name": "genfeedai-media",
+      "source": "./media",
+      "strict": false,
+      "description": "Images, video and visual systems: prompting, generation, local renderers (carousels, thumbnails, clips, motion) and brand kits",
+      "skills": [
+        "./carousel-renderer",
+        "./cinematic-prompting",
+        "./clip-cutter",
+        "./image-prompt-engineer",
+        "./media-forge",
+        "./motion-video",
+        "./prompt-generator",
+        "./thumbnail-compositor",
+        "./video-brand-profile",
+        "./video-model-benchmark",
+        "./visual-brand-kit"
+      ]
     },
     {
-      "name": "genfeedai-content-loop",
-      "source": "./bundles/content-loop",
-      "description": "End-to-end Genfeed content loop skills for sensing trends, producing assets, reviewing, posting, measuring, and iterating"
+      "name": "genfeedai-ads",
+      "source": "./ads",
+      "strict": false,
+      "description": "Paid advertising: ad copy, UGC ad prompts and performance analysis",
+      "skills": ["./ad-copy-creator", "./ad-performance-analyzer", "./ugc-ad-prompts"]
+    },
+    {
+      "name": "genfeedai-gtm",
+      "source": "./gtm",
+      "strict": false,
+      "description": "Go-to-market strategy: brand, positioning, ICP, offers, pricing, funnels, traffic, outbound and retention",
+      "skills": [
+        "./brand-architect",
+        "./brand-os-architect",
+        "./channel-validator",
+        "./competitive-intelligence-analyst",
+        "./constraint-eliminator",
+        "./email-finder",
+        "./expert-architect",
+        "./expert-validator",
+        "./funnel-architect",
+        "./funnel-validator",
+        "./lead-channel-optimizer",
+        "./leads-researcher",
+        "./offer-architect",
+        "./offer-validator",
+        "./outbound-optimizer",
+        "./partnership-builder",
+        "./positioning-angles",
+        "./pricing-strategist",
+        "./retention-engine",
+        "./search-domain-validator",
+        "./startup-icp-definer",
+        "./support-systems-architect",
+        "./traffic-architect",
+        "./traffic-validator"
+      ]
+    },
+    {
+      "name": "genfeedai-loop",
+      "source": "./loop",
+      "strict": false,
+      "description": "The Genfeed content loop: trend scouting, the loop orchestrator, Genfeed connector and Brand OS, publishing and analytics",
+      "skills": [
+        "./analytics-collector",
+        "./content-loop-orchestrator",
+        "./genfeed-brand-os",
+        "./genfeed-connector",
+        "./social-poster",
+        "./trend-scout"
+      ]
     },
     {
       "name": "genfeed",

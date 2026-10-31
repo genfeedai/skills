@@ -10,12 +10,22 @@ Install all skills:
 bunx skills add genfeedai/skills
 ```
 
-Or install individual skills:
+Install one module (a platform or a discipline):
 
 ```bash
-bunx skills add genfeedai/skills --skill x-content-creator
+bunx skills add genfeedai/skills/x          # x-post, x-thread, x-article, x-warmup
+bunx skills add genfeedai/skills/linkedin
+bunx skills add genfeedai/skills/instagram
+bunx skills add genfeedai/skills/youtube
+bunx skills add genfeedai/skills/tiktok
+```
+
+Or install individual skills by name:
+
+```bash
+bunx skills add genfeedai/skills --skill x-thread
 bunx skills add genfeedai/skills --skill content-seo-optimizer
-# ... any skill name below
+# ... any skill name in the module tables below
 ```
 
 ## Writing a source-backed SEO article
@@ -74,31 +84,34 @@ public MIT repo:
   paid customer setup copy.
 
 The warmup skills (`x-warmup`, `instagram-warmup`, `linkedin-warmup`, `tiktok-warmup`, and
-`youtube-warmup`) are free, MIT-licensed skills published here and included in the
-`genfeedai-content-creation` and `genfeedai-all` bundles.
+`youtube-warmup`) are free, MIT-licensed skills published here, one in each platform module.
 
 ## Claude Marketplace
 
-Install Genfeed bundle plugins through Claude Marketplace:
+Each module is a plugin. Install everything:
 
 ```bash
 /plugin marketplace add genfeedai/skills
 /plugin install genfeedai-all@genfeedai
 ```
 
-Or install a focused bundle:
+Or install one module:
 
 ```bash
-/plugin install genfeedai-content-creation@genfeedai
-/plugin install genfeedai-content-optimization@genfeedai
-/plugin install genfeedai-content-analysis@genfeedai
-/plugin install genfeedai-communications@genfeedai
-/plugin install genfeedai-image-visual@genfeedai
-/plugin install genfeedai-advertising@genfeedai
-/plugin install genfeedai-gtm-strategy@genfeedai
-/plugin install genfeedai-platform-development@genfeedai
-/plugin install genfeedai-content-loop@genfeedai
+/plugin install genfeedai-x@genfeedai
+/plugin install genfeedai-linkedin@genfeedai
+/plugin install genfeedai-instagram@genfeedai
+/plugin install genfeedai-youtube@genfeedai
+/plugin install genfeedai-tiktok@genfeedai
+/plugin install genfeedai-writing@genfeedai
+/plugin install genfeedai-content@genfeedai
+/plugin install genfeedai-media@genfeedai
+/plugin install genfeedai-ads@genfeedai
+/plugin install genfeedai-gtm@genfeedai
+/plugin install genfeedai-loop@genfeedai
 ```
+
+The plugins read the module folders directly; nothing is copied or generated except `.claude-plugin/marketplace.json`.
 
 ## Genfeed Plugin (skills + MCP server)
 
@@ -116,129 +129,211 @@ Codex, Copilot and Cursor, and a Claude plugin (`.claude-plugin/plugin.json`, `.
 See [plugins/genfeed/README.md](./plugins/genfeed/README.md) for the skill list, and
 [plugins/genfeed/LISTING.md](./plugins/genfeed/LISTING.md) for directory submission copy.
 
-## Content Creation
+## Modules
+
+Skills are grouped into one folder per platform or discipline. Each module installs on its own with `bunx skills add genfeedai/skills/<module>`, and each is also a Claude Marketplace plugin (`genfeedai-<module>`).
+
+### X (`x/`)
+
+X (Twitter): posts, threads, Articles and account warmup.
+
+```bash
+bunx skills add genfeedai/skills/x
+```
 
 | Skill | Description |
 |-------|-------------|
-| [x-content-creator](./x-content-creator/) | Router: sends X requests to x-post, x-thread or x-article (keeps old installs working) |
-| [x-post](./x-post/) | One X post, quote post or reply: hooks, algorithm signals, checklist |
-| [x-thread](./x-thread/) | X threads of 2 to 15 posts: hook, value chain, closing CTA, bump plan |
-| [x-article](./x-article/) | Long-form X Article plus its promo post |
-| [instagram-content-creator](./instagram-content-creator/) | Router: sends Instagram requests to the post, carousel, Reel or Story skill (keeps old installs working) |
-| [instagram-post](./instagram-post/) | Instagram feed caption, hashtags, alt text and image brief |
-| [instagram-carousel](./instagram-carousel/) | Instagram carousel slide copy, design spec and caption |
-| [instagram-reel](./instagram-reel/) | Reel hook, timed script, caption and production handoff |
-| [instagram-story](./instagram-story/) | Story sequences with stickers and a weekly theme calendar |
-| [linkedin-content-creator](./linkedin-content-creator/) | Router: sends LinkedIn requests to linkedin-post, linkedin-article or linkedin-carousel (keeps old installs working) |
-| [linkedin-post](./linkedin-post/) | LinkedIn text posts: six formats, hooks, tone, comment strategy |
-| [linkedin-article](./linkedin-article/) | LinkedIn articles and newsletter editions with a promo post |
-| [linkedin-carousel](./linkedin-carousel/) | LinkedIn PDF carousels: slide copy, design spec, caption |
-| [youtube-content-creator](./youtube-content-creator/) | YouTube titles, descriptions, tags, chapters, thumbnail briefs, Shorts, and retention planning |
-| [video-brand-profile](./video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
-| [youtube-shorts](./youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
-| [youtube-thumbnail](./youtube-thumbnail/) | Branded thumbnails for livestreams, recaps and Shorts covers with three test concepts and signature placement |
-| [youtube-title](./youtube-title/) | Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, paired with the thumbnail |
-| [youtube-description](./youtube-description/) | YouTube descriptions with accurate chapters, sources and the channel footer |
-| [tiktok-video](./tiktok-video/) | Reformat a recording or Short into a branded 9:16 TikTok video with burned-in captions |
-| [tiktok-title](./tiktok-title/) | TikTok hook, cover text and the searchable first caption line |
-| [tiktok-description](./tiktok-description/) | TikTok captions with specific hashtags and disclosures within the 2,200 character limit |
-| [newsletter-creator](./newsletter-creator/) | Newsletter editions with subject lines, editorial structures, and growth tactics |
-| [blog-content-creator](./blog-content-creator/) | SEO-optimized blog posts, guides, and long-form articles |
-| [copywriter](./copywriter/) | Non-ad conversion copy for landing pages, CTAs, value propositions, pricing pages, onboarding, and microcopy |
-| [launch-copy-creator](./launch-copy-creator/) | Show HN titles, Product Hunt taglines, and maker first comments that respect each community's norms |
-| [x-warmup](./x-warmup/) | Evidence-backed X account warmup with engagement plans, reply strategy, and warmup threads |
-| [instagram-warmup](./instagram-warmup/) | Instagram account warmup with engagement plans, Stories strategy, and first Reel and carousel briefs |
-| [linkedin-warmup](./linkedin-warmup/) | LinkedIn account warmup with comment-first engagement, SSI-building, and a first story post |
-| [tiktok-warmup](./tiktok-warmup/) | Transparent 5-7 day TikTok warm-up with native engagement and gradual first uploads |
-| [youtube-warmup](./youtube-warmup/) | YouTube channel warmup with engagement plans, warmup Shorts, SEO setup, and post-warmup assessment |
+| [x-article](./x/x-article/) | Long-form X Article plus its promo post |
+| [x-post](./x/x-post/) | One X post, quote post or reply: hooks, algorithm signals, checklist |
+| [x-thread](./x/x-thread/) | X threads of 2 to 15 posts: hook, value chain, closing CTA, bump plan |
+| [x-warmup](./x/x-warmup/) | Evidence-backed X account warmup with engagement plans, reply strategy, and warmup threads |
 
-## Content Optimization
+### LinkedIn (`linkedin/`)
+
+LinkedIn: posts, articles and newsletter editions, carousels and account warmup.
+
+```bash
+bunx skills add genfeedai/skills/linkedin
+```
 
 | Skill | Description |
 |-------|-------------|
-| [content-strategist](./content-strategist/) | Editorial strategy, content pillars, platform roles, cadence, calendars, and KPIs |
-| [content-factory-operator](./content-factory-operator/) | Repeatable Genfeed content operations with intake, briefs, production queues, review gates, and analytics loops |
-| [content-atomizer](./content-atomizer/) | Repurpose one source asset into platform-native derivatives |
-| [content-reviewer](./content-reviewer/) | Quality review with six-dimension scoring and publish-readiness gates |
-| [content-seo-optimizer](./content-seo-optimizer/) | SEO scoring and search optimization for content drafts |
-| [content-geo-optimizer](./content-geo-optimizer/) | GEO scoring, citation-ready rewrites, source attribution, and schema recommendations for answer engines |
-| [humanizer](./humanizer/) | Rewrite AI-generated drafts to sound natural while preserving meaning and voice |
+| [linkedin-article](./linkedin/linkedin-article/) | LinkedIn articles and newsletter editions with a promo post |
+| [linkedin-carousel](./linkedin/linkedin-carousel/) | LinkedIn PDF carousels: slide copy, design spec, caption |
+| [linkedin-post](./linkedin/linkedin-post/) | LinkedIn text posts: six formats, hooks, tone, comment strategy |
+| [linkedin-warmup](./linkedin/linkedin-warmup/) | LinkedIn account warmup with comment-first engagement, SSI-building, and a first story post |
 
-## Content Analysis
+### Instagram (`instagram/`)
 
-| Skill | Description |
-|-------|-------------|
-| [trend-scout](./trend-scout/) | Pull and score trend signals for the Genfeed content loop |
-| [analytics-collector](./analytics-collector/) | Collect post-performance metrics and feed them back into content-loop learning |
-| [competitor-analyzer](./competitor-analyzer/) | Audit competitors' content strategy, channels, formats, topics, and engagement gaps |
-| [youtube-video-analyst](./youtube-video-analyst/) | Deconstruct YouTube videos into hooks, retention mechanics, emotional beats, and reusable blueprints |
+Instagram: feed posts, carousels, Reels, Stories and account warmup.
 
-## Communications
+```bash
+bunx skills add genfeedai/skills/instagram
+```
 
 | Skill | Description |
 |-------|-------------|
-| [internal-comms](./internal-comms/) | Draft structured internal status reports, 3P updates, leadership updates, newsletters, FAQs, and incident reports |
+| [instagram-carousel](./instagram/instagram-carousel/) | Instagram carousel slide copy, design spec and caption |
+| [instagram-post](./instagram/instagram-post/) | Instagram feed caption, hashtags, alt text and image brief |
+| [instagram-reel](./instagram/instagram-reel/) | Reel hook, timed script, caption and production handoff |
+| [instagram-story](./instagram/instagram-story/) | Story sequences with stickers and a weekly theme calendar |
+| [instagram-warmup](./instagram/instagram-warmup/) | Instagram account warmup with engagement plans, Stories strategy, and first Reel and carousel briefs |
 
-## Image and Visual
+### YouTube (`youtube/`)
 
-| Skill | Description |
-|-------|-------------|
-| [image-prompt-engineer](./image-prompt-engineer/) | Optimized prompts for AI image and short video generation across major visual models |
-| [cinematic-prompting](./cinematic-prompting/) | Rewrite image and video prompts with precise camera, framing, lighting, and editing vocabulary |
-| [prompt-generator](./prompt-generator/) | Structured JSON image and video prompts with style settings and a recommended model |
-| [visual-brand-kit](./visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
-| [media-forge](./media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |
-| [brand-os-architect](./brand-os-architect/) | Source-backed Brand OS systems for AI-era brands, launch storytelling, visual rules, and generation checklists |
-| [motion-video](./motion-video/) | Write a Remotion composition with your own Claude or Codex sub, render it locally and package it as Genfeed Motion-style output, no model API |
-| [carousel-renderer](./carousel-renderer/) | Render an approved carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API |
-| [thumbnail-compositor](./thumbnail-compositor/) | Composite three branded thumbnail variants locally with exact text and signature placement, no image API |
-| [clip-cutter](./clip-cutter/) | Cut vertical 9:16 clips from a long recording locally with ffmpeg: captions, loudness and measured output, no API |
+YouTube: video scripts, Shorts, titles, descriptions, thumbnails, video analysis and channel warmup.
 
-## Advertising
+```bash
+bunx skills add genfeedai/skills/youtube
+```
 
 | Skill | Description |
 |-------|-------------|
-| [ad-copy-creator](./ad-copy-creator/) | Paid ad copy for Meta, Google, LinkedIn, TikTok, and X with direct-response variants and test plans |
-| [ad-performance-analyzer](./ad-performance-analyzer/) | Paid media performance diagnosis, KPI analysis, creative fatigue checks, and optimization recommendations |
-| [ugc-ad-prompts](./ugc-ad-prompts/) | Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist |
+| [youtube-content-creator](./youtube/youtube-content-creator/) | YouTube titles, descriptions, tags, chapters, thumbnail briefs, Shorts, and retention planning |
+| [youtube-description](./youtube/youtube-description/) | YouTube descriptions with accurate chapters, sources and the channel footer |
+| [youtube-shorts](./youtube/youtube-shorts/) | Pick, cut, caption and package branded YouTube Shorts from long recordings and livestreams |
+| [youtube-thumbnail](./youtube/youtube-thumbnail/) | Branded thumbnails for livestreams, recaps and Shorts covers with three test concepts and signature placement |
+| [youtube-title](./youtube/youtube-title/) | Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, paired with the thumbnail |
+| [youtube-video-analyst](./youtube/youtube-video-analyst/) | Deconstruct YouTube videos into hooks, retention mechanics, emotional beats, and reusable blueprints |
+| [youtube-warmup](./youtube/youtube-warmup/) | YouTube channel warmup with engagement plans, warmup Shorts, SEO setup, and post-warmup assessment |
 
-## GTM Strategy
+### TikTok (`tiktok/`)
 
-| Skill | Description |
-|-------|-------------|
-| [brand-architect](./brand-architect/) | Brand foundations: name, positioning, voice, and strategic identity |
-| [brand-os-architect](./brand-os-architect/) | Brand operating systems: positioning, voice, content, visual rules, evidence, and AI context |
-| [positioning-angles](./positioning-angles/) | Differentiated market angles, mechanisms, narratives, and positioning tests |
-| [startup-icp-definer](./startup-icp-definer/) | ICP, buyer personas, user personas, buying centers, pains, triggers, and targeting focus |
-| [pricing-strategist](./pricing-strategist/) | Premium and value-based pricing strategy, tiers, price-rise plans, and pricing confidence |
-| [offer-architect](./offer-architect/) | High-converting offers, bundles, guarantees, packages, and value stacks |
-| [offer-validator](./offer-validator/) | Existing offer scoring and fixes against the Value Equation |
-| [funnel-architect](./funnel-architect/) | Sales funnels, value ladders, customer journeys, and landing page sequences from scratch |
-| [funnel-validator](./funnel-validator/) | Existing funnel audits for Hook-Story-Offer, value ladder fit, traffic match, and conversion path |
-| [traffic-architect](./traffic-architect/) | Audience acquisition and traffic strategy from scratch using Dream 100, organic vs paid paths, and owned audience plans |
-| [traffic-validator](./traffic-validator/) | Existing traffic strategy scoring across Dream 100 clarity, hook strategy, paid/organic fit, funnel alignment, and conversion path |
-| [channel-validator](./channel-validator/) | Channel focus and expansion-readiness validation against the One Channel Rule |
-| [lead-channel-optimizer](./lead-channel-optimizer/) | Lead generation channel prioritization by ROI, cost, close rate, effort, and system potential |
-| [outbound-optimizer](./outbound-optimizer/) | Cold email, DM, prospecting, personalization, and outbound sequence optimization |
-| [leads-researcher](./leads-researcher/) | Prospect accounts, decision makers, contact details, company data, and buyer intent signals |
-| [email-finder](./email-finder/) | Contact emails, domain-level email discovery, email patterns, and verification guidance |
-| [competitive-intelligence-analyst](./competitive-intelligence-analyst/) | GTM competitors, market positioning, feature gaps, pricing, win/loss patterns, and differentiation opportunities |
-| [partnership-builder](./partnership-builder/) | Affiliate, integration, reseller, co-marketing, embedded distribution, and partner outreach strategy |
-| [retention-engine](./retention-engine/) | Retention, activation, ascension, upsell, cross-sell, subscription, churn reduction, and LTV systems |
-| [support-systems-architect](./support-systems-architect/) | Scalable support systems, help docs, FAQs, ticketing, self-service, automation, and response templates |
-| [constraint-eliminator](./constraint-eliminator/) | Customer friction, buying objections, implementation blockers, refund causes, and success obstacles |
-| [expert-architect](./expert-architect/) | Personal expert positioning, attractive character, origin story, Big Domino, authority, and new opportunity framing |
-| [expert-validator](./expert-validator/) | Existing expert positioning and authority narrative scoring |
-| [search-domain-validator](./search-domain-validator/) | Domain syntax validation, availability-oriented checks, and brandable domain options |
+TikTok: videos, titles, descriptions and account warmup.
 
-## Platform and Development
+```bash
+bunx skills add genfeedai/skills/tiktok
+```
 
 | Skill | Description |
 |-------|-------------|
-| [content-loop-orchestrator](./content-loop-orchestrator/) | Operate the executable Genfeed content loop and route each stage to the right skill |
-| [genfeed-connector](./genfeed-connector/) | Local content-loop state, manifest, feedback, and env-based token seam |
-| [social-poster](./social-poster/) | Publish approved derivatives to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate |
-| [genfeed-brand-os](./genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
+| [tiktok-description](./tiktok/tiktok-description/) | TikTok captions with specific hashtags and disclosures within the 2,200 character limit |
+| [tiktok-title](./tiktok/tiktok-title/) | TikTok hook, cover text and the searchable first caption line |
+| [tiktok-video](./tiktok/tiktok-video/) | Reformat a recording or Short into a branded 9:16 TikTok video with burned-in captions |
+| [tiktok-warmup](./tiktok/tiktok-warmup/) | Transparent 5-7 day TikTok warm-up with native engagement and gradual first uploads |
+
+### Writing (`writing/`)
+
+Long-form and conversion writing: blogs, newsletters, launch copy, internal comms and humanizing.
+
+```bash
+bunx skills add genfeedai/skills/writing
+```
+
+| Skill | Description |
+|-------|-------------|
+| [blog-content-creator](./writing/blog-content-creator/) | SEO-optimized blog posts, guides, and long-form articles |
+| [copywriter](./writing/copywriter/) | Non-ad conversion copy for landing pages, CTAs, value propositions, pricing pages, onboarding, and microcopy |
+| [humanizer](./writing/humanizer/) | Rewrite AI-generated drafts to sound natural while preserving meaning and voice |
+| [internal-comms](./writing/internal-comms/) | Draft structured internal status reports, 3P updates, leadership updates, newsletters, FAQs, and incident reports |
+| [launch-copy-creator](./writing/launch-copy-creator/) | Show HN titles, Product Hunt taglines, and maker first comments that respect each community's norms |
+| [newsletter-creator](./writing/newsletter-creator/) | Newsletter editions with subject lines, editorial structures, and growth tactics |
+
+### Content strategy and optimization (`content/`)
+
+Content strategy, operations, repurposing, review, SEO, GEO and competitor analysis.
+
+```bash
+bunx skills add genfeedai/skills/content
+```
+
+| Skill | Description |
+|-------|-------------|
+| [competitor-analyzer](./content/competitor-analyzer/) | Audit competitors' content strategy, channels, formats, topics, and engagement gaps |
+| [content-atomizer](./content/content-atomizer/) | Repurpose one source asset into platform-native derivatives |
+| [content-factory-operator](./content/content-factory-operator/) | Repeatable Genfeed content operations with intake, briefs, production queues, review gates, and analytics loops |
+| [content-geo-optimizer](./content/content-geo-optimizer/) | GEO scoring, citation-ready rewrites, source attribution, and schema recommendations for answer engines |
+| [content-reviewer](./content/content-reviewer/) | Quality review with six-dimension scoring and publish-readiness gates |
+| [content-seo-optimizer](./content/content-seo-optimizer/) | SEO scoring and search optimization for content drafts |
+| [content-strategist](./content/content-strategist/) | Editorial strategy, content pillars, platform roles, cadence, calendars, and KPIs |
+
+### Media and visual (`media/`)
+
+Images, video and visual systems: prompting, generation, local renderers (carousels, thumbnails, clips, motion) and brand kits.
+
+```bash
+bunx skills add genfeedai/skills/media
+```
+
+| Skill | Description |
+|-------|-------------|
+| [carousel-renderer](./media/carousel-renderer/) | Render an approved carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API |
+| [cinematic-prompting](./media/cinematic-prompting/) | Rewrite image and video prompts with precise camera, framing, lighting, and editing vocabulary |
+| [clip-cutter](./media/clip-cutter/) | Cut vertical 9:16 clips from a long recording locally with ffmpeg: captions, loudness and measured output, no API |
+| [image-prompt-engineer](./media/image-prompt-engineer/) | Optimized prompts for AI image and short video generation across major visual models |
+| [media-forge](./media/media-forge/) | Generate image, video, and audio artifacts through Replicate or fal.ai workers |
+| [motion-video](./media/motion-video/) | Write a Remotion composition with your own Claude or Codex sub, render it locally and package it as Genfeed Motion-style output, no model API |
+| [prompt-generator](./media/prompt-generator/) | Structured JSON image and video prompts with style settings and a recommended model |
+| [thumbnail-compositor](./media/thumbnail-compositor/) | Composite three branded thumbnail variants locally with exact text and signature placement, no image API |
+| [video-brand-profile](./media/video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
+| [video-model-benchmark](./media/video-model-benchmark/) | Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X |
+| [visual-brand-kit](./media/visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
+
+### Advertising (`ads/`)
+
+Paid advertising: ad copy, UGC ad prompts and performance analysis.
+
+```bash
+bunx skills add genfeedai/skills/ads
+```
+
+| Skill | Description |
+|-------|-------------|
+| [ad-copy-creator](./ads/ad-copy-creator/) | Paid ad copy for Meta, Google, LinkedIn, TikTok, and X with direct-response variants and test plans |
+| [ad-performance-analyzer](./ads/ad-performance-analyzer/) | Paid media performance diagnosis, KPI analysis, creative fatigue checks, and optimization recommendations |
+| [ugc-ad-prompts](./ads/ugc-ad-prompts/) | Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist |
+
+### GTM strategy (`gtm/`)
+
+Go-to-market strategy: brand, positioning, ICP, offers, pricing, funnels, traffic, outbound and retention.
+
+```bash
+bunx skills add genfeedai/skills/gtm
+```
+
+| Skill | Description |
+|-------|-------------|
+| [brand-architect](./gtm/brand-architect/) | Brand foundations: name, positioning, voice, and strategic identity |
+| [brand-os-architect](./gtm/brand-os-architect/) | Brand operating systems: positioning, voice, content, visual rules, evidence, and AI context |
+| [channel-validator](./gtm/channel-validator/) | Channel focus and expansion-readiness validation against the One Channel Rule |
+| [competitive-intelligence-analyst](./gtm/competitive-intelligence-analyst/) | GTM competitors, market positioning, feature gaps, pricing, win/loss patterns, and differentiation opportunities |
+| [constraint-eliminator](./gtm/constraint-eliminator/) | Customer friction, buying objections, implementation blockers, refund causes, and success obstacles |
+| [email-finder](./gtm/email-finder/) | Contact emails, domain-level email discovery, email patterns, and verification guidance |
+| [expert-architect](./gtm/expert-architect/) | Personal expert positioning, attractive character, origin story, Big Domino, authority, and new opportunity framing |
+| [expert-validator](./gtm/expert-validator/) | Existing expert positioning and authority narrative scoring |
+| [funnel-architect](./gtm/funnel-architect/) | Sales funnels, value ladders, customer journeys, and landing page sequences from scratch |
+| [funnel-validator](./gtm/funnel-validator/) | Existing funnel audits for Hook-Story-Offer, value ladder fit, traffic match, and conversion path |
+| [lead-channel-optimizer](./gtm/lead-channel-optimizer/) | Lead generation channel prioritization by ROI, cost, close rate, effort, and system potential |
+| [leads-researcher](./gtm/leads-researcher/) | Prospect accounts, decision makers, contact details, company data, and buyer intent signals |
+| [offer-architect](./gtm/offer-architect/) | High-converting offers, bundles, guarantees, packages, and value stacks |
+| [offer-validator](./gtm/offer-validator/) | Existing offer scoring and fixes against the Value Equation |
+| [outbound-optimizer](./gtm/outbound-optimizer/) | Cold email, DM, prospecting, personalization, and outbound sequence optimization |
+| [partnership-builder](./gtm/partnership-builder/) | Affiliate, integration, reseller, co-marketing, embedded distribution, and partner outreach strategy |
+| [positioning-angles](./gtm/positioning-angles/) | Differentiated market angles, mechanisms, narratives, and positioning tests |
+| [pricing-strategist](./gtm/pricing-strategist/) | Premium and value-based pricing strategy, tiers, price-rise plans, and pricing confidence |
+| [retention-engine](./gtm/retention-engine/) | Retention, activation, ascension, upsell, cross-sell, subscription, churn reduction, and LTV systems |
+| [search-domain-validator](./gtm/search-domain-validator/) | Domain syntax validation, availability-oriented checks, and brandable domain options |
+| [startup-icp-definer](./gtm/startup-icp-definer/) | ICP, buyer personas, user personas, buying centers, pains, triggers, and targeting focus |
+| [support-systems-architect](./gtm/support-systems-architect/) | Scalable support systems, help docs, FAQs, ticketing, self-service, automation, and response templates |
+| [traffic-architect](./gtm/traffic-architect/) | Audience acquisition and traffic strategy from scratch using Dream 100, organic vs paid paths, and owned audience plans |
+| [traffic-validator](./gtm/traffic-validator/) | Existing traffic strategy scoring across Dream 100 clarity, hook strategy, paid/organic fit, funnel alignment, and conversion path |
+
+### Content loop and Genfeed integration (`loop/`)
+
+The Genfeed content loop: trend scouting, the loop orchestrator, Genfeed connector and Brand OS, publishing and analytics.
+
+```bash
+bunx skills add genfeedai/skills/loop
+```
+
+| Skill | Description |
+|-------|-------------|
+| [analytics-collector](./loop/analytics-collector/) | Collect post-performance metrics and feed them back into content-loop learning |
+| [content-loop-orchestrator](./loop/content-loop-orchestrator/) | Operate the executable Genfeed content loop and route each stage to the right skill |
+| [genfeed-brand-os](./loop/genfeed-brand-os/) | Genfeed.ai Brand OS for product copy, launch content, prompts, and website CTAs |
+| [genfeed-connector](./loop/genfeed-connector/) | Local content-loop state, manifest, feedback, and env-based token seam |
+| [social-poster](./loop/social-poster/) | Publish approved derivatives to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate |
+| [trend-scout](./loop/trend-scout/) | Pull and score trend signals for the Genfeed content loop |
 
 ## Genfeed Integration
 
@@ -252,18 +347,21 @@ Every skill works standalone. When used inside a Genfeed workspace, skills can d
 
 ## Skill Structure
 
-Each skill folder includes:
+Each skill lives in a module folder:
 
 ```text
-{skill-name}/
-├── SKILL.md        # Main skill instructions with YAML frontmatter
-├── metadata.json   # Triggers, tags, outputs, and references
-└── README.md       # Reader-facing documentation
+{module}/
+└── {skill-name}/
+    ├── SKILL.md        # Main skill instructions with YAML frontmatter
+    ├── metadata.json   # Triggers, tags, outputs, and references
+    └── README.md       # Reader-facing documentation
 ```
+
+The folder name must match the `name` in `SKILL.md`, and names are unique across modules. Modules are declared in `scripts/modules.json`. Links between skills in the same module use `../<skill>/SKILL.md`; skills in other modules are named in backticks, because installed skills land side by side in one directory.
 
 Some skills also include `references/`, `scripts/`, or `examples/` when they need supporting material or executable workers. Skill folders must not include `plugin.json`.
 
-Marketplace bundles are generated under `bundles/` from `scripts/plugin-categories.json`:
+`.claude-plugin/marketplace.json` is generated from `scripts/modules.json` and the module folders:
 
 ```bash
 bun run marketplace:generate
@@ -275,7 +373,7 @@ There are three Genfeed skill inventories:
 
 | Inventory | Purpose | Sync rule |
 | --- | --- | --- |
-| `genfeedai/skills` | Public, MIT-licensed free skills | Source of truth for free skills and Claude Marketplace bundles |
+| `genfeedai/skills` | Public, MIT-licensed free skills | Source of truth for free skills and the Claude Marketplace module plugins |
 | `genfeed.ai/skills/` | App-local product skills used by the Genfeed monorepo | May mirror public skills, but app-local additions must be classified as public or Pro before publishing |
 | `genfeedai/skills-pro` | Private paid skills catalogue | Source of truth for Pro operations, packaging, registry, receipts, and customer setup |
 
@@ -290,7 +388,7 @@ When a skill appears in `genfeed.ai/skills/` but not here, classify it before co
 ## Contributing
 
 1. Fork the repository
-2. Create or update a skill in `your-skill-name/`
+2. Create or update a skill in `<module>/your-skill-name/`
 3. Include `SKILL.md`, `metadata.json`, and `README.md`
 4. Run the validation commands from this repository
 5. Submit a pull request
