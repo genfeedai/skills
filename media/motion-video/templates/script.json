@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "kind": "product",
+  "title": "Starter motion video",
+  "brand": {
+    "name": "Your Brand",
+    "url": "https://example.com",
+    "logo": "public/brand/logo.svg"
+  },
+  "audience": "Who watches this, in one line",
+  "goal": "The one thing a viewer should remember",
+  "cta": "Start for free at example.com",
+  "validUntil": null,
+  "shots": [
+    {
+      "id": "hook",
+      "seconds": 2,
+      "onScreen": "Your hook line",
+      "visual": "drawn: big type on brand color",
+      "claims": []
+    },
+    {
+      "id": "product",
+      "seconds": 4,
+      "onScreen": "Ranks 200 CVs in a minute",
+      "visual": "screenshot: public/screens/dashboard.png",
+      "claims": ["speed"]
+    },
+    {
+      "id": "cta",
+      "seconds": 3,
+      "onScreen": "Start for free",
+      "visual": "logo: public/brand/logo.svg",
+      "claims": []
+    }
+  ],
+  "claims": [
+    {
+      "id": "speed",
+      "text": "Ranks 200 CVs in about a minute",
+      "source": "https://example.com/pricing or a file path",
+      "checked": "2026-01-01"
+    }
+  ],
+  "approval": null
+}
