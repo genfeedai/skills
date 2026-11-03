@@ -42,5 +42,18 @@
       "checked": "2026-01-01"
     }
   ],
+  "music": null,
+  "assets": [
+    {
+      "path": "public/brand/logo.svg",
+      "source": "brand repo or press kit path",
+      "license": "owned"
+    },
+    {
+      "path": "public/screens/dashboard.png",
+      "source": "captured from the live app on 2026-01-01",
+      "license": "owned"
+    }
+  ],
   "approval": null
 }

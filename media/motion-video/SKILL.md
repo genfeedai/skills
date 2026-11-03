@@ -85,11 +85,28 @@ Common sizes: 1080 x 1920 (9:16 Reels, Shorts, TikTok), 1080 x 1080 (square feed
 | Every on-screen number points to a claim with a source and a `checked` date | every video |
 | Date-relative copy has `validUntil`, and the script has not expired | every video |
 | Shots add up to 30 seconds or less | every video |
+| Every logo, screenshot, footage and music file is listed in `assets` with a source and a licence (owned, licensed, public-domain, permission, cc-by, cc0) | every video |
+| A composition that plays audio names its track in `music` | every video |
 | At least 3 shots of the real product (`screenshot:` or `footage:`), files present and used | `kind: product` |
 | The real product is on screen for at least 40% of the runtime | `kind: product` |
 | The owner approved this exact script (hash match) | final `render` |
 
 Set `kind` to "product" for an app or tool, "teaser" for a show, launch or event, or "editorial" for news, data and opinion. Set `minScreenshots` to raise the product floor. Warnings flag lines that are too long to read twice in their shot.
+
+## Pictures from the web and from X
+
+Real photos, press images and posts make a video feel current, but each one is someone's copyright. Use them only when the `assets` entry can name a licence:
+
+- **owned**: the brand's own logo, app captures, recordings and photos. Prefer these for product videos.
+- **licensed / cc0**: stock under a licence that allows commercial use (for example the Unsplash or Pexels licences). Keep the page URL as the source. Do not use a stock photo of a person in a way that implies they endorse the brand.
+- **public-domain**: works of the US federal government, such as official portraits and agency photos, with the URL as the source.
+- **permission**: anything else, including a screenshot of a post on X, a news photo or a logo of a third party, once the owner has the rights holder's written OK. Quoting a public post in news commentary can be fair use in some places, but that is a legal call for the owner, not for this skill; in an ad or product video, get permission.
+
+Never pull an image a search returned without its licence, never crop out a watermark or credit, and keep the post author's name and handle visible when a post is shown.
+
+## Music
+
+Give each brand its own score. A bed written for one video (for example a news theme with timpani and brass) does not carry over to a product video for another brand. Write or choose the track from the brief's mood, not from the last project, and list it in `assets`.
 
 ## Production checklist for frames
 

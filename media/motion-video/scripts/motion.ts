@@ -166,6 +166,14 @@ interface Claim {
   checked: string;
 }
 
+interface Asset {
+  path: string;
+  source: string;
+  license: string;
+}
+
+const LICENSES = ['owned', 'licensed', 'public-domain', 'permission', 'cc-by', 'cc0'];
+
 interface Approval {
   by: string;
   at: string;
@@ -184,6 +192,8 @@ interface Script {
   minScreenshots?: number;
   shots: Shot[];
   claims?: Claim[];
+  assets?: Asset[];
+  music?: string | null;
   approval?: Approval | null;
 }
 
@@ -263,6 +273,7 @@ function validateScript(root: string, requireApproval: boolean): ScriptResult {
   const errors: string[] = [];
   const warnings: string[] = [];
   const src = sourceText(root);
+  const files = new Set<string>();
 
   if (!KINDS.includes(script.kind)) errors.push(`kind must be one of ${KINDS.join(', ')}`);
   for (const field of ['title', 'audience', 'goal', 'cta'] as const) {
@@ -274,8 +285,10 @@ function validateScript(root: string, requireApproval: boolean): ScriptResult {
   if (!script.brand?.name) errors.push('brand.name is empty');
   else if (PLACEHOLDER.test(script.brand.name))
     errors.push('brand.name still has placeholder text');
-  if (script.brand?.logo) checkAsset(root, src, script.brand.logo, 'brand.logo', errors);
-  else errors.push('brand.logo is empty: use the real logo file, never a drawn letter or glyph');
+  if (script.brand?.logo) {
+    checkAsset(root, src, script.brand.logo, 'brand.logo', errors);
+    files.add(script.brand.logo);
+  } else errors.push('brand.logo is empty: use the real logo file, never a drawn letter or glyph');
 
   const shots = Array.isArray(script.shots) ? script.shots : [];
   if (!shots.length) errors.push('no shots');
@@ -318,7 +331,10 @@ function validateScript(root: string, requireApproval: boolean): ScriptResult {
     const visual = parseVisual(shot.visual);
     if (!visual.type)
       errors.push(`${label}: visual must start with screenshot:, footage:, logo: or drawn:`);
-    if (visual.path !== undefined) checkAsset(root, src, visual.path, label, errors);
+    if (visual.path !== undefined) {
+      checkAsset(root, src, visual.path, label, errors);
+      if (visual.path) files.add(visual.path);
+    }
     if (PRODUCT_VISUALS.includes(visual.type)) {
       productShots += 1;
       productSeconds += shot.seconds > 0 ? shot.seconds : 0;
@@ -338,6 +354,27 @@ function validateScript(root: string, requireApproval: boolean): ScriptResult {
       errors.push(
         `real product is on screen ${Math.round((productSeconds / totalSeconds) * 100)}% of the time; needs ${PRODUCT_MIN_SHARE * 100}%`
       );
+  }
+
+  if (/<Audio\b/.test(src) && !script.music)
+    errors.push('the composition plays audio but music is empty; name the track file');
+  if (script.music) {
+    checkAsset(root, src, script.music, 'music', errors);
+    files.add(script.music);
+  }
+
+  // Every file on screen or on the soundtrack needs a source and a licence.
+  const assets = new Map((script.assets ?? []).map((asset) => [asset.path, asset]));
+  for (const file of files) {
+    const asset = assets.get(file);
+    if (!asset) {
+      errors.push(`${file}: not listed in assets with its source and licence`);
+      continue;
+    }
+    if (!asset.source || PLACEHOLDER.test(asset.source))
+      errors.push(`${file}: assets entry has no real source`);
+    if (!LICENSES.includes(asset.license))
+      errors.push(`${file}: licence must be one of ${LICENSES.join(', ')}`);
   }
 
   for (const claim of claims.values()) {
