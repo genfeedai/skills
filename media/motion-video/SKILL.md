@@ -89,7 +89,7 @@ Common sizes: 1080 x 1920 (9:16 Reels, Shorts, TikTok), 1080 x 1080 (square feed
 | The real product is on screen for at least 40% of the runtime | `kind: product` |
 | The owner approved this exact script (hash match) | final `render` |
 
-`kind` is `product` (an app or tool), `teaser` (a show, launch or event) or `editorial` (news, data, opinion). Set `minScreenshots` to raise the product floor. Warnings flag lines that are too long to read twice in their shot.
+Set `kind` to "product" for an app or tool, "teaser" for a show, launch or event, or "editorial" for news, data and opinion. Set `minScreenshots` to raise the product floor. Warnings flag lines that are too long to read twice in their shot.
 
 ## Production checklist for frames
 
