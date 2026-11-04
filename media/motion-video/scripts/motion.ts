@@ -142,8 +142,11 @@ function render(dir: string): void {
  */
 type Kind = 'product' | 'editorial' | 'teaser';
 const KINDS: Kind[] = ['product', 'editorial', 'teaser'];
-const ASSET_VISUALS = ['screenshot', 'footage', 'logo'] as const;
-const PRODUCT_VISUALS = ['screenshot', 'footage'];
+const ASSET_VISUALS = ['screenshot', 'footage', 'logo', 'ui'] as const;
+// ui: the product's own interface rebuilt as a component in src/, named as
+// "ui: src/file.tsx#Component". It counts as product only with an assets entry
+// whose source names the real screens it reproduces.
+const PRODUCT_VISUALS = ['screenshot', 'footage', 'ui'];
 const PRODUCT_MIN_SCREENSHOTS = 3;
 const PRODUCT_MIN_SHARE = 0.4;
 const PLACEHOLDER = /\b(todo|tbd|lorem|ipsum|placeholder|your brand|example\.com)\b/i;
@@ -259,6 +262,14 @@ function checkAsset(
     errors.push(`${label}: no file path`);
     return;
   }
+  const [file, component] = path.split('#');
+  if (component !== undefined) {
+    if (!file || !existsSync(join(root, file)))
+      errors.push(`${label}: ${file} does not exist in the project`);
+    else if (!component || !new RegExp(`\\b${component}\\b`).test(src))
+      errors.push(`${label}: component ${component || '(none)'} is never used in src/`);
+    return;
+  }
   if (!existsSync(join(root, path))) {
     errors.push(`${label}: ${path} does not exist in the project`);
     return;
@@ -330,10 +341,12 @@ function validateScript(root: string, requireApproval: boolean): ScriptResult {
 
     const visual = parseVisual(shot.visual);
     if (!visual.type)
-      errors.push(`${label}: visual must start with screenshot:, footage:, logo: or drawn:`);
+      errors.push(`${label}: visual must start with screenshot:, footage:, ui:, logo: or drawn:`);
     if (visual.path !== undefined) {
       checkAsset(root, src, visual.path, label, errors);
-      if (visual.path) files.add(visual.path);
+      if (visual.path) files.add(visual.path.split('#')[0] ?? visual.path);
+      if (visual.type === 'ui' && visual.path && !visual.path.includes('#'))
+        errors.push(`${label}: ui visual must name the component, as ui: src/file.tsx#Component`);
     }
     if (PRODUCT_VISUALS.includes(visual.type)) {
       productShots += 1;

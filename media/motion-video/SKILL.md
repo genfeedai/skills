@@ -68,8 +68,8 @@ Common sizes: 1080 x 1920 (9:16 Reels, Shorts, TikTok), 1080 x 1080 (square feed
 ## Workflow
 
 1. **Brief.** Get the message, the one line that must be readable, the aspect ratio, the length and the brand. If the brand has a profile, use `visual-brand-kit` or `video-brand-profile` for colors, fonts and the end card. Do not invent a palette for a brand that has one.
-2. **Collect real assets** into `public/` before writing anything: the brand's real logo file (SVG or PNG exported from the source, never a drawn letter, glyph or lookalike), and for a product video real screenshots or screen recordings of the product. If they are missing, ask the owner for them. Do not draw a mock UI in their place.
-3. **Write `script.json`** (the starter has one): every shot with its seconds, the words on screen, the visual (`screenshot:`, `footage:` or `logo:` with a file path, or `drawn:` with a description) and the ids of the claims it makes. Every number or factual claim on screen gets a claim entry with a source and the date you checked it. Copy that only holds on a date ("tomorrow", "Tuesday night") needs `validUntil`. Keep it under 15 seconds unless the idea needs more. One idea per video.
+2. **Collect real assets** into `public/` before writing anything: the brand's real logo file (SVG or PNG exported from the source, never a drawn letter, glyph or lookalike), and for a product video real screenshots or screen recordings of the product, or the product's own UI rebuilt as components (see below). If they are missing, ask the owner for them. Do not draw an invented mock UI in their place.
+3. **Write `script.json`** (the starter has one): every shot with its seconds, the words on screen, the visual (`screenshot:`, `footage:` or `logo:` with a file path, `ui: src/file.tsx#Component` for coded product UI, or `drawn:` with a description) and the ids of the claims it makes. Every number or factual claim on screen gets a claim entry with a source and the date you checked it. Copy that only holds on a date ("tomorrow", "Tuesday night") needs `validUntil`. Keep it under 15 seconds unless the idea needs more. One idea per video.
 4. **Validate, then get sign-off.** Run `validate` until it has no errors, show the owner the script as a table (shot, seconds, on screen, visual, source) and wait for a yes. Then run `approve --by "<their name>"`. Never approve on the owner's behalf. Any later edit to the script voids the approval.
 5. **Write the composition.** Edit `src/VisualComposition.tsx` (it must keep the named export `VisualComposition`) and register sizes in `src/Root.tsx`. Use every asset the script names; `validate` fails if one is never loaded with `staticFile()`. Rules below.
 6. **Render**, then run `frames` and **open every frame**. Check each one against the production checklist below. If a frame is wrong, change the code and render again. Do not report a video as good without looking at its frames.
@@ -87,7 +87,7 @@ Common sizes: 1080 x 1920 (9:16 Reels, Shorts, TikTok), 1080 x 1080 (square feed
 | Shots add up to 30 seconds or less | every video |
 | Every logo, screenshot, footage and music file is listed in `assets` with a source and a licence (owned, licensed, public-domain, permission, cc-by, cc0) | every video |
 | A composition that plays audio names its track in `music` | every video |
-| At least 3 shots of the real product (`screenshot:` or `footage:`), files present and used | `kind: product` |
+| At least 3 shots of the real product (`screenshot:`, `footage:` or `ui:`), files present and used | `kind: product` |
 | The real product is on screen for at least 40% of the runtime | `kind: product` |
 | The owner approved this exact script (hash match) | final `render` |
 
@@ -111,6 +111,7 @@ Give each brand its own score. A bed written for one video (for example a news t
 ## Production checklist for frames
 
 - The real logo appears on the end card, and nowhere is a drawn initial or glyph standing in for it.
+- Coded product UI (`ui:`) is the sharpest option when the owner has the product's source: rebuild the real screens as frame-driven components with the product's own copy, demo records and design tokens, list the component file in `assets` with the source screens it reproduces, and key every move to the beat grid. Never invent features or screens the product does not have.
 - Product videos: the screenshots are readable at phone size (crop and zoom into the part that matters instead of showing a whole desktop screen), and the product appears in the first half, not only at the end.
 - Text sits inside the 8% safe margins; nothing touches an edge except during a deliberate wipe.
 - The frame is composed top to bottom. On 9:16, content that sits only in the top half with an empty bottom reads as unfinished; use the space down to the 20% platform zone.
