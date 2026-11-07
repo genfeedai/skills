@@ -59,6 +59,7 @@
         "./media/thumbnail-compositor",
         "./media/video-brand-profile",
         "./media/video-model-benchmark",
+        "./media/video-realism",
         "./media/visual-brand-kit",
         "./ads/ad-copy-creator",
         "./ads/ad-pack-assembly",
@@ -196,6 +197,7 @@
         "./thumbnail-compositor",
         "./video-brand-profile",
         "./video-model-benchmark",
+        "./video-realism",
         "./visual-brand-kit"
       ]
     },
