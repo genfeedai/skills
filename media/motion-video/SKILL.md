@@ -4,7 +4,7 @@ description: Write a Remotion composition with your own Claude or Codex subscrip
 license: MIT
 metadata:
   author: genfeedai
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Motion Video
@@ -18,8 +18,12 @@ Genfeed Cloud's Studio → Motion does the same job with a hosted sandbox and a 
 ## Run It
 
 ```bash
-# once per project: copy the starter and install pinned Remotion 4.0.530
+# once per project: copy the starter (with script.json) and install pinned Remotion 4.0.530
 bun run scripts/motion.ts init ./my-motion
+
+# check the script, then record the owner's sign-off (only after they accept it)
+bun run scripts/motion.ts validate ./my-motion
+bun run scripts/motion.ts approve ./my-motion --by "Owner name"
 
 # render a composition to MP4 and check it against the limits
 bun run scripts/motion.ts render ./my-motion --id Main --out ./my-motion/out
@@ -30,6 +34,9 @@ bun run scripts/motion.ts render ./my-motion --props '{"title":"Ship it","subtit
 # one still frame as PNG
 bun run scripts/motion.ts render ./my-motion --still 45
 
+# review render before approval: writes Main-draft.mp4 and skips the script gate
+bun run scripts/motion.ts render ./my-motion --draft
+
 # re-check any file
 bun run scripts/motion.ts check ./my-motion/out/Main.mp4
 
@@ -39,7 +46,7 @@ bun run scripts/motion.ts frames ./my-motion/out/Main.mp4 --count 6
 
 Requires [Bun](https://bun.sh) 1.1+, `ffmpeg` and `ffprobe` on PATH. Remotion fetches its own headless Chrome on first render. To use a browser you already have, pass `--browser /path/to/chrome-headless-shell` or set `REMOTION_BROWSER`.
 
-`render` exits non-zero when the result breaks a limit, and prints what broke.
+`render` refuses to run until `script.json` validates and is approved, and exits non-zero when the result breaks a limit. Both print what broke.
 
 ---
 
@@ -61,11 +68,56 @@ Common sizes: 1080 x 1920 (9:16 Reels, Shorts, TikTok), 1080 x 1080 (square feed
 ## Workflow
 
 1. **Brief.** Get the message, the one line that must be readable, the aspect ratio, the length and the brand. If the brand has a profile, use `visual-brand-kit` or `video-brand-profile` for colors, fonts and the end card. Do not invent a palette for a brand that has one.
-2. **Storyboard in a table** before any code: second, what is on screen, what moves. Keep it under 15 seconds unless the idea needs more. One idea per video.
-3. **Write the composition.** Edit `src/VisualComposition.tsx` (it must keep the named export `VisualComposition`) and register sizes in `src/Root.tsx`. Rules below.
-4. **Render**, then run `frames` and **open every frame**. Check that text is readable at phone size, nothing is clipped, the end card appears and the motion matches the storyboard. If a frame is wrong, change the code and render again. Do not report a video as good without looking at its frames.
-5. **Repair at most twice** for compile errors or visual faults, then stop and tell the owner what is still wrong. Do not keep burning turns.
-6. **Package** with the post copy and the record below.
+2. **Collect real assets** into `public/` before writing anything: the brand's real logo file (SVG or PNG exported from the source, never a drawn letter, glyph or lookalike), and for a product video real screenshots or screen recordings of the product, or the product's own UI rebuilt as components (see below). If they are missing, ask the owner for them. Do not draw an invented mock UI in their place.
+3. **Write `script.json`** (the starter has one): every shot with its seconds, the words on screen, the visual (`screenshot:`, `footage:` or `logo:` with a file path, `ui: src/file.tsx#Component` for coded product UI, or `drawn:` with a description) and the ids of the claims it makes. Every number or factual claim on screen gets a claim entry with a source and the date you checked it. Copy that only holds on a date ("tomorrow", "Tuesday night") needs `validUntil`. Keep it under 15 seconds unless the idea needs more. One idea per video.
+4. **Validate, then get sign-off.** Run `validate` until it has no errors, show the owner the script as a table (shot, seconds, on screen, visual, source) and wait for a yes. Then run `approve --by "<their name>"`. Never approve on the owner's behalf. Any later edit to the script voids the approval.
+5. **Write the composition.** Edit `src/VisualComposition.tsx` (it must keep the named export `VisualComposition`) and register sizes in `src/Root.tsx`. Use every asset the script names; `validate` fails if one is never loaded with `staticFile()`. Rules below.
+6. **Render**, then run `frames` and **open every frame**. Check each one against the production checklist below. If a frame is wrong, change the code and render again. Do not report a video as good without looking at its frames.
+7. **Repair at most twice** for compile errors or visual faults, then stop and tell the owner what is still wrong. Do not keep burning turns.
+8. **Package** with the post copy and the record below.
+
+## What validate enforces
+
+| Rule | Applies to |
+|------|-----------|
+| `brand.logo` is a real file in the project and used in `src/` | every video |
+| No placeholder text (TODO, TBD, lorem, example.com) | every video |
+| Every on-screen number points to a claim with a source and a `checked` date | every video |
+| Date-relative copy has `validUntil`, and the script has not expired | every video |
+| Shots add up to 30 seconds or less | every video |
+| Every logo, screenshot, footage and music file is listed in `assets` with a source and a licence (owned, licensed, public-domain, permission, cc-by, cc0) | every video |
+| A composition that plays audio names its track in `music` | every video |
+| At least 3 shots of the real product (`screenshot:`, `footage:` or `ui:`), files present and used | `kind: product` |
+| The real product is on screen for at least 40% of the runtime | `kind: product` |
+| The owner approved this exact script (hash match) | final `render` |
+
+Set `kind` to "product" for an app or tool, "teaser" for a show, launch or event, or "editorial" for news, data and opinion. Set `minScreenshots` to raise the product floor. Warnings flag lines that are too long to read twice in their shot.
+
+## Pictures from the web and from X
+
+Real photos, press images and posts make a video feel current, but each one is someone's copyright. Use them only when the `assets` entry can name a licence:
+
+- **owned**: the brand's own logo, app captures, recordings and photos. Prefer these for product videos.
+- **licensed / cc0**: stock under a licence that allows commercial use (for example the Unsplash or Pexels licences). Keep the page URL as the source. Do not use a stock photo of a person in a way that implies they endorse the brand.
+- **public-domain**: works of the US federal government, such as official portraits and agency photos, with the URL as the source.
+- **permission**: anything else, including a screenshot of a post on X, a news photo or a logo of a third party, once the owner has the rights holder's written OK. Quoting a public post in news commentary can be fair use in some places, but that is a legal call for the owner, not for this skill; in an ad or product video, get permission.
+
+Never pull an image a search returned without its licence, never crop out a watermark or credit, and keep the post author's name and handle visible when a post is shown.
+
+## Music
+
+Give each brand its own score. A bed written for one video (for example a news theme with timpani and brass) does not carry over to a product video for another brand. Write or choose the track from the brief's mood, not from the last project, and list it in `assets`.
+
+## Production checklist for frames
+
+- The real logo appears on the end card, and nowhere is a drawn initial or glyph standing in for it.
+- Coded product UI (`ui:`) is the sharpest option when the owner has the product's source: rebuild the real screens as frame-driven components with the product's own copy, demo records and design tokens, list the component file in `assets` with the source screens it reproduces, and key every move to the beat grid. Never invent features or screens the product does not have.
+- Product videos: the screenshots are readable at phone size (crop and zoom into the part that matters instead of showing a whole desktop screen), and the product appears in the first half, not only at the end.
+- Text sits inside the 8% safe margins; nothing touches an edge except during a deliberate wipe.
+- The frame is composed top to bottom. On 9:16, content that sits only in the top half with an empty bottom reads as unfinished; use the space down to the 20% platform zone.
+- Numbers on screen match `script.json` exactly, including while a counter animates to its final value: hold the final value long enough to read.
+- Labels from the previous shot are gone before the next one reads.
+- Date-sensitive copy is still true on the day it will be posted.
 
 ## Writing the composition
 
@@ -93,6 +145,8 @@ Lead with the video, not a description of it. State what it shows in one plain s
 ```text
 File: out/Main.mp4  1080x1920  30 fps  5.0 s  H.264  215 KB
 Limits: ok (render exited 0)
+Script: approved by <owner> on <date> (hash c17bc7f40b01c6c6), 3 claims sourced
+Assets: logo public/brand/logo.svg, 4 screenshots, product on screen 62%
 Frames checked: 6 of 6, all read at phone size
 Fonts: Helvetica Neue fallback (Inter on this machine)
 Repairs: 1 (title clipped on frame 3, reduced to 108 px)
