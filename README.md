@@ -268,6 +268,7 @@ bunx skills add genfeedai/skills/media
 | [thumbnail-compositor](./media/thumbnail-compositor/) | Composite three branded thumbnail variants locally with exact text and signature placement, no image API |
 | [video-brand-profile](./media/video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
 | [video-model-benchmark](./media/video-model-benchmark/) | Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X |
+| [video-realism](./media/video-realism/) | Realistic video shot prompts as a timed shot list with reference roles, a spoken line and sound effects |
 | [visual-brand-kit](./media/visual-brand-kit/) | Visual brand systems for AI-generated content: colors, typography feel, photography style, composition, and prompt presets |
 
 ### Advertising (`ads/`)
