@@ -11,6 +11,7 @@
       "strict": false,
       "description": "All Genfeed skills, every module",
       "skills": [
+        "./x/quote-finder",
         "./x/x-article",
         "./x/x-post",
         "./x/x-thread",
@@ -101,8 +102,8 @@
       "name": "genfeedai-x",
       "source": "./x",
       "strict": false,
-      "description": "X (Twitter): posts, threads, Articles and account warmup",
-      "skills": ["./x-article", "./x-post", "./x-thread", "./x-warmup"]
+      "description": "X (Twitter): posts, threads, Articles, quote-post finding and account warmup",
+      "skills": ["./quote-finder", "./x-article", "./x-post", "./x-thread", "./x-warmup"]
     },
     {
       "name": "genfeedai-linkedin",

@@ -1,0 +1,17 @@
+{
+  "name": "quote-finder",
+  "version": "1.0.0",
+  "description": "Find fresh public X (Twitter) posts worth quote-posting for a brand, ranked with a fit reason and a suggested angle. Proposes only.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "find posts to quote",
+    "what should we quote today",
+    "quote post ideas",
+    "find quote tweet candidates",
+    "which posts should I quote"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["x", "twitter", "quote-posts", "social-media", "content-creation"]
+}
