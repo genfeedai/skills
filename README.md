@@ -13,7 +13,7 @@ bunx skills add genfeedai/skills
 Install one module (a platform or a discipline):
 
 ```bash
-bunx skills add genfeedai/skills/x          # x-post, x-thread, x-article, x-warmup
+bunx skills add genfeedai/skills/x          # x-post, x-thread, x-article, x-warmup, quote-finder
 bunx skills add genfeedai/skills/linkedin
 bunx skills add genfeedai/skills/instagram
 bunx skills add genfeedai/skills/youtube
@@ -143,6 +143,7 @@ bunx skills add genfeedai/skills/x
 
 | Skill | Description |
 |-------|-------------|
+| [quote-finder](./x/quote-finder/) | Ranked shortlist of fresh public X posts worth quoting, with fit reason and angle; proposes only |
 | [x-article](./x/x-article/) | Long-form X Article plus its promo post |
 | [x-post](./x/x-post/) | One X post, quote post or reply: hooks, algorithm signals, checklist |
 | [x-thread](./x/x-thread/) | X threads of 2 to 15 posts: hook, value chain, closing CTA, bump plan |
