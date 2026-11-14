@@ -1,7 +1,7 @@
 {
   "name": "weekly-batch",
-  "version": "1.0.0",
-  "description": "Plan, write and schedule a week of social content over the Genfeed MCP: one table for approval, scheduling per slot after the go, then a read back of the queue.",
+  "version": "1.1.0",
+  "description": "Plan, write and schedule a week of social content over the Genfeed MCP: one table for approval, one batch with one approval after the go, then a read back of the queue.",
   "author": "genfeedai",
   "license": "MIT",
   "triggers": [
