@@ -72,7 +72,7 @@ If the person changes rows, redo the affected rows, re-validate them and show th
 
 ## Scheduling
 
-After the go, send the whole week in one `create_scheduled_release` call with a `releases` list (1 to 50 items):
+After the go, send the whole week in one request: `create_scheduled_release` with the field `releases` set to a list of 1 to 50 items:
 
 ```
 releases: [
