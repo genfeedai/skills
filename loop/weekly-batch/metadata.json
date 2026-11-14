@@ -1,0 +1,20 @@
+{
+  "name": "weekly-batch",
+  "version": "1.0.0",
+  "description": "Plan, write and schedule a week of social content over the Genfeed MCP: one table for approval, scheduling per slot after the go, then a read back of the queue.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "schedule my week",
+    "batch a week of posts",
+    "plan and schedule next week",
+    "fill the calendar",
+    "weekly content batch",
+    "schedule a week of posts",
+    "post every 4 hours",
+    "a carousel a day"
+  ],
+  "references": {},
+  "outputs": ["text"],
+  "tags": ["genfeed", "mcp", "scheduling", "batch", "x", "instagram", "carousel", "publishing"]
+}

@@ -338,6 +338,7 @@ bunx skills add genfeedai/skills/loop
 | [genfeed-connector](./loop/genfeed-connector/) | Local content-loop state, manifest, feedback, and env-based token seam |
 | [social-poster](./loop/social-poster/) | Publish approved derivatives to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate |
 | [trend-scout](./loop/trend-scout/) | Pull and score trend signals for the Genfeed content loop |
+| [weekly-batch](./loop/weekly-batch/) | Plan, write and schedule a week of posts and carousels over the Genfeed MCP: one table for approval, scheduling after the go, then a queue read back |
 
 ## Genfeed Integration
 

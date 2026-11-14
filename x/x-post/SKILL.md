@@ -191,7 +191,8 @@ Posts with an image or chart tend to travel further. For a branded image use `im
 
 If Genfeed tools are available:
 
-- `create_post` saves the chosen variant as a draft with `platforms: ["twitter"]`. It does not publish.
+- `create_post` saves the chosen variant as a draft with `platforms: ["twitter"]`. It does not publish, and no tool turns that draft into a scheduled release later.
+- When the post is meant to be scheduled, create it with `create_scheduled_release` and `status: "draft"` (no date) instead, so it can be scheduled later. A release with a date is held for the person's approval. For a whole week at a set cadence use `weekly-batch`.
 - Use `check_channel` with `{action: "capabilities", input: {platform: "twitter"}}` for limits and media rules.
 - Use brand context from the conversation for voice. Publishing goes through `social-poster` and only on explicit confirmation.
 

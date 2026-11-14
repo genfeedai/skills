@@ -95,7 +95,8 @@
         "./loop/genfeed-brand-os",
         "./loop/genfeed-connector",
         "./loop/social-poster",
-        "./loop/trend-scout"
+        "./loop/trend-scout",
+        "./loop/weekly-batch"
       ]
     },
     {
@@ -257,7 +258,8 @@
         "./genfeed-brand-os",
         "./genfeed-connector",
         "./social-poster",
-        "./trend-scout"
+        "./trend-scout",
+        "./weekly-batch"
       ]
     },
     {
