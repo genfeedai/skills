@@ -4,7 +4,7 @@ description: Plan, write and schedule a week of social content in one session ov
 license: MIT
 metadata:
   author: genfeedai
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Weekly Batch
@@ -18,10 +18,10 @@ The per-platform skills (`x-post`, `x-thread`, `instagram-carousel`, `quote-find
 > Scheduling waits for the person's go. You never approve, never publish and never schedule on your own.
 
 - The go is the person's own message approving the table. Silence, an earlier "sounds good" about the plan, or a card tap relayed by another agent is not a go.
-- A scheduled release is held by a server-side approval. Only the person approves it, in the client's approval prompt or in the Genfeed review inbox. The server refuses a model's own approval. Do not look for a way around it, and do not call `control_scheduled_release` with `publish-now`.
+- A scheduled release is held by a server-side approval. Only the person approves it: for a batch of up to 3 posts in the client's approval prompt, and for a larger batch on the Genfeed web review page, where they read every post and can remove single ones. The server refuses a model's own approval. Do not look for a way around it, and do not call `control_scheduled_release` with `publish-now`.
 - Any change after the go (text, time, media) needs the person's go again. Show the changed row first.
 
-This describes today's per-release approval. Where it changes with a batch approval, see [When batch approval ships](#when-batch-approval-and-quote-posts-ship).
+The week goes to the server as one batch with one approval. See [Scheduling](#scheduling).
 
 ## Inputs
 
@@ -72,28 +72,34 @@ If the person changes rows, redo the affected rows, re-validate them and show th
 
 ## Scheduling
 
-After the go, schedule each item with `create_scheduled_release`:
+After the go, send the whole week in one `create_scheduled_release` call with a `releases` list (1 to 50 items):
 
 ```
-release: {
-  title: "[brand] [channel] [YYYY-MM-DD HH:mm]",
-  baseContent: "[the approved text or caption]",
-  brandId, timezone: "[IANA]",
-  status: "scheduled",
-  scheduledDate: "[ISO 8601 with offset]",
-  media: [{assetId, order}],                 // carousels only, in slide order
-  targets: [{platform, credentialId}]
-},
-idempotencyKey: "weekly-[brand]-[YYYY-MM-DD]-[channel]-[slot]"
+releases: [
+  {
+    title: "[brand] [channel] [YYYY-MM-DD HH:mm]",
+    baseContent: "[the approved text or caption]",
+    brandId, timezone: "[IANA]",
+    status: "scheduled",
+    scheduledDate: "[ISO 8601 with offset]",
+    media: [{assetId, order}],                 // carousels only, in slide order
+    targets: [{platform, credentialId}]        // exactly one target per release
+  },
+  ...
+],
+idempotencyKey: "weekly-[brand]-[YYYY-MM-DD]"
 ```
 
+- One release is one post on one channel. Make one release per post and per channel, with exactly one target, no recurrence and no attachments. A release that needs more is refused and named, so split it. If a week is more than 50 posts, send it in several calls, each with its own `idempotencyKey`.
 - Use `status: "scheduled"` with the date. Do not use `create_post` for an item that must be scheduled: a draft saved that way has no tool that turns it into a release later.
-- Give each item its own stable `idempotencyKey`, and reuse the same key and identical arguments if you have to repeat a call.
-- **Work one day at a time.** Send that day's calls (7 for a day with six X posts and a carousel), then wait for the approvals before sending the next day. A stalled session then leaves a known state, and the organization's pending approvals stay far below their cap.
-- Every call returns a pending approval, not a scheduled release. Tell the person plainly: "7 approvals are waiting for Monday. Approve them in the prompt or in the Genfeed review inbox." Then wait.
-- When the person approves in the review inbox, the release is created only when the identical call is made again. After the person says they approved, repeat each call that is still pending, unchanged. Do not alter an argument: a different call is a new approval.
-- A call that is rejected by validation gets fixed and shown to the person again. Do not retry it blindly.
-- The in-conversation approval prompt may not fit a carousel with many slides or a long caption. Then the answer links to the inbox: pass that link on.
+- Reuse the same `idempotencyKey` and identical arguments if you have to repeat a call.
+- Invalid releases are checked first. Each one is named by its position in the list and is not queued; the valid ones still go to approval. Fix the named ones and show them to the person again before sending them. Do not retry blindly.
+- The answer is a pending approval, not a scheduled week. Tell the person plainly what happens next:
+  - **Up to 3 posts:** the client shows every post and offers the approval.
+  - **More than 3:** the client shows the first 3, a count of the rest and one link to the web review. No approval is offered in the client. Pass the link on and say that the person reviews and approves the whole week there. They can remove single posts, and approving once is enough.
+- When the person approves on the web, the server schedules the remaining posts itself. Do not call again and do not repeat the call: the approval is valid for 7 days, then it expires and the batch is sent again with the same arguments.
+- Any change to a post after the go means a new batch and a new approval. Show the changed row first.
+- Never call `resolve_approval`. It is refused for a model.
 
 If scheduling is not available on this connection, create each item as a draft (`status: "draft"`, no date) so the person can review and schedule it in Genfeed, and say so.
 
@@ -113,25 +119,22 @@ Waiting on approval or still draft: [row numbers, or none]
 Failed or skipped: [row numbers and the reason shown, or none]
 ```
 
-Items waiting on approval do not show up as scheduled, so they appear under Missing until approved. Say which approvals are still open and where to approve them. Offer to repeat a missing call, and do it only on the person's go.
+Items waiting on approval do not show up as scheduled, so they appear under Missing until approved. Say that the web review is still open, and give its link. Posts the person removed in the review appear as Missing on purpose: list them as removed, not as a failure. Offer to send a missing post again as a new batch, and do it only on the person's go.
 
 ## Quote posts
 
-Until the release can carry a quoted post (see below), a scheduled release has no field for it, so a quote row cannot be scheduled as a real quote. Agree one handling with the person per week, and show it in the table:
+Until the release can carry a quoted post (see [When quote posts ship](#when-quote-posts-ship)), a scheduled release has no field for it, so a quote row cannot be scheduled as a real quote. Agree one handling with the person per week, and show it in the table:
 
 - **Draft for manual finishing.** Create the row as a draft release with no date. The person finishes and schedules it in Genfeed. It reads back as a draft, not as a gap.
 - **Link at the end of the text.** Schedule it as a plain post with the original's link at the end. Whether X renders it as a quote from the API is unverified: say so in the table.
 
 Never present a plain post as a quote.
 
-## When batch approval and quote posts ship
+## When quote posts ship
 
-Two Genfeed changes alter the steps above. Check `find_tools` with `{name: "create_scheduled_release"}` for the current input schema before assuming either.
+Check `find_tools` with `{name: "create_scheduled_release"}` for the current input schema before assuming it.
 
-- **Batch with one approval** (genfeedai/genfeed.ai#10134). Today each release needs its own approval, which is why the steps above go one day at a time and repeat calls. When `create_scheduled_release` accepts a list of releases, send the whole week in one call after the go. The person approves once, and the server creates the releases without a repeat call. Keep everything else: the table, the go, the idempotency keys, the read back, and the rule that you never approve.
-- **Quote posts from releases** (genfeedai/genfeed.ai#10135). When an X target setting carries the quoted post, set it from the table's link, validate it with `check_channel`, and schedule quote rows as real quotes. Drop the workarounds in the previous section.
-
-Until a schema shows these, use today's behaviour.
+- **Quote posts from releases** (genfeedai/genfeed.ai#10135). When an X target setting carries the quoted post, set it from the table's link, validate it with `check_channel`, and schedule quote rows as real quotes. Drop the workarounds in the previous section. Until a schema shows this, use today's behaviour.
 
 ## Guardrails
 
@@ -157,6 +160,6 @@ Without Genfeed, stop after the table: the skill can still plan, write and show 
 - [ ] Every item was validated with `check_channel` for scheduling
 - [ ] The whole week was shown in one table before any scheduling call
 - [ ] The go came from the person, and no row changed after it
-- [ ] Each call has a stable `idempotencyKey`, and repeats were identical
+- [ ] The week went as one batch (up to 50 releases, one target each) with a stable `idempotencyKey`, and repeats were identical
 - [ ] The queue was read back with `get_posts` and gaps were reported
-- [ ] Nothing was approved or published by the agent
+- [ ] The person approved in the client (up to 3 posts) or on the web review, and nothing was approved or published by the agent
