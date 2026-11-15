@@ -7,6 +7,7 @@
  *   bun run scripts/motion.ts approve  <dir> --by "Owner name"
  *   bun run scripts/motion.ts render   <dir> [--id Main] [--out out/motion] [--props '{...}'] [--still 45] [--draft]
  *   bun run scripts/motion.ts check  <file.mp4|png>
+ *   bun run scripts/motion.ts inspect <file.mp4> [--count 24] [--safe top,right,bottom,left]
  *   bun run scripts/motion.ts frames <file.mp4> [--count 6] [--out frames]
  *
  * No model API is called. Rendering uses Remotion with a local Chrome headless
@@ -17,6 +18,14 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  analysisSize,
+  defaultSafeMargins,
+  type Finding,
+  inspectFrames,
+  type RawFrame,
+  type SafeMargins,
+} from './frame-qa';
 
 const REMOTION_VERSION = '4.0.530';
 
@@ -122,14 +131,19 @@ function render(dir: string): void {
     'src/index.ts',
     id,
     file,
-    ...(still ? ['--frame', still] : ['--codec', 'h264']),
+    ...(still
+      ? ['--frame', still]
+      : ['--codec', 'h264', '--pixel-format', 'yuv420p', '--color-space', 'bt709']),
     ...(props ? ['--props', props] : []),
     ...(browser ? ['--browser-executable', browser] : []),
     '--log',
     'warn',
   ];
   run('bunx', base, root);
-  if (!still) check(file);
+  if (!still) {
+    check(file);
+    inspectVideo(file);
+  }
 }
 
 /**
@@ -152,6 +166,20 @@ const PRODUCT_MIN_SHARE = 0.4;
 const PLACEHOLDER = /\b(todo|tbd|lorem|ipsum|placeholder|your brand|example\.com)\b/i;
 const RELATIVE_DATE =
   /\b(today|tonight|tomorrow|yesterday|this (week|weekend|month)|(mon|tues|wednes|thurs|fri|satur|sun)day)\b/i;
+
+/**
+ * The brand the video is for, as values a renderer can use. `source` says where they came
+ * from (Genfeed `get_brand_context`, a brand kit file, the site), so a reviewer can check.
+ */
+interface Brand {
+  colors?: Array<{ hex: string; role: string }>;
+  fonts?: string[];
+  logo?: string;
+  name?: string;
+  source?: string;
+  url?: string;
+  voice?: string;
+}
 
 interface Shot {
   id: string;
@@ -187,7 +215,7 @@ interface Script {
   version: number;
   kind: Kind;
   title: string;
-  brand?: { name?: string; url?: string; logo?: string };
+  brand?: Brand;
   audience: string;
   goal: string;
   cta: string;
@@ -279,6 +307,62 @@ function checkAsset(
   if (!src.includes(ref)) errors.push(`${label}: ${path} is never used in src/`);
 }
 
+function hexToRgb(hex: string): [number, number, number] {
+  const value = hex.replace('#', '');
+  return [
+    Number.parseInt(value.slice(0, 2), 16),
+    Number.parseInt(value.slice(2, 4), 16),
+    Number.parseInt(value.slice(4, 6), 16),
+  ];
+}
+
+/** A color counts as used when src/ holds its hex or the same color written as rgb()/rgba(). */
+function colorUsed(src: string, hex: string): boolean {
+  if (src.toLowerCase().includes(hex.toLowerCase())) return true;
+  const [r, g, b] = hexToRgb(hex);
+  return new RegExp(`rgba?\\(\\s*${r}\\s*,\\s*${g}\\s*,\\s*${b}\\b`, 'i').test(src);
+}
+
+function checkBrand(brand: Brand | undefined, src: string, errors: string[], warnings: string[]) {
+  const colors = Array.isArray(brand?.colors) ? brand.colors : [];
+  if (!colors.length)
+    errors.push(
+      'brand.colors is empty: list the brand\'s real colors as { "hex": "#rrggbb", "role": "..." }'
+    );
+  const validColors = colors.filter((color) => /^#[0-9a-f]{6}$/i.test(color?.hex ?? ''));
+  for (const color of colors) {
+    if (!/^#[0-9a-f]{6}$/i.test(color?.hex ?? ''))
+      errors.push(`brand.colors: "${color?.hex}" is not a #rrggbb hex`);
+    else if (!color.role || PLACEHOLDER.test(color.role))
+      errors.push(`brand.colors: ${color.hex} needs a role (background, accent, text...)`);
+  }
+  if (validColors.length) {
+    const unused = validColors.filter((color) => !colorUsed(src, color.hex));
+    if (unused.length === validColors.length)
+      errors.push('no brand color appears in src/: the composition uses a palette of its own');
+    else
+      for (const color of unused)
+        warnings.push(`brand color ${color.hex} (${color.role}) is not used in src/`);
+  }
+
+  const fonts = Array.isArray(brand?.fonts) ? brand.fonts.filter(Boolean) : [];
+  if (!fonts.length) errors.push('brand.fonts is empty: name the brand font families');
+  else {
+    const lower = src.toLowerCase();
+    const unused = fonts.filter((font) => !lower.includes(font.toLowerCase()));
+    if (unused.length === fonts.length)
+      errors.push('no brand font appears in src/: the composition uses a font stack of its own');
+    else for (const font of unused) warnings.push(`brand font "${font}" is not used in src/`);
+  }
+
+  if (!brand?.voice?.trim() || PLACEHOLDER.test(brand.voice))
+    errors.push('brand.voice is empty: one line on tone, taken from the brand context');
+  if (!brand?.source?.trim() || PLACEHOLDER.test(brand.source))
+    errors.push(
+      'brand.source is empty: say where the colors, fonts and voice came from (Genfeed get_brand_context, a brand kit file, the site)'
+    );
+}
+
 function validateScript(root: string, requireApproval: boolean): ScriptResult {
   const script = readScript(root);
   const errors: string[] = [];
@@ -300,6 +384,7 @@ function validateScript(root: string, requireApproval: boolean): ScriptResult {
     checkAsset(root, src, script.brand.logo, 'brand.logo', errors);
     files.add(script.brand.logo);
   } else errors.push('brand.logo is empty: use the real logo file, never a drawn letter or glyph');
+  checkBrand(script.brand, src, errors, warnings);
 
   const shots = Array.isArray(script.shots) ? script.shots : [];
   if (!shots.length) errors.push('no shots');
@@ -525,6 +610,102 @@ function frames(file: string): void {
   process.stdout.write(`${JSON.stringify({ frames: written }, null, 2)}\n`);
 }
 
+function parseSafe(value: string | undefined, width: number, height: number): SafeMargins {
+  if (!value) return defaultSafeMargins(width, height);
+  const parts = value.split(',').map((part) => Number(part.trim()));
+  if (parts.length !== 4 || parts.some((part) => !(part >= 0 && part < 50)))
+    fail('--safe takes four percentages, top,right,bottom,left, each from 0 to 49, e.g. 8,8,20,8');
+  const [top, right, bottom, left] = parts.map((part) => (part ?? 0) / 100);
+  return { bottom: bottom ?? 0, left: left ?? 0, right: right ?? 0, top: top ?? 0 };
+}
+
+function sampleFrame(path: string, at: number, width: number, height: number): RawFrame {
+  const result = spawnSync(
+    'ffmpeg',
+    [
+      '-v',
+      'error',
+      '-ss',
+      at.toFixed(3),
+      '-i',
+      path,
+      '-frames:v',
+      '1',
+      '-vf',
+      `scale=${width}:${height}:flags=area`,
+      '-f',
+      'rawvideo',
+      '-pix_fmt',
+      'rgb24',
+      '-',
+    ],
+    { maxBuffer: 64 * 1024 * 1024 }
+  );
+  if (result.status !== 0) fail(`ffmpeg could not read a frame at ${at.toFixed(2)}s`);
+  const data = new Uint8Array(result.stdout);
+  if (data.length !== width * height * 3) fail(`no frame at ${at.toFixed(2)}s`);
+  return { data, height, width };
+}
+
+/**
+ * Frame QA on a rendered MP4: samples frames evenly (the middle of each equal slice, so a
+ * fade at the very start or end is not read as blank) and reports blank, nearly empty,
+ * edge-clipped and safe-margin findings. Errors exit non-zero; warnings are things to
+ * confirm by opening the frame.
+ */
+function inspectVideo(file: string): void {
+  const path = resolve(file);
+  if (!existsSync(path)) fail(`${path} not found`);
+  need('ffmpeg');
+  need('ffprobe');
+  const probe = JSON.parse(
+    capture('ffprobe', [
+      '-v',
+      'error',
+      '-show_entries',
+      'stream=width,height,pix_fmt,codec_type:format=duration',
+      '-of',
+      'json',
+      path,
+    ])
+  ) as { format?: { duration?: string }; streams: Array<ProbeStream & { pix_fmt?: string }> };
+  const video = probe.streams.find((stream) => stream.codec_type === 'video');
+  if (!video?.width || !video.height) fail('no video stream found');
+  const seconds = Number(probe.format?.duration ?? 0);
+  if (!(seconds > 0)) fail('could not read duration');
+  const count = Math.max(6, Math.min(48, Number(flag('count') ?? 24)));
+  const size = analysisSize(video.width, video.height);
+  const safe = parseSafe(flag('safe'), video.width, video.height);
+  const times: number[] = [];
+  const sampled: RawFrame[] = [];
+  for (let i = 0; i < count; i += 1) {
+    const at = (seconds * (i + 0.5)) / count;
+    times.push(Math.round(at * 100) / 100);
+    sampled.push(sampleFrame(path, at, size.width, size.height));
+  }
+  const findings: Array<Finding & { atSeconds: number }> = inspectFrames(sampled, { safe }).map(
+    (finding) => ({ ...finding, atSeconds: times[finding.frame - 1] ?? 0 })
+  );
+  const warnings: string[] = [];
+  if (video.pix_fmt === 'yuvj420p')
+    warnings.push(
+      'pix_fmt is yuvj420p (full range): some players shift colors; render with --pixel-format yuv420p'
+    );
+  const errors = findings.filter((finding) => finding.severity === 'error');
+  const report = {
+    analysis: `${size.width}x${size.height}`,
+    file: path,
+    findings,
+    note: 'Heuristics on pixels, not a layout engine. Open every flagged frame (frames --count, or ffmpeg -ss <atSeconds>) and confirm by eye; busy photo backgrounds raise false warnings.',
+    ok: errors.length === 0,
+    safeMargins: safe,
+    sampled: count,
+    warnings,
+  };
+  process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
+  if (errors.length) process.exit(2);
+}
+
 switch (command) {
   case 'init':
     if (!target) fail('usage: init <dir>');
@@ -546,10 +727,14 @@ switch (command) {
     if (!target) fail('usage: check <file>');
     check(target);
     break;
+  case 'inspect':
+    if (!target) fail('usage: inspect <file.mp4> [--count 24] [--safe top,right,bottom,left]');
+    inspectVideo(target);
+    break;
   case 'frames':
     if (!target) fail('usage: frames <file>');
     frames(target);
     break;
   default:
-    fail('commands: init | validate | approve | render | check | frames');
+    fail('commands: init | validate | approve | render | check | inspect | frames');
 }

@@ -58,4 +58,4 @@ jobs:
             --skills-dir "$GITHUB_WORKSPACE" --no-local-skills --no-desktop
 
       - name: Test assembly skills
-        run: bun test ./ads/ad-pack-assembly ./youtube/long-form-storyboard
+        run: bun test ./ads/ad-pack-assembly ./youtube/long-form-storyboard ./media/motion-video

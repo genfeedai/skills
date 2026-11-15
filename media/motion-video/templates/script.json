@@ -5,7 +5,15 @@
   "brand": {
     "name": "Your Brand",
     "url": "https://example.com",
-    "logo": "public/brand/logo.svg"
+    "logo": "public/brand/logo.svg",
+    "colors": [
+      { "hex": "#0b0b10", "role": "background" },
+      { "hex": "#f5f5f7", "role": "text" },
+      { "hex": "#7c5cff", "role": "accent" }
+    ],
+    "fonts": ["Helvetica Neue"],
+    "voice": "TODO: one line on tone, from the brand context",
+    "source": "TODO: where these values came from (get_brand_context, brand kit file, site)"
   },
   "audience": "Who watches this, in one line",
   "goal": "The one thing a viewer should remember",
