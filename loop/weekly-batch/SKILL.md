@@ -4,7 +4,7 @@ description: Plan, write and schedule a week of social content in one session ov
 license: MIT
 metadata:
   author: genfeedai
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Weekly Batch
@@ -72,6 +72,8 @@ If the person changes rows, redo the affected rows, re-validate them and show th
 
 ## Scheduling
 
+First check what this connection accepts: call `find_tools` with `{name: "create_scheduled_release"}`. If its input has a `releases` field, use the batch below. If it only has `release`, the server predates batch approval: see [Older servers](#older-servers).
+
 After the go, send the whole week in one request: `create_scheduled_release` with the field `releases` set to a list of 1 to 50 items:
 
 ```
@@ -103,6 +105,17 @@ idempotencyKey: "weekly-[brand]-[YYYY-MM-DD]"
 
 If scheduling is not available on this connection, create each item as a draft (`status: "draft"`, no date) so the person can review and schedule it in Genfeed, and say so.
 
+### Older servers
+
+When `create_scheduled_release` takes one `release` at a time, every dated release has its own approval:
+
+- Send one call per release, one day at a time (7 calls for a day with six X posts and a carousel), with a stable `idempotencyKey` per item such as `weekly-[brand]-[YYYY-MM-DD]-[channel]-[slot]`.
+- Every call returns a pending approval. Tell the person how many are waiting for that day, and that they approve them in the prompt or in the Genfeed review inbox. Wait before sending the next day, so the pending approvals stay far below the organization's cap.
+- An approval given in the review inbox creates the release only when the identical call is made again. After the person says they approved, repeat each pending call unchanged. A changed argument is a new approval.
+- The in-conversation prompt may not fit a carousel with many slides or a long caption. Then the answer links to the inbox: pass that link on.
+
+Everything else in this skill is the same.
+
 ## Read back
 
 After the last approval, check what is actually queued:
@@ -123,18 +136,19 @@ Items waiting on approval do not show up as scheduled, so they appear under Miss
 
 ## Quote posts
 
-Until the release can carry a quoted post (see [When quote posts ship](#when-quote-posts-ship)), a scheduled release has no field for it, so a quote row cannot be scheduled as a real quote. Agree one handling with the person per week, and show it in the table:
+Look at the X entry in `check_channel` capabilities (step 3). When its target settings list `quotedPost`, a quote row can be scheduled as a real quote:
+
+- Put the original's link, or its numeric post id, in the X target's `settings` as `quotedPost`, and validate the target with `check_channel` before the table. A value that is not an X post fails validation: fix it, do not schedule it.
+- `get_scheduled_release` reads the quoted post id back. Use it to confirm each quote row after approval.
+- Quote posting is an X Enterprise plan feature, so X may refuse it on this account. A refused quote stays failed with the code `x_quote_refused`, and the owner is asked to post it by hand: a "Post this by hand" notice with a prefilled x.com link, and a card in the release drawer with Open in X, Copy text, Mark as posted and Skip. Closing it that way is final. Say this in the table's Not verified line the first time, since whether X accepts a quote on the account is unconfirmed until one has published. In the read back, list a refused quote as failed with that code and tell the person to post it by hand. A deleted original fails with `x_quoted_post_unavailable` and is not a manual post.
+- Do not put the link at the end of the text as well.
+
+When the capabilities do not list `quotedPost`, the server predates quote posts, so a quote row cannot be scheduled as a real quote. Agree one handling with the person per week, and show it in the table:
 
 - **Draft for manual finishing.** Create the row as a draft release with no date. The person finishes and schedules it in Genfeed. It reads back as a draft, not as a gap.
 - **Link at the end of the text.** Schedule it as a plain post with the original's link at the end. Whether X renders it as a quote from the API is unverified: say so in the table.
 
 Never present a plain post as a quote.
-
-## When quote posts ship
-
-Check `find_tools` with `{name: "create_scheduled_release"}` for the current input schema before assuming it.
-
-- **Quote posts from releases** (genfeedai/genfeed.ai#10135). When an X target setting carries the quoted post, set it from the table's link, validate it with `check_channel`, and schedule quote rows as real quotes. Drop the workarounds in the previous section. Until a schema shows this, use today's behaviour.
 
 ## Guardrails
 
