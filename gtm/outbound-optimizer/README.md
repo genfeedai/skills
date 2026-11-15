@@ -1,12 +1,14 @@
 # Outbound Optimizer
 
-Improve outbound strategy, cold email, DMs, personalization, and prospecting systems.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Improve outbound strategy, cold emails, DMs, and prospecting systems
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill outbound-optimizer
 ```
+<!-- generated:end -->
 
 ## Usage
 

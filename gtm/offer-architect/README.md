@@ -1,12 +1,14 @@
 # Offer Architect
 
-Create high-converting offers, bundles, guarantees, packages, and value stacks from scratch.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Construct high-converting offers, bundles, guarantees, and value stacks
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill offer-architect
 ```
+<!-- generated:end -->
 
 ## Usage
 

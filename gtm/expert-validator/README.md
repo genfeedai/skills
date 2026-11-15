@@ -1,12 +1,14 @@
 # Expert Validator
 
-Score and improve an existing expert positioning or authority narrative.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Validate expert positioning and authority narrative
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill expert-validator
 ```
+<!-- generated:end -->
 
 ## Usage
 

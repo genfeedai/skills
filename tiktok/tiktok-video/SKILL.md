@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Turn a long recording or a Short into a branded TikTok video with 9:16 layout, burned-in captions, logo placement, cover and export"
+  tags: tiktok, video, captions, clips, video-editing
+  outputs: markdown, video-brief
+  triggers: "tiktok video; reformat for tiktok; tiktok captions; cut a tiktok from a livestream; tiktok safe zone"
+  companions: video-brand-profile
 ---
 
 # TikTok Video

@@ -1,12 +1,14 @@
 # Channel Validator
 
-Validate whether the business is focused enough on one marketing channel before expanding into more.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Validate marketing channel focus and expansion readiness
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill channel-validator
 ```
+<!-- generated:end -->
 
 ## Usage
 

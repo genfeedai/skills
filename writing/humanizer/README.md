@@ -1,12 +1,14 @@
 # Humanizer
 
-Rewrite AI-generated drafts so they sound natural, specific, and voiced without changing the core meaning.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Rewrite AI-generated drafts to sound natural while preserving meaning and voice
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill humanizer
 ```
+<!-- generated:end -->
 
 ## Usage
 

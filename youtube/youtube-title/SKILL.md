@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, written as a pair with the thumbnail"
+  tags: youtube, titles, shorts, livestream
+  outputs: markdown
+  triggers: "youtube title; title options for this video; name this livestream; shorts title; title and thumbnail pair"
+  companions: video-brand-profile
 ---
 
 # YouTube Title

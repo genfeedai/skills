@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Create high-performing email newsletters with subject lines, editorial structures, and subscriber growth tactics"
+  tags: newsletter, email, content-creation, email-marketing, subscriber-growth
+  outputs: text
+  triggers: "write a newsletter; create a newsletter; draft newsletter; email newsletter; newsletter edition; write a newsletter subject line; create newsletter content; draft an email newsletter; help me with my newsletter; newsletter about"
 ---
 
 # Newsletter Creator

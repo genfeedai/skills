@@ -1,12 +1,14 @@
 # Support Systems Architect
 
-Build scalable support and customer success systems that deflect repeated tickets without hurting customer experience.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Build support systems and customer success workflows
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill support-systems-architect
 ```
+<!-- generated:end -->
 
 ## Usage
 

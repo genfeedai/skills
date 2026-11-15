@@ -1,12 +1,14 @@
 # Copywriter
 
-Write and audit non-ad conversion copy that adapts to the project brand voice.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Write and audit non-ad conversion copy that matches project brand voice
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill copywriter
 ```
+<!-- generated:end -->
 
 ## Usage
 

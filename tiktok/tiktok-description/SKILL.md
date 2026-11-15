@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Write the TikTok caption with a searchable first line, one supporting fact, specific hashtags and disclosures within the 2,200 character limit"
+  tags: tiktok, captions, descriptions, hashtags
+  outputs: markdown
+  triggers: "tiktok caption; tiktok description; tiktok hashtags; write a tiktok caption; tiktok disclosure"
+  companions: tiktok-title, video-brand-profile
 ---
 
 # TikTok Description

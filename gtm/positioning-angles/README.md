@@ -1,12 +1,14 @@
 # Positioning Angles
 
-Find differentiated positioning angles and market narratives that make an offer stand out.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Find differentiated positioning angles and market narratives
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill positioning-angles
 ```
+<!-- generated:end -->
 
 ## Usage
 

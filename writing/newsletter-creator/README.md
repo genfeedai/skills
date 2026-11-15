@@ -1,12 +1,14 @@
 # Newsletter Creator
 
-Expert newsletter editor and email content strategist. Creates complete newsletter editions with A/B-tested subject lines, optimized preview text, editorial structures, and subscriber growth strategies across all major platforms.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Create high-performing email newsletters with subject lines, editorial structures, and subscriber growth tactics
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill newsletter-creator
 ```
+<!-- generated:end -->
 
 ## Usage
 

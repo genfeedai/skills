@@ -1,12 +1,14 @@
 # YouTube Description
 
-YouTube descriptions for recaps, livestreams and Shorts: opener, takeaway, accurate chapters, sources and the channel footer.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+YouTube descriptions for recaps, livestreams and Shorts with accurate chapters, sources and the channel footer
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill youtube-description video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

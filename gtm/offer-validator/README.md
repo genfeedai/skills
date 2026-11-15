@@ -1,12 +1,14 @@
 # Offer Validator
 
-Score and improve an existing offer against the Value Equation before launch or scale.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Score and improve existing offer readiness
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill offer-validator
 ```
+<!-- generated:end -->
 
 ## Usage
 

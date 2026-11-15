@@ -1,14 +1,14 @@
 # Carousel Renderer
 
-Turn an approved carousel outline into branded PNG slides and a PDF on your own machine. Uses a local Chrome or Chromium, so there is no image API and no credits.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Render a carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill carousel-renderer
 ```
-
-Requires [Bun](https://bun.sh) 1.1+ and Chrome or Chromium. Set `CHROME_PATH` if the binary is in an unusual place.
+<!-- generated:end -->
 
 ## Usage
 

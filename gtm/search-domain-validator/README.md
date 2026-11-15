@@ -1,12 +1,14 @@
 # Search Domain Validator
 
-Validate domain syntax and generate brandable domain options from naming criteria.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Generate and validate brandable domain naming options
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill search-domain-validator
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Turn a long recording into branded YouTube Shorts: clip selection, cutting, captions, logo placement, cover, title and caption"
+  tags: youtube, shorts, clips, captions, video-editing
+  outputs: markdown, video-brief
+  triggers: "youtube shorts; cut shorts from a livestream; clip captions; shorts cutdown; pick clips from a transcript; shorts end card"
+  companions: video-brand-profile
 ---
 
 # YouTube Shorts

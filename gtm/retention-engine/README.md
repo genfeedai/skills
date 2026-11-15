@@ -1,12 +1,14 @@
 # Retention Engine
 
-Design retention, activation, ascension, upsell, cross-sell, and LTV systems.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Design retention, ascension, upsell, and LTV systems
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill retention-engine
 ```
+<!-- generated:end -->
 
 ## Usage
 

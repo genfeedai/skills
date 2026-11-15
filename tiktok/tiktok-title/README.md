@@ -1,12 +1,14 @@
 # TikTok Title
 
-Writes the headline layer of a TikTok: the on-screen hook, the cover text and the searchable first caption line.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Write the TikTok headline layer: on-screen hook, cover text and the searchable first caption line
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill tiktok-title video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

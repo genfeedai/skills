@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, brunson, expert-secrets, positioning, attractive-character, origin-story, authority
+  short-description: "Build expert positioning, authority, and origin story"
+  tags: gtm, strategy, business, brunson, expert-secrets, positioning, attractive-character, origin-story, authority
+  outputs: text
+  triggers: "expert architect; personal brand positioning; build my positioning; create my origin story; develop my expert brand; attractive character; big domino; build authority; expert narrative; new opportunity framing"
 ---
 
 # Expert Architect - Expert Secrets Builder

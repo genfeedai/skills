@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Write the TikTok headline layer: on-screen hook, cover text and the searchable first caption line"
+  tags: tiktok, titles, hooks, cover
+  outputs: markdown
+  triggers: "tiktok title; tiktok hook; tiktok cover text; on-screen hook text; first line of tiktok caption"
+  companions: video-brand-profile
 ---
 
 # TikTok Title

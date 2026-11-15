@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, competitive-analysis, market-research, positioning, differentiation, benchmarking
+  short-description: "Analyze GTM competitors, pricing, feature gaps, and market positioning"
+  tags: gtm, strategy, business, competitive-analysis, market-research, positioning, differentiation, benchmarking
+  outputs: text
+  triggers: "competitive intelligence; competitive analysis; market analysis; competitor pricing; feature comparison; feature benchmarking; market gaps; win loss analysis; differentiate from competitors; competitor positioning; what are competitors doing"
 ---
 
 # Competitive Intelligence Analyst - Market & Competitor Tracking

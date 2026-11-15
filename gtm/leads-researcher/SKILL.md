@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: leads, research, sales
+  short-description: "Research prospects, accounts, decision makers, and buyer signals"
+  tags: gtm, strategy, leads, research, sales
+  outputs: text
+  triggers: "leads researcher; lead research; prospect research; account research; company research; find decision makers; buyer intent signals; prospect enrichment; tech stack research; contact discovery; research target accounts"
 ---
 
 # Leads Researcher

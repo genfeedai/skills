@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hexa, brand, naming, positioning, voice, identity
+  short-description: "Create brand foundations: name, positioning, voice, and strategic identity"
+  tags: gtm, strategy, business, hexa, brand, naming, positioning, voice, identity
+  outputs: text
+  triggers: "brand strategy; brand architect; brand naming; what should I name it; company name ideas; brand positioning; brand voice; brand identity foundations; day one brand strategy; naming strategy"
 ---
 
 # Brand Architect - Day-One Brand Strategy

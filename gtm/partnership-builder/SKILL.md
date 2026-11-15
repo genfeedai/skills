@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, partnerships, affiliates, integrations, resellers, co-marketing, distribution
+  short-description: "Design affiliate, integration, reseller, and co-marketing partnerships"
+  tags: gtm, strategy, business, partnerships, affiliates, integrations, resellers, co-marketing, distribution
+  outputs: text
+  triggers: "partnership builder; build partnerships; affiliate program; partner program; integration partnership; reseller program; co-marketing; white label partners; partner outreach; distribution partnership"
 ---
 
 # Partnership Builder - Revenue Through Partnerships

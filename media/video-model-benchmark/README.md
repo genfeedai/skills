@@ -1,14 +1,14 @@
 # Video Model Benchmark
 
-One prompt, two or three AI video models, one side-by-side video for X. Each model makes a clip from the same prompt, and the clips are merged into a square, landscape or feed-stacked video that plays in sync, with each model's name on screen and the prompt on the video or in `post.md`.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill video-model-benchmark
 ```
-
-Requires [Bun](https://bun.sh) 1.1+, `ffmpeg` on PATH and `REPLICATE_API_TOKEN` in the environment.
+<!-- generated:end -->
 
 ## Usage
 

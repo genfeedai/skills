@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, validation, offers, value-equation, pricing
+  short-description: "Score and improve existing offer readiness"
+  tags: gtm, strategy, business, hormozi, validation, offers, value-equation, pricing
+  outputs: text
+  triggers: "offer validator; validate my offer; rate my offer; is my offer good; offer audit; offer readiness; launch readiness; low offer conversion; score this offer; value equation score"
 ---
 
 # Offer Validator - Hormozi Value Equation Scorecard

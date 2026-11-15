@@ -1,12 +1,14 @@
 # UGC Ad Prompts
 
-A free prompt pack for UGC-style video ads. It covers three formats (selfie ad, talking head, screen demo), three camera modes, reusable identity and pacing blocks, and a pre-flight checklist to run before you render.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill ugc-ad-prompts
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -1,12 +1,14 @@
 # Pricing Strategist
 
-Create premium and value-based pricing strategy, tier structures, and price-rise plans.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Create premium and value-based pricing strategy
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill pricing-strategist
 ```
+<!-- generated:end -->
 
 ## Usage
 

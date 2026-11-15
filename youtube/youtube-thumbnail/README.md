@@ -1,12 +1,14 @@
 # YouTube Thumbnail
 
-Branded YouTube thumbnails for livestreams, recaps and Shorts covers: three test concepts, artwork prompts, text and signature layers, placement math and export sizes.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Branded YouTube thumbnails for livestreams, recaps and Shorts covers with three test concepts, signature placement and export sizes
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill youtube-thumbnail video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -6,6 +6,7 @@ This repository is a catalogue of Agent Skills grouped into modules: each skill 
 
 - Edit skills in their module folder. The folder name must match the frontmatter `name`, and names are unique across modules.
 - Never hand-edit `.claude-plugin/marketplace.json`; regenerate it with `bun run marketplace:generate`.
+- Never hand-edit a skill's `metadata.json` or the generated block at the top of its `README.md`. Change the `SKILL.md` frontmatter (`description`, `metadata.short-description`, `triggers`, `tags`, `outputs`, `version`) and run `bun run skills:generate`.
 - Link to a skill in the same module with `../<skill>/SKILL.md`. Name skills in other modules in backticks: installed skills sit side by side in one directory, so cross-module paths break.
 - `plugins/genfeed/skills/` is hand-authored and ships with the remote Genfeed MCP server.
 - Run `bun run validate`, `bun run check` and `bun run lint` before opening a PR.

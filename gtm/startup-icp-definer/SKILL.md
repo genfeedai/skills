@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hexa, icp, customer, persona, targeting, b2b
+  short-description: "Define ICP, pains, buying triggers, personas, and targeting focus"
+  tags: gtm, strategy, business, hexa, icp, customer, persona, targeting, b2b
+  outputs: text
+  triggers: "startup ICP; define ICP; ideal customer profile; who is my customer; target audience; customer persona; buyer persona; user persona; buying center; who should I target first; everyone could use this"
 ---
 
 # Startup ICP Definer - Ideal Customer Profile Builder

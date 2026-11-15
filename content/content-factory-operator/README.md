@@ -1,12 +1,14 @@
 # Content Factory Operator
 
-Design the operating system for a repeatable Genfeed content factory: intake, research, briefs, production, review, publishing, and analytics.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Design repeatable Genfeed content operations systems
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill content-factory-operator
 ```
+<!-- generated:end -->
 
 ## Usage
 

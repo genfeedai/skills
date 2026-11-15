@@ -1,12 +1,14 @@
 # Competitive Intelligence Analyst
 
-Analyze competitors at the GTM level: positioning, pricing, features, market gaps, win/loss patterns, and monitoring systems.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Analyze GTM competitors, pricing, feature gaps, and market positioning
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill competitive-intelligence-analyst
 ```
+<!-- generated:end -->
 
 ## Usage
 

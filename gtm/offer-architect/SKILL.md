@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, offers, value-stack, pricing, conversion
+  short-description: "Construct high-converting offers, bundles, guarantees, and value stacks"
+  tags: gtm, strategy, business, hormozi, offers, value-stack, pricing, conversion
+  outputs: text
+  triggers: "offer architect; create an offer; grand slam offer; value stack; offer bundle; package this service; what should I sell; improve my offer; low conversions; customers do not see the value; risk reversal"
 ---
 
 # Offer Architect - Grand Slam Offer Constructor

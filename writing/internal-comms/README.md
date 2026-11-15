@@ -1,12 +1,14 @@
 # Internal Comms
 
-Draft structured internal communications for teams, leaders, incidents, FAQs, newsletters, and project updates.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Draft structured internal communications for teams and leaders
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill internal-comms
 ```
+<!-- generated:end -->
 
 ## Usage
 

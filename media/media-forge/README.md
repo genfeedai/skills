@@ -1,16 +1,18 @@
 # Media Forge
 
-The media half of the **produce** stage. Generates image, video, and audio through [Replicate](https://replicate.com) or [fal.ai](https://fal.ai) using only global `fetch` — no vendor SDK — downloads every output file, and emits one `MediaArtifact` JSON per file.
-
-Pure stateless worker: reads its token from the environment, persists nothing, and feeds artifacts to `genfeed-connector` and `content-loop-orchestrator`.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Generate image, video, and audio artifacts through Replicate or fal.ai and emit downloaded MediaArtifact JSON
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill media-forge
 ```
+<!-- generated:end -->
 
-Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies.
+The media half of the **produce** stage. Generates image, video, and audio through [Replicate](https://replicate.com) or [fal.ai](https://fal.ai) using only global `fetch` — no vendor SDK — downloads every output file, and emits one `MediaArtifact` JSON per file.
+
+Pure stateless worker: reads its token from the environment, persists nothing, and feeds artifacts to `genfeed-connector` and `content-loop-orchestrator`.
 
 ## Usage
 

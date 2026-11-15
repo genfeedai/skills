@@ -1,12 +1,14 @@
 # Youtube Video Analyst
 
-Deconstruct YouTube videos and transcripts into hooks, retention mechanics, emotional beats, structure, and reusable blueprints.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Deconstruct YouTube videos into hooks, retention mechanics, and reusable blueprints
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill youtube-video-analyst
 ```
+<!-- generated:end -->
 
 ## Usage
 

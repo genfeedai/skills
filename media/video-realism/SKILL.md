@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Write realistic video shot prompts as a timed shot list with reference roles, a spoken line and sound effects."
+  tags: video-generation, prompt-engineering, storyboard, reference-to-video, sound-effects
+  outputs: text
+  triggers: "realistic video prompt; shot list prompt; timestamped shots; reference roles; multi-shot video prompt; video with sound effects; storyboard shot prompt"
 ---
 
 # Video Realism

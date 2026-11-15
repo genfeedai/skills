@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, friction, objections, guarantees, customer-success, done-for-you
+  short-description: "Remove friction, objections, and customer success blockers"
+  tags: gtm, strategy, business, hormozi, friction, objections, guarantees, customer-success, done-for-you
+  outputs: text
+  triggers: "customer friction; remove objections; customers cannot get results; customers do not finish; refunds are high; design a guarantee; done for you offer; implementation blockers; customer success blockers; reduce buyer risk"
 ---
 
 # Constraint Eliminator - Obstacle Removal System

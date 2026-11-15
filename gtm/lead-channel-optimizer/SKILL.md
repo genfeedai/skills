@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, leads, marketing, channels, acquisition, focus
+  short-description: "Prioritize lead generation channels by ROI and system potential"
+  tags: gtm, strategy, business, hormozi, leads, marketing, channels, acquisition, focus
+  outputs: text
+  triggers: "lead channel optimizer; lead channel audit; highest ROI channel; where should I focus marketing; not enough leads; marketing channels not working; channel ROI; cost per lead; close rate by channel; channel elimination; systematize lead generation"
 ---
 
 # Lead Channel Optimizer - Lead Generation Leverage Finder

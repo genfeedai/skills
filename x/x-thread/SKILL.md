@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Write an X (Twitter) thread of 2 to 15 posts with a hook, a value chain and a closing CTA."
+  tags: x, twitter, threads, social-media, content-creation
+  outputs: text
+  triggers: "write a thread; create an X thread; turn this into a thread; write a twitter thread; thread on"
 ---
 
 # X Thread

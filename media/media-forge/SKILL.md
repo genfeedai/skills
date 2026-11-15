@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Generate image, video, and audio artifacts through Replicate or fal.ai and emit downloaded MediaArtifact JSON"
+  tags: content-factory, genfeed, media, image, video, audio, replicate, fal, produce, worker
+  outputs: json, files
+  triggers: "generate image; generate video; generate audio; make media; replicate model; fal.ai; text to image; text to video; text to speech; media forge"
 ---
 
 # Media Forge

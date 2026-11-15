@@ -1,12 +1,14 @@
 # Expert Architect
 
-Build expert positioning for a founder, creator, consultant, or authority-led brand.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Build expert positioning, authority, and origin story
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill expert-architect
 ```
+<!-- generated:end -->
 
 ## Usage
 

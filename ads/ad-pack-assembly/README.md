@@ -1,16 +1,18 @@
 # Ad Pack Assembly
 
-Assemble finished shots into one finished ad on your own machine. You give it a manifest: video clips and stills in order, the on-screen text for each, a voiceover, a music bed, and any cutdown sizes. It trims, fits and joins the shots with `ffmpeg`, burns in the text, mixes and normalises the sound, renders, and checks size, frame rate, duration, codec and audio.
-
-No model call, no credits, no network. Text is added in post, so it is always exact.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Assemble existing shots, stills, on-screen text, voiceover and music into a finished ad locally with ffmpeg, plus 9:16 cutdowns
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill ad-pack-assembly
 ```
+<!-- generated:end -->
 
-Requires [Bun](https://bun.sh) 1.1+ and `ffmpeg` / `ffprobe` 5.0+ on PATH (with `drawtext` if the ad has text).
+Assemble finished shots into one finished ad on your own machine. You give it a manifest: video clips and stills in order, the on-screen text for each, a voiceover, a music bed, and any cutdown sizes. It trims, fits and joins the shots with `ffmpeg`, burns in the text, mixes and normalises the sound, renders, and checks size, frame rate, duration, codec and audio.
+
+No model call, no credits, no network. Text is added in post, so it is always exact.
 
 ## Usage
 

@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, brunson, traffic-secrets, dream-100, audience, acquisition, marketing
+  short-description: "Build traffic strategy and audience acquisition plans from scratch"
+  tags: gtm, strategy, business, brunson, traffic-secrets, dream-100, audience, acquisition, marketing
+  outputs: text
+  triggers: "traffic architect; build my traffic plan; create my Dream 100; audience acquisition plan; traffic strategy; paid vs organic strategy; get more traffic; audience building; traffic temperature; owned audience plan"
 ---
 
 # Traffic Architect - Traffic Secrets Builder

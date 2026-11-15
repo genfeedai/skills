@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Turn a voice note or transcript into a long-form video storyboard with narration and cutaway briefs, then compile it into a local assembly manifest"
+  tags: video, storyboard, long-form, script, shot-list, captions, presenter, worker
+  outputs: json, text
+  triggers: "storyboard this; long-form video from my voice note; turn this transcript into a video; presenter video plan; animatic; script and shot list; video storyboard from an idea dump"
+  companions: #, to, assemble, the, video
 ---
 
 # Long-Form Storyboard

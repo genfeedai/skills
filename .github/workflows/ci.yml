@@ -36,6 +36,9 @@ jobs:
       - name: Validate skills
         run: bun run validate
 
+      - name: Test the skill file generator
+        run: bun test ./scripts
+
       - name: Test worker scripts
         run: bun test ./loop/social-poster
 
