@@ -17,14 +17,8 @@ echo "Validating Genfeed skills..."
 echo "1. Checking module layout"
 bun scripts/check-modules.js
 
-echo "2. Regenerating skill README.md headers and metadata.json from SKILL.md"
-bun run skills:generate
-STALE_SKILL_FILES="$(git status --porcelain -- ':(glob)*/*/README.md' ':(glob)*/*/metadata.json' | awk '{print $2}')"
-if [ -n "$STALE_SKILL_FILES" ]; then
-  echo "Generated skill files were out of date; edit SKILL.md, run 'bun run skills:generate' and commit the result:" >&2
-  printf '%s\n' "$STALE_SKILL_FILES" | sed 's|/[^/]*$||' | sort -u | sed 's|^|  |' >&2
-  exit 1
-fi
+echo "2. Checking generated skill README.md headers and metadata.json"
+bun scripts/generate-skill-files.js --check
 
 echo "3. Regenerating marketplace.json"
 bun run marketplace:generate

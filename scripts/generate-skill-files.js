@@ -5,7 +5,9 @@
  * fails when a generated file is out of date. The JSON is formatted with Biome so it passes
  * `bun run check` as written.
  *
- * Pass --git-add to stage the files that changed (used by the lint-staged hook).
+ * Pass --check to write nothing and fail, naming each skill, when a generated file is out of
+ * date (used by `bun run validate`). Pass --git-add to stage the files that changed (used by
+ * the lint-staged hook).
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
@@ -13,6 +15,7 @@ import { join, relative } from 'node:path';
 import { allSkills, ROOT } from './modules.js';
 import { readSkillFields, renderMetadata, renderReadme, SkillFieldError } from './skill-files.js';
 
+const CHECK_ONLY = process.argv.includes('--check');
 const errors = [];
 const changed = [];
 const BIOME = join(ROOT, 'node_modules', '.bin', 'biome');
@@ -32,7 +35,7 @@ function formatJson(path, content) {
 function writeIfChanged(path, content) {
   const current = existsSync(path) ? readFileSync(path, 'utf8') : null;
   if (current === content) return;
-  writeFileSync(path, content);
+  if (!CHECK_ONLY) writeFileSync(path, content);
   changed.push(relative(ROOT, path));
 }
 
@@ -55,6 +58,19 @@ for (const skill of allSkills()) {
 if (errors.length > 0) {
   console.error(errors.join('\n'));
   process.exit(1);
+}
+
+if (CHECK_ONLY) {
+  if (changed.length > 0) {
+    console.error(
+      'Generated skill files are out of date (edit SKILL.md, not the generated files):'
+    );
+    for (const file of changed) console.error(`  ${file}`);
+    console.error("Run 'bun run skills:generate' and commit the result.");
+    process.exit(1);
+  }
+  console.log('   OK: generated skill files match SKILL.md');
+  process.exit(0);
 }
 
 if (process.argv.includes('--git-add') && changed.length > 0) {
