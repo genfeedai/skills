@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: email, domain, contact-discovery, lead-generation
+  short-description: "Find and verify contact emails associated with domains"
+  tags: gtm, strategy, email, domain, contact-discovery, lead-generation
+  outputs: text
+  triggers: "email finder; find contact emails; find emails for this domain; scan domain for emails; discover company emails; email pattern for domain; verify email address; hunter alternative; contact email discovery"
 ---
 
 # Email Finder

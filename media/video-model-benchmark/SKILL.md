@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.1.0
+  short-description: "Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X"
+  tags: video, benchmark, comparison, veo, seedance, kling, x, ffmpeg, replicate
+  outputs: video, json
+  triggers: "compare video models; side by side video; video model benchmark; veo vs seedance; which video model is better; model shootout video; ab test video models"
 ---
 
 # Video Model Benchmark

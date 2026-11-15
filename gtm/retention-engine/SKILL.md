@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, retention, ltv, churn, recurring-revenue, upsells
+  short-description: "Design retention, ascension, upsell, and LTV systems"
+  tags: gtm, strategy, business, hormozi, retention, ltv, churn, recurring-revenue, upsells
+  outputs: text
+  triggers: "retention engine; reduce churn; customers keep leaving; increase LTV; subscription optimization; upsell strategy; cross sell strategy; recurring revenue; repeat purchases; customer ascension; activation problem"
 ---
 
 # Retention Engine - Customer Lifetime Value Maximizer

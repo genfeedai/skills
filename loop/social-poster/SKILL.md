@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 2.0.0
+  short-description: "Publish one approved post to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate"
+  tags: content-factory, genfeed, social, x, twitter, linkedin, post, publish, approval-gate, worker, threads, instagram, facebook, tiktok, youtube, pinterest, mastodon
+  outputs: json
+  triggers: "post to x; post to twitter; post to linkedin; publish post; social poster; publish to socials; post tweet; share on linkedin; post to instagram; publish a reel; post to threads; upload to youtube; post to tiktok; pin to pinterest; post to mastodon; post to facebook page"
 ---
 
 # Social Poster

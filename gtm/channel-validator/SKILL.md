@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, validation, channels, lead-gen, marketing, focus
+  short-description: "Validate marketing channel focus and expansion readiness"
+  tags: gtm, strategy, business, hormozi, validation, channels, lead-gen, marketing, focus
+  outputs: text
+  triggers: "validate my channels; am I on the right platforms; should I focus on this channel; channel sprawl; too many marketing channels; one channel rule; channel focus; expansion readiness; should I add another channel"
 ---
 
 # Channel Validator - One Channel Rule Scorecard

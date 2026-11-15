@@ -1,12 +1,14 @@
 # Lead Channel Optimizer
 
-Prioritize the lead generation channels that produce the best ROI and can become repeatable acquisition systems.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Prioritize lead generation channels by ROI and system potential
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill lead-channel-optimizer
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -1,12 +1,14 @@
 # Funnel Validator
 
-Score and improve an existing funnel before driving more traffic through it.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Validate funnel sequence and conversion weaknesses
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill funnel-validator
 ```
+<!-- generated:end -->
 
 ## Usage
 

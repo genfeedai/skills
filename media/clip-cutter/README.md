@@ -1,14 +1,14 @@
 # Clip Cutter
 
-Cut vertical 9:16 clips from a long recording on your own machine with ffmpeg: reframe, burn in captions from your transcript, normalise loudness, add an end card and verify the encode. No API and no credits. Makes `youtube-shorts` and `tiktok-video` executable.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Cut vertical 9:16 clips from a long recording locally with ffmpeg: reframe, burned-in captions, loudness and measured output, no API
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill clip-cutter
 ```
-
-Requires [Bun](https://bun.sh) 1.1+ and `ffmpeg` with libass.
+<!-- generated:end -->
 
 ## Usage
 

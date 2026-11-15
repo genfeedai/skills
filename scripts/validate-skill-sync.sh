@@ -17,7 +17,10 @@ echo "Validating Genfeed skills..."
 echo "1. Checking module layout"
 bun scripts/check-modules.js
 
-echo "2. Regenerating marketplace.json"
+echo "2. Checking generated skill README.md headers and metadata.json"
+bun scripts/generate-skill-files.js --check
+
+echo "3. Regenerating marketplace.json"
 bun run marketplace:generate
 node -e "JSON.parse(require('node:fs').readFileSync('.claude-plugin/marketplace.json', 'utf8'))"
 if ! git diff --quiet -- .claude-plugin/marketplace.json; then
@@ -26,10 +29,10 @@ if ! git diff --quiet -- .claude-plugin/marketplace.json; then
   exit 1
 fi
 
-echo "3. Validating the Genfeed plugin bundle"
+echo "4. Validating the Genfeed plugin bundle"
 bun scripts/validate-plugin.js
 
-echo "4. Checking skills CLI discovery"
+echo "5. Checking skills CLI discovery"
 # Expected: every module skill, plus the MCP plugin skills whose names no module uses.
 EXPECTED="$(
   {
@@ -53,7 +56,7 @@ if ! grep -Eq "Found .*${EXPECTED_COUNT}.* skills" "$SKILLS_LIST_OUTPUT"; then
   exit 1
 fi
 
-echo "5. Checking per-module install paths"
+echo "6. Checking per-module install paths"
 for module in $(node -e "console.log(Object.keys(JSON.parse(require('node:fs').readFileSync('scripts/modules.json','utf8')).modules).join(' '))"); do
   module_count="$(find "$module" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l | tr -d ' ')"
   bunx skills add "./$module" --list >"$SKILLS_LIST_OUTPUT"
@@ -64,7 +67,7 @@ for module in $(node -e "console.log(Object.keys(JSON.parse(require('node:fs').r
   fi
 done
 
-echo "6. Running repo checks"
+echo "7. Running repo checks"
 bun run check
 bun run lint
 

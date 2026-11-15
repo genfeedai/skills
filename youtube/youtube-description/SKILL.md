@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "YouTube descriptions for recaps, livestreams and Shorts with accurate chapters, sources and the channel footer"
+  tags: youtube, descriptions, chapters, shorts
+  outputs: markdown
+  triggers: "youtube description; video description with chapters; shorts caption; chapter timestamps; description footer"
+  companions: video-brand-profile
 ---
 
 # YouTube Description

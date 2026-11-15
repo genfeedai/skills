@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Render a carousel spec into branded PNG slides and a PDF locally with headless Chrome, no image API"
+  tags: carousel, instagram, linkedin, pdf, slides, local, worker, genfeed
+  outputs: files, json
+  triggers: "render the carousel; make the carousel slides; carousel pdf for linkedin; instagram carousel images; turn this outline into slides"
 ---
 
 # Carousel Renderer

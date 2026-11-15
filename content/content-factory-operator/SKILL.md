@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Design repeatable Genfeed content operations systems"
+  tags: content-operations, content-factory, agency, workflow, retainer, genfeed, content-strategy
+  outputs: text, workflow-plan
+  triggers: "build a content factory; design a content factory; AI content agency; content operations; content production system; client content workflow; content retainer; content agency offer; Genfeed content factory; weekly content pipeline; content approval workflow; source to content workflow; AI content operating system"
 ---
 
 # Content Factory Operator

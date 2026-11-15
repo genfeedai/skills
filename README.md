@@ -358,13 +358,19 @@ Each skill lives in a module folder:
 {module}/
 └── {skill-name}/
     ├── SKILL.md        # Main skill instructions with YAML frontmatter
-    ├── metadata.json   # Triggers, tags, outputs, and references
-    └── README.md       # Reader-facing documentation
+    ├── metadata.json   # Generated from SKILL.md: triggers, tags, outputs, and references
+    └── README.md       # Reader-facing documentation; the summary and install block are generated
 ```
 
 The folder name must match the `name` in `SKILL.md`, and names are unique across modules. Modules are declared in `scripts/modules.json`. Links between skills in the same module use `../<skill>/SKILL.md`; skills in other modules are named in backticks, because installed skills land side by side in one directory.
 
 Some skills also include `references/`, `scripts/`, or `examples/` when they need supporting material or executable workers. Skill folders must not include `plugin.json`.
+
+`SKILL.md` frontmatter is the single source for a skill's name, version, description, triggers, outputs, tags and references. `metadata.json` and the summary and install block at the top of `README.md` (between the `generated:start` and `generated:end` comments) are generated from it, and `bun run validate` fails when they are out of date:
+
+```bash
+bun run skills:generate
+```
 
 `.claude-plugin/marketplace.json` is generated from `scripts/modules.json` and the module folders:
 
@@ -394,7 +400,7 @@ When a skill appears in `genfeed.ai/skills/` but not here, classify it before co
 
 1. Fork the repository
 2. Create or update a skill in `<module>/your-skill-name/`
-3. Include `SKILL.md`, `metadata.json`, and `README.md`
+3. Write `SKILL.md`, then run `bun run skills:generate` to create `metadata.json` and the `README.md` header
 4. Run the validation commands from this repository
 5. Submit a pull request
 

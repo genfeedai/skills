@@ -6,7 +6,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, outbound, cold-email, prospecting, sales, outreach
+  short-description: "Improve outbound strategy, cold emails, DMs, and prospecting systems"
+  tags: gtm, strategy, business, hormozi, outbound, cold-email, prospecting, sales, outreach
+  outputs: text
+  triggers: "outbound optimizer; cold email; cold DM; improve outbound; low reply rate; outreach sequence; prospecting strategy; write outreach message; personalized opener; zero commitment CTA; sales outreach"
 ---
 
 # Outbound Optimizer - Cold Outreach Revenue Machine

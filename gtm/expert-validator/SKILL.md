@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, brunson, validation, expert-secrets, positioning, authority, messaging
+  short-description: "Validate expert positioning and authority narrative"
+  tags: gtm, strategy, business, brunson, validation, expert-secrets, positioning, authority, messaging
+  outputs: text
+  triggers: "expert validator; validate my positioning; validate expert positioning; is my messaging right; do I sound like everyone else; authority assessment; validate origin story; validate big domino; personal brand audit"
 ---
 
 # Expert Validator - Expert Secrets Scorecard

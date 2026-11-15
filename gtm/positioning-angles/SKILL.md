@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: marketing, positioning, differentiation, angles, copywriting
+  short-description: "Find differentiated positioning angles and market narratives"
+  tags: gtm, strategy, marketing, positioning, differentiation, angles, copywriting
+  outputs: text
+  triggers: "positioning angles; find my angle; how do I stand out; we sound like everyone else; why is this not selling; differentiate from competitors; unique mechanism; market narrative; positioning strategy; angle testing"
 ---
 
 # Positioning Angles - Find Your Unique Angle

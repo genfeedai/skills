@@ -1,12 +1,14 @@
 # Brand Architect
 
-Create the strategic brand foundation: name, positioning, voice, identity direction, and viability checks.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Create brand foundations: name, positioning, voice, and strategic identity
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill brand-architect
 ```
+<!-- generated:end -->
 
 ## Usage
 

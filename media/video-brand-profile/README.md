@@ -1,12 +1,14 @@
 # Video Brand Profile
 
-Defines one reusable brand profile for video: signature or logo placement, caption font and position, thumbnail rules and export sizes. The Genfeed YouTube and TikTok skills read it first.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Define and apply a reusable video brand profile: signature placement, caption font and position, thumbnail rules and export sizes
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

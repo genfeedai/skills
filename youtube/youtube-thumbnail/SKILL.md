@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Branded YouTube thumbnails for livestreams, recaps and Shorts covers with three test concepts, signature placement and export sizes"
+  tags: youtube, thumbnails, shorts, livestream, branding
+  outputs: markdown, image-prompts
+  triggers: "youtube thumbnail; thumbnail concepts; livestream thumbnail; recap thumbnail; shorts cover; thumbnail brief"
+  companions: video-brand-profile
 ---
 
 # YouTube Thumbnail

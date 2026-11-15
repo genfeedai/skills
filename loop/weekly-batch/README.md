@@ -1,14 +1,14 @@
 # Weekly Batch
 
-Plan, write and schedule a week of social content in one session over the Genfeed MCP: for example an X post every 4 hours and one Instagram carousel a day. The whole week is shown as one table, and nothing is scheduled until the person says go.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Plan, write and schedule a week of social content over the Genfeed MCP: one table for approval, one batch with one approval after the go, then a read back of the queue.
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill weekly-batch
 ```
-
-Needs the Genfeed MCP connection. See [Genfeed integration](../../README.md#genfeed-integration).
+<!-- generated:end -->
 
 ## Usage
 

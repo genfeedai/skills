@@ -11,7 +11,10 @@ metadata:
   upstream_commit: c5d51c926d24
   last_synced: '2026-06-12'
   license: MIT
-  tags: writing, editing, ai-detection, content
+  short-description: "Rewrite AI-generated drafts to sound natural while preserving meaning and voice"
+  tags: writing, editing, ai-detection, content-quality, content
+  outputs: text
+  triggers: "humanize this; make this sound less AI; remove AI writing patterns; make this more natural; improve writing quality; de-slop this writing; make this sound human; add voice to this draft"
 ---
 # Humanizer: Remove AI Writing Patterns
 

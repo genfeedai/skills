@@ -11,7 +11,10 @@ metadata:
   upstream_commit: ef740771ac90
   last_synced: '2026-06-12'
   license: MIT
-  tags: communications, writing, updates
+  short-description: "Draft structured internal communications for teams and leaders"
+  tags: communications, writing, internal-comms, status-updates, updates
+  outputs: text
+  triggers: "write a status update; draft internal comms; 3P update; leadership update; company newsletter; incident report; project update; FAQ response; weekly team update; internal announcement"
 ---
 ## When to use this skill
 

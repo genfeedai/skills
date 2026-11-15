@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.2.0
+  short-description: "Author a Remotion composition with your own Claude or Codex sub, render it locally and package it as Genfeed Motion-style output, no model API"
+  tags: motion, remotion, video, local, worker, genfeed
+  outputs: files, json
+  triggers: "make a motion video; motion graphic; animate this; remotion video; kinetic typography; animated explainer; code-driven video"
 ---
 
 # Motion Video

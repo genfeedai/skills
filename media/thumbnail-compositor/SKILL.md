@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Composite three branded thumbnail variants locally with exact text and signature placement using headless Chrome, no image API"
+  tags: thumbnail, youtube, shorts, cover, local, worker, genfeed
+  outputs: files, json
+  triggers: "render the thumbnail; make the three thumbnail variants; composite the thumbnail; shorts cover image; put the logo and text on the thumbnail"
 ---
 
 # Thumbnail Compositor

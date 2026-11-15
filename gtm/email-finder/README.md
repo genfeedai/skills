@@ -1,12 +1,14 @@
 # Email Finder
 
-Find contact emails associated with a domain, starting with free discovery methods and using APIs when available.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Find and verify contact emails associated with domains
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill email-finder
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Collect and rank trend signals from public sources for the Genfeed content loop"
+  tags: content-factory, genfeed, trends, ingestion, sense, worker
+  outputs: json
+  triggers: "find trends; what's trending; trend scout; trend ingestion; scout trends; trend candidates; trending topics; discover trends; content ideas from trends"
 ---
 
 # Trend Scout

@@ -22,8 +22,8 @@ Every skill needs three files:
 <module>/
 └── your-skill-name/
     ├── SKILL.md        # Main skill instructions
-    ├── metadata.json   # Triggers, tags, metadata
-    └── README.md       # Documentation for skills.sh
+    ├── metadata.json   # Generated from SKILL.md, do not edit
+    └── README.md       # Documentation for skills.sh; the header block is generated
 ```
 
 The folder name must equal the `name` in the frontmatter. Run `bun run validate` to regenerate `.claude-plugin/marketplace.json` and check the layout.
@@ -40,6 +40,10 @@ license: MIT
 metadata:
   author: your-github-username
   version: "1.0.0"
+  short-description: Short listing copy, one sentence
+  tags: relevant, tags
+  outputs: text
+  triggers: "trigger phrase 1; trigger phrase 2"
 ---
 
 # Your Skill Name
@@ -47,30 +51,16 @@ metadata:
 Instructions for the AI agent...
 ```
 
-### metadata.json
+The `metadata` values are strings: `tags` and `outputs` are comma-separated, `triggers` are separated by `;`. Optional fields are `references` (a JSON object as a string) and `companions` (skills installed with this one, comma-separated). `short-description` is the listing copy; keep it short and keep the long text in `description`.
 
-```json
-{
-  "name": "your-skill-name",
-  "version": "1.0.0",
-  "description": "Short description",
-  "author": "your-github-username",
-  "license": "MIT",
-  "triggers": ["trigger phrase 1", "trigger phrase 2"],
-  "references": {},
-  "outputs": ["text"],
-  "tags": ["relevant", "tags"]
-}
-```
+### metadata.json and README.md
 
-### README.md
-
-Include: title, description, installation command, usage examples, and license.
+Do not write `metadata.json` by hand. Run `bun run skills:generate` after editing `SKILL.md`; it writes `metadata.json` and the generated header of `README.md` (the summary and install command between the `generated:start` and `generated:end` comments). Everything else in `README.md` is yours: usage examples, what the skill does, structure and limits. `bun run validate` fails and names the skill when a generated file is out of date, and the pre-commit hook regenerates them for you.
 
 ## Quality Standards
 
 - SKILL.md should be comprehensive (200+ lines) with tables, examples, and actionable frameworks
-- Triggers in metadata.json should be natural phrases users would actually say
+- Triggers in the `SKILL.md` frontmatter should be natural phrases users would actually say
 - Tags should be relevant for discoverability on skills.sh
 - All markdown must pass `markdownlint`
 - All JSON must pass `biome check`

@@ -1,18 +1,20 @@
 # Social Poster
 
-The **post** stage of the Genfeed content loop. Publishes one approved post to [X](https://x.com), [LinkedIn](https://linkedin.com), Threads, Instagram, Facebook Pages, TikTok, YouTube, Pinterest or Mastodon with the platform's own OAuth access token and API. No model call, no credits, no SDK: Bun and the built-in fetch only.
-
-Built around a **hard approval gate**: without `--confirm` it is a dry run that prints every request it would send, in order, with secrets masked, and makes **no network call**. Publishing happens only on an explicit second run with `--confirm`.
-
-Pure stateless worker: reads its token from the environment, persists nothing.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Publish one approved post to X, LinkedIn, Threads, Instagram, Facebook, TikTok, YouTube, Pinterest or Mastodon with a dry-run-by-default approval gate
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill social-poster
 ```
+<!-- generated:end -->
 
-Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies.
+The **post** stage of the Genfeed content loop. Publishes one approved post to [X](https://x.com), [LinkedIn](https://linkedin.com), Threads, Instagram, Facebook Pages, TikTok, YouTube, Pinterest or Mastodon with the platform's own OAuth access token and API. No model call, no credits, no SDK: Bun and the built-in fetch only.
+
+Built around a **hard approval gate**: without `--confirm` it is a dry run that prints every request it would send, in order, with secrets masked, and makes **no network call**. Publishing happens only on an explicit second run with `--confirm`.
+
+Pure stateless worker: reads its token from the environment, persists nothing.
 
 ## Usage
 

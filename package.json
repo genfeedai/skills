@@ -16,7 +16,8 @@
     ],
     "*.md": [
       "markdownlint --fix"
-    ]
+    ],
+    "*/*/SKILL.md": "bun scripts/generate-skill-files.js --git-add"
   },
   "name": "genfeed-skills",
   "private": true,
@@ -28,6 +29,8 @@
     "lint:json": "biome check --write --no-errors-on-unmatched '**/*.json'",
     "marketplace:generate": "bun scripts/generate-marketplace-json.js && biome format --write .claude-plugin/marketplace.json",
     "prepare": "husky",
+    "skills:generate": "bun scripts/generate-skill-files.js",
+    "test:scripts": "bun test ./scripts",
     "validate": "bash scripts/validate-skill-sync.sh",
     "validate:skill": "bash scripts/validate-skill-sync.sh"
   },

@@ -1,16 +1,18 @@
 # Trend Scout
 
-The **sense** stage of the Genfeed content loop. Pulls what's trending from public, mostly key-free sources, scores every hit on one comparable `0..1` axis, dedupes across sources, and prints a ranked list of trend candidates as JSON.
-
-Pure stateless worker: no state, no secrets, stdin/stdout only — so it stays independently installable and feeds cleanly into `genfeed-connector`, `content-loop-orchestrator`, and the rest of the factory.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Collect and rank trend signals from public sources for the Genfeed content loop
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill trend-scout
 ```
+<!-- generated:end -->
 
-Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies (only Node built-ins and global `fetch`).
+The **sense** stage of the Genfeed content loop. Pulls what's trending from public, mostly key-free sources, scores every hit on one comparable `0..1` axis, dedupes across sources, and prints a ranked list of trend candidates as JSON.
+
+Pure stateless worker: no state, no secrets, stdin/stdout only — so it stays independently installable and feeds cleanly into `genfeed-connector`, `content-loop-orchestrator`, and the rest of the factory.
 
 ## Usage
 

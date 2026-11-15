@@ -1,12 +1,14 @@
 # Video Realism
 
-Write realistic video shot prompts as a timed shot list: numbered reference roles, the action, timestamped cuts, a spoken line and sound effects, all within the target model's reference limit.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Write realistic video shot prompts as a timed shot list with reference roles, a spoken line and sound effects.
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill video-realism
 ```
+<!-- generated:end -->
 
 ## Usage
 

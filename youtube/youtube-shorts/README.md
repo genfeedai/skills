@@ -1,12 +1,14 @@
 # YouTube Shorts
 
-Turns a long recording into branded YouTube Shorts: clip selection, cutting, burned-in captions, logo and end card, cover, title and caption.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Turn a long recording into branded YouTube Shorts: clip selection, cutting, captions, logo placement, cover, title and caption
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill youtube-shorts video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

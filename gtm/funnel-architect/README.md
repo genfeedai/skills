@@ -1,12 +1,14 @@
 # Funnel Architect
 
-Design sales funnels, value ladders, and customer journeys from scratch.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Design funnels, value ladders, and customer journeys from scratch
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill funnel-architect
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Write a single X (Twitter) post, quote post or reply: hooks, the 280-character edit, algorithm signals and a checklist."
+  tags: x, twitter, social-media, content-creation, tweets, replies
+  outputs: text
+  triggers: "write a tweet; draft an X post; compose a tweet; write a quote tweet; write a reply to this post; tweet about; help me tweet"
 ---
 
 # X Post

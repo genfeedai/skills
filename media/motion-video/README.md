@@ -1,14 +1,14 @@
 # Motion Video
 
-Write a Remotion composition with your own Claude or Codex subscription, render it locally to MP4 or PNG, check the frames, and package it the way Genfeed Motion does. No model API and no credits.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Author a Remotion composition with your own Claude or Codex sub, render it locally and package it as Genfeed Motion-style output, no model API
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill motion-video
 ```
-
-Requires [Bun](https://bun.sh) 1.1+, `ffmpeg` and `ffprobe`. Remotion 4.0.530 installs into the project on `init`.
+<!-- generated:end -->
 
 ## Usage
 

@@ -1,12 +1,14 @@
 # Traffic Validator
 
-Score and improve an existing traffic strategy before scaling acquisition effort.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Validate existing traffic strategy and audience acquisition fit
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill traffic-validator
 ```
+<!-- generated:end -->
 
 ## Usage
 

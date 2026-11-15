@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Free prompt pack for UGC-style video ads: selfie, talking head and screen demo templates, camera modes and a pre-flight checklist"
+  tags: ugc, video, ads, prompts, selfie, talking-head, screen-demo, templates
+  outputs: text
+  triggers: "ugc ad prompt; selfie ad prompt; talking head ad; screen demo ad; phone shot video ad; creator style video ad; ugc video prompt"
 ---
 
 # UGC Ad Prompts

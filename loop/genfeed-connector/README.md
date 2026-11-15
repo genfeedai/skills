@@ -1,16 +1,18 @@
 # Genfeed Connector
 
-The state seam for the Genfeed content-factory skills. It exposes one CLI (`gf`) for manifest state, stage transitions, performance feedback, and platform tokens, backed by the local filesystem (`.genfeed/`). It has no network backend and never calls the Genfeed API.
-
-This is the foundation the other loop skills build on: `trend-scout`, `media-forge`, `social-poster`, `analytics-collector`, and `content-loop-orchestrator`.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Expose the gf CLI for local content-loop state, manifests, stage transitions, feedback, and env-based platform tokens
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill genfeed-connector
 ```
+<!-- generated:end -->
 
-Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies (uses only Node built-ins).
+The state seam for the Genfeed content-factory skills. It exposes one CLI (`gf`) for manifest state, stage transitions, performance feedback, and platform tokens, backed by the local filesystem (`.genfeed/`). It has no network backend and never calls the Genfeed API.
+
+This is the foundation the other loop skills build on: `trend-scout`, `media-forge`, `social-poster`, `analytics-collector`, and `content-loop-orchestrator`.
 
 ## Usage
 

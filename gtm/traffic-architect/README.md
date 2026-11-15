@@ -1,12 +1,14 @@
 # Traffic Architect
 
-Design audience acquisition and traffic strategy from scratch.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Build traffic strategy and audience acquisition plans from scratch
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill traffic-architect
 ```
+<!-- generated:end -->
 
 ## Usage
 

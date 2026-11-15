@@ -1,12 +1,14 @@
 # Constraint Eliminator
 
-Map and remove the obstacles between purchase and customer success.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Remove friction, objections, and customer success blockers
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill constraint-eliminator
 ```
+<!-- generated:end -->
 
 ## Usage
 

@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.2.0
+  short-description: "Plan, write and schedule a week of social content over the Genfeed MCP: one table for approval, one batch with one approval after the go, then a read back of the queue."
+  tags: genfeed, mcp, scheduling, batch, x, instagram, carousel, publishing
+  outputs: text
+  triggers: "schedule my week; batch a week of posts; plan and schedule next week; fill the calendar; weekly content batch; schedule a week of posts; post every 4 hours; a carousel a day"
 ---
 
 # Weekly Batch

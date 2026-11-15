@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, brunson, validation, traffic-secrets, dream-100, audience, acquisition
+  short-description: "Validate existing traffic strategy and audience acquisition fit"
+  tags: gtm, strategy, business, brunson, validation, traffic-secrets, dream-100, audience, acquisition
+  outputs: text
+  triggers: "traffic validator; validate my traffic plan; is my audience strategy right; traffic assessment; paid or organic; Dream 100 validation; audience ownership audit; traffic underperformance; traffic funnel match"
 ---
 
 # Traffic Validator - Traffic Secrets Scorecard

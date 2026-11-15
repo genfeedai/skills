@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Operate the executable Genfeed content loop and route each stage"
+  tags: content-factory, genfeed, orchestrator, conductor, content-loop, routing, automation, loop-closure
+  outputs: json, cli
+  triggers: "run the content loop; content loop orchestrator; trend to post; execute content loop; drive the content pipeline; autopilot content; loop status; measure content loop; sense trends; run Genfeed loop"
+  references: "{\"genfeed-connector\":\"the seam: detection, state, tokens, feedback\",\"trend-scout\":\"sense stage worker\",\"media-forge\":\"produce-media worker (Replicate + fal.ai)\",\"social-poster\":\"post stage worker (X + LinkedIn, approval gate)\",\"analytics-collector\":\"analytic stage worker (loop closure)\",\"content-atomizer\":\"remix stage\",\"content-strategist\":\"select/brief stage\",\"content-reviewer\":\"review gate\",\"content-seo-optimizer\":\"review gate (SEO)\",\"cinematic-prompting\":\"media prompt camera and lighting vocabulary\",\"image-prompt-engineer\":\"media prompt craft\"}"
 ---
 
 # Content Loop Orchestrator

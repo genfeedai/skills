@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Find fresh public X (Twitter) posts worth quote-posting for a brand, ranked with a fit reason and a suggested angle. Proposes only."
+  tags: x, twitter, quote-posts, social-media, content-creation
+  outputs: text
+  triggers: "find posts to quote; what should we quote today; quote post ideas; find quote tweet candidates; which posts should I quote"
 ---
 
 # Quote Finder

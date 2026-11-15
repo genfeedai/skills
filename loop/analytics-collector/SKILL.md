@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Collect X and LinkedIn post metrics for the Genfeed content loop and emit normalized Metric JSON for feedback scoring"
+  tags: content-factory, genfeed, analytics, metrics, x, twitter, linkedin, analytic, loop-closure, worker
+  outputs: json
+  triggers: "collect analytics; post metrics; engagement stats; how did the post do; analytics collector; measure performance; pull metrics; post performance"
 ---
 
 # Analytics Collector

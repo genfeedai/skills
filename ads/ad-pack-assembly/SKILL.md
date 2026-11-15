@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Assemble existing shots, stills, on-screen text, voiceover and music into a finished ad locally with ffmpeg, plus 9:16 cutdowns"
+  tags: advertising, video, ffmpeg, assembly, ad-pack, cutdown, local, worker
+  outputs: video, json
+  triggers: "assemble the ad; ad pack; stitch these shots; add text and voiceover to these clips; cut a 9:16 version; put the ad together; multi-scene ad; assemble video locally"
 ---
 
 # Ad Pack Assembly

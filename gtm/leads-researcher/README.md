@@ -1,12 +1,14 @@
 # Leads Researcher
 
-Research prospect accounts, decision makers, contact details, and buyer intent signals.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Research prospects, accounts, decision makers, and buyer signals
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill leads-researcher
 ```
+<!-- generated:end -->
 
 ## Usage
 

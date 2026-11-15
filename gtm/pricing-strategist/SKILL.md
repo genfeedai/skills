@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, hormozi, pricing, value, premium, positioning
+  short-description: "Create premium and value-based pricing strategy"
+  tags: gtm, strategy, business, hormozi, pricing, value, premium, positioning
+  outputs: text
+  triggers: "pricing strategist; what should I charge; pricing strategy; raise prices; undercharging; premium pricing; value based pricing; pricing tiers; competitor pricing comparison; price confidence; low revenue per customer"
 ---
 
 # Pricing Strategist - Pricing Confidence Calculator

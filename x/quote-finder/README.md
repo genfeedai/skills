@@ -1,12 +1,14 @@
 # Quote Finder
 
-Find fresh public X (Twitter) posts a brand can quote, ranked, with the link, why it fits and a suggested angle.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Find fresh public X (Twitter) posts worth quote-posting for a brand, ranked with a fit reason and a suggested angle. Proposes only.
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill quote-finder
 ```
+<!-- generated:end -->
 
 ## Usage
 

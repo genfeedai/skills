@@ -5,6 +5,11 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Define and apply a reusable video brand profile: signature placement, caption font and position, thumbnail rules and export sizes"
+  tags: video, branding, captions, thumbnails, logo, youtube, tiktok
+  outputs: json, markdown
+  triggers: "video brand profile; where does the logo go; caption font and position; video brand kit; thumbnail style rules; channel visual identity for video"
+  references: "{\"ship-shit-show.profile.json\":\"Complete worked example\"}"
 ---
 
 # Video Brand Profile

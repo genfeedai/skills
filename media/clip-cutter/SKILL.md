@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Cut vertical 9:16 clips from a long recording locally with ffmpeg: reframe, burned-in captions, loudness and measured output, no API"
+  tags: video, shorts, tiktok, captions, ffmpeg, local, worker, genfeed
+  outputs: files, json
+  triggers: "cut the clips; make the shorts; burn in captions; reformat for tiktok; cut this recording into vertical clips"
 ---
 
 # Clip Cutter

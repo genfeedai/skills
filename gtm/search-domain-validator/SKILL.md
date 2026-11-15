@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: domains, search, validation
+  short-description: "Generate and validate brandable domain naming options"
+  tags: gtm, strategy, domains, search, validation
+  outputs: text
+  triggers: "domain validator; validate domain; domain availability; domain search; find available domains; brandable domain names; domain name ideas; check this domain; domain syntax; name availability"
 ---
 
 # Search Domain Name Validator

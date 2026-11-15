@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, support, customer-success, helpdesk, faq, automation, self-service
+  short-description: "Build support systems and customer success workflows"
+  tags: gtm, strategy, business, support, customer-success, helpdesk, faq, automation, self-service
+  outputs: text
+  triggers: "support systems architect; too many support tickets; set up customer support; help docs; FAQ system; ticketing system; support automation; self service support; scale support; customer success workflow; support templates"
 ---
 
 # Support Systems Architect - Scalable Customer Support

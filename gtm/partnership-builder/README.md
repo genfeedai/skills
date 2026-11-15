@@ -1,12 +1,14 @@
 # Partnership Builder
 
-Design partnership programs that multiply distribution through affiliates, integrations, resellers, co-marketing, or embedded channels.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Design affiliate, integration, reseller, and co-marketing partnerships
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill partnership-builder
 ```
+<!-- generated:end -->
 
 ## Usage
 

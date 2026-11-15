@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, brunson, validation, funnels, dotcom-secrets, landing-pages, conversion
+  short-description: "Validate funnel sequence and conversion weaknesses"
+  tags: gtm, strategy, business, brunson, validation, funnels, dotcom-secrets, landing-pages, conversion
+  outputs: text
+  triggers: "funnel validator; validate my funnel; rate my funnel; is my funnel good; why is my funnel not converting; funnel audit; landing page sequence audit; pre traffic funnel check; conversion path review"
 ---
 
 # Funnel Validator - DotCom Secrets Scorecard

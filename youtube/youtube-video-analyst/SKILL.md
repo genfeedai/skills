@@ -6,7 +6,10 @@ disable-model-invocation: true
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: content-analysis, youtube, viral-content, hooks, content-strategy
+  short-description: "Deconstruct YouTube videos into hooks, retention mechanics, and reusable blueprints"
+  tags: youtube, content-analysis, viral-content, hooks, content-strategy
+  outputs: text
+  triggers: "analyze youtube video; youtube video analysis; youtube transcript analysis; deconstruct video; viral video formula; retention mechanics; hook analysis; analyze this transcript; youtube blueprint"
 ---
 # YouTube Video Analyst
 

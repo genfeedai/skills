@@ -1,12 +1,14 @@
 # TikTok Description
 
-Writes the TikTok caption: first line, one supporting fact, specific hashtags and the right disclosures, within the 2,200 character limit.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Write the TikTok caption with a searchable first line, one supporting fact, specific hashtags and disclosures within the 2,200 character limit
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill tiktok-description tiktok-title video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

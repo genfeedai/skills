@@ -1,12 +1,14 @@
 # Startup Icp Definer
 
-Define a precise startup ICP with company profile, buyer persona, user persona, buying center, pains, and triggers.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Define ICP, pains, buying triggers, personas, and targeting focus
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill startup-icp-definer
 ```
+<!-- generated:end -->
 
 ## Usage
 

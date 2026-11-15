@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: copywriting, brand-voice, marketing, content, conversion, ux-writing
+  short-description: "Write and audit non-ad conversion copy that matches project brand voice"
+  tags: copywriting, brand-voice, marketing, conversion, ux-writing, content
+  outputs: text
+  triggers: "write copy; audit copy; landing page copy; website copy; improve CTA; value proposition; pricing page copy; microcopy; UX writing; review marketing copy; rewrite headline; onboarding copy"
 ---
 # Copywriter Skill
 

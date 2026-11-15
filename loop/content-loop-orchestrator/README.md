@@ -1,12 +1,14 @@
 # Content Loop Orchestrator
 
-Operate the Genfeed content loop by routing each content stage to the right skill and automating the deterministic sense and measure edges.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Operate the executable Genfeed content loop and route each stage
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill content-loop-orchestrator
 ```
+<!-- generated:end -->
 
 ## Usage
 

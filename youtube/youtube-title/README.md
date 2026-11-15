@@ -1,12 +1,14 @@
 # YouTube Title
 
-Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, written as a pair with the thumbnail.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Truthful YouTube titles for livestreams, recaps, cutdowns and Shorts, written as a pair with the thumbnail
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill youtube-title video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

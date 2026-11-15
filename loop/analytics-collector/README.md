@@ -1,18 +1,20 @@
 # Analytics Collector
 
-The **analytic** stage of the Genfeed content loop. Given the ids of posts that went out, pulls their engagement from [X](https://x.com) and [LinkedIn](https://linkedin.com) over their REST APIs (global `fetch`, no SDK) and normalizes each to one `Metric`.
-
-This is **where the loop closes**: piping each `Metric` into `gf record-metric` recomputes the item's `feedbackScore`, and `gf feedback <term>` turns that into a multiplier that re-ranks the next round of trends.
-
-Pure stateless worker: reads its token from the environment, persists nothing.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Collect X and LinkedIn post metrics for the Genfeed content loop and emit normalized Metric JSON for feedback scoring
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill analytics-collector
 ```
+<!-- generated:end -->
 
-Requires [Bun](https://bun.sh) 1.1+. Zero runtime dependencies.
+The **analytic** stage of the Genfeed content loop. Given the ids of posts that went out, pulls their engagement from [X](https://x.com) and [LinkedIn](https://linkedin.com) over their REST APIs (global `fetch`, no SDK) and normalizes each to one `Metric`.
+
+This is **where the loop closes**: piping each `Metric` into `gf record-metric` recomputes the item's `feedbackScore`, and `gf feedback <term>` turns that into a multiplier that re-ranks the next round of trends.
+
+Pure stateless worker: reads its token from the environment, persists nothing.
 
 ## Usage
 

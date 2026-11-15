@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Expose the gf CLI for local content-loop state, manifests, stage transitions, feedback, and env-based platform tokens"
+  tags: content-factory, genfeed, state, adapter, orchestration, manifest, connector
+  outputs: json, cli
+  triggers: "content factory state; genfeed connector; content manifest; content loop state; gf adapter; content item manifest; content factory backend; platform token env"
 ---
 
 # Genfeed Connector

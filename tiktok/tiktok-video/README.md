@@ -1,12 +1,14 @@
 # TikTok Video
 
-Turns a long recording or a Short into a branded TikTok video: moment, cut, 9:16 layout, burned-in captions, logo placement, cover and export.
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Turn a long recording or a Short into a branded TikTok video with 9:16 layout, burned-in captions, logo placement, cover and export
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill tiktok-video video-brand-profile
 ```
+<!-- generated:end -->
 
 ## Usage
 

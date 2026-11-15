@@ -1,14 +1,14 @@
 # Thumbnail Compositor
 
-Composite three branded thumbnail variants on your own machine: backdrop, exact text and the signature at the profile's ratio. Uses a local Chrome or Chromium, so there is no image API and no credits. Pairs with `youtube-thumbnail` (the brief) and `video-brand-profile` (the rules).
+<!-- generated:start (bun run skills:generate; edit SKILL.md, not this block) -->
+Composite three branded thumbnail variants locally with exact text and signature placement using headless Chrome, no image API
 
 ## Installation
 
 ```bash
 bunx skills add genfeedai/skills --skill thumbnail-compositor
 ```
-
-Requires [Bun](https://bun.sh) 1.1+ and Chrome or Chromium.
+<!-- generated:end -->
 
 ## Usage
 

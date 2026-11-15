@@ -5,6 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
+  short-description: "Plan and write an Instagram carousel: slide copy, design spec, caption and handoff to a local renderer."
+  tags: instagram, carousel, social-media, content-creation
+  outputs: text
+  triggers: "instagram carousel; carousel outline; draft a carousel; swipeable slides for instagram"
 ---
 
 # Instagram Carousel

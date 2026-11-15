@@ -5,7 +5,10 @@ license: MIT
 metadata:
   author: genfeedai
   version: 1.0.0
-  tags: business, brunson, funnels, dotcom-secrets, value-ladder, landing-pages, conversion
+  short-description: "Design funnels, value ladders, and customer journeys from scratch"
+  tags: gtm, strategy, business, brunson, funnels, dotcom-secrets, value-ladder, landing-pages, conversion
+  outputs: text
+  triggers: "funnel architect; build my funnel; design a funnel; create a value ladder; landing page sequence; sales sequence; funnel type; customer journey funnel; conversion path planning; one funnel"
 ---
 
 # Funnel Architect - DotCom Secrets Builder
