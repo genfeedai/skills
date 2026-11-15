@@ -24,6 +24,7 @@ Find a few recent public posts a brand can add something real to with a quote po
 2. **Gather posts.** Use the read tools in this session, in this order:
    - Links the user pasted: read each one.
    - Genfeed `get_trends` for topic signals, when connected. It returns trends, not a feed of an account's posts, so use it to pick topics and ask for links to the posts themselves.
+   - Genfeed `fetch_x_posts`, when connected: `{postIdOrUrl}` reads one post with its text and stats, and `{query, brandId, limit, sortOrder}` searches recent posts through the brand's connected X account. Pass exactly one of `postIdOrUrl` or `query`. It costs 1 credit per call, so say so before a long run of searches. It is in the analytics toolset: if it is not in the tool list, call `find_tools` with `{name: "fetch_x_posts"}`, then reconnect with `?toolsets=analytics` added to the MCP URL, or with `?profile=studio`.
    - Any other tool in the session that reads public X posts.
 3. **Say so if you cannot read posts.** If no tool can read fresh posts for a source, tell the user plainly and ask them to paste links. Never invent a post, an author, a link or an age.
 4. **Drop** posts outside the window, replies, private or protected accounts, and anything you cannot open.
@@ -79,7 +80,8 @@ If Genfeed tools are available:
 
 - `get_brand_context` supplies topics and voice.
 - `get_trends` with `{category, timeframe}` surfaces topics. It does not list an account's posts. If it is not in the tool list, call `find_tools` with `{query: "trends"}` and describe the limitation if it is missing.
-- `create_post` saves the final quote as a draft only after the user picks a candidate and approves the wording. It does not publish.
+- `fetch_x_posts` reads a post or searches recent posts (see Workflow). Search needs the brand's X account to be connected and able to search; if the answer says it cannot, ask the user for links instead.
+- `create_post` saves the final quote as a draft only after the user picks a candidate and approves the wording. It does not publish, and a draft saved this way cannot be scheduled over MCP later. To schedule a week of posts, use `weekly-batch`.
 
 The skill works without Genfeed when the user pastes links.
 
