@@ -1,5 +1,5 @@
 ---
-name: social-poster
+name: genfeed-social-poster
 description: Use when the user explicitly wants to schedule a post, save a scheduled release as a draft, check a connected channel before scheduling, change or pause a scheduled post, or publish something now. Validates the target and shows a confirmation summary first; nothing is scheduled or published without the user's explicit yes.
 license: MIT
 metadata:

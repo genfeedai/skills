@@ -57,6 +57,17 @@ The `metadata` values are strings: `tags` and `outputs` are comma-separated, `tr
 
 Do not write `metadata.json` by hand. Run `bun run skills:generate` after editing `SKILL.md`; it writes `metadata.json` and the generated header of `README.md` (the summary and install command between the `generated:start` and `generated:end` comments). Everything else in `README.md` is yours: usage examples, what the skill does, structure and limits. `bun run validate` fails and names the skill when a generated file is out of date, and the pre-commit hook regenerates them for you.
 
+## Plugin skill names
+
+`plugins/genfeed/skills/` holds the short MCP skills that ship with the Genfeed plugin. Module skills (`<module>/<skill>/`) hold the long standalone playbooks. The two sets are separate layers and never share a name:
+
+- Every plugin skill is named `genfeed-<name>`, and its folder name equals that name. For example `genfeed-copywriter` is the MCP skill and `copywriter` is the module playbook.
+- A plugin skill never uses a module skill's name. Do not add a third copy under the old name.
+- A plugin skill that needs the craft of a module skill says so in backticks by name (`copywriter`) and keeps only the MCP steps itself.
+- Plugin skills refer to other plugin skills by their `genfeed-` name.
+
+`bun run validate` (step 4, `scripts/validate-plugin.js`) fails and names the skill when a plugin skill breaks the prefix rule or collides with a module skill. Installing the plugin and the module skills together lists each name once.
+
 ## Quality Standards
 
 - SKILL.md should be comprehensive (200+ lines) with tables, examples, and actionable frameworks

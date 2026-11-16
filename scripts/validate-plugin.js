@@ -108,6 +108,37 @@ const skillNames = existsSync(skillsDir)
   : [];
 if (skillNames.length === 0) fail('skills/ has no skills');
 
+// Naming rule: every plugin skill is named genfeed-<name>, and no plugin skill
+// shares a name with a module skill, so one install never holds two skills with
+// the same name. See "Plugin skill names" in CONTRIBUTING.md.
+const PLUGIN_SKILL_PREFIX = 'genfeed-';
+const moduleSkillNames = new Set(
+  readdirSync(ROOT, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        !entry.name.startsWith('.') &&
+        entry.name !== 'plugins' &&
+        entry.name !== 'node_modules'
+    )
+    .flatMap((moduleDir) =>
+      readdirSync(join(ROOT, moduleDir.name), { withFileTypes: true })
+        .filter(
+          (entry) =>
+            entry.isDirectory() && existsSync(join(ROOT, moduleDir.name, entry.name, 'SKILL.md'))
+        )
+        .map((entry) => entry.name)
+    )
+);
+for (const name of skillNames) {
+  if (!name.startsWith(PLUGIN_SKILL_PREFIX)) {
+    fail(`skills/${name}: plugin skill names must start with "${PLUGIN_SKILL_PREFIX}"`);
+  }
+  if (moduleSkillNames.has(name)) {
+    fail(`skills/${name}: name is also used by a module skill; rename the plugin skill`);
+  }
+}
+
 for (const name of skillNames) {
   const file = join(skillsDir, name, 'SKILL.md');
   if (!existsSync(file)) {

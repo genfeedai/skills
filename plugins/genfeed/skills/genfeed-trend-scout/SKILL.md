@@ -1,5 +1,5 @@
 ---
-name: trend-scout
+name: genfeed-trend-scout
 description: Use when the user wants to know what is trending, find topics to write about, check what people are saying about a subject on X, or turn current signals into content ideas for their brand. Reads trend and X data through Genfeed and returns ranked, brand-relevant ideas.
 license: MIT
 metadata:
@@ -18,7 +18,7 @@ Find signals worth acting on and rank them against the brand, not just by volume
 3. For topics that look promising, `fetch_x_posts` with `{query, brandId, sortOrder: "recency", limit: 10}` to see how people are discussing them. If the brand's X account cannot search, say so and continue with step 2 results only.
 4. Check what the brand already covered: `get_posts` with `{limit: 20}`. Drop topics already saturated.
 5. Rank the remaining topics on three points: fit with the brand, freshness, and whether the brand has something real to add. Return the top five, each with the angle and a recommended format and platform.
-6. Offer to draft any of them with the matching creator skill, or plan them with `content-strategist`.
+6. Offer to draft any of them with the matching creator skill, or plan them with `genfeed-content-strategist`.
 
 ## Rules
 

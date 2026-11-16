@@ -1,5 +1,5 @@
 ---
-name: copywriter
+name: genfeed-copywriter
 description: Use when the user wants conversion copy or short marketing text written in their brand voice, such as captions, calls to action, value propositions, landing page sections, or several alternative versions of one message. Pulls the Genfeed brand profile and generates variations through Genfeed.
 license: MIT
 metadata:
@@ -22,7 +22,7 @@ Write short, specific copy in the user's brand voice and give them options to ch
 ## Rules
 
 - Do not invent statistics, testimonials, prices, or guarantees. Mark anything you could not verify as a placeholder.
-- Never publish or schedule from this skill. For that, use the `social-poster` skill and wait for the user's explicit yes.
+- Never publish or schedule from this skill. For that, use the `genfeed-social-poster` skill and wait for the user's explicit yes.
 - Keep one idea per piece of copy and one call to action.
 - If the user supplies their own text, edit it rather than regenerating from scratch.
 - When saving with `create_post`, pass only the text (and `platforms`, `mediaUrls`). Never pass `scheduledAt`, `targets`, `contentId`, `ingredientId` or `confirmed`, and only save when the user asks you to keep the draft.

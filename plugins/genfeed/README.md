@@ -4,20 +4,22 @@ Plan, write, generate and schedule social content from your Genfeed brand, direc
 
 ## What you get
 
+Plugin skills are named `genfeed-<name>` so they never share a name with the long standalone skills in this repository (for example `genfeed-copywriter` here and `copywriter` in the `writing` module). The plugin skills carry the MCP steps, and the module skills carry the full playbooks. See "Plugin skill names" in [CONTRIBUTING.md](../../CONTRIBUTING.md).
+
 | Skill | Use it to |
 |-------|-----------|
-| `content-strategist` | Plan a calendar and find gaps in what is already scheduled |
-| `copywriter` | Write short conversion copy with variations in your brand voice |
-| `x-content-creator` | Draft X posts and threads, with optional topic research on X |
-| `linkedin-content-creator` | Draft LinkedIn posts and long-form pieces |
-| `instagram-content-creator` | Write captions, Reel scripts and carousel outlines, then a matching visual |
-| `youtube-content-creator` | Script a video, write titles and descriptions, brief a thumbnail |
-| `newsletter-creator` | Draft a newsletter edition and subject lines |
-| `content-atomizer` | Repurpose one post into drafts for other channels |
-| `social-poster` | Validate, then schedule or save a release, after your explicit confirmation |
-| `media-forge` | Generate or edit images, video, voice and music, with a cost estimate first |
-| `image-prompt-engineer` | Turn a rough visual idea into a precise generation prompt |
-| `trend-scout` | Find trending topics and rank them against your brand |
+| `genfeed-content-strategist` | Plan a calendar and find gaps in what is already scheduled |
+| `genfeed-copywriter` | Write short conversion copy with variations in your brand voice |
+| `genfeed-x-content-creator` | Draft X posts and threads, with optional topic research on X |
+| `genfeed-linkedin-content-creator` | Draft LinkedIn posts and long-form pieces |
+| `genfeed-instagram-content-creator` | Write captions, Reel scripts and carousel outlines, then a matching visual |
+| `genfeed-youtube-content-creator` | Script a video, write titles and descriptions, brief a thumbnail |
+| `genfeed-newsletter-creator` | Draft a newsletter edition and subject lines |
+| `genfeed-content-atomizer` | Repurpose one post into drafts for other channels |
+| `genfeed-social-poster` | Validate, then schedule or save a release, after your explicit confirmation |
+| `genfeed-media-forge` | Generate or edit images, video, voice and music, with a cost estimate first |
+| `genfeed-image-prompt-engineer` | Turn a rough visual idea into a precise generation prompt |
+| `genfeed-trend-scout` | Find trending topics and rank them against your brand |
 
 ## Use it
 
@@ -35,7 +37,7 @@ The plugin has no code of its own and stores nothing. When you use a skill, your
 
 ## Tool availability
 
-The server's default connection exposes the core, generation, content and scheduler toolsets. A few helpers used by `trend-scout`, `social-poster` and `content-strategist` (such as `get_trends` and `get_brand_publishing_readiness`) can be outside that default set; the skills call `find_tools` to check and say so when a tool is missing.
+The server's default connection exposes the core, generation, content and scheduler toolsets. A few helpers used by `genfeed-trend-scout`, `genfeed-social-poster` and `genfeed-content-strategist` (such as `get_trends` and `get_brand_publishing_readiness`) can be outside that default set; the skills call `find_tools` to check and say so when a tool is missing.
 
 ## Packaging
 
