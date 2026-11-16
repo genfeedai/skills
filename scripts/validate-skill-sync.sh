@@ -33,7 +33,8 @@ echo "4. Validating the Genfeed plugin bundle"
 bun scripts/validate-plugin.js
 
 echo "5. Checking skills CLI discovery"
-# Expected: every module skill, plus the MCP plugin skills whose names no module uses.
+# Expected: every module skill, plus every MCP plugin skill. Plugin skills are named
+# genfeed-<name> (checked in step 4), so no name appears twice.
 EXPECTED="$(
   {
     find . -mindepth 3 -maxdepth 3 -name SKILL.md -not -path './node_modules/*' -not -path './plugins/*' -not -path './.git/*' |

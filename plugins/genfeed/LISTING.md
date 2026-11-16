@@ -41,11 +41,11 @@ TODO (needs the live product). Add 3 to 5 square PNG, JPEG, WebP or SVG files (m
 5 MiB each, raster max 4096 px per side) to `assets/screenshots/` and list them in
 `plugin.json` under `extensions["com.openai"].interface.screenshots`. Suggested shots:
 
-1. `screenshot-1-plan.png`: a content calendar plan with highlighted gap days (content-strategist).
-2. `screenshot-2-drafts.png`: three X post options in the brand voice (x-content-creator).
-3. `screenshot-3-cost.png`: the credit estimate (or an unknown-cost notice) shown before an image is generated (media-forge).
-4. `screenshot-4-confirm.png`: the scheduling confirmation summary before anything is scheduled (social-poster).
-5. `screenshot-5-repurpose.png`: one post turned into LinkedIn and Instagram drafts (content-atomizer).
+1. `screenshot-1-plan.png`: a content calendar plan with highlighted gap days (genfeed-content-strategist).
+2. `screenshot-2-drafts.png`: three X post options in the brand voice (genfeed-x-content-creator).
+3. `screenshot-3-cost.png`: the credit estimate (or an unknown-cost notice) shown before an image is generated (genfeed-media-forge).
+4. `screenshot-4-confirm.png`: the scheduling confirmation summary before anything is scheduled (genfeed-social-poster).
+5. `screenshot-5-repurpose.png`: one post turned into LinkedIn and Instagram drafts (genfeed-content-atomizer).
 
 Dark-mode variants are not part of the documented manifest (see PR notes), so
 `brandColorDark`, `logoDark` and `composerIconDark` are not in `plugin.json`. Enter the dark values
@@ -98,7 +98,7 @@ The listing is read from `.claude-plugin/plugin.json` and `README.md`, so there 
 
 Anthropic asks that a plugin's remote MCP server be submitted separately as an **MCP connector**
 (same URL, `https://mcp.genfeed.ai/mcp`), then paired with this plugin. Do that submission first or
-alongside. In the monorepo's toolset profiles (`packages/actions/src/registry/toolset-profiles.ts`) the `directory` profile excludes the generation toolset, so `media-forge` and
-`image-prompt-engineer` rely on the unrestricted server connection and may not work for people who
+alongside. In the monorepo's toolset profiles (`packages/actions/src/registry/toolset-profiles.ts`) the `directory` profile excludes the generation toolset, so `genfeed-media-forge` and
+`genfeed-image-prompt-engineer` rely on the unrestricted server connection and may not work for people who
 install only the directory connector. The plugin itself connects with `?profile=full`, so its
 bundled skills get the generation, trends and publishing-readiness tools.

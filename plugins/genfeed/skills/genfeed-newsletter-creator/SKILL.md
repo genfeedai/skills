@@ -1,5 +1,5 @@
 ---
-name: newsletter-creator
+name: genfeed-newsletter-creator
 description: Use when the user wants to write a newsletter edition, subject line options, a recurring newsletter format, or to turn recent posts and notes into an email-style issue. Generates a newsletter draft through Genfeed and keeps it as a saved draft for review.
 license: MIT
 metadata:
@@ -21,6 +21,6 @@ Write one clear edition for one reader task, then hand it back for review.
 
 ## Rules
 
-- This skill has no send tool. Never claim an issue was sent or scheduled. If the user wants distribution, say that sending happens in their email platform or Genfeed, and use `social-poster` only for channels that appear in `get_brand_publishing_readiness`.
+- This skill has no send tool. Never claim an issue was sent or scheduled. If the user wants distribution, say that sending happens in their email platform or Genfeed, and use `genfeed-social-poster` only for channels that appear in `get_brand_publishing_readiness`.
 - Do not invent subscriber numbers, open rates, or quotes.
 - Cite where facts came from; leave placeholders for anything unverified.

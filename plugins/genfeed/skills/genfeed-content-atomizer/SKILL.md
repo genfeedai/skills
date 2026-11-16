@@ -1,5 +1,5 @@
 ---
-name: content-atomizer
+name: genfeed-content-atomizer
 description: Use when the user has one post, article, or idea and wants versions of it for other platforms, such as turning an X post into a LinkedIn post, an Instagram caption, or a TikTok or YouTube description. Repurposes existing Genfeed posts into platform-native drafts without publishing them.
 license: MIT
 metadata:
@@ -23,5 +23,5 @@ Take one source piece and produce platform-native derivatives, each adapted rath
 
 - Keep the core claim identical across versions. Change structure and tone, not facts.
 - Use `check_channel` with `{action: "capabilities", input: {platform}}` to check limits instead of assuming them.
-- Never publish or schedule. Hand the approved derivatives to `social-poster` and wait for explicit confirmation there.
+- Never publish or schedule. Hand the approved derivatives to `genfeed-social-poster` and wait for explicit confirmation there.
 - `repurpose_post` and `generate_content` can spend credits. For more than three targets, say so and confirm first.
