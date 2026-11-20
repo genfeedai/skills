@@ -45,7 +45,7 @@ Ask for what is missing, in one message:
 3. **Read the limits.** Call `check_channel` with `{action: "capabilities", input: {platform: "twitter"}}` and the same for `instagram`. Take the character limit, the carousel slide limit and the media rules from the answer, not from memory.
 4. **Build the slot list.** One row per item, with the local date and time and its UTC offset on that date. Do the offset per date, so a daylight saving change inside the week does not shift a slot. Count the rows and compare them with the cadence arithmetic before going on.
 5. **Assign topics and kinds.** Spread the topics across the week, so neighbouring slots do not repeat an angle. Mark rows as `post`, `quote` or `carousel`. Keep quotes to the number the person asked for.
-6. **Find quote targets.** For quote rows, use `quote-finder`. It reads posts with `fetch_x_posts` (see that skill). Use only posts that were read in this session.
+6. **Find quote targets.** For quote rows, use `quote-finder`. It reads posts with `find_inspiration` (`action: x_posts`, see that skill). Use only posts that were read in this session.
 7. **Write the copy.** Use `x-post` for posts and quotes and `instagram-carousel` for carousels. Write every item before showing anything. Do not invent numbers, results or quotes.
 8. **Prepare carousel media.** Slides must already be Library assets. Use `get_assets` to find them, or `upload_media` after rendering. Carry each asset id, in slide order, into the row.
 9. **Validate each target.** Call `check_channel` with `{action: "validate", input: {platform, credentialId, caption, media, publishMode: "scheduled"}}` for every distinct shape (a post, a quote, a carousel). Fix every error. Show every warning.
@@ -166,7 +166,7 @@ Never present a plain post as a quote.
 
 ## Genfeed integration
 
-This skill needs the Genfeed MCP connection. The tools it uses, in order: `get_context` (`action: account`), `get_context` (`action: brands`), `check_channel` (`action: readiness`), `check_channel`, `get_assets`, `upload_media`, `fetch_x_posts`, `schedule_release` (`action: create`), `get_content` (`action: posts`). The last four may need `find_tools` to load, or a profile with more tools.
+This skill needs the Genfeed MCP connection. The tools it uses, in order: `get_context` (`action: account`), `get_context` (`action: brands`), `check_channel` (`action: readiness`), `check_channel`, `get_assets`, `upload_media`, `find_inspiration` (`action: x_posts`), `schedule_release` (`action: create`), `get_content` (`action: posts`). The last four may need `find_tools` to load, or a profile with more tools.
 
 Without Genfeed, stop after the table: the skill can still plan, write and show the week, and the person schedules it in their tool of choice.
 
