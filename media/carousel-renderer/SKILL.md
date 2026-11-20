@@ -119,4 +119,4 @@ All text is HTML-escaped. Colors must be hex, `rgb()` or `hsl()`; anything else 
 
 ## Genfeed Integration
 
-Works standalone. With a Genfeed workspace, upload the rendered PNGs with `upload_media` and save the post as a draft with `create_post`. Drafts only; never schedule or publish without the owner's explicit confirmation.
+Works standalone. With a Genfeed workspace, upload the rendered PNGs with `upload_media` and save the post as a draft with `save_post` (`action: post`). Drafts only; never schedule or publish without the owner's explicit confirmation.

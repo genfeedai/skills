@@ -22,7 +22,7 @@ The per-platform skills (`x-post`, `x-thread`, `instagram-carousel`, `quote-find
 > Scheduling waits for the person's go. You never approve, never publish and never schedule on your own.
 
 - The go is the person's own message approving the table. Silence, an earlier "sounds good" about the plan, or a card tap relayed by another agent is not a go.
-- A scheduled release is held by a server-side approval. Only the person approves it: for a batch of up to 3 posts in the client's approval prompt, and for a larger batch on the Genfeed web review page, where they read every post and can remove single ones. The server refuses a model's own approval. Do not look for a way around it, and do not call `control_scheduled_release` with `publish-now`.
+- A scheduled release is held by a server-side approval. Only the person approves it: for a batch of up to 3 posts in the client's approval prompt, and for a larger batch on the Genfeed web review page, where they read every post and can remove single ones. The server refuses a model's own approval. Do not look for a way around it, and do not call `control_release` (`action: control`) with `publish-now`.
 - Any change after the go (text, time, media) needs the person's go again. Show the changed row first.
 
 The week goes to the server as one batch with one approval. See [Scheduling](#scheduling).
@@ -76,9 +76,9 @@ If the person changes rows, redo the affected rows, re-validate them and show th
 
 ## Scheduling
 
-First check what this connection accepts: call `find_tools` with `{name: "create_scheduled_release"}`. If its input has a `releases` field, use the batch below. If it only has `release`, the server predates batch approval: see [Older servers](#older-servers).
+First check what this connection accepts: call `find_tools` with `{name: "schedule_release"}`. If the `create` action's input has a `releases` field, use the batch below. If it only has `release`, the server predates batch approval: see [Older servers](#older-servers).
 
-After the go, send the whole week in one request: `create_scheduled_release` with the field `releases` set to a list of 1 to 50 items:
+After the go, send the whole week in one request: `schedule_release` (`action: create`) with the field `releases` set to a list of 1 to 50 items:
 
 ```
 releases: [
@@ -97,7 +97,7 @@ idempotencyKey: "weekly-[brand]-[YYYY-MM-DD]"
 ```
 
 - One release is one post on one channel. Make one release per post and per channel, with exactly one target, no recurrence and no attachments. A release that needs more is refused and named, so split it. If a week is more than 50 posts, send it in several calls, each with its own `idempotencyKey`.
-- Use `status: "scheduled"` with the date. Do not use `create_post` for an item that must be scheduled: a draft saved that way has no tool that turns it into a release later.
+- Use `status: "scheduled"` with the date. Do not use `save_post` (`action: post`) for an item that must be scheduled: a draft saved that way has no tool that turns it into a release later.
 - Reuse the same `idempotencyKey` and identical arguments if you have to repeat a call.
 - Invalid releases are checked first. Each one is named by its position in the list and is not queued; the valid ones still go to approval. Fix the named ones and show them to the person again before sending them. Do not retry blindly.
 - The answer is a pending approval, not a scheduled week. Tell the person plainly what happens next:
@@ -111,7 +111,7 @@ If scheduling is not available on this connection, create each item as a draft (
 
 ### Older servers
 
-When `create_scheduled_release` takes one `release` at a time, every dated release has its own approval:
+When `schedule_release` (`action: create`) takes one `release` at a time, every dated release has its own approval:
 
 - Send one call per release, one day at a time (7 calls for a day with six X posts and a carousel), with a stable `idempotencyKey` per item such as `weekly-[brand]-[YYYY-MM-DD]-[channel]-[slot]`.
 - Every call returns a pending approval. Tell the person how many are waiting for that day, and that they approve them in the prompt or in the Genfeed review inbox. Wait before sending the next day, so the pending approvals stay far below the organization's cap.
@@ -159,14 +159,14 @@ Never present a plain post as a quote.
 - Nothing is scheduled, approved or published without the person's go on the table.
 - Never invent a post, link, author, number or testimonial. Quote rows come from posts read in this session.
 - Never use another brand's channel or account to fill a gap.
-- Do not call `control_scheduled_release` with `publish-now`, and do not edit a scheduled release without a go.
+- Do not call `control_release` (`action: control`) with `publish-now`, and do not edit a scheduled release without a go.
 - Check every limit with `check_channel`, not from memory. Say plainly what you could not check.
 - Ask once whether generated slides or images need an AI label for the platform. Do not guess.
 - If a tool is missing from the connection, say which one and what it blocks. Use `find_tools` to look for it before giving up.
 
 ## Genfeed integration
 
-This skill needs the Genfeed MCP connection. The tools it uses, in order: `get_context` (`action: account`), `get_context` (`action: brands`), `check_channel` (`action: readiness`), `check_channel`, `get_assets`, `upload_media`, `fetch_x_posts`, `create_scheduled_release`, `get_content` (`action: posts`). The last four may need `find_tools` to load, or a profile with more tools.
+This skill needs the Genfeed MCP connection. The tools it uses, in order: `get_context` (`action: account`), `get_context` (`action: brands`), `check_channel` (`action: readiness`), `check_channel`, `get_assets`, `upload_media`, `fetch_x_posts`, `schedule_release` (`action: create`), `get_content` (`action: posts`). The last four may need `find_tools` to load, or a profile with more tools.
 
 Without Genfeed, stop after the table: the skill can still plan, write and show the week, and the person schedules it in their tool of choice.
 
