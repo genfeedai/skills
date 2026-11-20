@@ -25,7 +25,7 @@ Plugin skills are named `genfeed-<name>` so they never share a name with the lon
 
 Install the plugin, connect the Genfeed server when your assistant asks you to sign in, then describe what you want. For example: "Plan next week's content and show me the gaps in my calendar", "Write three X post options about our launch", or "Generate an Instagram image for this caption and tell me the cost first".
 
-The assistant reads your brand profile with `get_brands` and uses it for tone. If you have several brands it asks which one to use.
+The assistant reads your brand profile with `get_context` (`action: brands`) and uses it for tone. If you have several brands it asks which one to use.
 
 ## Safety
 
@@ -37,7 +37,7 @@ The plugin has no code of its own and stores nothing. When you use a skill, your
 
 ## Tool availability
 
-The server's default connection exposes the core, generation, content and scheduler toolsets. A few helpers used by `genfeed-trend-scout`, `genfeed-social-poster` and `genfeed-content-strategist` (such as `get_trends` and `get_brand_publishing_readiness`) can be outside that default set; the skills call `find_tools` to check and say so when a tool is missing.
+The server's default connection exposes the core, generation, content and scheduler toolsets. A few helpers used by `genfeed-trend-scout`, `genfeed-social-poster` and `genfeed-content-strategist` (such as `get_insights` (`action: trends`) and `check_channel` (`action: readiness`)) can be outside that default set; the skills call `find_tools` to check and say so when a tool is missing.
 
 ## Packaging
 

@@ -13,8 +13,8 @@ Schedule approved content safely. This is the only skill that creates scheduled 
 
 ## Tool order
 
-1. `get_brands`. Resolve the brand with the user if there are several and keep `brandId`.
-2. `get_brand_publishing_readiness` with `{brandId}` to see connected channels, their `credentialId`, whether each can be scheduled, and any health problems. If the target channel is missing or unhealthy, stop and tell the user to reconnect it in Genfeed. If this tool is not in the tool list, run `find_tools` with `{name: "get_brand_publishing_readiness"}`; if the server does not expose it to this connection, ask the user for the connected account to target and stop if you cannot resolve a `credentialId`.
+1. `get_context` (`action: brands`). Resolve the brand with the user if there are several and keep `brandId`.
+2. `check_channel` (`action: readiness`) with `input: {brandId}` to see connected channels, their `credentialId`, whether each can be scheduled, and any health problems. If the target channel is missing or unhealthy, stop and tell the user to reconnect it in Genfeed. If this tool is not in the tool list, run `find_tools` with `{name: "get_brand_publishing_readiness"}`; if the server does not expose it to this connection, ask the user for the connected account to target and stop if you cannot resolve a `credentialId`.
 3. `check_channel` with `{action: "capabilities", input: {platform}}` for caption limits, media rules, publish modes, and required settings on that channel.
 4. If media is involved, make sure it exists in the library as an asset: find it with `get_assets` (`{type, brandId}`), or upload a file the user provided:
    1. `upload_media` with `{action: "request", input: {filename, contentType, category}}` (`category` is `image`, `video`, `audio` or `music`). It returns `uploadUrl`, `assetId`, `method` and `constraints`, and reserves a pending asset; it sends no bytes.
@@ -23,7 +23,7 @@ Schedule approved content safely. This is the only skill that creates scheduled 
 5. `check_channel` with `{action: "validate", input: {platform, credentialId, caption, media, publishMode: "scheduled"}}`. Fix every error it returns. Show warnings to the user.
 6. Show a confirmation summary and stop: channel and account, exact caption text, media, date and time with timezone, and whether this will be saved as a draft or scheduled. Ask: "Confirm?" and wait.
 7. Only after an explicit yes, call `create_scheduled_release` with `{idempotencyKey, release: {title, baseContent, brandId, timezone, scheduledDate, status, media, targets: [{credentialId, platform}]}}`. Use `status: "draft"` unless the user clearly asked to schedule. Use a fresh `idempotencyKey` per confirmed release so a retry does not duplicate it.
-8. `get_scheduled_release` with `{releaseId}` to confirm the final state, and report the id, state, and time back.
+8. `get_content` (`action: release`) with `input: {releaseId}` to confirm the final state, and report the id, state, and time back.
 
 ## Changing or stopping a release
 

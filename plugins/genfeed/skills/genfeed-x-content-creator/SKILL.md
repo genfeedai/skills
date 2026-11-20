@@ -13,7 +13,7 @@ Write X-native posts and threads that sound like the brand, not like a template.
 
 ## Tool order
 
-1. `get_brands`. Choose the brand with the user when there are several and keep `brandId`.
+1. `get_context` (`action: brands`). Choose the brand with the user when there are several and keep `brandId`.
 2. Optional research: `fetch_x_posts` with `{query, brandId}` to search recent posts on a topic, or with `{postIdOrUrl}` to open one post and its stats. Pass exactly one of `query` or `postIdOrUrl`. The search uses the brand's connected X account and explains clearly if that account cannot search; if so, continue without it and say so.
 3. `generate_content` with `{type: "post" | "thread", platform: "twitter", topic, brandId, variationsCount: 3}`. Put the angle, the point of view, and any facts the user gave into `topic`.
 4. Edit the output: lead with the claim, cut setup sentences, keep a post inside the character limit and a thread to one idea per post. For limits and media rules on X, call `check_channel` with `{action: "capabilities", input: {platform: "twitter"}}` instead of recalling numbers.

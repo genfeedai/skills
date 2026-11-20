@@ -40,8 +40,8 @@ Ask for what is missing, in one message:
 
 ## Workflow
 
-1. **Find the brand.** Call `get_account` and `get_brands`. Pass the chosen brand id to every later call. If a brand the person named is not in the list, say so and plan only the streams that can run.
-2. **Check what can be scheduled.** Call `get_brand_publishing_readiness` with `{brandId}` for each brand. Take each channel's `credentialId`, and note anything not schedulable or unhealthy. A channel that is missing or unhealthy drops out of the plan: report it, and do not use another brand's channel.
+1. **Find the brand.** Call `get_context` (`action: account`) and `get_context` (`action: brands`). Pass the chosen brand id to every later call. If a brand the person named is not in the list, say so and plan only the streams that can run.
+2. **Check what can be scheduled.** Call `check_channel` (`action: readiness`) with `input: {brandId}` for each brand. Take each channel's `credentialId`, and note anything not schedulable or unhealthy. A channel that is missing or unhealthy drops out of the plan: report it, and do not use another brand's channel.
 3. **Read the limits.** Call `check_channel` with `{action: "capabilities", input: {platform: "twitter"}}` and the same for `instagram`. Take the character limit, the carousel slide limit and the media rules from the answer, not from memory.
 4. **Build the slot list.** One row per item, with the local date and time and its UTC offset on that date. Do the offset per date, so a daylight saving change inside the week does not shift a slot. Count the rows and compare them with the cadence arithmetic before going on.
 5. **Assign topics and kinds.** Spread the topics across the week, so neighbouring slots do not repeat an angle. Mark rows as `post`, `quote` or `carousel`. Keep quotes to the number the person asked for.
@@ -124,7 +124,7 @@ Everything else in this skill is the same.
 
 After the last approval, check what is actually queued:
 
-1. Call `get_posts` with `{days: 8, executionState: "scheduled"}`. Raise `limit` so the list can hold the full week.
+1. Call `get_content` (`action: posts`) with `input: {days: 8, executionState: "scheduled"}`. Raise `limit` so the list can hold the full week.
 2. Match each row of the table to a scheduled item by brand, channel and time.
 3. Report in this shape:
 
@@ -143,7 +143,7 @@ Items waiting on approval do not show up as scheduled, so they appear under Miss
 Look at the X entry in `check_channel` capabilities (step 3). When its target settings list `quotedPost`, a quote row can be scheduled as a real quote:
 
 - Put the original's link, or its numeric post id, in the X target's `settings` as `quotedPost`, and validate the target with `check_channel` before the table. A value that is not an X post fails validation: fix it, do not schedule it.
-- `get_scheduled_release` reads the quoted post id back. Use it to confirm each quote row after approval.
+- `get_content` (`action: release`) reads the quoted post id back. Use it to confirm each quote row after approval.
 - Quote posting is an X Enterprise plan feature, so X may refuse it on this account. A refused quote stays failed with the code `x_quote_refused`, and the owner is asked to post it by hand: a "Post this by hand" notice with a prefilled x.com link, and a card in the release drawer with Open in X, Copy text, Mark as posted and Skip. Closing it that way is final. Say this in the table's Not verified line the first time, since whether X accepts a quote on the account is unconfirmed until one has published. In the read back, list a refused quote as failed with that code and tell the person to post it by hand. A deleted original fails with `x_quoted_post_unavailable` and is not a manual post.
 - Do not put the link at the end of the text as well.
 
@@ -166,18 +166,18 @@ Never present a plain post as a quote.
 
 ## Genfeed integration
 
-This skill needs the Genfeed MCP connection. The tools it uses, in order: `get_account`, `get_brands`, `get_brand_publishing_readiness`, `check_channel`, `get_assets`, `upload_media`, `fetch_x_posts`, `create_scheduled_release`, `get_posts`. The last four may need `find_tools` to load, or a profile with more tools.
+This skill needs the Genfeed MCP connection. The tools it uses, in order: `get_context` (`action: account`), `get_context` (`action: brands`), `check_channel` (`action: readiness`), `check_channel`, `get_assets`, `upload_media`, `fetch_x_posts`, `create_scheduled_release`, `get_content` (`action: posts`). The last four may need `find_tools` to load, or a profile with more tools.
 
 Without Genfeed, stop after the table: the skill can still plan, write and show the week, and the person schedules it in their tool of choice.
 
 ## Checklist
 
-- [ ] The brand and every channel's credential came from `get_brands` and `get_brand_publishing_readiness`
+- [ ] The brand and every channel's credential came from `get_context` (`action: brands`) and `check_channel` (`action: readiness`)
 - [ ] The item count matches the cadence (42 a week at every 4 hours)
 - [ ] Every slot has a local time and the offset for that date
 - [ ] Every item was validated with `check_channel` for scheduling
 - [ ] The whole week was shown in one table before any scheduling call
 - [ ] The go came from the person, and no row changed after it
 - [ ] The week went as one batch (up to 50 releases, one target each) with a stable `idempotencyKey`, and repeats were identical
-- [ ] The queue was read back with `get_posts` and gaps were reported
+- [ ] The queue was read back with `get_content` (`action: posts`) and gaps were reported
 - [ ] The person approved in the client (up to 3 posts) or on the web review, and nothing was approved or published by the agent

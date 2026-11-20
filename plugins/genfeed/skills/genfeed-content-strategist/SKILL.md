@@ -13,9 +13,9 @@ Turn a goal ("post more consistently", "launch next week") into a reviewed conte
 
 ## Tool order
 
-1. `get_brands` with no arguments. If the organization has more than one brand, ask which one and pass its id as `brandId` from here on. Never use the first brand implicitly.
-2. `get_posts` with `{days: 14}` (or the window the user names) to read the content calendar. It returns scheduled and draft posts and flags days with no content. Use `get_posts` with `{executionState: "published", limit: 20}` to see what already went out.
-3. Optional signal: `get_trends` for topic ideas. If it is not in the tool list, call `find_tools` with `{query: "trends"}` to confirm it exists on this server before using it.
+1. `get_context` (`action: brands`) with no arguments. If the organization has more than one brand, ask which one and pass its id as `brandId` from here on. Never use the first brand implicitly.
+2. `get_content` (`action: posts`) with `input: {days: 14}` (or the window the user names) to read the content calendar. It returns scheduled and draft posts and flags days with no content. Use `get_content` (`action: posts`) with `input: {executionState: "published", limit: 20}` to see what already went out.
+3. Optional signal: `get_insights` (`action: trends`) for topic ideas. If it is not in the tool list, call `find_tools` with `{query: "trends"}` to confirm it exists on this server before using it.
 4. Draft the plan in chat first: pillars (3 to 5), one line per slot with date, platform, format, and angle. Mark the empty days from step 2 as the priority slots. Keep cadence realistic for a small team.
 5. Ask the user to approve, change, or cut the plan. Do not generate anything yet.
 6. After approval, produce copy slot by slot with `generate_content` (`type: "post"`, `"thread"`, or `"article_outline"`, plus `platform` and `brandId`). Use `generate_turbo_content` (`count`, `platforms`, `topics`, `dateRange`, `brandId`) only when the user asks for many pieces at once; it spends credits, so state the count and ask first.
@@ -25,8 +25,8 @@ Turn a goal ("post more consistently", "launch next week") into a reviewed conte
 
 - Never publish or schedule without the user's explicit confirmation of the exact content, channels, and time. A plan is not a confirmation.
 - Say what each generation will cost in credits when the tool description says it spends credits, and ask before large batches.
-- Ground the plan in the brand's tone profile from `get_brands`; do not invent audience facts, metrics, or competitor numbers.
-- If `get_posts` returns nothing, say the calendar is empty rather than guessing what was posted before.
+- Ground the plan in the brand's tone profile from `get_context` (`action: brands`); do not invent audience facts, metrics, or competitor numbers.
+- If `get_content` (`action: posts`) returns nothing, say the calendar is empty rather than guessing what was posted before.
 
 ## Output
 

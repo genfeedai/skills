@@ -13,7 +13,7 @@
     ],
     "fonts": ["Helvetica Neue"],
     "voice": "TODO: one line on tone, from the brand context",
-    "source": "TODO: where these values came from (get_brand_context, brand kit file, site)"
+    "source": "TODO: where these values came from (get_context with action brand_context, brand kit file, site)"
   },
   "audience": "Who watches this, in one line",
   "goal": "The one thing a viewer should remember",
