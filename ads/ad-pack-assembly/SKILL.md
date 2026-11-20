@@ -113,7 +113,7 @@ Not checked: playback on a real phone, platform upload limits, that the shots ma
 
 ## Genfeed integration
 
-- **Source shots** can come from Genfeed (`get_assets` to find them, `generate` to make them) or from any other tool.
+- **Source shots** can come from Genfeed (`get_assets` to find them, `generate_media` (`action: media`) to make them) or from any other tool.
 - **Bring the result into Genfeed** with the Genfeed MCP connected: `upload_media` for the MP4, then `save_post` (`action: post`) to save a draft. Drafts only. Never schedule or publish without the owner's explicit confirmation.
 - A local build is not a Genfeed Cloud ad pack: it has no Library asset ids, cost receipt or rejected-output record until you upload it. Do not describe it as one.
 

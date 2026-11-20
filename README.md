@@ -345,7 +345,7 @@ bunx skills add genfeedai/skills/loop
 Every skill works standalone. When used inside a Genfeed workspace, skills can detect platform tools for enhanced results:
 
 - `save_post` (`action: post`) - draft content directly into the platform
-- `generate` - generate images, video, voice, or music (`type: image|video|voice|music`) with the recommended model
+- `generate_media` (`action: media`) - generate images, video, voice, or music (`type: image|video|voice|music`) with the recommended model
 - Assess content quality with the skill rubric and available performance evidence
 - `find_tools` - discover available tools before assembling ad creative
 - Brand context and top-performing content patterns are used for voice consistency

@@ -12,7 +12,7 @@ bunx skills add genfeedai/skills --skill long-form-storyboard
 
 Plan a long video from a voice note or idea dump. The model in your session writes the storyboard: sections, narration for the ear, and a cutaway brief for each beat. The script then validates it against the Genfeed limits, estimates timing, exports the read-aloud script, shot list and captions, and compiles your recording and cutaway images into a manifest for `ad-pack-assembly`.
 
-The local counterpart of Genfeed Cloud's `storyboard_long_form`: plan, cutaways, spoken animatic, presenter cut. No model call, no credits, no network.
+The local counterpart of Genfeed Cloud's `generate_media` (its plan and start long-form actions): plan, cutaways, spoken animatic, presenter cut. No model call, no credits, no network.
 
 ## Usage
 
