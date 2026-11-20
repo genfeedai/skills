@@ -78,7 +78,7 @@ function fail(message: string): never {
   throw new StoryboardError(message);
 }
 
-// Limits are taken from the edit schema of the Genfeed `storyboard_long_form` tool.
+// Limits are taken from the edit schema of the Genfeed `generate_media` tool (`plan_long_form`).
 const ID = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,254}$/;
 export const LIMITS = {
   segments: 150,

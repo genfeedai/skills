@@ -578,7 +578,7 @@ That answer is usually the first source bucket.
 This skill works standalone. When Genfeed platform tools are available, use them to operationalize the factory:
 
 - Use `save_post` (`action: post`) to draft approved content directly in the platform
-- Use `generate` with `type: image` for image, carousel, or visual derivative creation
+- Use `generate_media` (`action: media`) with `type: image` for image, carousel, or visual derivative creation
 - Use this skill’s review rubric during the quality gate
 - Use `find_tools` to discover available creative capabilities before turning content into paid creative
 - Use brand context and top-performing content patterns for voice consistency

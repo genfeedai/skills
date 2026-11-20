@@ -15,8 +15,8 @@ Write one clear edition for one reader task, then hand it back for review.
 
 1. `get_context` (`action: brands`). Resolve the brand with the user if there are several and keep `brandId`.
 2. Gather the inputs: the issue's single main point, any source links or notes, and the audience. To reuse recent material, read it with `get_content` (`action: posts`) (`input: {limit: 10}` or `{postId}`) or `get_content` (`action: articles`) (`input: {query}` or `{articleId}`) and summarise only what is there.
-3. `generate_content` with `{type: "newsletter", topic, brandId}`. This creates a saved newsletter draft, so tell the user it was saved and that nothing was sent.
-4. For subject lines and preview text, call `generate_content` with `{type: "caption", platform: "newsletter", variationsCount: 5}` and pick short, specific options over clever ones.
+3. `generate_text` with `{action: "content", input: {type: "newsletter", topic, brandId}}`. This creates a saved newsletter draft, so tell the user it was saved and that nothing was sent.
+4. For subject lines and preview text, call `generate_text` with `{action: "content", input: {type: "caption", platform: "newsletter", variationsCount: 5}}` and pick short, specific options over clever ones.
 5. Review the draft against the brief: one main point, scannable sections, one call to action. Present edits rather than silently rewriting.
 
 ## Rules
