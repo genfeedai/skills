@@ -16,7 +16,7 @@ metadata:
 
 You turn a spoken idea into a long video. The input is a voice-note transcript or an idea dump. The output is a storyboard: sections, narration segments written for the ear, and one cutaway brief (a picture to show) for each stretch of narration. You then check it, get the owner to approve it, and, once the recording and the pictures exist, compile it so `ad-pack-assembly` can put the video together locally.
 
-Genfeed Cloud's `generate_media` tool (actions `plan_long_form` and `start_long_form`) does this as a hosted run: plan, cutaway stills, a cheap spoken animatic, then a presenter render, with credits at each paid stage. This skill is the local version of the same shape. **You write the storyboard with the model already running in this session.** The script validates, estimates timing, exports the script, shot list and captions, and compiles the manifest. Pictures and the recording come from the owner or from tools they already use.
+Genfeed Cloud's `generate_media` tool (its plan and start long-form actions) does this as a hosted run: plan, cutaway stills, a cheap spoken animatic, then a presenter render, with credits at each paid stage. This skill is the local version of the same shape. **You write the storyboard with the model already running in this session.** The script validates, estimates timing, exports the script, shot list and captions, and compiles the manifest. Pictures and the recording come from the owner or from tools they already use.
 
 ---
 
@@ -79,7 +79,7 @@ A segment:
 | `card` | A pre-rendered chapter or title card (render it with `motion-video`) shown first, without moving the narration |
 | `cutaways[]` | `{ id, brief, file, at, clipStart }`: `brief` up to 1000 characters; `file` the finished still or clip; `at` seconds into the segment (default: evenly spaced); `clipStart` where to start inside a clip |
 
-Field limits are taken from the Genfeed `generate_media` tool's `plan_long_form` edit schema: at most 150 segments and 600 cutaways, 2000 characters of narration, 40 of section label, 1000 per cutaway brief.
+Field limits are taken from the Genfeed `generate_media` tool's long-form planning edit schema: at most 150 segments and 600 cutaways, 2000 characters of narration, 40 of section label, 1000 per cutaway brief.
 
 ---
 
@@ -116,7 +116,7 @@ With `--audio` and no `--presenter`, every segment must have a cutaway, a `card`
 ## Genfeed integration
 
 - With the Genfeed MCP connected, use the brand's voice and visual identity (`get_context` (`action: brands`)) when writing narration and `visualStyle`.
-- For the hosted version of this flow, the Genfeed `generate_media` tool (`plan_long_form`, then `start_long_form`) takes the same transcript and runs the plan, cutaway and presenter stages. It prices each paid stage first. Use it when the owner wants an avatar presenter or hosted renders.
+- For the hosted version of this flow, the Genfeed `generate_media` tool (plan, then start, long-form actions) takes the same transcript and runs the plan, cutaway and presenter stages. It prices each paid stage first. Use it when the owner wants an avatar presenter or hosted renders.
 - Upload the finished video with `upload_media` and save a draft with `save_post` (`action: post`). Drafts only. Never schedule or publish without the owner's explicit confirmation.
 
 ## Security
