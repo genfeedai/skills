@@ -115,7 +115,7 @@ With `--audio` and no `--presenter`, every segment must have a cutaway, a `card`
 
 ## Genfeed integration
 
-- With the Genfeed MCP connected, use the brand's voice and visual identity (`get_brands`) when writing narration and `visualStyle`.
+- With the Genfeed MCP connected, use the brand's voice and visual identity (`get_context` (`action: brands`)) when writing narration and `visualStyle`.
 - For the hosted version of this flow, the Genfeed `storyboard_long_form` tool takes the same transcript and runs the plan, cutaway and presenter stages. It prices each paid stage first. Use it when the owner wants an avatar presenter or hosted renders.
 - Upload the finished video with `upload_media` and save a draft with `create_post`. Drafts only. Never schedule or publish without the owner's explicit confirmation.
 

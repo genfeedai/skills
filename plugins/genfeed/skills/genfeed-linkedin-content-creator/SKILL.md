@@ -13,7 +13,7 @@ Turn a real experience or point of view into LinkedIn drafts with a clear openin
 
 ## Tool order
 
-1. `get_brands`. Resolve the brand with the user if there are several and keep `brandId`.
+1. `get_context` (`action: brands`). Resolve the brand with the user if there are several and keep `brandId`.
 2. Get the raw material from the user: the story or claim, what changed, and what the reader should do or think differently. Ask for it if missing; do not invent it.
 3. `generate_content` with `{type: "post", platform: "linkedin", topic, brandId, variationsCount: 3}` for a post. For a long-form piece use `{type: "article", topic, brandId, tone, length, targetAudience}`; note that `article` creates a saved article draft with an id, so tell the user it was saved. Use `{type: "newsletter"}` only for a newsletter edition, which also saves a draft.
 4. Edit for the feed: the first two lines must stand alone, short paragraphs, no hashtag stuffing, no engagement bait.

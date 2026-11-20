@@ -25,7 +25,7 @@ bunx skills add genfeedai/skills --skill weekly-batch
 - Writes with `x-post`, `instagram-carousel` and `quote-finder`
 - Shows every item in one table and waits for the person's go
 - Sends the whole week in one `create_scheduled_release` batch (up to 50 posts, one channel each); up to 3 posts are approved in the client, more on the Genfeed web review page
-- Reads the queue back with `get_posts` and reports missing, unexpected and unapproved items
+- Reads the queue back with `get_content` (`action: posts`) and reports missing, unexpected and unapproved items
 - Never approves, publishes or schedules without the go
 
 ## License

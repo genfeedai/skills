@@ -13,11 +13,11 @@ Turn an idea into a prompt that names the subject, setting, composition, lightin
 
 ## Tool order
 
-1. `get_brands` for the brand's tone and visual direction; keep `brandId`. Check `get_assets` with `{type: "image", brandId, limit: 10}` if the user wants the result to match existing visuals.
+1. `get_context` (`action: brands`) for the brand's tone and visual direction; keep `brandId`. Check `get_assets` with `{type: "image", brandId, limit: 10}` if the user wants the result to match existing visuals.
 2. Ask only for what is missing: subject, where it will be used (this sets the aspect ratio), and any must-have or must-avoid details.
 3. Write the prompt in this order: subject, action or pose, setting, composition and camera, lighting, style, colour palette, format. Use plain concrete words, not stacked adjectives.
 4. `enhance_prompt` with `{prompt, contentType: "image" | "video", brandId}` to preview Genfeed's enhanced version. It does not generate media. Show both prompts and let the user choose.
-5. If the user wants it generated, use the `genfeed-media-forge` flow: `get_generation_options` (with `modelKey` only if the user named a model) for the cost, then confirmation, then `generate` with `{type, prompt, brandId, aspectRatio, model, harness: false}`, passing the same model you quoted. If the estimate comes back with `credits: null`, tell the user the cost is unknown and ask before generating. Pass `harness: false` when the reviewed prompt should be used unchanged.
+5. If the user wants it generated, use the `genfeed-media-forge` flow: `get_generation_catalog` (`action: options`) (with `modelKey` only if the user named a model) for the cost, then confirmation, then `generate` with `{type, prompt, brandId, aspectRatio, model, harness: false}`, passing the same model you quoted. If the estimate comes back with `credits: null`, tell the user the cost is unknown and ask before generating. Pass `harness: false` when the reviewed prompt should be used unchanged.
 6. Offer two or three variations by changing one variable at a time (composition, lighting, or style) rather than rewriting everything.
 
 ## Rules

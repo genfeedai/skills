@@ -13,7 +13,7 @@ Write short, specific copy in the user's brand voice and give them options to ch
 
 ## Tool order
 
-1. `get_brands` (no arguments). Pick the brand with the user if there are several and keep its id as `brandId`. Read the tone profile it returns and follow it.
+1. `get_context` (`action: brands`) (no arguments). Pick the brand with the user if there are several and keep its id as `brandId`. Read the tone profile it returns and follow it.
 2. Ask for the missing brief in one message: who it is for, the single action wanted, the proof or detail that makes it believable, and the channel. Do not ask more than that.
 3. `generate_content` with `{type: "caption" | "post", topic, brandId, platform, variationsCount: 3}`. The topic is the brief from step 2 in plain language. Social types return text and are not saved.
 4. Review the variations yourself before showing them: remove filler, vague claims, and anything the brief does not support. Show the best three with a one-line note on the angle each takes.
