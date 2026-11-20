@@ -85,7 +85,7 @@ If Genfeed tools are available:
 - `get_context` (`action: brand_context`) supplies topics and voice.
 - `get_insights` (`action: trends`) with `input: {category, timeframe}` surfaces topics. It does not list an account's posts. If it is not in the tool list, call `find_tools` with `{query: "trends"}` and describe the limitation if it is missing.
 - `fetch_x_posts` reads a post or searches recent posts (see Workflow). Search needs the brand's X account to be connected and able to search; if the answer says it cannot, ask the user for links instead.
-- `create_post` saves the final quote as a draft only after the user picks a candidate and approves the wording. It does not publish, and a draft saved this way cannot be scheduled over MCP later. To schedule a week of posts, use `weekly-batch`.
+- `save_post` (`action: post`) saves the final quote as a draft only after the user picks a candidate and approves the wording. It does not publish, and a draft saved this way cannot be scheduled over MCP later. To schedule a week of posts, use `weekly-batch`.
 
 The skill works without Genfeed when the user pastes links.
 
