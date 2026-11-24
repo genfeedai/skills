@@ -268,6 +268,7 @@ bunx skills add genfeedai/skills/media
 | [prompt-generator](./media/prompt-generator/) | Structured JSON image and video prompts with style settings and a recommended model |
 | [reverse-image](./media/reverse-image/) | Break an image down into framing, lens, lighting and palette, write one reproducible prompt and check the recreation against the reference |
 | [reverse-video](./media/reverse-video/) | Reverse-engineer a reference video into a frame-exact shot list and one prompt per shot, recreate it with your own subject and measure it against the original |
+| [threejs-previs](./media/threejs-previs/) | Mock up a shot with stick figures and coloured blocks in Three.js, render it to a reference video and write the Seedance prompt that maps each colour to what it represents |
 | [thumbnail-compositor](./media/thumbnail-compositor/) | Composite three branded thumbnail variants locally with exact text and signature placement, no image API |
 | [video-brand-profile](./media/video-brand-profile/) | One reusable video brand profile: logo or signature placement, caption font and position, thumbnail rules and export sizes |
 | [video-model-benchmark](./media/video-model-benchmark/) | Run one prompt through two or three AI video models and merge the clips into one side-by-side video for X |
