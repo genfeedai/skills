@@ -1,0 +1,19 @@
+{
+  "name": "reverse-video",
+  "version": "1.0.0",
+  "description": "Reverse-engineer a reference video into a frame-exact shot list and one prompt per shot, recreate it with your own subject and check it against the original.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "reverse engineer this video",
+    "recreate this reel",
+    "remake this video",
+    "break down this video shot by shot",
+    "shot list from a reference video",
+    "copy the style of this video",
+    "what camera moves are in this clip"
+  ],
+  "references": {},
+  "outputs": ["files", "json"],
+  "tags": ["video", "reverse-engineering", "shot-list", "storyboard", "recreate", "ffmpeg", "local"]
+}

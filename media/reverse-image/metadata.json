@@ -1,0 +1,27 @@
+{
+  "name": "reverse-image",
+  "version": "1.0.0",
+  "description": "Break an image down into framing, lens, lighting, palette and style, write one reproducible prompt, and check the recreation against the reference.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "reverse engineer this image",
+    "describe this photo as a prompt",
+    "recreate this shot",
+    "what lens and lighting is this",
+    "break down this image's composition",
+    "copy the look of this photo",
+    "image to prompt"
+  ],
+  "references": {},
+  "outputs": ["text", "json"],
+  "tags": [
+    "image",
+    "reverse-engineering",
+    "composition",
+    "lighting",
+    "prompt",
+    "photography",
+    "recreate"
+  ]
+}
