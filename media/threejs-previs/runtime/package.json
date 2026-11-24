@@ -1,0 +1,9 @@
+{
+  "name": "genfeed-threejs-previs-runtime",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pinned three.js for the threejs-previs renderer. Install with: bun install --cwd runtime",
+  "dependencies": {
+    "three": "0.187.0"
+  }
+}

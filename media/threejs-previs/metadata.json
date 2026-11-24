@@ -1,0 +1,29 @@
+{
+  "name": "threejs-previs",
+  "version": "1.0.0",
+  "description": "Mock up a shot with stick figures and coloured blocks in Three.js, render it to a reference video and write the Seedance prompt that maps each colour to what it represents.",
+  "author": "genfeedai",
+  "license": "MIT",
+  "triggers": [
+    "previs",
+    "three.js mockup",
+    "stickman mockup",
+    "blocking mockup",
+    "layout video for seedance",
+    "replace blender previs",
+    "reference video for seedance",
+    "plan camera and motion before generating"
+  ],
+  "references": {},
+  "outputs": ["files", "json", "text"],
+  "tags": [
+    "video",
+    "previs",
+    "threejs",
+    "seedance",
+    "reference-to-video",
+    "camera",
+    "storyboard",
+    "local"
+  ]
+}

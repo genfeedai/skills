@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "title": "Courier crosses the street",
+  "canvas": { "width": 720, "height": 1280, "fps": 24, "durationSeconds": 8 },
+  "setting": "a rainy neon street at night, wet asphalt, shop signs reflecting in puddles",
+  "style": "handheld cinematic realism, shallow depth of field, teal and magenta neon",
+  "entities": [
+    {
+      "id": "courier",
+      "kind": "subject",
+      "color": "#e02020",
+      "label": "Mia",
+      "represents": "Mia, a courier in a yellow rain jacket carrying a small parcel",
+      "reference": "mia-character-sheet",
+      "height": 1.7
+    },
+    {
+      "id": "van",
+      "kind": "prop",
+      "color": "#1f6fe0",
+      "label": "Van",
+      "represents": "a white delivery van with its rear doors open",
+      "size": [2.2, 2.2, 5],
+      "position": [-4, 0, -4],
+      "yaw": 90
+    },
+    {
+      "id": "street",
+      "kind": "place",
+      "color": "#2eb82e",
+      "label": "Street",
+      "represents": "the wet one-lane street between two rows of shopfronts",
+      "size": [5, 0.02, 24],
+      "position": [0, 0, -2]
+    },
+    {
+      "id": "sign",
+      "kind": "frame",
+      "color": "#f2d000",
+      "label": "Sign",
+      "represents": "a glowing neon shop sign on the far wall that reads OPEN",
+      "size": [2.4, 1.2, 0.05],
+      "position": [3.2, 2.4, -9]
+    }
+  ],
+  "tracks": {
+    "courier": [
+      { "t": 0, "position": [2, 0, -6] },
+      { "t": 3, "position": [0.5, 0, -2] },
+      { "t": 6, "position": [-1, 0, 1.5] },
+      { "t": 8, "position": [-1, 0, 1.5] }
+    ]
+  },
+  "camera": [
+    { "t": 0, "position": [0, 1.5, 9], "lookAt": [1, 1.2, -4], "ease": "inOut" },
+    { "t": 6, "position": [-0.5, 1.5, 7], "lookAt": [-0.5, 1.2, 0], "ease": "inOut" },
+    { "t": 8, "position": [-0.5, 1.5, 6], "lookAt": [-1, 1.3, 1.5] }
+  ]
+}
