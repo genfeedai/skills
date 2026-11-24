@@ -23,5 +23,5 @@ Produce the caption and the visual brief together so the post works as one piece
 
 - Image and video generation spends credits. Never start it without the user agreeing to the estimate, or to an unknown cost when no estimate is available.
 - Never publish or schedule without explicit confirmation. Use the `genfeed-social-poster` skill and check `check_channel` with `{action: "capabilities", input: {platform: "instagram"}}` for media rules first.
-- Keep hashtags relevant and few; do not pad with unrelated tags.
+- Write 3 to 5 hashtags, never more than 5 (Instagram's limit since 2025-12-18), in the caption, each naming something in the post. `check_channel` (`action: capabilities`) returns the same limit as `caption.maxHashtags`. Do not pad with unrelated tags.
 - When saving with `save_post` (`action: post`), pass only the text (and `platforms`, `mediaUrls`). Never pass `scheduledAt`, `targets`, `contentId`, `ingredientId` or `confirmed`, and only save when the user asks you to keep the draft.
