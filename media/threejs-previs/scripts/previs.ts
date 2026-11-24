@@ -16,7 +16,7 @@ import { dirname, join, resolve } from 'node:path';
  * Local Chrome and ffmpeg only. No model API. The one npm package is three.js (pinned in runtime/).
  *
  *   bun run scripts/previs.ts setup
- *   bun run scripts/previs.ts init <dir>
+ *   bun run scripts/previs.ts init <dir> [--template chase|street-taxi]
  *   bun run scripts/previs.ts validate <scene.json> [--target seedance-2.0]
  *   bun run scripts/previs.ts render <scene.json> [--out out] [--target seedance-2.0] [--no-review]
  *   bun run scripts/previs.ts prompt <scene.json> [--target seedance-2.0] [--ref-style byteplus|replicate|fal]
@@ -362,12 +362,17 @@ function setup(): void {
   process.exit(result.exitCode ?? 1);
 }
 
+const TEMPLATES = ['chase', 'street-taxi'];
+
 function init(dir: string | undefined): void {
   if (!dir) fail('give a folder, for example: init ./my-previs');
+  const template = arg('template') ?? 'chase';
+  if (!TEMPLATES.includes(template))
+    fail(`unknown --template "${template}". Use one of: ${TEMPLATES.join(', ')}`);
   mkdirSync(dir, { recursive: true });
   const target = join(dir, 'scene.json');
   if (existsSync(target)) fail(`${target} already exists`);
-  copyFileSync(join(SKILL_DIR, 'templates/chase.scene.json'), target);
+  copyFileSync(join(SKILL_DIR, `templates/${template}.scene.json`), target);
   process.stdout.write(`wrote ${target}\n`);
 }
 

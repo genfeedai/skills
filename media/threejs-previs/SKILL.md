@@ -40,15 +40,25 @@ Read 2026-11-24. Check again before relying on a limit; hosts change them.
 
 Genfeed's brief compiler sends video references to `reference_videos` for its Seedance 2.0, 2.0 fast and 2.5 profiles (read in `genfeed.ai` at 66cfaadc).
 
-`720x1280` (or `1280x720`) satisfies every row, including fal's narrower range. It is the default in the starter scene.
+`720x1280` (or `1280x720`) satisfies every row, including fal's narrower range. It is the default in the `chase` scene. For a cheap draft, `480x854` is the smallest 9:16 canvas above the 407,696-pixel floor (409,920); the `street-taxi` scene uses it. Ask the model for 480p as well.
 
 ### What is not verified
 
-- **Colour-to-object mapping on a mockup.** BytePlus documents "define the tall man in Video 1 as the police officer" for real footage and as a way to bind labels to subjects. It does not document stick figures or coloured blocks. This skill relies on the same mechanism, and a draft render is the only proof for your shot.
-- **An end-to-end Genfeed run.** No generation was run to write this skill, because every render spends credits. The `videoReferences`, `upload_media` and `generate_media` fields were read from the tool schemas.
+- **Colour-to-object mapping on a mockup, beyond one trial.** BytePlus documents "define the tall man in Video 1 as the police officer" for real footage and does not document stick figures or coloured blocks. See "Tested once" below: it held in one run. A draft render is still the only proof for your shot.
+- **Seedance 2.0, 2.0 fast and 2.0 mini, and any host other than Genfeed.** The trial ran Seedance 2.5 through Genfeed only. The 2.0 limits and the BytePlus, Replicate and fal field names come from their docs and schemas.
 - **Kling V3 Omni and the MiniMax H3 family.** Genfeed marks them as taking video references. What a reference video does in them was not checked against their own docs.
 - **Moderation of a stick figure input.** BytePlus does not accept reference images or videos that contain real human faces. A stick figure has no face, but this was not tested.
 - **Models without a reference video input** (Veo, Wan 2.2 I2V Fast, Hailuo). Use the fallback at the end of step 6.
+
+### Tested once
+
+On 2026-11-24 the `street-taxi` scene (`templates/street-taxi.scene.json`) went through the whole path: `render`, `upload_media`, then `generate_media` on `bytedance/seedance-2.5` through Genfeed with `videoReferences`, 480p, 4 s, `harness: false` (exact prompt text), and the draft prompt from `prompt` unedited. The estimate was 137 credits. Result:
+
+- The red stick figure became the woman in a green parka and white sneakers, walking toward the camera. The blue block became a yellow taxi crossing behind her left to right at about the same moment. The yellow panel became a glowing shop window at the left. No stick figure, block, grid or label appeared.
+- Rough spots: the woman began nearer the centre than in the mockup, the pull-back was gentler than drawn, and the clip came back with an audio track although the quote assumed none.
+- The previs colours were chosen so none matched the real colour (a blue block for a yellow taxi). A wrong colour in the result would then have shown the mapping failing.
+
+One trial on one model: it shows the method can work, not that it always does.
 
 ## Run it
 
@@ -56,7 +66,7 @@ Needs [Bun](https://bun.sh) 1.1+, Chrome or Chromium, and `ffmpeg` and `ffprobe`
 
 ```bash
 bun run scripts/previs.ts setup                      # once: installs three.js 0.187.0
-bun run scripts/previs.ts init ./my-shot             # writes my-shot/scene.json from the starter
+bun run scripts/previs.ts init ./my-shot             # writes my-shot/scene.json (--template chase | street-taxi)
 bun run scripts/previs.ts validate my-shot/scene.json --target seedance-2.0
 bun run scripts/previs.ts render my-shot/scene.json --target seedance-2.0
 bun run scripts/previs.ts prompt my-shot/scene.json --target seedance-2.0 --ref-style byteplus

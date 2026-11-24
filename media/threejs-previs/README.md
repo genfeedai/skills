@@ -38,7 +38,8 @@ Render the previs, check it against Seedance 2.0's reference video limits and ma
 - `scripts/previs.ts`: `setup`, `init`, `validate`, `render`, `prompt` and `check`.
 - `scripts/scene.ts`: the scene model, validation, sampling and prompt drafting (no browser needed, covered by `scripts/scene.test.ts`).
 - `scripts/page.ts`: the Three.js page the renderer loads.
-- `templates/chase.scene.json`: a starter scene with one of each kind.
+- `templates/chase.scene.json`: a starter scene with one of each kind, at 720x1280.
+- `templates/street-taxi.scene.json`: the low-cost trial scene (480x854, 4 s) that was run through Seedance 2.5.
 - `runtime/package.json`: the pinned Three.js install (`bun run scripts/previs.ts setup`).
 
 Requires Bun 1.1+, Chrome or Chromium, `ffmpeg` and `ffprobe`. No model is called and no key is needed to render.
