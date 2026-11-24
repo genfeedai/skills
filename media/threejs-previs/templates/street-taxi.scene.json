@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "title": "Trial: woman walks toward camera as a taxi crosses behind her",
+  "canvas": { "width": 480, "height": 854, "fps": 24, "durationSeconds": 4 },
+  "setting": "an evening cobblestone street in a European old town, warm streetlights, light drizzle, shopfronts on both sides",
+  "style": "natural handheld documentary look, soft out-of-focus background, muted warm colours",
+  "entities": [
+    {
+      "id": "woman",
+      "kind": "subject",
+      "color": "#e02020",
+      "label": "Woman",
+      "represents": "a woman in a long green parka and white sneakers, dark hair tied back",
+      "height": 1.7
+    },
+    {
+      "id": "taxi",
+      "kind": "prop",
+      "color": "#1f6fe0",
+      "label": "Taxi",
+      "represents": "a yellow taxi with a lit roof sign",
+      "size": [4.4, 1.5, 1.9],
+      "position": [-9, 0, -5],
+      "yaw": 90
+    },
+    {
+      "id": "street",
+      "kind": "place",
+      "color": "#2eb82e",
+      "label": "Street",
+      "represents": "the wet cobblestone street",
+      "size": [8, 0.02, 30],
+      "position": [0, 0, -3]
+    },
+    {
+      "id": "window",
+      "kind": "frame",
+      "color": "#f2d000",
+      "label": "Window",
+      "represents": "a glowing shop window with warm light and mannequins",
+      "size": [3, 1.8, 0.05],
+      "position": [-3, 1.4, -9]
+    }
+  ],
+  "tracks": {
+    "woman": [{ "t": 0, "position": [1.2, 0, -3] }, { "t": 4, "position": [0, 0, 2.5] }],
+    "taxi": [{ "t": 0, "position": [-9, 0, -5] }, { "t": 4, "position": [9, 0, -5] }]
+  },
+  "camera": [
+    { "t": 0, "position": [0, 1.4, 6.5], "lookAt": [0, 1.1, -1], "ease": "inOut" },
+    { "t": 4, "position": [0, 1.4, 9.5], "lookAt": [0, 1.1, 1.5] }
+  ]
+}

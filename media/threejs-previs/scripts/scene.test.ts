@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   cameraAt,
@@ -17,9 +17,14 @@ const template = (): Scene =>
   JSON.parse(readFileSync(join(import.meta.dir, '../templates/chase.scene.json'), 'utf8')) as Scene;
 
 describe('validateScene', () => {
-  test('the starter scene is valid for both Seedance targets', () => {
-    expect(validateScene(template(), TARGETS['seedance-2.0']).errors).toEqual([]);
-    expect(validateScene(template(), TARGETS['seedance-2.5']).errors).toEqual([]);
+  test('every template is valid for both Seedance targets', () => {
+    for (const name of readdirSync(join(import.meta.dir, '../templates'))) {
+      const scene = JSON.parse(
+        readFileSync(join(import.meta.dir, '../templates', name), 'utf8')
+      ) as Scene;
+      expect(validateScene(scene, TARGETS['seedance-2.0']).errors).toEqual([]);
+      expect(validateScene(scene, TARGETS['seedance-2.5']).errors).toEqual([]);
+    }
   });
 
   test('two entities that share a colour name are refused', () => {
